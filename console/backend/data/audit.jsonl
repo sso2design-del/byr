@@ -1,0 +1,415 @@
+{"ts": "2026-07-05T21:25:50.586222", "actor": "user", "action": "READ", "target": "ag-001", "detail": "실행 계획 조회"}
+{"ts": "2026-07-05T22:20:10.332820", "actor": "user", "action": "UPDATE", "target": "ag-003", "detail": "{'id': 'ag-003', 'name': '지출결의 검토 에이전트', 'role_preset': '경영지원', 'tone': '친절한', 'boundary': '검토 의견 제시까지만.', 'capability': {'web_search': False, 'data_analysis': False, 'report_gen': True, 'file_access': True, 'global_llm': False}, 'status': 'error', 'channel': 'Slack'}"}
+{"ts": "2026-07-05T22:20:11.409524", "actor": "user", "action": "UPDATE", "target": "ag-003", "detail": "{'id': 'ag-003', 'name': '지출결의 검토 에이전트', 'role_preset': '경영지원', 'tone': '친절한', 'boundary': '검토 의견 제시까지만.', 'capability': {'web_search': False, 'data_analysis': False, 'report_gen': True, 'file_access': True, 'global_llm': False}, 'status': 'error', 'channel': 'Slack'}"}
+{"ts": "2026-07-05T22:51:39.855167", "actor": "user", "action": "READ", "target": "agent-vat", "detail": "실행 계획 조회"}
+{"ts": "2026-07-05T23:00:44.806706", "actor": "user", "action": "READ", "target": "agent-vat", "detail": "실행 계획 조회"}
+{"ts": "2026-07-05T23:16:07.070353", "actor": "user", "action": "UNDEPLOY", "target": "agent-vat", "detail": "배치 해제"}
+{"ts": "2026-07-05T23:16:08.206878", "actor": "user", "action": "DEPLOY", "target": "agent-vat", "detail": "discord #세무-자동화"}
+{"ts": "2026-07-05T23:16:10.313926", "actor": "user", "action": "READ", "target": "agent-vat", "detail": "실행 계획 조회"}
+{"ts": "2026-07-05T23:16:18.356680", "actor": "user", "action": "UPDATE", "target": "agent-vat", "detail": "['capabilities']"}
+{"ts": "2026-07-05T23:16:18.934668", "actor": "user", "action": "UPDATE", "target": "agent-vat", "detail": "['capabilities']"}
+{"ts": "2026-07-05T23:31:44.169258", "actor": "user", "action": "DEPLOY", "target": "agent-close", "detail": "slack "}
+{"ts": "2026-07-06T00:05:53.079514", "actor": "user", "action": "UPDATE", "target": "agent-vat", "detail": "['capabilities']"}
+{"ts": "2026-07-06T00:05:55.072847", "actor": "user", "action": "UPDATE", "target": "agent-vat", "detail": "['capabilities']"}
+{"ts": "2026-07-06T01:16:46.075788", "actor": "user", "action": "READ", "target": "agent-vat", "detail": "실행 계획 조회"}
+{"ts": "2026-07-06T02:50:08.392084", "actor": "user", "action": "HIRE", "target": "agent-f719da", "detail": "직원 채용: 테스트"}
+{"ts": "2026-07-06T03:13:14.631086", "actor": "user", "action": "UPDATE", "target": "agent-vat", "detail": "['mcp']"}
+{"ts": "2026-07-06T03:13:16.253008", "actor": "user", "action": "UPDATE", "target": "agent-vat", "detail": "['mcp']"}
+{"ts": "2026-07-06T03:50:03.209416", "actor": "user", "action": "UPDATE", "target": "agent-vat", "detail": "['capabilities']"}
+{"ts": "2026-07-06T03:50:03.925588", "actor": "user", "action": "UPDATE", "target": "agent-vat", "detail": "['capabilities']"}
+{"ts": "2026-07-06T03:54:13.339971", "actor": "user", "action": "READ", "target": "agent-close", "detail": "실행 계획 조회"}
+{"ts": "2026-07-06T04:03:54.257780", "actor": "user", "action": "UPDATE", "target": "agent-vat", "detail": "['capabilities']"}
+{"ts": "2026-07-06T04:03:56.368826", "actor": "user", "action": "UPDATE", "target": "agent-vat", "detail": "['capabilities']"}
+{"ts": "2026-07-06T07:41:08.060351", "actor": "user", "action": "UPDATE", "target": "agent-vat", "detail": "['mcp']"}
+{"ts": "2026-07-06T07:41:09.150372", "actor": "user", "action": "UPDATE", "target": "agent-vat", "detail": "['mcp']"}
+{"ts": "2026-07-06T07:41:19.155918", "actor": "user", "action": "UPDATE", "target": "agent-vat", "detail": "['mcp']"}
+{"ts": "2026-07-06T07:41:20.253171", "actor": "user", "action": "UPDATE", "target": "agent-vat", "detail": "['mcp']"}
+{"ts": "2026-07-06T11:42:19.725990", "actor": "user", "action": "UPDATE", "target": "agent-vat", "detail": "['mcp']"}
+{"ts": "2026-07-06T11:43:39.974121", "actor": "user", "action": "UPDATE", "target": "agent-vat", "detail": "['mcp']"}
+{"ts": "2026-07-07T00:09:48.374766", "actor": "user", "action": "HIRE", "target": "agent-520422", "detail": "직원 채용: 월마감 보고서"}
+{"ts": "2026-07-07T00:13:12.598465", "actor": "user", "action": "HIRE", "target": "agent-f42b35", "detail": "직원 채용: 인턴"}
+{"ts": "2026-07-07T01:54:40.270478", "actor": "user", "action": "UPDATE", "target": "agent-vat", "detail": "['capabilities']"}
+{"ts": "2026-07-07T01:54:46.010108", "actor": "user", "action": "UPDATE", "target": "agent-vat", "detail": "['capabilities']"}
+{"ts": "2026-07-07T01:54:48.169150", "actor": "user", "action": "UPDATE", "target": "agent-vat", "detail": "['capabilities']"}
+{"ts": "2026-07-07T01:54:51.624134", "actor": "user", "action": "UPDATE", "target": "agent-vat", "detail": "['capabilities']"}
+{"ts": "2026-07-07T11:08:02.338117", "actor": "user", "action": "UPDATE", "target": "agent-vat", "detail": "['capabilities']"}
+{"ts": "2026-07-07T11:08:05.007377", "actor": "user", "action": "UPDATE", "target": "agent-vat", "detail": "['capabilities']"}
+{"ts": "2026-07-07T11:08:24.806928", "actor": "user", "action": "UPDATE", "target": "agent-vat", "detail": "['capabilities']"}
+{"ts": "2026-07-07T11:09:20.846487", "actor": "user", "action": "UPDATE", "target": "agent-vat", "detail": "['mcp']"}
+{"ts": "2026-07-07T11:09:21.300156", "actor": "user", "action": "UPDATE", "target": "agent-vat", "detail": "['mcp']"}
+{"ts": "2026-07-07T11:12:16.739189", "actor": "user", "action": "HIRE", "target": "agent-1e20a5", "detail": "직원 채용: 빈 직원"}
+{"ts": "2026-07-07T11:12:26.807008", "actor": "user", "action": "DEPLOY", "target": "agent-1e20a5", "detail": "discord #빈-직원"}
+{"ts": "2026-07-07T21:15:41.504680", "actor": "user", "action": "UPDATE", "target": "agent-vat", "detail": "['file_paths']"}
+{"ts": "2026-07-07T21:15:43.166341", "actor": "user", "action": "UPDATE", "target": "agent-vat", "detail": "['file_paths']"}
+{"ts": "2026-07-07T21:59:55.384162", "actor": "user", "action": "HIRE", "target": "agent-1d3382", "detail": "직원 채용: 테스트"}
+{"ts": "2026-07-07T22:00:32.008972", "actor": "user", "action": "UPDATE", "target": "agent-1d3382", "detail": "['capabilities']"}
+{"ts": "2026-07-08T12:11:20.665186", "actor": "user", "action": "HIRE", "target": "agent-8ccbb2", "detail": "직원 채용: 빈 직원"}
+{"ts": "2026-07-08T16:58:38.112834", "actor": "user", "action": "HIRE", "target": "agent-b06088", "detail": "직원 채용: 재무·회계 에이전트"}
+{"ts": "2026-07-08T17:02:59.912070", "actor": "user", "action": "HIRE", "target": "agent-b1cb6b", "detail": "직원 채용: 삭제테스트"}
+{"ts": "2026-07-08T17:02:59.947846", "actor": "user", "action": "DELETE", "target": "agent-b1cb6b", "detail": "에이전트 삭제"}
+{"ts": "2026-07-08T17:07:01.166115", "actor": "user", "action": "DELETE", "target": "agent-b06088", "detail": "에이전트 삭제"}
+{"ts": "2026-07-08T18:10:31.861317", "actor": "user", "action": "HIRE", "target": "agent-e0f206", "detail": "직원 채용: 증권 리서치 에이전트"}
+{"ts": "2026-07-08T18:16:31.747965", "actor": "user", "action": "DELETE", "target": "agent-e0f206", "detail": "에이전트 삭제"}
+{"ts": "2026-07-08T19:25:03.115399", "actor": "user", "action": "HIRE", "target": "agent-67fe96", "detail": "직원 채용: 보험 FP 에이전트"}
+{"ts": "2026-07-08T19:26:58.644794", "actor": "user", "action": "DELETE", "target": "agent-67fe96", "detail": "에이전트 삭제"}
+{"ts": "2026-07-08T19:39:10.663724", "actor": "user", "action": "HIRE", "target": "agent-e400e2", "detail": "직원 채용: 재무·회계 에이전트"}
+{"ts": "2026-07-08T19:39:28.273555", "actor": "user", "action": "HIRE", "target": "agent-b31fb9", "detail": "직원 채용: 보험 FP 에이전트"}
+{"ts": "2026-07-08T19:40:18.989517", "actor": "user", "action": "DELETE", "target": "agent-e400e2", "detail": "에이전트 삭제"}
+{"ts": "2026-07-08T19:40:21.809920", "actor": "user", "action": "DELETE", "target": "agent-b31fb9", "detail": "에이전트 삭제"}
+{"ts": "2026-07-08T19:40:33.423811", "actor": "user", "action": "HIRE", "target": "agent-8fe2e1", "detail": "직원 채용: 보험 FP 에이전트"}
+{"ts": "2026-07-08T19:40:53.299262", "actor": "user", "action": "UPDATE", "target": "agent-8fe2e1", "detail": "['capabilities']"}
+{"ts": "2026-07-08T19:40:53.847257", "actor": "user", "action": "UPDATE", "target": "agent-8fe2e1", "detail": "['capabilities']"}
+{"ts": "2026-07-08T19:41:04.384040", "actor": "user", "action": "UPDATE", "target": "agent-8fe2e1", "detail": "['mcp']"}
+{"ts": "2026-07-08T19:41:05.342273", "actor": "user", "action": "UPDATE", "target": "agent-8fe2e1", "detail": "['mcp']"}
+{"ts": "2026-07-08T19:41:17.340225", "actor": "user", "action": "DEPLOY", "target": "agent-8fe2e1", "detail": "slack #보험-fp-에이전트"}
+{"ts": "2026-07-08T19:44:26.055468", "actor": "user", "action": "DELETE", "target": "agent-8fe2e1", "detail": "에이전트 삭제"}
+{"ts": "2026-07-08T19:46:47.869883", "actor": "user", "action": "HIRE", "target": "agent-46c37c", "detail": "직원 채용: 준법·내부감사 에이전트"}
+{"ts": "2026-07-08T20:13:50.759668", "actor": "user", "action": "DELETE", "target": "agent-46c37c", "detail": "에이전트 삭제"}
+{"ts": "2026-07-08T20:14:05.222911", "actor": "user", "action": "HIRE", "target": "agent-39bcd8", "detail": "직원 채용: 기획/PM 에이전트"}
+{"ts": "2026-07-09T09:50:54.012395", "actor": "user", "action": "DELETE", "target": "agent-39bcd8", "detail": "에이전트 삭제"}
+{"ts": "2026-07-09T10:02:32.007192", "actor": "user", "action": "HIRE", "target": "agent-6bdbdc", "detail": "직원 채용: 기획/PM 에이전트"}
+{"ts": "2026-07-09T10:05:57.619775", "actor": "user", "action": "DELETE", "target": "agent-6bdbdc", "detail": "에이전트 삭제"}
+{"ts": "2026-07-09T18:56:11.811038", "actor": "user", "action": "HIRE", "target": "agent-4026a6", "detail": "직원 채용: 기획/PM 에이전트"}
+{"ts": "2026-07-09T18:56:18.183185", "actor": "user", "action": "UPDATE", "target": "agent-4026a6", "detail": "['capabilities']"}
+{"ts": "2026-07-09T18:56:18.597256", "actor": "user", "action": "UPDATE", "target": "agent-4026a6", "detail": "['capabilities']"}
+{"ts": "2026-07-09T18:56:32.605458", "actor": "user", "action": "UPDATE", "target": "agent-4026a6", "detail": "['capabilities']"}
+{"ts": "2026-07-09T18:56:34.627247", "actor": "user", "action": "UPDATE", "target": "agent-4026a6", "detail": "['mcp']"}
+{"ts": "2026-07-09T18:56:36.368609", "actor": "user", "action": "UPDATE", "target": "agent-4026a6", "detail": "['mcp']"}
+{"ts": "2026-07-09T18:56:50.158103", "actor": "user", "action": "DEPLOY", "target": "agent-4026a6", "detail": "slack #기획pm-에이전트"}
+{"ts": "2026-07-10T00:04:49.343058", "actor": "user", "action": "HIRE", "target": "agent-351f8d", "detail": "직원 채용: 재무·회계 에이전트"}
+{"ts": "2026-07-10T00:05:06.069773", "actor": "user", "action": "UPDATE", "target": "agent-351f8d", "detail": "['capabilities']"}
+{"ts": "2026-07-10T00:05:07.044410", "actor": "user", "action": "UPDATE", "target": "agent-351f8d", "detail": "['capabilities']"}
+{"ts": "2026-07-10T00:05:17.627639", "actor": "user", "action": "UPDATE", "target": "agent-351f8d", "detail": "['capabilities']"}
+{"ts": "2026-07-10T00:05:25.469512", "actor": "user", "action": "UPDATE", "target": "agent-351f8d", "detail": "['mcp']"}
+{"ts": "2026-07-10T00:05:26.970062", "actor": "user", "action": "UPDATE", "target": "agent-351f8d", "detail": "['mcp']"}
+{"ts": "2026-07-10T00:05:45.427636", "actor": "user", "action": "DEPLOY", "target": "agent-351f8d", "detail": "slack #재무회계-에이전트"}
+{"ts": "2026-07-10T11:11:02.210174", "actor": "user", "action": "DELETE", "target": "agent-351f8d", "detail": "에이전트 삭제"}
+{"ts": "2026-07-10T11:11:05.148628", "actor": "user", "action": "DELETE", "target": "agent-4026a6", "detail": "에이전트 삭제"}
+{"ts": "2026-07-10T11:11:17.782674", "actor": "user", "action": "HIRE", "target": "agent-eed14b", "detail": "직원 채용: 재무·회계 에이전트"}
+{"ts": "2026-07-10T11:11:57.601382", "actor": "user", "action": "DELETE", "target": "agent-eed14b", "detail": "에이전트 삭제"}
+{"ts": "2026-07-10T11:12:10.219555", "actor": "user", "action": "HIRE", "target": "agent-46e858", "detail": "직원 채용: 보험 FP 에이전트"}
+{"ts": "2026-07-10T11:12:47.670647", "actor": "user", "action": "DELETE", "target": "agent-46e858", "detail": "에이전트 삭제"}
+{"ts": "2026-07-10T11:13:39.845747", "actor": "user", "action": "HIRE", "target": "agent-63559d", "detail": "직원 채용: 준법·내부감사 에이전트"}
+{"ts": "2026-07-10T11:44:50.660031", "actor": "user", "action": "HIRE", "target": "agent-0796c8", "detail": "직원 채용: 보험 FP 에이전트"}
+{"ts": "2026-07-10T11:48:34.176578", "actor": "user", "action": "DELETE", "target": "agent-0796c8", "detail": "에이전트 삭제"}
+{"ts": "2026-07-10T11:49:11.022927", "actor": "user", "action": "DELETE", "target": "agent-63559d", "detail": "에이전트 삭제"}
+{"ts": "2026-07-10T11:49:18.003858", "actor": "user", "action": "HIRE", "target": "agent-143165", "detail": "직원 채용: 증권 리서치 에이전트"}
+{"ts": "2026-07-10T12:24:27.982743", "actor": "user", "action": "UPDATE", "target": "agent-143165", "detail": "['mcp']"}
+{"ts": "2026-07-10T12:24:29.973384", "actor": "user", "action": "UPDATE", "target": "agent-143165", "detail": "['mcp']"}
+{"ts": "2026-07-10T13:54:41.520745", "actor": "user", "action": "UPDATE", "target": "agent-143165", "detail": "['mcp']"}
+{"ts": "2026-07-12T20:41:06.688256", "actor": "user", "action": "READ", "target": "not-exist", "detail": "실행 계획 조회"}
+{"ts": "2026-07-12T20:41:06.689931", "actor": "user", "action": "COMMIT", "target": "stg-missing", "detail": "확정"}
+{"ts": "2026-07-12T20:41:06.690777", "actor": "user", "action": "UNDO", "target": "stg-missing", "detail": "되돌리기"}
+{"ts": "2026-07-12T21:16:25.771721", "actor": "reviewer", "action": "COLLAB_APPROVE", "target": "run-240712-01", "detail": "협업 실행 승인"}
+{"ts": "2026-07-12T21:16:56.453037", "actor": "reviewer", "action": "COLLAB_APPROVE", "target": "run-240712-01", "detail": "협업 실행 승인"}
+{"ts": "2026-07-12T21:17:25.338970", "actor": "reviewer", "action": "COLLAB_APPROVE", "target": "run-240712-01", "detail": "협업 실행 승인"}
+{"ts": "2026-07-12T21:17:45.622854", "actor": "reviewer", "action": "COLLAB_APPROVE", "target": "run-240712-01", "detail": "협업 실행 승인"}
+{"ts": "2026-07-12T21:17:52.983963", "actor": "user", "action": "COLLAB_RUN", "target": "team-1", "detail": "협업 실행 시작"}
+{"ts": "2026-07-12T21:17:54.321757", "actor": "user", "action": "COLLAB_RUN", "target": "team-1", "detail": "협업 실행 시작"}
+{"ts": "2026-07-12T21:21:21.184498", "actor": "user", "action": "COLLAB_RUN", "target": "team-1", "detail": "협업 실행 시작"}
+{"ts": "2026-07-13T09:45:17.624670", "actor": "user", "action": "HIRE", "target": "agent-f9bf29", "detail": "직원 채용: 기획/PM 에이전트"}
+{"ts": "2026-07-13T09:45:27.185475", "actor": "user", "action": "UPDATE", "target": "agent-f9bf29", "detail": "['mcp']"}
+{"ts": "2026-07-13T09:45:57.664752", "actor": "user", "action": "DELETE", "target": "agent-f9bf29", "detail": "에이전트 삭제"}
+{"ts": "2026-07-13T09:55:57.211633", "actor": "user", "action": "DELETE", "target": "agent-143165", "detail": "에이전트 삭제"}
+{"ts": "2026-07-13T10:03:03.462181", "actor": "user", "action": "HIRE", "target": "agent-133def", "detail": "직원 채용: 기획/PM 에이전트"}
+{"ts": "2026-07-13T15:22:35.444044", "actor": "user", "action": "DELETE", "target": "agent-133def", "detail": "에이전트 삭제"}
+{"ts": "2026-07-13T15:22:43.796029", "actor": "user", "action": "HIRE", "target": "agent-0f2193", "detail": "직원 채용: 기획/PM 에이전트"}
+{"ts": "2026-07-13T16:54:49.326313", "actor": "user", "action": "DELETE", "target": "agent-0f2193", "detail": "에이전트 삭제"}
+{"ts": "2026-07-13T18:15:46.945842", "actor": "user", "action": "HIRE", "target": "agent-a5d429", "detail": "직원 채용: 기획/PM 에이전트"}
+{"ts": "2026-07-14T15:24:26.975370", "actor": "user", "action": "HIRE", "target": "agent-5a6efa", "detail": "직원 채용: 컨셉 브리프 작성"}
+{"ts": "2026-07-14T15:25:01.618523", "actor": "user", "action": "DELETE", "target": "agent-a5d429", "detail": "에이전트 삭제"}
+{"ts": "2026-07-15T18:09:30.457419", "actor": "user", "action": "HIRE", "target": "agent-ec2be6", "detail": "직원 채용: 기획/PM 에이전트"}
+{"ts": "2026-07-15T18:09:54.825051", "actor": "user", "action": "DELETE", "target": "agent-ec2be6", "detail": "에이전트 삭제"}
+{"ts": "2026-07-15T18:10:06.816094", "actor": "user", "action": "HIRE", "target": "agent-9d01ab", "detail": "직원 채용: 경쟁사 리서치"}
+{"ts": "2026-07-15T18:10:18.938652", "actor": "user", "action": "HIRE", "target": "agent-30f602", "detail": "직원 채용: 제품 스펙 정리"}
+{"ts": "2026-07-15T18:10:26.292925", "actor": "user", "action": "HIRE", "target": "agent-2aa0f4", "detail": "직원 채용: 회의록 자동 정리"}
+{"ts": "2026-07-19T01:52:41.462939", "actor": "user", "action": "TEAM_CREATE", "target": "team-850c60", "detail": "팀 생성: 기획팀"}
+{"ts": "2026-07-19T01:53:11.549068", "actor": "user", "action": "TEAM_DEPLOY", "target": "team-850c60", "detail": "slack 기획팀"}
+{"ts": "2026-07-19T20:52:18.829834", "actor": "user", "action": "FLOW_CREATE", "target": "team-850c60", "detail": "협업 흐름 생성: 테스트 흐름"}
+{"ts": "2026-07-19T21:02:05.868766", "actor": "user", "action": "FLOW_UPDATE", "target": "team-fin001", "detail": "협업 흐름 편집: 부가세 신고 마감 (편집됨)"}
+{"ts": "2026-07-19T21:15:59.564948", "actor": "user", "action": "FLOW_UPDATE", "target": "team-fin001", "detail": "협업 흐름 편집: 부가세 신고 마감"}
+{"ts": "2026-07-19T21:36:30.991740", "actor": "user", "action": "FLOW_UPDATE", "target": "team-fin001", "detail": "협업 흐름 편집: 부가세 신고 마감"}
+{"ts": "2026-07-19T21:45:50.230029", "actor": "user", "action": "FLOW_UPDATE", "target": "team-fin001", "detail": "협업 흐름 편집: 부가세 신고 마감"}
+{"ts": "2026-07-19T21:45:53.653817", "actor": "user", "action": "FLOW_UPDATE", "target": "team-fin001", "detail": "협업 흐름 편집: 부가세 신고 마감"}
+{"ts": "2026-07-19T23:48:13.445025", "actor": "user", "action": "TEAM_UPDATE", "target": "team-fin001", "detail": "['deployment']"}
+{"ts": "2026-07-19T23:53:10.723017", "actor": "user", "action": "TEAM_DEPLOY", "target": "team-fin001", "detail": "slack #재무회계팀"}
+{"ts": "2026-07-19T23:55:11.570036", "actor": "user", "action": "TEAM_UPDATE", "target": "team-fin001", "detail": "['status']"}
+{"ts": "2026-07-19T23:55:12.283527", "actor": "user", "action": "TEAM_UPDATE", "target": "team-fin001", "detail": "['status']"}
+{"ts": "2026-07-20T00:08:11.286601", "actor": "user", "action": "TEAM_UPDATE", "target": "team-fin001", "detail": "['deployment']"}
+{"ts": "2026-07-20T00:08:23.350819", "actor": "user", "action": "DEPLOY", "target": "agent-30f602", "detail": "telegram #제품-스펙-정리"}
+{"ts": "2026-07-20T00:08:40.936871", "actor": "user", "action": "TEAM_DEPLOY", "target": "team-fin001", "detail": "slack #재무회계팀"}
+{"ts": "2026-07-20T01:17:09.616309", "actor": "user", "action": "TEAM_CREATE", "target": "team-f773f8", "detail": "팀 생성: 검증팀"}
+{"ts": "2026-07-20T01:23:33.079124", "actor": "user", "action": "FLOW_UPDATE", "target": "team-fin001", "detail": "협업 흐름 편집: 부가세 신고 마감"}
+{"ts": "2026-07-20T01:23:39.979802", "actor": "user", "action": "FLOW_UPDATE", "target": "team-fin001", "detail": "협업 흐름 편집: 부가세 신고 마감"}
+{"ts": "2026-07-20T22:22:11.038530", "actor": "user", "action": "DEPLOY", "target": "agent-fin03", "detail": "slack #재무팀-봇"}
+{"ts": "2026-07-20T22:22:44.601489", "actor": "user", "action": "DEPLOY", "target": "agent-fin03", "detail": "slack #재무팀-봇"}
+{"ts": "2026-07-20T22:54:28.492891", "actor": "user", "action": "TEAM_DEPLOY", "target": "team-fin001", "detail": "slack #재무-부가세"}
+{"ts": "2026-07-20T22:54:28.501285", "actor": "user", "action": "TEAM_DEPLOY", "target": "team-fin001", "detail": "slack #재무-월마감"}
+{"ts": "2026-07-20T22:54:28.537296", "actor": "user", "action": "TEAM_UNDEPLOY", "target": "team-fin001", "detail": "#재무-부가세"}
+{"ts": "2026-07-20T22:54:56.917806", "actor": "user", "action": "TEAM_UNDEPLOY", "target": "team-fin001", "detail": "#재무-월마감"}
+{"ts": "2026-07-20T23:37:36.286292", "actor": "user", "action": "DEPLOY", "target": "agent-5a6efa", "detail": "slack #컨셉-브리프-작성"}
+{"ts": "2026-07-20T23:37:38.159359", "actor": "user", "action": "UNDEPLOY", "target": "agent-5a6efa", "detail": "배치 해제"}
+{"ts": "2026-07-20T23:38:32.317898", "actor": "user", "action": "TEAM_DEPLOY", "target": "team-fin001", "detail": "slack #배치테스트a"}
+{"ts": "2026-07-20T23:38:59.081816", "actor": "user", "action": "DEPLOY", "target": "agent-5a6efa", "detail": "slack #에이전트배치테스트"}
+{"ts": "2026-07-20T23:40:04.414387", "actor": "user", "action": "TEAM_UNDEPLOY", "target": "team-fin001", "detail": "#배치테스트a"}
+{"ts": "2026-07-20T23:40:04.429988", "actor": "user", "action": "UNDEPLOY", "target": "agent-5a6efa", "detail": "배치 해제"}
+{"ts": "2026-07-20T23:42:53.286822", "actor": "user", "action": "DELETE", "target": "agent-5a6efa", "detail": "에이전트 삭제"}
+{"ts": "2026-07-20T23:47:30.619920", "actor": "user", "action": "HIRE", "target": "agent-54cbef", "detail": "직원 채용: 기획/PM 에이전트"}
+{"ts": "2026-07-20T23:47:41.601573", "actor": "user", "action": "DEPLOY", "target": "agent-54cbef", "detail": "slack #기획pm-에이전트"}
+{"ts": "2026-07-20T23:48:43.909521", "actor": "user", "action": "DELETE", "target": "agent-54cbef", "detail": "에이전트 삭제"}
+{"ts": "2026-07-20T23:48:49.900281", "actor": "user", "action": "TEAM_DELETE", "target": "team-850c60", "detail": "팀 삭제"}
+{"ts": "2026-07-20T23:50:01.538837", "actor": "user", "action": "HIRE", "target": "agent-bdaae4", "detail": "직원 채용: 테스트 에이전트"}
+{"ts": "2026-07-20T23:50:12.704076", "actor": "user", "action": "DELETE", "target": "agent-bdaae4", "detail": "에이전트 삭제"}
+{"ts": "2026-07-20T23:51:58.431713", "actor": "user", "action": "HIRE", "target": "agent-44d973", "detail": "직원 채용: 기획/PM 에이전트"}
+{"ts": "2026-07-20T23:52:25.778485", "actor": "user", "action": "DELETE", "target": "agent-44d973", "detail": "에이전트 삭제"}
+{"ts": "2026-07-20T23:52:37.380656", "actor": "user", "action": "HIRE", "target": "agent-7ca20d", "detail": "직원 채용: 기획/PM 에이전트"}
+{"ts": "2026-07-20T23:53:07.828724", "actor": "user", "action": "DELETE", "target": "agent-7ca20d", "detail": "에이전트 삭제"}
+{"ts": "2026-07-20T23:53:18.361356", "actor": "user", "action": "HIRE", "target": "agent-e3fb72", "detail": "직원 채용: 기획/PM 에이전트"}
+{"ts": "2026-07-20T23:56:31.515138", "actor": "user", "action": "DELETE", "target": "agent-e3fb72", "detail": "에이전트 삭제"}
+{"ts": "2026-07-20T23:56:44.808942", "actor": "user", "action": "HIRE", "target": "agent-b58bc3", "detail": "직원 채용: 기획/PM 에이전트"}
+{"ts": "2026-07-21T00:00:13.837403", "actor": "user", "action": "DEPLOY", "target": "agent-b58bc3", "detail": "slack #기획pm-에이전트"}
+{"ts": "2026-07-21T00:01:42.044857", "actor": "user", "action": "DELETE", "target": "agent-b58bc3", "detail": "에이전트 삭제"}
+{"ts": "2026-07-21T00:01:53.170084", "actor": "user", "action": "HIRE", "target": "agent-e7d55d", "detail": "직원 채용: 기획/PM 에이전트"}
+{"ts": "2026-07-21T00:02:04.795829", "actor": "user", "action": "DEPLOY", "target": "agent-e7d55d", "detail": "slack #기획pm-에이전트"}
+{"ts": "2026-07-21T00:05:20.390897", "actor": "user", "action": "DEPLOY", "target": "agent-e7d55d", "detail": "slack #기획pm-신규검증"}
+{"ts": "2026-07-21T00:06:21.355176", "actor": "user", "action": "DELETE", "target": "agent-e7d55d", "detail": "에이전트 삭제"}
+{"ts": "2026-07-21T00:06:38.020112", "actor": "user", "action": "HIRE", "target": "agent-2a8da9", "detail": "직원 채용: 기획/PM 에이전트"}
+{"ts": "2026-07-21T00:06:47.601354", "actor": "user", "action": "DEPLOY", "target": "agent-2a8da9", "detail": "slack #기획pm-에이전트"}
+{"ts": "2026-07-21T00:07:21.553448", "actor": "user", "action": "DELETE", "target": "agent-2a8da9", "detail": "에이전트 삭제"}
+{"ts": "2026-07-21T00:07:32.951802", "actor": "user", "action": "HIRE", "target": "agent-edba26", "detail": "직원 채용: 인사·총무 에이전트"}
+{"ts": "2026-07-21T00:07:41.797393", "actor": "user", "action": "DEPLOY", "target": "agent-edba26", "detail": "slack #인사총무-에이전트"}
+{"ts": "2026-07-21T00:20:31.031714", "actor": "user", "action": "DEPLOY", "target": "agent-9d01ab", "detail": "slack #기획pm-에이전트"}
+{"ts": "2026-07-21T00:21:24.244696", "actor": "user", "action": "DEPLOY", "target": "agent-9d01ab", "detail": "slack #경쟁사-리서치"}
+{"ts": "2026-07-21T00:23:46.994249", "actor": "user", "action": "DELETE", "target": "agent-9d01ab", "detail": "에이전트 삭제"}
+{"ts": "2026-07-21T00:23:50.159088", "actor": "user", "action": "DELETE", "target": "agent-edba26", "detail": "에이전트 삭제"}
+{"ts": "2026-07-21T00:23:54.524234", "actor": "user", "action": "DELETE", "target": "agent-2aa0f4", "detail": "에이전트 삭제"}
+{"ts": "2026-07-21T00:24:05.776325", "actor": "user", "action": "HIRE", "target": "agent-b87d92", "detail": "직원 채용: 기획/PM 에이전트"}
+{"ts": "2026-07-21T00:24:13.116805", "actor": "user", "action": "DEPLOY", "target": "agent-b87d92", "detail": "slack #기획pm-에이전트"}
+{"ts": "2026-07-21T00:25:20.525912", "actor": "user", "action": "TEAM_CREATE", "target": "team-9af448", "detail": "팀 생성: 기획/PM 팀"}
+{"ts": "2026-07-21T00:26:12.124951", "actor": "user", "action": "TEAM_DELETE", "target": "team-9af448", "detail": "팀 삭제"}
+{"ts": "2026-07-21T00:27:59.825500", "actor": "user", "action": "TEAM_CREATE", "target": "team-ab10fe", "detail": "팀 생성: 테스트 팀"}
+{"ts": "2026-07-21T00:27:59.882884", "actor": "user", "action": "TEAM_DELETE", "target": "team-ab10fe", "detail": "팀 삭제"}
+{"ts": "2026-07-21T00:29:23.885530", "actor": "user", "action": "TEAM_CREATE", "target": "team-23486c", "detail": "팀 생성: 기획/PM 팀"}
+{"ts": "2026-07-21T00:29:50.014054", "actor": "user", "action": "TEAM_DEPLOY", "target": "team-23486c", "detail": "slack #기획pm팀"}
+{"ts": "2026-07-21T00:30:51.672183", "actor": "user", "action": "TEAM_UPDATE", "target": "team-23486c", "detail": "['name', 'purpose']"}
+{"ts": "2026-07-21T00:31:44.120078", "actor": "user", "action": "TEAM_DELETE", "target": "team-23486c", "detail": "팀 삭제"}
+{"ts": "2026-07-21T01:39:17.383188", "actor": "user", "action": "DELETE", "target": "agent-b87d92", "detail": "에이전트 삭제"}
+{"ts": "2026-07-21T01:39:49.869103", "actor": "user", "action": "HIRE", "target": "agent-a699d5", "detail": "직원 채용: 이력서 스크리닝"}
+{"ts": "2026-07-21T01:43:48.080887", "actor": "user", "action": "HIRE", "target": "agent-2bc971", "detail": "직원 채용: 보장 분석"}
+{"ts": "2026-07-21T01:43:48.133733", "actor": "user", "action": "DELETE", "target": "agent-2bc971", "detail": "에이전트 삭제"}
+{"ts": "2026-07-21T01:49:32.304015", "actor": "user", "action": "DELETE", "target": "agent-a699d5", "detail": "에이전트 삭제"}
+{"ts": "2026-07-21T01:49:45.689782", "actor": "user", "action": "HIRE", "target": "agent-29d20b", "detail": "직원 채용: 이력서 스크리닝"}
+{"ts": "2026-07-21T01:53:22.062854", "actor": "user", "action": "DELETE", "target": "agent-29d20b", "detail": "에이전트 삭제"}
+{"ts": "2026-07-21T01:53:29.011754", "actor": "user", "action": "HIRE", "target": "agent-dd5216", "detail": "직원 채용: 이력서 스크리닝"}
+{"ts": "2026-07-21T01:54:41.710878", "actor": "user", "action": "DELETE", "target": "agent-dd5216", "detail": "에이전트 삭제"}
+{"ts": "2026-07-21T01:54:52.058284", "actor": "user", "action": "HIRE", "target": "agent-328f91", "detail": "직원 채용: 이력서 스크리닝"}
+{"ts": "2026-07-21T01:55:10.643479", "actor": "user", "action": "UPDATE", "target": "agent-328f91", "detail": "['mcp']"}
+{"ts": "2026-07-21T01:57:09.757359", "actor": "user", "action": "HIRE", "target": "agent-8adcaa", "detail": "직원 채용: 인사 요약 도우미"}
+{"ts": "2026-07-21T01:57:29.323628", "actor": "user", "action": "HIRE", "target": "agent-34abf0", "detail": "직원 채용: 채용 공고 초안"}
+{"ts": "2026-07-21T01:57:50.085915", "actor": "user", "action": "HIRE", "target": "agent-f0fe40", "detail": "직원 채용: 인사 FAQ"}
+{"ts": "2026-07-21T01:58:34.419501", "actor": "user", "action": "TEAM_CREATE", "target": "team-2d1df3", "detail": "팀 생성: 인사·총무 팀"}
+{"ts": "2026-07-21T01:59:10.282695", "actor": "user", "action": "TEAM_UPDATE", "target": "team-2d1df3", "detail": "['name', 'purpose']"}
+{"ts": "2026-07-21T01:59:12.399275", "actor": "user", "action": "TEAM_UPDATE", "target": "team-2d1df3", "detail": "['status']"}
+{"ts": "2026-07-21T01:59:15.948046", "actor": "user", "action": "TEAM_UPDATE", "target": "team-2d1df3", "detail": "['status']"}
+{"ts": "2026-07-21T01:59:40.065888", "actor": "user", "action": "FLOW_UPDATE", "target": "team-2d1df3", "detail": "협업 흐름 편집: 기본 협업 흐름"}
+{"ts": "2026-07-21T02:03:05.844422", "actor": "user", "action": "TEAM_UPDATE", "target": "team-2d1df3", "detail": "['name', 'purpose']"}
+{"ts": "2026-07-21T02:59:51.071529", "actor": "agent", "action": "PROPOSE", "target": "agent-441f3c", "detail": "제안서 초안 생성(Claude) · 테스트컴퍼니"}
+{"ts": "2026-07-21T02:59:51.074641", "actor": "user", "action": "PROPOSE_APPROVE", "target": "agent-441f3c", "detail": "제안서 승인 · 테스트컴퍼니"}
+{"ts": "2026-07-21T03:02:37.944706", "actor": "user", "action": "HIRE", "target": "agent-235003", "detail": "직원 채용: 제안서 초안"}
+{"ts": "2026-07-21T03:09:51.683272", "actor": "user", "action": "KB_ADD", "target": "agent-a9e570", "detail": "근거 문서 연결: 하나제조 맞춤 자료"}
+{"ts": "2026-07-21T03:09:58.002380", "actor": "agent", "action": "PROPOSE", "target": "agent-a9e570", "detail": "제안서 초안 생성(Claude) · 하나제조"}
+{"ts": "2026-07-21T03:09:58.003424", "actor": "user", "action": "KB_REMOVE", "target": "agent-a9e570", "detail": "근거 문서 해제: uploaded:하나제조-특별조건"}
+{"ts": "2026-07-21T03:14:09.904315", "actor": "agent", "action": "PROPOSE", "target": "agent-235003", "detail": "제안서 초안 생성(Claude) · 클라우드컴퍼니"}
+{"ts": "2026-07-21T03:21:15.748671", "actor": "user", "action": "DELETE", "target": "agent-235003", "detail": "에이전트 삭제"}
+{"ts": "2026-07-21T11:30:07.128227", "actor": "user", "action": "HIRE", "target": "agent-d1e8da", "detail": "직원 채용: 제안서 작성·발송"}
+{"ts": "2026-07-21T11:41:07.825898", "actor": "user", "action": "DELETE", "target": "agent-d1e8da", "detail": "에이전트 삭제"}
+{"ts": "2026-07-21T11:41:21.289788", "actor": "user", "action": "HIRE", "target": "agent-ca153b", "detail": "직원 채용: 제안서 작성·발송"}
+{"ts": "2026-07-21T12:03:13.250985", "actor": "user", "action": "DELETE", "target": "agent-ca153b", "detail": "에이전트 삭제"}
+{"ts": "2026-07-21T12:03:34.898113", "actor": "user", "action": "HIRE", "target": "agent-358a10", "detail": "직원 채용: 제안서 작성·발송"}
+{"ts": "2026-07-21T12:04:02.978643", "actor": "user", "action": "KB_ADD", "target": "agent-358a10", "detail": "근거 문서 연결: Byr 도입 사례"}
+{"ts": "2026-07-21T12:04:02.984393", "actor": "user", "action": "KB_ADD", "target": "agent-358a10", "detail": "근거 문서 연결: Byr 요금제 (월 정액)"}
+{"ts": "2026-07-21T12:04:02.988440", "actor": "user", "action": "KB_ADD", "target": "agent-358a10", "detail": "근거 문서 연결: Byr 제품 소개"}
+{"ts": "2026-07-21T12:04:02.992248", "actor": "user", "action": "KB_ADD", "target": "agent-358a10", "detail": "근거 문서 연결: Byr 회사 소개 · 자주 묻는 질문"}
+{"ts": "2026-07-21T12:04:02.997255", "actor": "user", "action": "UPDATE", "target": "agent-358a10", "detail": "['file_paths']"}
+{"ts": "2026-07-21T12:04:49.104770", "actor": "user", "action": "DEPLOY", "target": "agent-358a10", "detail": "slack #제안서-작성발송"}
+{"ts": "2026-07-21T14:26:58.532579", "actor": "user", "action": "DELETE", "target": "agent-358a10", "detail": "에이전트 삭제"}
+{"ts": "2026-07-21T14:27:09.910488", "actor": "user", "action": "HIRE", "target": "agent-bb42ef", "detail": "직원 채용: 제안서 작성·발송"}
+{"ts": "2026-07-21T15:04:59.064605", "actor": "user", "action": "DELETE", "target": "agent-bb42ef", "detail": "에이전트 삭제"}
+{"ts": "2026-07-21T15:05:13.340103", "actor": "user", "action": "HIRE", "target": "agent-813e51", "detail": "직원 채용: 제안서 작성·발송"}
+{"ts": "2026-07-21T15:05:23.735125", "actor": "user", "action": "KB_ADD", "target": "agent-813e51", "detail": "근거 문서 연결: Byr 도입 사례"}
+{"ts": "2026-07-21T15:05:23.740565", "actor": "user", "action": "KB_ADD", "target": "agent-813e51", "detail": "근거 문서 연결: Byr 요금제 (월 정액)"}
+{"ts": "2026-07-21T15:05:23.744826", "actor": "user", "action": "KB_ADD", "target": "agent-813e51", "detail": "근거 문서 연결: Byr 제품 소개"}
+{"ts": "2026-07-21T15:05:23.749228", "actor": "user", "action": "KB_ADD", "target": "agent-813e51", "detail": "근거 문서 연결: Byr 회사 소개 · 자주 묻는 질문"}
+{"ts": "2026-07-21T15:05:23.753472", "actor": "user", "action": "UPDATE", "target": "agent-813e51", "detail": "['file_paths']"}
+{"ts": "2026-07-21T15:06:25.647039", "actor": "user", "action": "CONNECT", "target": "email", "detail": "이메일 연결(Google OAuth): demo.user2@example.com"}
+{"ts": "2026-07-21T15:06:41.908378", "actor": "user", "action": "DEPLOY", "target": "agent-813e51", "detail": "slack #제안서-작성발송"}
+{"ts": "2026-07-21T15:19:55.387480", "actor": "user", "action": "DELETE", "target": "agent-813e51", "detail": "에이전트 삭제"}
+{"ts": "2026-07-21T15:20:40.410864", "actor": "user", "action": "HIRE", "target": "agent-0fdb1e", "detail": "직원 채용: 제안서 작성·발송"}
+{"ts": "2026-07-21T15:20:52.068474", "actor": "user", "action": "DEPLOY", "target": "agent-0fdb1e", "detail": "slack #제안서-작성발송"}
+{"ts": "2026-07-21T15:33:46.439188", "actor": "user", "action": "DELETE", "target": "agent-0fdb1e", "detail": "에이전트 삭제"}
+{"ts": "2026-07-21T15:34:00.631495", "actor": "user", "action": "HIRE", "target": "agent-24cbb5", "detail": "직원 채용: 제안서 작성·발송"}
+{"ts": "2026-07-21T15:34:08.306485", "actor": "user", "action": "KB_ADD", "target": "agent-24cbb5", "detail": "근거 문서 연결: Byr 도입 사례"}
+{"ts": "2026-07-21T15:34:08.311253", "actor": "user", "action": "KB_ADD", "target": "agent-24cbb5", "detail": "근거 문서 연결: Byr 요금제 (월 정액)"}
+{"ts": "2026-07-21T15:34:08.314506", "actor": "user", "action": "KB_ADD", "target": "agent-24cbb5", "detail": "근거 문서 연결: Byr 제품 소개"}
+{"ts": "2026-07-21T15:34:08.317547", "actor": "user", "action": "KB_ADD", "target": "agent-24cbb5", "detail": "근거 문서 연결: Byr 회사 소개 · 자주 묻는 질문"}
+{"ts": "2026-07-21T15:34:08.321417", "actor": "user", "action": "UPDATE", "target": "agent-24cbb5", "detail": "['file_paths']"}
+{"ts": "2026-07-21T15:34:31.792822", "actor": "user", "action": "DEPLOY", "target": "agent-24cbb5", "detail": "slack #제안서-작성발송"}
+{"ts": "2026-07-21T22:17:47.698139", "actor": "user", "action": "READ", "target": "agent-30f602", "detail": "실행 계획 조회"}
+{"ts": "2026-07-21T22:17:47.703231", "actor": "agent", "action": "STAGE", "target": "agent-328f91", "detail": "스테이징 완료"}
+{"ts": "2026-07-21T22:17:47.706914", "actor": "agent", "action": "STAGE", "target": "agent-24cbb5", "detail": "스테이징 완료"}
+{"ts": "2026-07-21T22:17:59.656970", "actor": "user", "action": "READ", "target": "agent-fin01", "detail": "실행 계획 조회"}
+{"ts": "2026-07-21T22:17:59.659579", "actor": "user", "action": "READ", "target": "agent-328f91", "detail": "실행 계획 조회"}
+{"ts": "2026-07-21T22:17:59.661771", "actor": "user", "action": "READ", "target": "agent-30f602", "detail": "실행 계획 조회"}
+{"ts": "2026-07-21T22:17:59.665821", "actor": "user", "action": "READ", "target": "agent-24cbb5", "detail": "실행 계획 조회"}
+{"ts": "2026-07-21T22:55:17.768976", "actor": "user", "action": "READ", "target": "agent-4ea6f1", "detail": "실행 계획 조회"}
+{"ts": "2026-07-21T22:55:17.781727", "actor": "user", "action": "READ", "target": "agent-8aaa82", "detail": "실행 계획 조회"}
+{"ts": "2026-07-21T22:55:17.796068", "actor": "user", "action": "READ", "target": "agent-e507f5", "detail": "실행 계획 조회"}
+{"ts": "2026-07-21T22:55:48.801074", "actor": "agent", "action": "STAGE", "target": "agent-4ea6f1", "detail": "실행·스테이징(vat_reconcile)"}
+{"ts": "2026-07-21T22:55:48.812932", "actor": "agent", "action": "STAGE", "target": "agent-8aaa82", "detail": "실행·스테이징(hr)"}
+{"ts": "2026-07-21T22:55:48.828598", "actor": "agent", "action": "STAGE", "target": "agent-e507f5", "detail": "실행·스테이징(pm_brief)"}
+{"ts": "2026-07-21T22:55:48.843295", "actor": "agent", "action": "STAGE", "target": "agent-4ea6f1", "detail": "실행·스테이징(vat_reconcile)"}
+{"ts": "2026-07-21T22:55:48.858456", "actor": "agent", "action": "STAGE", "target": "agent-4ea6f1", "detail": "실행·스테이징(vat_reconcile)"}
+{"ts": "2026-07-21T22:55:48.872691", "actor": "user", "action": "READ", "target": "agent-4b3ee6", "detail": "실행 계획 조회"}
+{"ts": "2026-07-21T22:55:48.881883", "actor": "agent", "action": "STAGE", "target": "agent-4b3ee6", "detail": "실행·스테이징(sales)"}
+{"ts": "2026-07-21T22:58:54.469848", "actor": "agent", "action": "STAGE", "target": "agent-7f4cc5", "detail": "실행·스테이징(vat_reconcile)"}
+{"ts": "2026-07-21T22:58:54.481920", "actor": "agent", "action": "STAGE", "target": "agent-7f4cc5", "detail": "실행·스테이징(vat_reconcile)"}
+{"ts": "2026-07-21T23:01:55.870391", "actor": "user", "action": "READ", "target": "agent-fin01", "detail": "실행 계획 조회"}
+{"ts": "2026-07-21T23:01:55.873693", "actor": "user", "action": "READ", "target": "agent-328f91", "detail": "실행 계획 조회"}
+{"ts": "2026-07-21T23:01:55.876038", "actor": "user", "action": "READ", "target": "agent-30f602", "detail": "실행 계획 조회"}
+{"ts": "2026-07-21T23:01:55.884067", "actor": "agent", "action": "STAGE", "target": "agent-fin01", "detail": "실행·스테이징(vat_reconcile)"}
+{"ts": "2026-07-21T23:01:55.886584", "actor": "agent", "action": "STAGE", "target": "agent-328f91", "detail": "실행·스테이징(hr)"}
+{"ts": "2026-07-21T23:01:55.888932", "actor": "agent", "action": "STAGE", "target": "agent-30f602", "detail": "실행·스테이징(pm_brief)"}
+{"ts": "2026-07-21T23:01:55.891099", "actor": "agent", "action": "STAGE", "target": "agent-fin01", "detail": "실행·스테이징(vat_reconcile)"}
+{"ts": "2026-07-21T23:01:55.893262", "actor": "agent", "action": "STAGE", "target": "agent-fin01", "detail": "실행·스테이징(vat_reconcile)"}
+{"ts": "2026-07-21T23:01:55.894591", "actor": "user", "action": "READ", "target": "agent-24cbb5", "detail": "실행 계획 조회"}
+{"ts": "2026-07-21T23:01:55.897270", "actor": "agent", "action": "STAGE", "target": "agent-24cbb5", "detail": "실행·스테이징(sales)"}
+{"ts": "2026-07-21T23:21:56.035646", "actor": "agent", "action": "STAGE", "target": "agent-ca9794", "detail": "실행·스테이징(hr)"}
+{"ts": "2026-07-21T23:29:48.558591", "actor": "user", "action": "READ", "target": "agent-fin01", "detail": "실행 계획 조회"}
+{"ts": "2026-07-21T23:29:48.563747", "actor": "agent", "action": "STAGE", "target": "agent-fin01", "detail": "실행·스테이징(vat_reconcile)"}
+{"ts": "2026-07-21T23:29:48.565547", "actor": "user", "action": "READ", "target": "agent-328f91", "detail": "실행 계획 조회"}
+{"ts": "2026-07-21T23:29:48.568463", "actor": "agent", "action": "STAGE", "target": "agent-328f91", "detail": "실행·스테이징(hr)"}
+{"ts": "2026-07-21T23:29:48.570240", "actor": "user", "action": "READ", "target": "agent-30f602", "detail": "실행 계획 조회"}
+{"ts": "2026-07-21T23:29:48.573367", "actor": "agent", "action": "STAGE", "target": "agent-30f602", "detail": "실행·스테이징(pm_brief)"}
+{"ts": "2026-07-21T23:29:48.575279", "actor": "user", "action": "READ", "target": "agent-24cbb5", "detail": "실행 계획 조회"}
+{"ts": "2026-07-21T23:29:48.577959", "actor": "agent", "action": "STAGE", "target": "agent-24cbb5", "detail": "실행·스테이징(sales)"}
+{"ts": "2026-07-21T23:44:10.645365", "actor": "agent", "action": "STAGE", "target": "agent-fin01", "detail": "실행·스테이징(vat_reconcile)"}
+{"ts": "2026-07-21T23:44:10.653284", "actor": "user", "action": "COMMIT", "target": "stg-b5ed39f5", "detail": "확정+외부반영(update_erp/live/ok:ERP-ed39f5)"}
+{"ts": "2026-07-21T23:44:10.655621", "actor": "user", "action": "EXTERNAL_ACTION", "target": "stg-b5ed39f5", "detail": "update_erp/dry_run/ok:None"}
+{"ts": "2026-07-21T23:44:10.658112", "actor": "agent", "action": "STAGE", "target": "agent-fin01", "detail": "실행·스테이징(vat_reconcile)"}
+{"ts": "2026-07-21T23:44:10.662022", "actor": "user", "action": "COMMIT", "target": "stg-3072d48f", "detail": "확정+외부반영(update_erp/live/fail:erp_write_failed)"}
+{"ts": "2026-07-21T23:44:10.664435", "actor": "agent", "action": "STAGE", "target": "agent-328f91", "detail": "실행·스테이징(hr)"}
+{"ts": "2026-07-21T23:44:10.668477", "actor": "user", "action": "COMMIT", "target": "stg-f30f02fc", "detail": "확정+외부반영(update_sheet/live/ok:SHEET-0f02fc)"}
+{"ts": "2026-07-21T23:44:10.671381", "actor": "agent", "action": "STAGE", "target": "agent-30f602", "detail": "실행·스테이징(pm_brief)"}
+{"ts": "2026-07-21T23:44:10.676069", "actor": "user", "action": "COMMIT", "target": "stg-141fee68", "detail": "확정+외부반영(create_ticket/live/ok:PMX-fee680)"}
+{"ts": "2026-07-21T23:44:10.679109", "actor": "agent", "action": "STAGE", "target": "agent-30f602", "detail": "실행·스테이징(pm_brief)"}
+{"ts": "2026-07-21T23:44:10.683705", "actor": "user", "action": "COMMIT", "target": "stg-c95d94ce", "detail": "확정+외부반영(create_ticket/live/ok:PMX-d94ce0)"}
+{"ts": "2026-07-21T23:44:25.908954", "actor": "agent", "action": "STAGE", "target": "agent-fin01", "detail": "실행·스테이징(vat_reconcile)"}
+{"ts": "2026-07-21T23:46:52.958054", "actor": "agent", "action": "STAGE", "target": "agent-fin01", "detail": "실행·스테이징(vat_reconcile)"}
+{"ts": "2026-07-21T23:46:52.963398", "actor": "agent", "action": "STAGE", "target": "agent-328f91", "detail": "실행·스테이징(hr)"}
+{"ts": "2026-07-21T23:46:52.966903", "actor": "agent", "action": "STAGE", "target": "agent-30f602", "detail": "실행·스테이징(pm_brief)"}
+{"ts": "2026-07-21T23:46:52.974766", "actor": "user", "action": "COMMIT", "target": "stg-b38a2594", "detail": "확정+외부반영(update_erp/dry_run/ok:None)"}
+{"ts": "2026-07-21T23:46:52.980874", "actor": "user", "action": "COMMIT", "target": "stg-e96a6ea1", "detail": "확정+외부반영(update_sheet/live/ok:SHEET-6a6ea1)"}
+{"ts": "2026-07-21T23:46:52.984731", "actor": "agent", "action": "STAGE", "target": "agent-fin01", "detail": "실행·스테이징(vat_reconcile)"}
+{"ts": "2026-07-21T23:46:52.990657", "actor": "user", "action": "COMMIT", "target": "stg-2c4a04b9", "detail": "확정+외부반영(update_erp/live/fail:erp_write_failed)"}
+{"ts": "2026-07-21T23:46:52.994363", "actor": "agent", "action": "STAGE", "target": "agent-30f602", "detail": "실행·스테이징(pm_brief)"}
+{"ts": "2026-07-21T23:46:53.000264", "actor": "user", "action": "COMMIT", "target": "stg-dcec6ace", "detail": "확정+외부반영(create_ticket/live/ok:PMX-c6ace0)"}
+{"ts": "2026-07-21T23:47:03.220455", "actor": "agent", "action": "STAGE", "target": "agent-fin01", "detail": "실행·스테이징(vat_reconcile)"}
+{"ts": "2026-07-21T23:47:03.227067", "actor": "user", "action": "COMMIT", "target": "stg-9548f38e", "detail": "확정+외부반영(update_erp/dry_run/ok:None)"}
+{"ts": "2026-07-21T23:47:03.231083", "actor": "user", "action": "EXTERNAL_ACTION", "target": "stg-9548f38e", "detail": "update_erp/live/ok:ERP-48f38e"}
+{"ts": "2026-07-21T23:47:10.970978", "actor": "agent", "action": "STAGE", "target": "agent-328f91", "detail": "실행·스테이징(hr)"}
+{"ts": "2026-07-21T23:47:10.977497", "actor": "user", "action": "COMMIT", "target": "stg-8b9107f6", "detail": "확정+외부반영(update_sheet/live/fail:sheet_write_failed)"}
+{"ts": "2026-07-21T23:59:30.223984", "actor": "agent", "action": "STAGE", "target": "agent-328f91", "detail": "실행·스테이징(hr)"}
+{"ts": "2026-07-21T23:59:30.230261", "actor": "agent", "action": "STAGE", "target": "agent-328f91", "detail": "실행·스테이징(hr)"}
+{"ts": "2026-07-21T23:59:30.234262", "actor": "agent", "action": "STAGE", "target": "agent-328f91", "detail": "실행·스테이징(hr)"}
+{"ts": "2026-07-21T23:59:30.238213", "actor": "agent", "action": "STAGE", "target": "agent-328f91", "detail": "실행·스테이징(hr)"}
+{"ts": "2026-07-21T23:59:30.241721", "actor": "agent", "action": "STAGE", "target": "agent-328f91", "detail": "실행·스테이징(hr)"}
+{"ts": "2026-07-21T23:59:30.245489", "actor": "agent", "action": "STAGE", "target": "agent-328f91", "detail": "실행·스테이징(hr)"}
+{"ts": "2026-07-21T23:59:30.249083", "actor": "agent", "action": "STAGE", "target": "agent-328f91", "detail": "실행·스테이징(hr)"}
+{"ts": "2026-07-21T23:59:30.253125", "actor": "agent", "action": "STAGE", "target": "agent-328f91", "detail": "실행·스테이징(hr)"}
+{"ts": "2026-07-21T23:59:30.256970", "actor": "agent", "action": "STAGE", "target": "agent-328f91", "detail": "실행·스테이징(hr)"}
+{"ts": "2026-07-21T23:59:30.260701", "actor": "agent", "action": "STAGE", "target": "agent-fin01", "detail": "실행·스테이징(vat_reconcile)"}
+{"ts": "2026-07-21T23:59:30.268093", "actor": "user", "action": "COMMIT", "target": "stg-3ac2855f", "detail": "확정+외부반영(update_erp/dry_run/ok:None)"}
+{"ts": "2026-07-21T23:59:30.272001", "actor": "user", "action": "EXTERNAL_ACTION", "target": "stg-3ac2855f", "detail": "update_erp/live/ok:ERP-c2855f"}
+{"ts": "2026-07-21T23:59:30.275699", "actor": "agent", "action": "STAGE", "target": "agent-328f91", "detail": "실행·스테이징(hr)"}
+{"ts": "2026-07-22T00:01:13.276928", "actor": "agent", "action": "STAGE", "target": "agent-fin01", "detail": "실행·스테이징(vat_reconcile)"}
+{"ts": "2026-07-22T00:01:13.301691", "actor": "user", "action": "COMMIT", "target": "stg-63f70a38", "detail": "확정+외부반영(update_erp/dry_run/ok:None)"}
+{"ts": "2026-07-22T00:01:13.313669", "actor": "user", "action": "UNDO", "target": "stg-63f70a38", "detail": "되돌리기"}
+{"ts": "2026-07-22T00:03:57.388266", "actor": "agent", "action": "STAGE", "target": "agent-fin01", "detail": "실행·스테이징(vat_reconcile)"}
+{"ts": "2026-07-22T00:03:57.400368", "actor": "user", "action": "COMMIT", "target": "stg-9ad94dc2", "detail": "확정+외부반영(update_erp/dry_run/fail:timeout)"}
+{"ts": "2026-07-22T00:03:57.404942", "actor": "user", "action": "EXTERNAL_ACTION", "target": "stg-9ad94dc2", "detail": "update_erp/live/fail:timeout/req:0392b9e31781636e"}
+{"ts": "2026-07-22T00:03:57.408945", "actor": "agent", "action": "STAGE", "target": "agent-30f602", "detail": "실행·스테이징(pm_brief)"}
+{"ts": "2026-07-22T00:03:57.416234", "actor": "user", "action": "COMMIT", "target": "stg-20bfb1af", "detail": "확정+외부반영(create_ticket/dry_run/fail:permission_denied)"}
+{"ts": "2026-07-22T00:03:57.420108", "actor": "user", "action": "EXTERNAL_ACTION", "target": "stg-20bfb1af", "detail": "create_ticket/live/fail:permission_denied/req:0f936a4041c876de"}
+{"ts": "2026-07-22T00:03:57.424200", "actor": "agent", "action": "STAGE", "target": "agent-fin01", "detail": "실행·스테이징(vat_reconcile)"}
+{"ts": "2026-07-22T00:03:57.431413", "actor": "user", "action": "COMMIT", "target": "stg-1e17b990", "detail": "확정+외부반영(update_erp/dry_run/ok:None)"}
+{"ts": "2026-07-22T00:03:57.435507", "actor": "user", "action": "EXTERNAL_ACTION", "target": "stg-1e17b990", "detail": "update_erp/live/ok:ERP-17b990/req:b9ac6badf77d2c9b"}
+{"ts": "2026-07-22T00:37:18.955719", "actor": "agent", "action": "STAGE", "target": "agent-328f91", "detail": "실행·스테이징(hr)"}
+{"ts": "2026-07-22T00:37:18.968481", "actor": "user", "action": "COMMIT", "target": "stg-daa51bcd", "detail": "확정+외부반영(update_sheet/dry_run/ok:None)"}
+{"ts": "2026-07-22T00:37:20.593682", "actor": "user", "action": "EXTERNAL_ACTION", "target": "stg-daa51bcd", "detail": "update_sheet/live/ok:'시트1'!A2:E2/req:a056989861fc5e57"}
+{"ts": "2026-07-22T00:37:20.608390", "actor": "agent", "action": "STAGE", "target": "agent-fin01", "detail": "실행·스테이징(vat_reconcile)"}
+{"ts": "2026-07-22T00:37:20.633096", "actor": "user", "action": "COMMIT", "target": "stg-367d5478", "detail": "확정+외부반영(update_erp/dry_run/ok:None)"}
+{"ts": "2026-07-22T00:37:20.641417", "actor": "user", "action": "EXTERNAL_ACTION", "target": "stg-367d5478", "detail": "update_erp/live/fail:not_configured/req:47aac6981bd44957"}
+{"ts": "2026-07-22T00:51:14.116144", "actor": "agent", "action": "STAGE", "target": "agent-30f602", "detail": "실행·스테이징(pm_brief)"}
+{"ts": "2026-07-22T00:51:14.130793", "actor": "user", "action": "COMMIT", "target": "stg-e85bba97", "detail": "확정+외부반영(create_ticket/dry_run/ok:None)"}
+{"ts": "2026-07-22T00:51:17.655835", "actor": "user", "action": "EXTERNAL_ACTION", "target": "stg-e85bba97", "detail": "create_ticket/live/ok:KAN-5/req:4cd2aca91db9062b"}
+{"ts": "2026-07-22T00:55:28.813758", "actor": "agent", "action": "STAGE", "target": "agent-fin01", "detail": "실행·스테이징(vat_reconcile)"}
+{"ts": "2026-07-22T00:56:37.084685", "actor": "user", "action": "DELETE", "target": "agent-34abf0", "detail": "에이전트 삭제"}
+{"ts": "2026-07-22T00:56:41.015027", "actor": "user", "action": "DELETE", "target": "agent-8adcaa", "detail": "에이전트 삭제"}
+{"ts": "2026-07-22T00:56:47.447153", "actor": "user", "action": "DELETE", "target": "agent-30f602", "detail": "에이전트 삭제"}
+{"ts": "2026-07-22T00:56:50.397792", "actor": "user", "action": "DELETE", "target": "agent-328f91", "detail": "에이전트 삭제"}
+{"ts": "2026-07-22T00:57:20.949940", "actor": "user", "action": "HIRE", "target": "agent-ce0d04", "detail": "직원 채용: 기업 분석 리포트"}
+{"ts": "2026-07-22T00:57:37.472003", "actor": "user", "action": "DEPLOY", "target": "agent-ce0d04", "detail": "slack #기업-분석-리포트"}
+{"ts": "2026-07-22T01:24:28.870478", "actor": "user", "action": "DELETE", "target": "agent-ce0d04", "detail": "에이전트 삭제"}
+{"ts": "2026-07-22T12:30:12.228528", "actor": "user", "action": "HIRE", "target": "agent-913d2f", "detail": "직원 채용: 보장 분석"}
+{"ts": "2026-07-22T15:20:28.691260", "actor": "user", "action": "TEAM_DELETE", "target": "team-2d1df3", "detail": "팀 삭제"}
+{"ts": "2026-07-22T15:43:00.916320", "actor": "user", "action": "HIRE", "target": "agent-96126a", "detail": "직원 채용: 증권 리서치 에이전트"}
+{"ts": "2026-07-22T15:43:18.810031", "actor": "user", "action": "DELETE", "target": "agent-96126a", "detail": "에이전트 삭제"}
+{"ts": "2026-07-22T15:47:59.245303", "actor": "user", "action": "HIRE", "target": "agent-bcfe96", "detail": "직원 채용: 증권 리서치 에이전트"}
+{"ts": "2026-07-22T15:54:20.478305", "actor": "user", "action": "HIRE", "target": "agent-59cc23", "detail": "직원 채용: DART 공시 분석"}
+{"ts": "2026-07-22T15:54:20.492974", "actor": "user", "action": "DELETE", "target": "agent-59cc23", "detail": "에이전트 삭제"}
+{"ts": "2026-07-22T15:56:18.620690", "actor": "user", "action": "DELETE", "target": "agent-bcfe96", "detail": "에이전트 삭제"}
+{"ts": "2026-07-22T16:00:39.400050", "actor": "user", "action": "DELETE", "target": "agent-fin01", "detail": "에이전트 삭제"}
+{"ts": "2026-07-22T16:01:39.034429", "actor": "user", "action": "HIRE", "target": "agent-f9f9e2", "detail": "직원 채용: 기업 분석 리포트"}
+{"ts": "2026-07-22T16:01:39.896433", "actor": "user", "action": "HIRE", "target": "agent-1a95c1", "detail": "직원 채용: DART 공시 분석"}
+{"ts": "2026-07-22T16:01:42.699639", "actor": "user", "action": "HIRE", "target": "agent-491aba", "detail": "직원 채용: 실적 리뷰"}
+{"ts": "2026-07-22T16:01:43.931812", "actor": "user", "action": "HIRE", "target": "agent-b0ae44", "detail": "직원 채용: 산업·섹터 리서치"}
+{"ts": "2026-07-22T16:01:44.897718", "actor": "user", "action": "HIRE", "target": "agent-267fad", "detail": "직원 채용: 밸류에이션 정리"}
+{"ts": "2026-07-22T16:01:54.235082", "actor": "user", "action": "TEAM_CREATE", "target": "team-dbc397", "detail": "팀 생성: 증권 리서치 팀"}
+{"ts": "2026-07-22T16:01:57.131972", "actor": "user", "action": "TEAM_UPDATE", "target": "team-dbc397", "detail": "['name', 'purpose']"}
+{"ts": "2026-07-22T16:02:05.478441", "actor": "user", "action": "TEAM_UPDATE", "target": "team-dbc397", "detail": "['name', 'purpose']"}
+{"ts": "2026-07-22T16:06:25.148637", "actor": "user", "action": "TEAM_UPDATE", "target": "team-dbc397", "detail": "['name', 'purpose']"}
+{"ts": "2026-07-22T16:06:34.959184", "actor": "user", "action": "TEAM_DELETE", "target": "team-dbc397", "detail": "팀 삭제"}
+{"ts": "2026-07-22T16:06:56.044997", "actor": "user", "action": "HIRE", "target": "agent-6fc8b1", "detail": "직원 채용: 이상거래 모니터링"}
+{"ts": "2026-07-22T16:06:56.695178", "actor": "user", "action": "HIRE", "target": "agent-2cf8ed", "detail": "직원 채용: STR 초안"}
+{"ts": "2026-07-22T16:06:57.346428", "actor": "user", "action": "HIRE", "target": "agent-0c04ab", "detail": "직원 채용: KYC 고객확인"}
+{"ts": "2026-07-22T16:06:58.460762", "actor": "user", "action": "HIRE", "target": "agent-8d79fe", "detail": "직원 채용: 내부통제 점검"}
+{"ts": "2026-07-22T16:06:59.445584", "actor": "user", "action": "HIRE", "target": "agent-2821ab", "detail": "직원 채용: 규제·제재 모니터링"}
+{"ts": "2026-07-22T16:07:01.445121", "actor": "user", "action": "TEAM_CREATE", "target": "team-71f7cf", "detail": "팀 생성: 준법·내부감사 팀"}
+{"ts": "2026-07-22T16:07:07.043156", "actor": "user", "action": "TEAM_UPDATE", "target": "team-71f7cf", "detail": "['name', 'purpose']"}
+{"ts": "2026-07-22T16:11:41.661636", "actor": "user", "action": "TEAM_DELETE", "target": "team-71f7cf", "detail": "팀 삭제"}
+{"ts": "2026-07-22T16:11:52.242630", "actor": "user", "action": "TEAM_CREATE", "target": "team-a76629", "detail": "팀 생성: 준법·내부감사 팀"}
+{"ts": "2026-07-22T16:11:59.071381", "actor": "user", "action": "TEAM_UPDATE", "target": "team-a76629", "detail": "['name', 'purpose']"}
+{"ts": "2026-07-22T16:36:34.400179", "actor": "user", "action": "TEAM_DELETE", "target": "team-a76629", "detail": "팀 삭제"}
+{"ts": "2026-07-22T16:38:16.386187", "actor": "user", "action": "TEAM_CREATE", "target": "team-9b6add", "detail": "팀 생성: 준법·내부감사 팀"}
+{"ts": "2026-07-22T16:38:19.531953", "actor": "user", "action": "TEAM_UPDATE", "target": "team-9b6add", "detail": "['name', 'purpose']"}
+{"ts": "2026-07-22T16:38:55.763329", "actor": "user", "action": "TEAM_DELETE", "target": "team-9b6add", "detail": "팀 삭제"}
+{"ts": "2026-07-22T16:39:11.187829", "actor": "user", "action": "DELETE", "target": "agent-fin03", "detail": "에이전트 삭제"}
+{"ts": "2026-07-22T16:39:14.884944", "actor": "user", "action": "DELETE", "target": "agent-fin02", "detail": "에이전트 삭제"}
+{"ts": "2026-07-22T18:00:04.375235", "actor": "user", "action": "TEAM_CREATE", "target": "team-7ae7d5", "detail": "팀 생성: 증권 리서치 팀"}
+{"ts": "2026-07-22T18:00:08.421829", "actor": "user", "action": "TEAM_UPDATE", "target": "team-7ae7d5", "detail": "['name', 'purpose']"}
+{"ts": "2026-07-22T18:00:19.765066", "actor": "user", "action": "TEAM_DEPLOY", "target": "team-7ae7d5", "detail": "slack #증권리서치팀"}
+{"ts": "2026-07-22T23:58:30.616806", "actor": "user", "action": "TEAM_DELETE", "target": "team-fin001", "detail": "팀 삭제"}
+{"ts": "2026-07-22T23:58:52.754529", "actor": "user", "action": "HIRE", "target": "agent-67b969", "detail": "직원 채용: 부가세 대사 도우미"}
+{"ts": "2026-07-22T23:58:53.830654", "actor": "user", "action": "HIRE", "target": "agent-99a7a9", "detail": "직원 채용: 월마감 보고서"}
+{"ts": "2026-07-22T23:58:54.497573", "actor": "user", "action": "HIRE", "target": "agent-220d09", "detail": "직원 채용: 지출결의 요약"}
+{"ts": "2026-07-22T23:58:55.128351", "actor": "user", "action": "HIRE", "target": "agent-8a2c18", "detail": "직원 채용: 예산 집행 현황"}
+{"ts": "2026-07-22T23:58:55.797553", "actor": "user", "action": "HIRE", "target": "agent-312c92", "detail": "직원 채용: 세금계산서 검증"}
+{"ts": "2026-07-22T23:58:56.944615", "actor": "user", "action": "TEAM_CREATE", "target": "team-7a862b", "detail": "팀 생성: 재무·회계 팀"}
+{"ts": "2026-07-22T23:58:59.511685", "actor": "user", "action": "TEAM_UPDATE", "target": "team-7a862b", "detail": "['name', 'purpose']"}
+{"ts": "2026-07-22T23:59:04.426805", "actor": "user", "action": "TEAM_UPDATE", "target": "team-7a862b", "detail": "['status']"}
+{"ts": "2026-07-22T23:59:17.143036", "actor": "user", "action": "TEAM_DEPLOY", "target": "team-7a862b", "detail": "slack #재무회계팀"}
+{"ts": "2026-07-23T15:22:18.250334", "actor": "user", "action": "TEAM_DEPLOY", "target": "team-7ae7d5", "detail": "slack #증권리서치팀"}
+{"ts": "2026-07-23T16:03:23.493792", "actor": "user", "action": "TEAM_UNDEPLOY", "target": "team-7ae7d5", "detail": "#증권리서치팀"}
+{"ts": "2026-07-23T16:04:10.574154", "actor": "user", "action": "DEPLOY", "target": "agent-267fad", "detail": "slack #증권리서치팀"}
+{"ts": "2026-07-23T16:22:49.150159", "actor": "user", "action": "FLOW_UPDATE", "target": "team-7ae7d5", "detail": "협업 흐름 편집: 기본 협업 흐름"}
+{"ts": "2026-07-23T16:22:50.414864", "actor": "user", "action": "FLOW_UPDATE", "target": "team-7ae7d5", "detail": "협업 흐름 편집: 기본 협업 흐름"}

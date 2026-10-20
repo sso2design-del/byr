@@ -1,0 +1,150 @@
+[
+  {
+    "id": "team-7ae7d5",
+    "name": "증권 리서치 팀",
+    "icon": "📊",
+    "purpose": "투자리포트 초안·공시 분석·리서치를 함께 처리합니다.",
+    "agents": [
+      "agent-267fad",
+      "agent-b0ae44",
+      "agent-491aba",
+      "agent-1a95c1",
+      "agent-f9f9e2"
+    ],
+    "status": "active",
+    "deployment": {
+      "platform": "slack",
+      "channel": "#증권리서치팀",
+      "status": "배치됨"
+    },
+    "flows": [
+      {
+        "id": "flow-c659db",
+        "name": "기본 협업 흐름",
+        "icon": "⚡",
+        "description": "팀 멤버 에이전트가 순서대로 처리하는 기본 협업 흐름입니다. 상세에서 편집하세요.",
+        "status": "active",
+        "trigger": {
+          "type": "messenger",
+          "config": "메신저 채널에서 이 흐름을 호출하면 시작합니다."
+        },
+        "steps": [
+          {
+            "order": 1,
+            "agent_id": "agent-267fad",
+            "task": "멀티플·목표주가 근거 정리",
+            "high_risk": false
+          },
+          {
+            "order": 2,
+            "agent_id": "agent-b0ae44",
+            "task": "산업 동향·경쟁 구도 요약",
+            "high_risk": false
+          },
+          {
+            "order": 3,
+            "agent_id": "agent-491aba",
+            "task": "실적 발표 → 컨센서스 대비 요약",
+            "high_risk": false
+          },
+          {
+            "order": 4,
+            "agent_id": "agent-1a95c1",
+            "task": "전자공시 자동 수집 · 핵심 요약",
+            "high_risk": false
+          },
+          {
+            "order": 5,
+            "agent_id": "agent-f9f9e2",
+            "task": "재무·사업 요약 → 리포트 초안",
+            "high_risk": false
+          }
+        ],
+        "runs": []
+      }
+    ],
+    "created_at": "2026-07-22",
+    "created_by": "황소이 선임",
+    "deployments": [
+      {
+        "platform": "slack",
+        "channel": "#증권리서치팀",
+        "status": "배치됨"
+      }
+    ]
+  },
+  {
+    "id": "team-7a862b",
+    "name": "재무·회계 팀",
+    "icon": "🧮",
+    "purpose": "부가세 대사·월마감·경비정산을 에이전트들이 나눠 처리합니다.",
+    "agents": [
+      "agent-67b969",
+      "agent-99a7a9",
+      "agent-220d09",
+      "agent-8a2c18",
+      "agent-312c92"
+    ],
+    "status": "active",
+    "deployment": {
+      "platform": "slack",
+      "channel": "#재무회계팀",
+      "status": "배치됨"
+    },
+    "flows": [
+      {
+        "id": "flow-2049bd",
+        "name": "기본 협업 흐름",
+        "icon": "⚡",
+        "description": "팀 멤버 에이전트가 순서대로 처리하는 기본 협업 흐름입니다. 상세에서 편집하세요.",
+        "status": "active",
+        "trigger": {
+          "type": "messenger",
+          "config": "메신저 채널에서 이 흐름을 호출하면 시작합니다."
+        },
+        "steps": [
+          {
+            "order": 1,
+            "agent_id": "agent-67b969",
+            "task": "매입·매출 원장 대사 → 부가세 신고 초안",
+            "high_risk": false
+          },
+          {
+            "order": 2,
+            "agent_id": "agent-99a7a9",
+            "task": "부서별 매출 집계 · 전월 대비 리포트",
+            "high_risk": false
+          },
+          {
+            "order": 3,
+            "agent_id": "agent-220d09",
+            "task": "지출 증빙 요약 · 분류 · 결재 초안",
+            "high_risk": false
+          },
+          {
+            "order": 4,
+            "agent_id": "agent-8a2c18",
+            "task": "부서별 예산 소진율 집계 · 초과 항목 알림",
+            "high_risk": false
+          },
+          {
+            "order": 5,
+            "agent_id": "agent-312c92",
+            "task": "매입·매출 세금계산서 누락·불일치 자동 점검",
+            "high_risk": false
+          }
+        ],
+        "runs": []
+      }
+    ],
+    "created_at": "2026-07-22",
+    "created_by": "황소이 선임",
+    "deployments": [
+      {
+        "platform": "slack",
+        "channel": "#재무회계팀",
+        "status": "배치됨"
+      }
+    ]
+  }
+]

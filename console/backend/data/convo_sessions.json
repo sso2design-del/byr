@@ -1,0 +1,23 @@
+{
+  "slack|C0BKH9TN77F|U0BBS69J2LT|agent-73074d": {
+    "platform": "slack",
+    "channel_id": "C0BKH9TN77F",
+    "user_id": "U0BBS69J2LT",
+    "agent_id": "agent-73074d",
+    "current_job": "vat_reconcile",
+    "current_template_key": "vat",
+    "collected_inputs": {},
+    "missing_queue": [
+      "period_from",
+      "period_to",
+      "company_code",
+      "amount_tolerance_pct"
+    ],
+    "asking": "period_from",
+    "stage_id": null,
+    "last_status": "intake",
+    "last_error": null,
+    "pending_candidates": [],
+    "updated_at": "2026-07-24T22:18:25.898156"
+  }
+}

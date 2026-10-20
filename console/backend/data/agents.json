@@ -1,0 +1,1372 @@
+[
+  {
+    "id": "agent-f0fe40",
+    "name": "인사 FAQ",
+    "icon": "💬",
+    "role": "인사·총무",
+    "purpose": "사규·복지 질의응답",
+    "status": "draft",
+    "job": "hr",
+    "tone": [
+      "정중"
+    ],
+    "llm_key": "builtin",
+    "model": "내장 LLM",
+    "created_at": "2026-07-21",
+    "created_by": "황소이 선임",
+    "capabilities": [
+      {
+        "key": "file",
+        "icon": "📁",
+        "label": "파일 관리",
+        "on": true,
+        "detail": "파일 생성·이동·조회·공유"
+      },
+      {
+        "key": "doc_summary",
+        "icon": "📖",
+        "label": "문서 요약",
+        "on": true,
+        "detail": "긴 문서를 핵심만 요약"
+      },
+      {
+        "key": "web",
+        "icon": "🔎",
+        "label": "웹 검색",
+        "on": true,
+        "detail": "외부 자료 조회 (선택 사항)"
+      }
+    ],
+    "file_paths": [],
+    "mcp": [
+      {
+        "key": "gdrive",
+        "name": "Google Drive",
+        "icon": "📂",
+        "connected": true
+      },
+      {
+        "key": "erp",
+        "name": "사내 ERP (더존)",
+        "icon": "🗄️",
+        "connected": true
+      },
+      {
+        "key": "sheets",
+        "name": "Google Sheets",
+        "icon": "📊",
+        "connected": true
+      }
+    ],
+    "deployment": {
+      "platform": null,
+      "channel": "",
+      "status": "미배치"
+    }
+  },
+  {
+    "id": "agent-24cbb5",
+    "name": "제안서 작성·발송",
+    "icon": "💼",
+    "role": "영업",
+    "purpose": "메신저 요청 → 사내 자료 근거 초안 → PDF → 사람 승인 → 이메일 발송",
+    "status": "draft",
+    "job": "sales",
+    "tone": [
+      "정중"
+    ],
+    "llm_key": "builtin",
+    "model": "내장 LLM",
+    "created_at": "2026-07-21",
+    "created_by": "황소이 선임",
+    "capabilities": [
+      {
+        "key": "file",
+        "icon": "📁",
+        "label": "파일 관리",
+        "on": true,
+        "detail": "파일 생성·이동·조회·공유"
+      },
+      {
+        "key": "report",
+        "icon": "📄",
+        "label": "보고서 생성",
+        "on": true,
+        "detail": "새 버전 파일만 (덮어쓰기 없음)"
+      },
+      {
+        "key": "doc_summary",
+        "icon": "📖",
+        "label": "문서 요약",
+        "on": true,
+        "detail": "긴 문서를 핵심만 요약"
+      },
+      {
+        "key": "proposal",
+        "icon": "💼",
+        "label": "제안서 초안",
+        "on": true,
+        "detail": "고객사 맞춤 영업 제안서 작성"
+      },
+      {
+        "key": "web",
+        "icon": "🔎",
+        "label": "웹 검색",
+        "on": true,
+        "detail": "외부 자료 조회 (선택 사항)"
+      }
+    ],
+    "file_paths": [
+      "Byr-도입사례.md",
+      "Byr-요금제.md",
+      "Byr-제품소개.md",
+      "Byr-회사소개-FAQ.md"
+    ],
+    "mcp": [
+      {
+        "key": "email",
+        "name": "Gmail",
+        "icon": "✉️",
+        "connected": false
+      },
+      {
+        "key": "gdrive",
+        "name": "Google Drive",
+        "icon": "📂",
+        "connected": true
+      }
+    ],
+    "deployment": {
+      "platform": "slack",
+      "channel": "#제안서-작성발송",
+      "status": "배치됨"
+    }
+  },
+  {
+    "id": "agent-913d2f",
+    "name": "보장 분석",
+    "icon": "📊",
+    "role": "보험 FP",
+    "purpose": "보유 계약 분석 → 부족·중복 보장 진단",
+    "status": "draft",
+    "job": "insurance_fp",
+    "tone": [
+      "정중"
+    ],
+    "llm_key": "builtin",
+    "model": "내장 LLM",
+    "created_at": "2026-07-22",
+    "created_by": "황소이 선임",
+    "capabilities": [
+      {
+        "key": "report",
+        "icon": "📄",
+        "label": "보고서 생성",
+        "on": true,
+        "detail": "새 버전 파일만 (덮어쓰기 없음)"
+      },
+      {
+        "key": "doc_summary",
+        "icon": "📖",
+        "label": "문서 요약",
+        "on": true,
+        "detail": "긴 문서를 핵심만 요약"
+      },
+      {
+        "key": "contract",
+        "icon": "📄",
+        "label": "계약서 검토",
+        "on": true,
+        "detail": "조항 누락·위험 항목 확인"
+      },
+      {
+        "key": "coverage_analysis",
+        "icon": "📊",
+        "label": "보장 분석",
+        "on": true,
+        "detail": "보유계약 부족·중복 보장 진단"
+      }
+    ],
+    "file_paths": [],
+    "mcp": [
+      {
+        "key": "email",
+        "name": "Gmail",
+        "icon": "✉️",
+        "connected": false
+      },
+      {
+        "key": "gdrive",
+        "name": "Google Drive",
+        "icon": "📂",
+        "connected": true
+      },
+      {
+        "key": "sheets",
+        "name": "Google Sheets",
+        "icon": "📊",
+        "connected": true
+      }
+    ],
+    "deployment": {
+      "platform": null,
+      "channel": "",
+      "status": "미배치"
+    }
+  },
+  {
+    "id": "agent-f9f9e2",
+    "name": "기업 분석 리포트",
+    "icon": "🏢",
+    "role": "증권 리서치",
+    "purpose": "재무·사업 요약 → 리포트 초안",
+    "status": "draft",
+    "job": "securities_research",
+    "tone": [
+      "정중"
+    ],
+    "llm_key": "builtin",
+    "model": "내장 LLM",
+    "created_at": "2026-07-22",
+    "created_by": "황소이 선임",
+    "capabilities": [
+      {
+        "key": "file",
+        "icon": "📁",
+        "label": "파일 접근",
+        "on": true,
+        "detail": "허용 폴더 안에서만 읽기/쓰기"
+      },
+      {
+        "key": "analysis",
+        "icon": "📊",
+        "label": "데이터 분석",
+        "on": true,
+        "detail": "결정론적 계산 (LLM이 산수 안 함)"
+      },
+      {
+        "key": "report",
+        "icon": "📄",
+        "label": "보고서 생성",
+        "on": true,
+        "detail": "새 버전 파일만 (덮어쓰기 없음)"
+      },
+      {
+        "key": "web",
+        "icon": "🔍",
+        "label": "웹 검색",
+        "on": false,
+        "detail": "외부 자료 조회 (옵션)"
+      },
+      {
+        "key": "global_llm",
+        "icon": "🌐",
+        "label": "글로벌 LLM",
+        "on": false,
+        "detail": "기본=로컬. 필요 시 API 연결 (옵션)"
+      }
+    ],
+    "file_paths": [],
+    "mcp": [
+      {
+        "key": "gdrive",
+        "name": "Google Drive",
+        "icon": "📂",
+        "connected": true
+      },
+      {
+        "key": "sheets",
+        "name": "Google Sheets",
+        "icon": "📊",
+        "connected": true
+      }
+    ],
+    "deployment": {
+      "platform": null,
+      "channel": "",
+      "status": "미배치"
+    }
+  },
+  {
+    "id": "agent-1a95c1",
+    "name": "DART 공시 분석",
+    "icon": "🗂️",
+    "role": "증권 리서치",
+    "purpose": "전자공시 자동 수집 · 핵심 요약",
+    "status": "draft",
+    "job": "securities_research",
+    "tone": [
+      "정중"
+    ],
+    "llm_key": "builtin",
+    "model": "내장 LLM",
+    "created_at": "2026-07-22",
+    "created_by": "황소이 선임",
+    "capabilities": [
+      {
+        "key": "file",
+        "icon": "📁",
+        "label": "파일 접근",
+        "on": true,
+        "detail": "허용 폴더 안에서만 읽기/쓰기"
+      },
+      {
+        "key": "analysis",
+        "icon": "📊",
+        "label": "데이터 분석",
+        "on": true,
+        "detail": "결정론적 계산 (LLM이 산수 안 함)"
+      },
+      {
+        "key": "report",
+        "icon": "📄",
+        "label": "보고서 생성",
+        "on": true,
+        "detail": "새 버전 파일만 (덮어쓰기 없음)"
+      },
+      {
+        "key": "web",
+        "icon": "🔍",
+        "label": "웹 검색",
+        "on": false,
+        "detail": "외부 자료 조회 (옵션)"
+      },
+      {
+        "key": "global_llm",
+        "icon": "🌐",
+        "label": "글로벌 LLM",
+        "on": false,
+        "detail": "기본=로컬. 필요 시 API 연결 (옵션)"
+      }
+    ],
+    "file_paths": [],
+    "mcp": [
+      {
+        "key": "gdrive",
+        "name": "Google Drive",
+        "icon": "📂",
+        "connected": true
+      },
+      {
+        "key": "sheets",
+        "name": "Google Sheets",
+        "icon": "📊",
+        "connected": true
+      }
+    ],
+    "deployment": {
+      "platform": null,
+      "channel": "",
+      "status": "미배치"
+    }
+  },
+  {
+    "id": "agent-491aba",
+    "name": "실적 리뷰",
+    "icon": "📈",
+    "role": "증권 리서치",
+    "purpose": "실적 발표 → 컨센서스 대비 요약",
+    "status": "draft",
+    "job": "securities_research",
+    "tone": [
+      "정중"
+    ],
+    "llm_key": "builtin",
+    "model": "내장 LLM",
+    "created_at": "2026-07-22",
+    "created_by": "황소이 선임",
+    "capabilities": [
+      {
+        "key": "file",
+        "icon": "📁",
+        "label": "파일 접근",
+        "on": true,
+        "detail": "허용 폴더 안에서만 읽기/쓰기"
+      },
+      {
+        "key": "analysis",
+        "icon": "📊",
+        "label": "데이터 분석",
+        "on": true,
+        "detail": "결정론적 계산 (LLM이 산수 안 함)"
+      },
+      {
+        "key": "report",
+        "icon": "📄",
+        "label": "보고서 생성",
+        "on": true,
+        "detail": "새 버전 파일만 (덮어쓰기 없음)"
+      },
+      {
+        "key": "web",
+        "icon": "🔍",
+        "label": "웹 검색",
+        "on": false,
+        "detail": "외부 자료 조회 (옵션)"
+      },
+      {
+        "key": "global_llm",
+        "icon": "🌐",
+        "label": "글로벌 LLM",
+        "on": false,
+        "detail": "기본=로컬. 필요 시 API 연결 (옵션)"
+      }
+    ],
+    "file_paths": [],
+    "mcp": [
+      {
+        "key": "gdrive",
+        "name": "Google Drive",
+        "icon": "📂",
+        "connected": true
+      },
+      {
+        "key": "sheets",
+        "name": "Google Sheets",
+        "icon": "📊",
+        "connected": true
+      }
+    ],
+    "deployment": {
+      "platform": null,
+      "channel": "",
+      "status": "미배치"
+    }
+  },
+  {
+    "id": "agent-b0ae44",
+    "name": "산업·섹터 리서치",
+    "icon": "🌐",
+    "role": "증권 리서치",
+    "purpose": "산업 동향·경쟁 구도 요약",
+    "status": "draft",
+    "job": "securities_research",
+    "tone": [
+      "정중"
+    ],
+    "llm_key": "builtin",
+    "model": "내장 LLM",
+    "created_at": "2026-07-22",
+    "created_by": "황소이 선임",
+    "capabilities": [
+      {
+        "key": "file",
+        "icon": "📁",
+        "label": "파일 접근",
+        "on": true,
+        "detail": "허용 폴더 안에서만 읽기/쓰기"
+      },
+      {
+        "key": "analysis",
+        "icon": "📊",
+        "label": "데이터 분석",
+        "on": true,
+        "detail": "결정론적 계산 (LLM이 산수 안 함)"
+      },
+      {
+        "key": "report",
+        "icon": "📄",
+        "label": "보고서 생성",
+        "on": true,
+        "detail": "새 버전 파일만 (덮어쓰기 없음)"
+      },
+      {
+        "key": "web",
+        "icon": "🔍",
+        "label": "웹 검색",
+        "on": false,
+        "detail": "외부 자료 조회 (옵션)"
+      },
+      {
+        "key": "global_llm",
+        "icon": "🌐",
+        "label": "글로벌 LLM",
+        "on": false,
+        "detail": "기본=로컬. 필요 시 API 연결 (옵션)"
+      }
+    ],
+    "file_paths": [],
+    "mcp": [
+      {
+        "key": "gdrive",
+        "name": "Google Drive",
+        "icon": "📂",
+        "connected": true
+      },
+      {
+        "key": "sheets",
+        "name": "Google Sheets",
+        "icon": "📊",
+        "connected": true
+      }
+    ],
+    "deployment": {
+      "platform": null,
+      "channel": "",
+      "status": "미배치"
+    }
+  },
+  {
+    "id": "agent-267fad",
+    "name": "밸류에이션 정리",
+    "icon": "💰",
+    "role": "증권 리서치",
+    "purpose": "멀티플·목표주가 근거 정리",
+    "status": "draft",
+    "job": "securities_research",
+    "tone": [
+      "정중"
+    ],
+    "llm_key": "builtin",
+    "model": "내장 LLM",
+    "created_at": "2026-07-22",
+    "created_by": "황소이 선임",
+    "capabilities": [
+      {
+        "key": "file",
+        "icon": "📁",
+        "label": "파일 접근",
+        "on": true,
+        "detail": "허용 폴더 안에서만 읽기/쓰기"
+      },
+      {
+        "key": "analysis",
+        "icon": "📊",
+        "label": "데이터 분석",
+        "on": true,
+        "detail": "결정론적 계산 (LLM이 산수 안 함)"
+      },
+      {
+        "key": "report",
+        "icon": "📄",
+        "label": "보고서 생성",
+        "on": true,
+        "detail": "새 버전 파일만 (덮어쓰기 없음)"
+      },
+      {
+        "key": "web",
+        "icon": "🔍",
+        "label": "웹 검색",
+        "on": false,
+        "detail": "외부 자료 조회 (옵션)"
+      },
+      {
+        "key": "global_llm",
+        "icon": "🌐",
+        "label": "글로벌 LLM",
+        "on": false,
+        "detail": "기본=로컬. 필요 시 API 연결 (옵션)"
+      }
+    ],
+    "file_paths": [],
+    "mcp": [
+      {
+        "key": "gdrive",
+        "name": "Google Drive",
+        "icon": "📂",
+        "connected": true
+      },
+      {
+        "key": "sheets",
+        "name": "Google Sheets",
+        "icon": "📊",
+        "connected": true
+      }
+    ],
+    "deployment": {
+      "platform": null,
+      "channel": "",
+      "status": "미배치"
+    }
+  },
+  {
+    "id": "agent-6fc8b1",
+    "name": "이상거래 모니터링",
+    "icon": "📈",
+    "role": "준법·내부감사",
+    "purpose": "거래 패턴 이상 탐지 · 요약",
+    "status": "draft",
+    "job": "compliance_aml",
+    "tone": [
+      "정중"
+    ],
+    "llm_key": "builtin",
+    "model": "내장 LLM",
+    "created_at": "2026-07-22",
+    "created_by": "황소이 선임",
+    "capabilities": [
+      {
+        "key": "file",
+        "icon": "📁",
+        "label": "파일 접근",
+        "on": true,
+        "detail": "허용 폴더 안에서만 읽기/쓰기"
+      },
+      {
+        "key": "analysis",
+        "icon": "📊",
+        "label": "데이터 분석",
+        "on": true,
+        "detail": "결정론적 계산 (LLM이 산수 안 함)"
+      },
+      {
+        "key": "report",
+        "icon": "📄",
+        "label": "보고서 생성",
+        "on": true,
+        "detail": "새 버전 파일만 (덮어쓰기 없음)"
+      },
+      {
+        "key": "web",
+        "icon": "🔍",
+        "label": "웹 검색",
+        "on": false,
+        "detail": "외부 자료 조회 (옵션)"
+      },
+      {
+        "key": "global_llm",
+        "icon": "🌐",
+        "label": "글로벌 LLM",
+        "on": false,
+        "detail": "기본=로컬. 필요 시 API 연결 (옵션)"
+      }
+    ],
+    "file_paths": [],
+    "mcp": [
+      {
+        "key": "gdrive",
+        "name": "Google Drive",
+        "icon": "📂",
+        "connected": true
+      },
+      {
+        "key": "sheets",
+        "name": "Google Sheets",
+        "icon": "📊",
+        "connected": true
+      }
+    ],
+    "deployment": {
+      "platform": null,
+      "channel": "",
+      "status": "미배치"
+    }
+  },
+  {
+    "id": "agent-2cf8ed",
+    "name": "STR 초안",
+    "icon": "📋",
+    "role": "준법·내부감사",
+    "purpose": "의심거래보고서(STR) 초안 작성",
+    "status": "draft",
+    "job": "compliance_aml",
+    "tone": [
+      "정중"
+    ],
+    "llm_key": "builtin",
+    "model": "내장 LLM",
+    "created_at": "2026-07-22",
+    "created_by": "황소이 선임",
+    "capabilities": [
+      {
+        "key": "file",
+        "icon": "📁",
+        "label": "파일 접근",
+        "on": true,
+        "detail": "허용 폴더 안에서만 읽기/쓰기"
+      },
+      {
+        "key": "analysis",
+        "icon": "📊",
+        "label": "데이터 분석",
+        "on": true,
+        "detail": "결정론적 계산 (LLM이 산수 안 함)"
+      },
+      {
+        "key": "report",
+        "icon": "📄",
+        "label": "보고서 생성",
+        "on": true,
+        "detail": "새 버전 파일만 (덮어쓰기 없음)"
+      },
+      {
+        "key": "web",
+        "icon": "🔍",
+        "label": "웹 검색",
+        "on": false,
+        "detail": "외부 자료 조회 (옵션)"
+      },
+      {
+        "key": "global_llm",
+        "icon": "🌐",
+        "label": "글로벌 LLM",
+        "on": false,
+        "detail": "기본=로컬. 필요 시 API 연결 (옵션)"
+      }
+    ],
+    "file_paths": [],
+    "mcp": [
+      {
+        "key": "gdrive",
+        "name": "Google Drive",
+        "icon": "📂",
+        "connected": true
+      },
+      {
+        "key": "sheets",
+        "name": "Google Sheets",
+        "icon": "📊",
+        "connected": true
+      }
+    ],
+    "deployment": {
+      "platform": null,
+      "channel": "",
+      "status": "미배치"
+    }
+  },
+  {
+    "id": "agent-0c04ab",
+    "name": "KYC 고객확인",
+    "icon": "👥",
+    "role": "준법·내부감사",
+    "purpose": "고객 정보·리스크 등급 검토",
+    "status": "draft",
+    "job": "compliance_aml",
+    "tone": [
+      "정중"
+    ],
+    "llm_key": "builtin",
+    "model": "내장 LLM",
+    "created_at": "2026-07-22",
+    "created_by": "황소이 선임",
+    "capabilities": [
+      {
+        "key": "file",
+        "icon": "📁",
+        "label": "파일 접근",
+        "on": true,
+        "detail": "허용 폴더 안에서만 읽기/쓰기"
+      },
+      {
+        "key": "analysis",
+        "icon": "📊",
+        "label": "데이터 분석",
+        "on": true,
+        "detail": "결정론적 계산 (LLM이 산수 안 함)"
+      },
+      {
+        "key": "report",
+        "icon": "📄",
+        "label": "보고서 생성",
+        "on": true,
+        "detail": "새 버전 파일만 (덮어쓰기 없음)"
+      },
+      {
+        "key": "web",
+        "icon": "🔍",
+        "label": "웹 검색",
+        "on": false,
+        "detail": "외부 자료 조회 (옵션)"
+      },
+      {
+        "key": "global_llm",
+        "icon": "🌐",
+        "label": "글로벌 LLM",
+        "on": false,
+        "detail": "기본=로컬. 필요 시 API 연결 (옵션)"
+      }
+    ],
+    "file_paths": [],
+    "mcp": [
+      {
+        "key": "gdrive",
+        "name": "Google Drive",
+        "icon": "📂",
+        "connected": true
+      },
+      {
+        "key": "sheets",
+        "name": "Google Sheets",
+        "icon": "📊",
+        "connected": true
+      }
+    ],
+    "deployment": {
+      "platform": null,
+      "channel": "",
+      "status": "미배치"
+    }
+  },
+  {
+    "id": "agent-8d79fe",
+    "name": "내부통제 점검",
+    "icon": "🔍",
+    "role": "준법·내부감사",
+    "purpose": "규정 준수 체크리스트 점검",
+    "status": "draft",
+    "job": "compliance_aml",
+    "tone": [
+      "정중"
+    ],
+    "llm_key": "builtin",
+    "model": "내장 LLM",
+    "created_at": "2026-07-22",
+    "created_by": "황소이 선임",
+    "capabilities": [
+      {
+        "key": "file",
+        "icon": "📁",
+        "label": "파일 접근",
+        "on": true,
+        "detail": "허용 폴더 안에서만 읽기/쓰기"
+      },
+      {
+        "key": "analysis",
+        "icon": "📊",
+        "label": "데이터 분석",
+        "on": true,
+        "detail": "결정론적 계산 (LLM이 산수 안 함)"
+      },
+      {
+        "key": "report",
+        "icon": "📄",
+        "label": "보고서 생성",
+        "on": true,
+        "detail": "새 버전 파일만 (덮어쓰기 없음)"
+      },
+      {
+        "key": "web",
+        "icon": "🔍",
+        "label": "웹 검색",
+        "on": false,
+        "detail": "외부 자료 조회 (옵션)"
+      },
+      {
+        "key": "global_llm",
+        "icon": "🌐",
+        "label": "글로벌 LLM",
+        "on": false,
+        "detail": "기본=로컬. 필요 시 API 연결 (옵션)"
+      }
+    ],
+    "file_paths": [],
+    "mcp": [
+      {
+        "key": "gdrive",
+        "name": "Google Drive",
+        "icon": "📂",
+        "connected": true
+      },
+      {
+        "key": "sheets",
+        "name": "Google Sheets",
+        "icon": "📊",
+        "connected": true
+      }
+    ],
+    "deployment": {
+      "platform": null,
+      "channel": "",
+      "status": "미배치"
+    }
+  },
+  {
+    "id": "agent-2821ab",
+    "name": "규제·제재 모니터링",
+    "icon": "📄",
+    "role": "준법·내부감사",
+    "purpose": "규제 변경·제재 리스트 업데이트 요약",
+    "status": "draft",
+    "job": "compliance_aml",
+    "tone": [
+      "정중"
+    ],
+    "llm_key": "builtin",
+    "model": "내장 LLM",
+    "created_at": "2026-07-22",
+    "created_by": "황소이 선임",
+    "capabilities": [
+      {
+        "key": "file",
+        "icon": "📁",
+        "label": "파일 접근",
+        "on": true,
+        "detail": "허용 폴더 안에서만 읽기/쓰기"
+      },
+      {
+        "key": "analysis",
+        "icon": "📊",
+        "label": "데이터 분석",
+        "on": true,
+        "detail": "결정론적 계산 (LLM이 산수 안 함)"
+      },
+      {
+        "key": "report",
+        "icon": "📄",
+        "label": "보고서 생성",
+        "on": true,
+        "detail": "새 버전 파일만 (덮어쓰기 없음)"
+      },
+      {
+        "key": "web",
+        "icon": "🔍",
+        "label": "웹 검색",
+        "on": false,
+        "detail": "외부 자료 조회 (옵션)"
+      },
+      {
+        "key": "global_llm",
+        "icon": "🌐",
+        "label": "글로벌 LLM",
+        "on": false,
+        "detail": "기본=로컬. 필요 시 API 연결 (옵션)"
+      }
+    ],
+    "file_paths": [],
+    "mcp": [
+      {
+        "key": "gdrive",
+        "name": "Google Drive",
+        "icon": "📂",
+        "connected": true
+      },
+      {
+        "key": "sheets",
+        "name": "Google Sheets",
+        "icon": "📊",
+        "connected": true
+      }
+    ],
+    "deployment": {
+      "platform": null,
+      "channel": "",
+      "status": "미배치"
+    }
+  },
+  {
+    "id": "agent-67b969",
+    "name": "부가세 대사 도우미",
+    "icon": "🧾",
+    "role": "재무·회계",
+    "purpose": "매입·매출 원장 대사 → 부가세 신고 초안",
+    "status": "draft",
+    "job": "vat_reconcile",
+    "tone": [
+      "정중"
+    ],
+    "llm_key": "builtin",
+    "model": "내장 LLM",
+    "created_at": "2026-07-22",
+    "created_by": "황소이 선임",
+    "capabilities": [
+      {
+        "key": "file",
+        "icon": "📁",
+        "label": "파일 접근",
+        "on": true,
+        "detail": "허용 폴더 안에서만 읽기/쓰기"
+      },
+      {
+        "key": "analysis",
+        "icon": "📊",
+        "label": "데이터 분석",
+        "on": true,
+        "detail": "결정론적 계산 (LLM이 산수 안 함)"
+      },
+      {
+        "key": "report",
+        "icon": "📄",
+        "label": "보고서 생성",
+        "on": true,
+        "detail": "새 버전 파일만 (덮어쓰기 없음)"
+      },
+      {
+        "key": "web",
+        "icon": "🔍",
+        "label": "웹 검색",
+        "on": false,
+        "detail": "외부 자료 조회 (옵션)"
+      },
+      {
+        "key": "global_llm",
+        "icon": "🌐",
+        "label": "글로벌 LLM",
+        "on": false,
+        "detail": "기본=로컬. 필요 시 API 연결 (옵션)"
+      }
+    ],
+    "file_paths": [],
+    "mcp": [
+      {
+        "key": "hometax",
+        "name": "국세청 홈택스",
+        "icon": "🏛️",
+        "connected": true
+      },
+      {
+        "key": "erp",
+        "name": "사내 ERP (더존)",
+        "icon": "🗄️",
+        "connected": true
+      },
+      {
+        "key": "sheets",
+        "name": "Google Sheets",
+        "icon": "📊",
+        "connected": true
+      },
+      {
+        "key": "gdrive",
+        "name": "Google Drive",
+        "icon": "📂",
+        "connected": true
+      }
+    ],
+    "deployment": {
+      "platform": null,
+      "channel": "",
+      "status": "미배치"
+    }
+  },
+  {
+    "id": "agent-99a7a9",
+    "name": "월마감 보고서",
+    "icon": "📊",
+    "role": "재무·회계",
+    "purpose": "부서별 매출 집계 · 전월 대비 리포트",
+    "status": "draft",
+    "job": "vat_reconcile",
+    "tone": [
+      "정중"
+    ],
+    "llm_key": "builtin",
+    "model": "내장 LLM",
+    "created_at": "2026-07-22",
+    "created_by": "황소이 선임",
+    "capabilities": [
+      {
+        "key": "file",
+        "icon": "📁",
+        "label": "파일 접근",
+        "on": true,
+        "detail": "허용 폴더 안에서만 읽기/쓰기"
+      },
+      {
+        "key": "analysis",
+        "icon": "📊",
+        "label": "데이터 분석",
+        "on": true,
+        "detail": "결정론적 계산 (LLM이 산수 안 함)"
+      },
+      {
+        "key": "report",
+        "icon": "📄",
+        "label": "보고서 생성",
+        "on": true,
+        "detail": "새 버전 파일만 (덮어쓰기 없음)"
+      },
+      {
+        "key": "web",
+        "icon": "🔍",
+        "label": "웹 검색",
+        "on": false,
+        "detail": "외부 자료 조회 (옵션)"
+      },
+      {
+        "key": "global_llm",
+        "icon": "🌐",
+        "label": "글로벌 LLM",
+        "on": false,
+        "detail": "기본=로컬. 필요 시 API 연결 (옵션)"
+      }
+    ],
+    "file_paths": [],
+    "mcp": [
+      {
+        "key": "hometax",
+        "name": "국세청 홈택스",
+        "icon": "🏛️",
+        "connected": true
+      },
+      {
+        "key": "erp",
+        "name": "사내 ERP (더존)",
+        "icon": "🗄️",
+        "connected": true
+      },
+      {
+        "key": "sheets",
+        "name": "Google Sheets",
+        "icon": "📊",
+        "connected": true
+      },
+      {
+        "key": "gdrive",
+        "name": "Google Drive",
+        "icon": "📂",
+        "connected": true
+      }
+    ],
+    "deployment": {
+      "platform": null,
+      "channel": "",
+      "status": "미배치"
+    }
+  },
+  {
+    "id": "agent-220d09",
+    "name": "지출결의 요약",
+    "icon": "🧮",
+    "role": "재무·회계",
+    "purpose": "지출 증빙 요약 · 분류 · 결재 초안",
+    "status": "draft",
+    "job": "vat_reconcile",
+    "tone": [
+      "정중"
+    ],
+    "llm_key": "builtin",
+    "model": "내장 LLM",
+    "created_at": "2026-07-22",
+    "created_by": "황소이 선임",
+    "capabilities": [
+      {
+        "key": "file",
+        "icon": "📁",
+        "label": "파일 접근",
+        "on": true,
+        "detail": "허용 폴더 안에서만 읽기/쓰기"
+      },
+      {
+        "key": "analysis",
+        "icon": "📊",
+        "label": "데이터 분석",
+        "on": true,
+        "detail": "결정론적 계산 (LLM이 산수 안 함)"
+      },
+      {
+        "key": "report",
+        "icon": "📄",
+        "label": "보고서 생성",
+        "on": true,
+        "detail": "새 버전 파일만 (덮어쓰기 없음)"
+      },
+      {
+        "key": "web",
+        "icon": "🔍",
+        "label": "웹 검색",
+        "on": false,
+        "detail": "외부 자료 조회 (옵션)"
+      },
+      {
+        "key": "global_llm",
+        "icon": "🌐",
+        "label": "글로벌 LLM",
+        "on": false,
+        "detail": "기본=로컬. 필요 시 API 연결 (옵션)"
+      }
+    ],
+    "file_paths": [],
+    "mcp": [
+      {
+        "key": "hometax",
+        "name": "국세청 홈택스",
+        "icon": "🏛️",
+        "connected": true
+      },
+      {
+        "key": "erp",
+        "name": "사내 ERP (더존)",
+        "icon": "🗄️",
+        "connected": true
+      },
+      {
+        "key": "sheets",
+        "name": "Google Sheets",
+        "icon": "📊",
+        "connected": true
+      },
+      {
+        "key": "gdrive",
+        "name": "Google Drive",
+        "icon": "📂",
+        "connected": true
+      }
+    ],
+    "deployment": {
+      "platform": null,
+      "channel": "",
+      "status": "미배치"
+    }
+  },
+  {
+    "id": "agent-8a2c18",
+    "name": "예산 집행 현황",
+    "icon": "💰",
+    "role": "재무·회계",
+    "purpose": "부서별 예산 소진율 집계 · 초과 항목 알림",
+    "status": "draft",
+    "job": "vat_reconcile",
+    "tone": [
+      "정중"
+    ],
+    "llm_key": "builtin",
+    "model": "내장 LLM",
+    "created_at": "2026-07-22",
+    "created_by": "황소이 선임",
+    "capabilities": [
+      {
+        "key": "file",
+        "icon": "📁",
+        "label": "파일 접근",
+        "on": true,
+        "detail": "허용 폴더 안에서만 읽기/쓰기"
+      },
+      {
+        "key": "analysis",
+        "icon": "📊",
+        "label": "데이터 분석",
+        "on": true,
+        "detail": "결정론적 계산 (LLM이 산수 안 함)"
+      },
+      {
+        "key": "report",
+        "icon": "📄",
+        "label": "보고서 생성",
+        "on": true,
+        "detail": "새 버전 파일만 (덮어쓰기 없음)"
+      },
+      {
+        "key": "web",
+        "icon": "🔍",
+        "label": "웹 검색",
+        "on": false,
+        "detail": "외부 자료 조회 (옵션)"
+      },
+      {
+        "key": "global_llm",
+        "icon": "🌐",
+        "label": "글로벌 LLM",
+        "on": false,
+        "detail": "기본=로컬. 필요 시 API 연결 (옵션)"
+      }
+    ],
+    "file_paths": [],
+    "mcp": [
+      {
+        "key": "hometax",
+        "name": "국세청 홈택스",
+        "icon": "🏛️",
+        "connected": true
+      },
+      {
+        "key": "erp",
+        "name": "사내 ERP (더존)",
+        "icon": "🗄️",
+        "connected": true
+      },
+      {
+        "key": "sheets",
+        "name": "Google Sheets",
+        "icon": "📊",
+        "connected": true
+      },
+      {
+        "key": "gdrive",
+        "name": "Google Drive",
+        "icon": "📂",
+        "connected": true
+      }
+    ],
+    "deployment": {
+      "platform": "slack",
+      "channel": "#예산-집행-현황",
+      "status": "배치됨"
+    }
+  },
+  {
+    "id": "agent-312c92",
+    "name": "세금계산서 검증",
+    "icon": "🧾",
+    "role": "재무·회계",
+    "purpose": "매입·매출 세금계산서 누락·불일치 자동 점검",
+    "status": "draft",
+    "job": "vat_reconcile",
+    "tone": [
+      "정중"
+    ],
+    "llm_key": "builtin",
+    "model": "내장 LLM",
+    "created_at": "2026-07-22",
+    "created_by": "황소이 선임",
+    "capabilities": [
+      {
+        "key": "file",
+        "icon": "📁",
+        "label": "파일 접근",
+        "on": true,
+        "detail": "허용 폴더 안에서만 읽기/쓰기"
+      },
+      {
+        "key": "analysis",
+        "icon": "📊",
+        "label": "데이터 분석",
+        "on": true,
+        "detail": "결정론적 계산 (LLM이 산수 안 함)"
+      },
+      {
+        "key": "report",
+        "icon": "📄",
+        "label": "보고서 생성",
+        "on": true,
+        "detail": "새 버전 파일만 (덮어쓰기 없음)"
+      },
+      {
+        "key": "web",
+        "icon": "🔍",
+        "label": "웹 검색",
+        "on": false,
+        "detail": "외부 자료 조회 (옵션)"
+      },
+      {
+        "key": "global_llm",
+        "icon": "🌐",
+        "label": "글로벌 LLM",
+        "on": false,
+        "detail": "기본=로컬. 필요 시 API 연결 (옵션)"
+      }
+    ],
+    "file_paths": [],
+    "mcp": [
+      {
+        "key": "hometax",
+        "name": "국세청 홈택스",
+        "icon": "🏛️",
+        "connected": true
+      },
+      {
+        "key": "erp",
+        "name": "사내 ERP (더존)",
+        "icon": "🗄️",
+        "connected": true
+      },
+      {
+        "key": "sheets",
+        "name": "Google Sheets",
+        "icon": "📊",
+        "connected": true
+      },
+      {
+        "key": "gdrive",
+        "name": "Google Drive",
+        "icon": "📂",
+        "connected": true
+      }
+    ],
+    "deployment": {
+      "platform": "slack",
+      "channel": "#재무팀",
+      "status": "배치됨"
+    }
+  }
+]

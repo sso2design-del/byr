@@ -1,0 +1,175 @@
+/* Byr 고객센터 — design-to-code study
+   구조·치수는 sanalabs 의 헬프센터(help.sana.ai)를 1440px 에서 실측해 옮겼다.
+     컨테이너   960px
+     상단 밴드  높이 267 · padding-bottom 36 · 원본 배경 rgb(228,239,247)
+     H1        28px / 34.72 / 700 / ls normal
+     검색창    960×63
+     카드      468×219 · radius 8 · 1px rgb(230,230,230) · 0 1px 2px rgba(0,0,0,.05)
+     카드 제목 16 / 24 / 600 · 설명 16 / 25.6 · 좌우 패딩 24
+     그리드    2열 · gap 24
+     푸터      18px · rgb(146,155,165) · 가운데
+   색은 우리 것으로 바꿨다 — 랜딩과 같은 모노톤이라 밴드는 회색면(#F2F2F3)이다.
+   카피·아이콘·링크는 전부 Byr 것이고 원본 자산은 쓰지 않았다. */
+
+@font-face { font-family:'Pretendard'; src:url('../assets/fonts/Pretendard-Regular.woff2')  format('woff2'); font-weight:400; font-display:swap; }
+@font-face { font-family:'Pretendard'; src:url('../assets/fonts/Pretendard-Medium.woff2')   format('woff2'); font-weight:500; font-display:swap; }
+@font-face { font-family:'Pretendard'; src:url('../assets/fonts/Pretendard-SemiBold.woff2') format('woff2'); font-weight:600; font-display:swap; }
+
+:root {
+  --ink:  #0A0A0A;
+  --mut:  #595959;
+  --fai:  #8E8E93;
+  --line: #E6E6E6;
+  --surf: #F2F2F3;
+  --fill: #111111;
+  --w: 960px;
+  --font: 'Pretendard', system-ui, -apple-system, 'Apple SD Gothic Neo', 'Segoe UI', sans-serif;
+  --ease: cubic-bezier(.22, 1, .36, 1);
+}
+
+* { box-sizing: border-box; }
+html { background: #fff; scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: var(--font);
+  font-size: 16px;
+  line-height: 1.6;
+  word-break: keep-all;        /* 한국어는 어절 단위로 줄바꿈 — '메/신저'처럼 단어 중간에서 끊기지 않게 */
+  overflow-wrap: break-word;
+  color: var(--ink);
+  background: #fff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+a { color: inherit; text-decoration: none; }
+h1, h2, h3, p { margin: 0; }
+svg { display: block; }
+
+/* 아이콘 — 스프라이트 루트에 준 stroke 속성은 <use> 로 상속되지 않는다.
+   쓰는 쪽에서 다시 지정한다(랜딩과 같은 lucide 결: fill none · stroke 1.5). */
+.find__ico, .cat__ico, .feat .row svg {
+  fill: none; stroke: currentColor; stroke-width: 1.5;
+  stroke-linecap: round; stroke-linejoin: round;
+}
+.brand .mark { stroke: none; }
+
+.wrap { width: min(var(--w), 100% - 48px); margin-inline: auto; }
+
+/* ── 상단 밴드 ─────────────────────────────────────────── */
+.band { background: var(--surf); padding: 28px 0 36px; }
+.brand { display: inline-flex; align-items: center; gap: 9px; font-weight: 600; letter-spacing: -.2px; }
+.brand .mark { width: 26px; height: 26px; }
+.band h1 {
+  margin-top: 44px;
+  font-size: 28px; line-height: 34.72px; font-weight: 700; text-align: center;
+  text-wrap: balance;
+}
+.find {
+  position: relative; margin-top: 24px; height: 63px;
+  display: flex; align-items: center; gap: 12px;
+  padding: 0 20px;
+  background: #fff; border: 1px solid var(--line); border-radius: 10px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, .05);
+  transition: border-color .15s linear, box-shadow .15s linear;
+}
+.find:focus-within { border-color: #C8C8CC; box-shadow: 0 0 0 3px rgba(10, 10, 10, .06); }
+.find__ico { width: 20px; height: 20px; color: var(--mut); flex: none; }
+.find input {
+  flex: 1; min-width: 0; height: 100%;
+  border: 0; outline: 0; background: none;
+  font: inherit; font-size: 16px; color: var(--ink);
+}
+.find input::placeholder { color: var(--fai); }
+.find input::-webkit-search-cancel-button { -webkit-appearance: none; }
+
+/* ── 본문 ──────────────────────────────────────────────── */
+.main { padding: 48px 0 88px; }
+
+/* 강조 카드 — 제목 22/700/lh40 + 구분선으로 나뉜 행 */
+.feat {
+  border: 1px solid var(--line); border-radius: 8px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, .05);
+  padding: 20px 24px 8px;
+  margin-bottom: 40px;
+}
+.feat h2 { font-size: 22px; line-height: 32px; font-weight: 700; letter-spacing: -.3px; }
+.feat .row {
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 18px 0;
+  border-top: 1px solid var(--line);
+  color: var(--ink);
+  transition: color .15s linear;
+}
+.feat .row:first-of-type { margin-top: 12px; }
+.feat .row:hover { color: var(--mut); }
+.feat .row svg { width: 18px; height: 18px; flex: none; color: var(--fai); }
+
+/* 카테고리 카드 */
+.cats { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.cat {
+  border: 1px solid var(--line); border-radius: 8px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, .05);
+  padding: 24px;
+  display: grid; align-content: start;
+  transition: box-shadow .15s linear, transform .2s var(--ease);
+}
+.cat:hover { box-shadow: 0 2px 10px rgba(0, 0, 0, .07); transform: translateY(-2px); }
+.cat__ico { width: 26px; height: 26px; color: var(--ink); margin-bottom: 24px; }
+.cat h3 { font-size: 16px; line-height: 24px; font-weight: 600; }
+.cat p { margin-top: 8px; font-size: 16px; line-height: 25.6px; color: var(--mut); }
+.cat__meta {
+  margin-top: 20px; font-size: 13px; color: var(--fai);
+  display: inline-flex; align-items: center; gap: 6px;
+}
+.cat__meta::after {
+  content: ''; width: 6px; height: 6px;
+  border-top: 1.4px solid currentColor; border-right: 1.4px solid currentColor;
+  transform: rotate(45deg);
+}
+
+.empty { margin-top: 32px; text-align: center; color: var(--mut); }
+
+/* 문의 유도 — 원본은 이 자리에 메신저 버튼이 뜬다 */
+.ask {
+  margin-top: 56px; padding: 40px 24px;
+  border-radius: 8px; background: var(--surf);
+  text-align: center;
+}
+.ask h2 { font-size: 20px; line-height: 28px; font-weight: 600; }
+.ask p { margin-top: 8px; color: var(--mut); }
+.ask__acts { margin-top: 20px; display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  height: 44px; padding: 0 20px; border-radius: 999px;
+  font-size: 15px; font-weight: 500;
+  transition: background-color .15s linear, color .15s linear, border-color .15s linear;
+}
+.btn--fill { background: var(--fill); color: #fff; }
+.btn--fill:hover { background: #000; }
+.btn--line { border: 1px solid #D4D4D8; background: #fff; }
+.btn--line:hover { border-color: var(--ink); }
+
+/* ── 푸터 ──────────────────────────────────────────────── */
+.foot { padding: 40px 0 64px; text-align: center; }
+.foot a { font-size: 18px; color: var(--fai); transition: color .15s linear; }
+.foot a:hover { color: var(--mut); }
+
+/* ── 반응형 — 원본은 834/375 에서 1열로 접힌다 ─────────── */
+@media (max-width: 860px) {
+  .cats { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+  .wrap { width: calc(100% - 32px); }
+  .band h1 { margin-top: 32px; font-size: 24px; line-height: 32px; }
+  .find { height: 56px; padding: 0 16px; }
+  .main { padding: 36px 0 64px; }
+  .feat { padding: 18px 20px 6px; }
+  .feat h2 { font-size: 19px; line-height: 28px; }
+  .cat { padding: 20px; }
+  .cat__ico { margin-bottom: 18px; }
+  .ask { padding: 32px 20px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition-duration: .01ms !important; }
+}

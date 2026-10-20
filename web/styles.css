@@ -1,0 +1,1745 @@
+/* Byr 서비스 소개 — design-to-code study
+   레이아웃·타이포·모션 문법은 nor.ma 를 1440px 에서 실측해 옮겼다. 아래 숫자는 전부 계측값이다.
+     컨테이너  x=232 w=976        (내비 내부 1040 − 좌우 패딩 32)
+     내비      position:fixed · top:28px · z:50
+     전면 패널 좌우 16px 인셋 · radius 28
+     라운드    999(필) 61회 · 28px 15회 · 16px 7회 · 12px 4회
+     배경      #FFFFFF 38회 · #111111 23회 · #F5F5F5 16회
+     글자      #0A0A0A / #6B6B6B / #A1A1A1 — 원본은 완전 무채색이다
+     이징      cubic-bezier(.22,1,.36,1) · 리빌은 opacity·filter·transform 0.7s
+   아트·카피·브랜드는 전부 Byr 것이다. 원본 자산은 한 장도 쓰지 않았다. */
+
+@font-face { font-family:'Pretendard'; src:url('assets/fonts/Pretendard-Regular.woff2')  format('woff2'); font-weight:400; font-display:swap; }
+@font-face { font-family:'Pretendard'; src:url('assets/fonts/Pretendard-Medium.woff2')   format('woff2'); font-weight:500; font-display:swap; }
+@font-face { font-family:'Pretendard'; src:url('assets/fonts/Pretendard-SemiBold.woff2') format('woff2'); font-weight:600; font-display:swap; }
+
+:root {
+  /* 치수 — 전부 실측 */
+  --w: 976px;
+  --nav-w: 1040px;
+  --inset: 16px;
+  --r-card: 28px;
+  --r-in: 16px;
+  --r-chip: 12px;
+  --pill: 999px;
+
+  /* 색 — 모노톤. 2026-07-30 결정: 메인컬러를 틸에서 블랙으로 바꿨다.
+     액센트는 색이 아니라 명도로 만든다(검정 채움 · 회색 면 · 흰 반전). */
+  --ink:   #0A0A0A;
+  --mut:   #6B6B6B;
+  --fai:   #A1A1A1;
+  --line:  #E5E5E5;
+  --bg:    #FFFFFF;
+  --surf:  #F5F5F5;
+  --dark:  #111111;   /* 채워진 어두운 면 — 원본 실측 23회 */
+  --fill:  #111111;   /* 검정 채움 버튼·표 열. 글자색(#0A0A0A)과 구분한다 */
+  --dark2: #1A1A1A;
+  --point: #0A0A0A;        /* 액센트 = 검정. 밝은 면의 포커스 링·강조에 쓴다 */
+  --point-on-dark: #FFFFFF; /* 어두운 면에서는 흰색으로 뒤집는다 */
+
+  --font: 'Pretendard', system-ui, -apple-system, 'Apple SD Gothic Neo', 'Segoe UI', sans-serif;
+  --ease: cubic-bezier(.22, 1, .36, 1);
+  --snap: cubic-bezier(.4, 0, .2, 1);
+
+  /* Byr 심볼마크 — 2색 SVG를 변수로 뒤집는다 */
+  --mark-tile: var(--ink);
+  --mark-glyph: #fff;
+}
+
+* { box-sizing: border-box; }
+html { background: var(--bg); scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: var(--font);
+  font-size: 16px;
+  line-height: 1.55;
+  word-break: keep-all;        /* 한국어는 어절 단위로 줄바꿈 — '메/신저'처럼 단어 중간에서 끊기지 않게 */
+  overflow-wrap: break-word;
+  color: var(--ink);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+img, video { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+h1, h2, h3, h4, p { margin: 0; }
+:focus-visible { outline: 2px solid var(--point); outline-offset: 3px; border-radius: 6px; }
+/* 어두운 면에서 검정 링은 안 보인다 — 흰색으로 뒤집는다 */
+.s-tabs :focus-visible, .s-media :focus-visible, .s-final :focus-visible,
+.hero :focus-visible { outline-color: var(--point-on-dark); }
+
+/* ── 타이포 스케일 ─────────────────────────────────────
+   실측 h1 56/57.12 w600 ls-1.68 · h2 36/39.6 w600 ls-0.54 · h4 17/23.375 w600 ls-0.17
+        리드 17/25.5 w400 · 본문 16/24.8 w400 · 메타 13/19.5 w400 */
+h1 { font-size: 56px; line-height: 57.12px; font-weight: 600; letter-spacing: -1.68px; text-wrap: balance; }
+h2 { font-size: 36px; line-height: 39.6px; font-weight: 600; letter-spacing: -.54px; text-wrap: balance; }
+h3, h4 { font-size: 17px; line-height: 23.375px; font-weight: 600; letter-spacing: -.17px; }
+.lead { font-size: 17px; line-height: 25.5px; color: var(--mut); text-wrap: pretty; }
+.body { font-size: 16px; line-height: 24.8px; color: var(--mut); text-wrap: pretty; }
+.meta { font-size: 13px; line-height: 19.5px; color: var(--mut); }  /* 원본은 #A1A1A1 이나 2.58:1 이라 못 쓴다 */
+
+.wrap { width: min(var(--w), 100% - 48px); margin-inline: auto; }
+
+.mark { display: inline-block; flex-shrink: 0; vertical-align: middle; }
+.mark--sm { width: 20px; height: 20px; }
+.mark--inline { width: .74em; height: .74em; vertical-align: -.04em; margin-left: .14em; }
+
+/* ── 내비 — 떠 있는 알약 세 덩어리 (실측 fixed · top 28 · 내부 1040) ── */
+.nav {
+  position: fixed; inset: 28px 0 auto; z-index: 50;
+  width: var(--nav-w); max-width: calc(100% - 32px); margin-inline: auto;
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+}
+.navgroup {
+  /* 투명 유리 — 히어로 글래스 카드와 같은 문법이되 틴트를 거의 비웠다.
+     내비는 어두운 히어로와 흰 본문 위를 모두 지나가므로, 하나의 색으로는 양쪽을 못 만족한다.
+     그래서 유리는 투명하게 두고 히어로를 지나면 .is-light 로 갈아탄다(글씨·마크 반전). */
+  display: flex; align-items: center; gap: 2px; padding: 4px;
+  background:
+    linear-gradient(210deg, rgba(255,255,255,.24) 0%, rgba(255,255,255,0) 38%),
+    rgba(255, 255, 255, .10);
+  -webkit-backdrop-filter: blur(16px) saturate(1.5); backdrop-filter: blur(16px) saturate(1.5);
+  border-radius: var(--pill);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.24), 0 8px 26px rgba(10, 10, 20, .18);
+  transition: background-color .3s var(--ease), box-shadow .3s var(--ease);
+}
+/* 로고는 유리 없이 마크와 이름만. 알약(44px)을 벗기면서 작아 보여서
+   높이를 알약과 맞추고 마크·글자를 키웠다 — 마크 20 → 30px, 이름 15 → 18px. */
+.nav .brand {
+  background: none; box-shadow: none; padding: 0 6px 0 0;
+  -webkit-backdrop-filter: none; backdrop-filter: none;
+  height: 44px; gap: 10px; font-size: 18px; letter-spacing: -.3px;
+}
+.nav .brand .mark--sm { width: 30px; height: 30px; }
+.nav { --mark-tile: #fff; --mark-glyph: #0A0A0A; }
+.brand {
+  color: #fff;
+  display: flex; align-items: center; gap: 8px;
+  height: 36px; padding: 0 16px 0 12px; border-radius: var(--pill);
+  font-size: 15px; font-weight: 600; letter-spacing: -.2px;
+}
+.nav__pill a {
+  display: flex; align-items: center; height: 36px; padding: 0 14px;
+  border-radius: var(--pill);
+  font-size: 14px; line-height: 21px; color: rgba(255,255,255,.78);
+  transition: color .2s var(--ease), background-color .2s var(--ease);
+}
+.nav__pill a:hover { color: #fff; background: rgba(255,255,255,.14); }
+
+/* ── 버튼 — 실측 라벨 14/21 w500 · 알약 · 검정 채움이 주 CTA ── */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  height: 36px; min-width: 44px; padding: 0 18px;
+  border: 0; border-radius: var(--pill);
+  font-family: inherit; font-size: 14px; line-height: 21px; font-weight: 500;
+  white-space: nowrap; cursor: pointer;
+  transition: background-color .2s var(--ease), color .2s var(--ease),
+              box-shadow .2s var(--ease), transform .15s var(--snap);
+}
+.btn:active { transform: scale(.96); }
+.btn--primary { background: var(--fill); color: #fff; }
+.btn--primary:hover { background: #262626; }
+.btn--ghost { background: transparent; color: var(--mut); }
+.btn--ghost:hover { color: var(--ink); background: rgba(10,10,10,.05); }
+/* 내비 안에서는 유리 위에 얹히므로 반전한다 */
+.nav .btn--ghost { color: rgba(255,255,255,.82); }
+.nav .btn--ghost:hover { color: #fff; background: rgba(255,255,255,.14); }
+.nav .btn--primary { background: #fff; color: var(--ink); }
+.nav .btn--primary:hover { background: #EDEDED; }
+
+/* 히어로를 지나 흰 본문 위로 올라오면 유리를 밝은 쪽으로 뒤집는다 — 투명함은 유지한다 */
+.nav.is-light { --mark-tile: var(--ink); --mark-glyph: #fff; }
+/* :not(.brand) — 로고는 유리를 두르지 않는다. 빼먹으면 밝은 모드에서 알약이 다시 붙는다 */
+.nav.is-light .navgroup:not(.brand) {
+  background:
+    linear-gradient(210deg, rgba(255,255,255,.5) 0%, rgba(255,255,255,.16) 38%),
+    rgba(255, 255, 255, .62);
+  box-shadow: inset 0 0 0 1px rgba(10,10,10,.09), 0 8px 26px rgba(10, 10, 10, .09);
+}
+.nav.is-light .brand { color: var(--ink); }
+.nav.is-light .nav__pill a { color: var(--mut); }
+.nav.is-light .nav__pill a:hover { color: var(--ink); background: rgba(10,10,10,.06); }
+.nav.is-light .btn--ghost { color: var(--mut); }
+.nav.is-light .btn--ghost:hover { color: var(--ink); background: rgba(10,10,10,.06); }
+.nav.is-light .btn--primary { background: var(--fill); color: #fff; }
+.nav.is-light .btn--primary:hover { background: #262626; }
+.btn--line { background: #fff; color: var(--ink); box-shadow: inset 0 0 0 1px var(--line); }
+.btn--line:hover { box-shadow: inset 0 0 0 1px #CFCFCF; }
+.btn--onlight { background: #fff; color: var(--ink); }
+.btn--onlight:hover { background: #EDEDED; }
+.btn--onlight-line { background: transparent; color: #fff; box-shadow: inset 0 0 0 1px rgba(255,255,255,.3); }
+.btn--onlight-line:hover { background: rgba(255,255,255,.09); }
+.btn--lg { height: 48px; padding: 0 26px; font-size: 15px; }
+
+/* ── 1 · 히어로 — superhuman 문법 (실측): 풀블리드 다크 · 가운데 정렬 · 떠 있는 글래스 카드
+   원본: 배경 fixed 비디오 + 퍼플/블루 그라디언트 워시, H1 64/lh.96 w600 센터, 서브 26 센터,
+         단일 CTA 다크 알약 radius12 h50 + 그라디언트 화살표 칩, hero-card backdrop blur(12) radius16.
+   Byr: 퍼플 → 틸/모노톤, 인물사진 → 콘솔 UI 글래스 카드. */
+.hero {
+  position: relative; isolation: isolate; overflow: hidden;
+  min-height: 128vh;                           /* 인물 확대 + 하단 간격 확보 위해 더 높게 */
+  display: grid; align-content: start;
+  padding: clamp(150px, 19vh, 220px) 24px 0;   /* 내비(하단 72px)와 H1 사이를 벌린다 — 58px → 120px대 */
+  text-align: center;
+}
+/* 요청 반영: 인물 "뒤" 그라데이션 제거 (내부 그라데이션으로 처리) */
+.hero::before {
+  content: none;
+}
+.hero__bg { position: absolute; inset: 0; z-index: -1; background: transparent; }
+.hero__video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 1; }
+/* 고정 배경 이미지 — superhuman식 fixed(뷰포트 고정, 전경만 스크롤). 오피스 사진 */
+.hero__img {
+  position: absolute; inset: 0;
+  background-image: url('assets/img/hero-background-01.jpg');
+  background-position: center; background-size: cover; background-attachment: fixed;
+}
+.hero__wash {
+  position: absolute; inset: 0; overflow: hidden;
+  /* 요청 반영: 히어로 보라색 틴트 임시 제거 */
+  display: none;
+}
+/* 앰비언트 — 잔잔히 떠도는 라벤더·블루 광원 (superhuman 배경 비디오의 살아있는 느낌을 CSS로) */
+.hero__wash::before, .hero__wash::after {
+  content: ''; position: absolute; border-radius: 50%;
+  filter: blur(70px); will-change: transform;
+}
+.hero__wash::before {
+  width: 680px; height: 680px; left: 2%; top: -16%;
+  background: radial-gradient(circle, rgba(188,183,232,.42), transparent 66%);   /* 밝은 라벤더 */
+  animation: aura-a 24s ease-in-out infinite;
+}
+.hero__wash::after {
+  width: 600px; height: 600px; right: 0%; bottom: -18%;
+  background: radial-gradient(circle, rgba(120,175,240,.36), transparent 66%);    /* 블루 */
+  animation: aura-b 30s ease-in-out infinite;
+}
+@keyframes aura-a { 0%,100% { transform: translate(0,0) } 50% { transform: translate(70px,46px) } }
+@keyframes aura-b { 0%,100% { transform: translate(0,0) } 50% { transform: translate(-56px,-34px) } }
+/* 흐르는 배경 레이어 — 회전·스케일하는 광원 뭉치 (superhuman 배경 비디오의 유동감) */
+.hero__flow {
+  position: absolute; inset: -22%; z-index: 0; pointer-events: none; opacity: .55;
+  /* 요청 반영: 히어로 보라 계열 광원 임시 제거 */
+  display: none;
+}
+@keyframes flow {
+  0%   { transform: translate(0,0) rotate(0deg) scale(1); }
+  50%  { transform: translate(2.5%, -3%) rotate(9deg) scale(1.1); }
+  100% { transform: translate(-2.5%, 2.5%) rotate(-7deg) scale(1.05); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero__wash::before, .hero__wash::after, .hero__flow { animation: none; }
+}
+
+/* 콘솔 사이드바 — 접힘(아이콘) 메뉴바. 글래스 */
+.hmenu {
+  position: absolute; z-index: 2; left: max(20px, calc(50% - 706px)); top: 336px;
+  display: grid; gap: 6px; padding: 10px; border-radius: 20px; justify-items: center;
+  background: linear-gradient(210deg, rgba(255,255,255,.18) 0%, rgba(255,255,255,0) 40%), rgba(24,20,46,.34);
+  -webkit-backdrop-filter: blur(12px) saturate(1.4); backdrop-filter: blur(12px) saturate(1.4);
+  border: 1px solid rgba(255,255,255,.14); box-shadow: 0 22px 54px rgba(18,12,42,.30);
+}
+.hmenu__i {
+  width: 44px; height: 44px; border-radius: 13px; display: grid; place-items: center;
+  color: rgba(255,255,255,.66); background: transparent;
+}
+.hmenu__i svg { width: 19px; height: 19px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+/* 활성 = superhuman식 반투명 버튼 (아이콘은 밝게 유지) */
+.hmenu__i--on { color: #fff; background: rgba(255,255,255,.2); box-shadow: inset 0 0 0 1px rgba(255,255,255,.3); }
+
+/* 채팅 카드 채널 라벨 (메신저로 맡기는) · 데이터 주권 마스킹 */
+.hc__chan { font-size: 11.5px; color: rgba(255,255,255,.6); margin: -4px 0 9px; }
+.hcard--sov { right: max(24px, calc(50% - 610px)); top: 500px; width: 300px; }
+.hc__mask {
+  margin: 4px 0 9px; padding: 8px 11px; border-radius: 9px;
+  background: rgba(255,255,255,.14); color: #fff; font-weight: 600; font-size: 12.5px;
+}
+.hc__stars { display: inline-block; letter-spacing: 2.5px; transform: translateY(3px); }  /* * 문자 위로 뜨는 것 보정 */
+
+/* 인물 포토 레이어 — 배경계열 역광(림라이트) + 내부 톤 결합 */
+.hero__portrait {
+  position: absolute; z-index: 1; inset: 0;
+  isolation: isolate;
+  background-image: url('assets/img/hero-portrait.png');
+  background-position: 52% bottom; background-size: min(1080px, 82%) auto; background-repeat: no-repeat;
+  filter: drop-shadow(0 16px 40px rgba(35, 44, 82, .34)) drop-shadow(0 4px 14px rgba(20, 26, 54, .24));
+}
+/* sana-hero.webp 레퍼런스 반영: 인물 내부 "왼쪽" 그림자(방향 수정 + 체감 강화) */
+.hero__portrait::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(to left, rgba(6, 10, 22, .64) 0%, rgba(8, 12, 24, .46) 24%, rgba(10, 16, 28, .24) 46%, rgba(10, 16, 28, .08) 62%, rgba(10, 16, 28, 0) 74%),
+    radial-gradient(36% 30% at 33% 38%, rgba(10, 16, 28, .30) 0%, rgba(10, 16, 28, 0) 72%),
+    radial-gradient(44% 38% at 40% 68%, rgba(10, 16, 28, .20) 0%, rgba(10, 16, 28, 0) 74%);
+  mix-blend-mode: normal;
+  opacity: .92;
+  -webkit-mask-image: url('assets/img/hero-portrait.png');
+  -webkit-mask-position: 52% bottom;
+  -webkit-mask-size: min(1080px, 82%) auto;
+  -webkit-mask-repeat: no-repeat;
+  mask-image: url('assets/img/hero-portrait.png');
+  mask-position: 52% bottom;
+  mask-size: min(1080px, 82%) auto;
+  mask-repeat: no-repeat;
+}
+/* 요청 반영: 역광 레이어 제거 (인물 뒤 어두운 그라데이션은 .hero::before에서 처리) */
+.hero__portrait::after {
+  content: none;
+}
+/* 2026-10-14 요청: 태블릿까지 첫 화면에 보이게 — 데스크톱에서 인물을 헤드카피 바로 아래에 둔다.
+   히어로를 첫 화면 높이(최소 800px)로 줄이고, 인물 크기를 화면 높이에서 역산한다:
+   이미지 높이 = 히어로 높이 − (상단 여백 + 헤드카피 블록 218px) + 40px
+   (+40 은 이미지 맨 위가 흐린 머리카락이라 부제 아래로 살짝 겹쳐도 되는 몫). 비율 2752:1536 = 1.7917.
+   인물 이미지 안에서 사람의 무게중심은 폭의 39.2% 지점(오른쪽에 태블릿) — 그 점을 화면 가운데에 맞춘다.
+   위 기본 규칙(.hero__portrait)을 덮어야 하므로 반드시 그 뒤에 둔다. */
+@media (min-width: 1081px) {
+  .hero {
+    min-height: max(100vh, 800px);
+    --pw: min(1080px, 82vw, calc((max(100vh, 800px) - clamp(150px, 19vh, 220px) - 178px) * 1.7917));
+  }
+  .hero__portrait {
+    background-size: var(--pw) auto;
+    background-position: calc(50vw - var(--pw) * .392) bottom;
+  }
+  .hero__portrait::before {
+    -webkit-mask-size: var(--pw) auto; mask-size: var(--pw) auto;
+    -webkit-mask-position: calc(50vw - var(--pw) * .392) bottom; mask-position: calc(50vw - var(--pw) * .392) bottom;
+  }
+}
+/* 스크림 — 2026-07-31 복구. 글자가 얹히는 위쪽만 어둡게 한다.
+   배경 영상이 주광이라 스크림 없이는 흰 글씨가 구름 위에서 사라진다(계측 1.19:1).
+   영상 자체는 그대로 두고, 헤드라인·서브가 있는 상단 46% 까지만 눌러
+   가운데 아래(인물·글래스 카드)는 원본 밝기로 남긴다. 색은 넣지 않는다(중립 어둠). */
+.hero__tint {
+  position: absolute; z-index: 1; inset: 0; pointer-events: none;
+  /* 2026-07-31 요청: 진하다 → 전면 스크림을 절반으로(.74/.64/.54/.20 → .37/.32/.27/.10).
+     그런데 절반만 하면 서브가 1.08:1 이라 다시 안 읽힌다(밝은 구름 위).
+     그래서 화면 전체를 어둡게 하는 대신, 글자가 있는 자리에만 부드러운 쿠션을 하나 더 얹는다 —
+     가장자리가 흐려서 덩어리로 보이지 않고, 사진은 요청대로 밝게 남는다. */
+  /* 2026-07-31 두 번째 요청: 더 연하게. 전면·쿠션 모두 다시 낮췄다.
+     전면 .37/.32/.27/.10 → .20/.17/.14/.05 · 쿠션 .58/.40/.12 → .40/.26/.08 */
+  background:
+    radial-gradient(58% 34% at 50% 17%,
+      rgba(8, 10, 14, .40) 0%, rgba(8, 10, 14, .26) 42%, rgba(8, 10, 14, .08) 72%, rgba(8, 10, 14, 0) 100%),
+    linear-gradient(180deg,
+      rgba(8, 10, 14, .20) 0%,
+      rgba(8, 10, 14, .17) 22%,
+      rgba(8, 10, 14, .14) 33%,
+      rgba(8, 10, 14, .05) 48%,
+      rgba(8, 10, 14, 0)   62%);
+}
+/* 스파클 파티클 캔버스 — 인물 위, 카드/텍스트 뒤. superhuman식 빛 점 반짝임 */
+.hero__spark { position: absolute; inset: 0; z-index: 1; pointer-events: none; }
+@media (prefers-reduced-motion: reduce) { .hero__spark { display: none; } }
+
+.hero__in { position: relative; z-index: 3; display: grid; justify-items: center; gap: 0; }
+.hero__h {
+  color: #fff; font-size: 60px; line-height: 60px; letter-spacing: -1.8px; font-weight: 600;
+  max-width: 900px; text-wrap: balance; text-shadow: 0 2px 24px rgba(30,24,60,.35);
+}
+.hero__sub {
+  margin-top: 22px; max-width: 600px;
+  font-size: 20px; line-height: 30px; font-weight: 400; color: rgba(255,255,255,.94); text-wrap: pretty;
+}
+/* 떠 있는 콘솔 UI 글래스 카드 — 원본 hero-card: backdrop blur, radius 16, 반투명 */
+/* superhuman 히어로 카드 실측 이식 — blur(12px) · radius16 · 상단 흰 sheen(15%) + 은은한 다크 틴트 ·
+   테두리/그림자 거의 없음 · 흰 텍스트(배경이 비쳐 어둡게) · 모노톤(포인트 컬러 없음) */
+.hcard {
+  position: absolute; z-index: 2; width: 340px; padding: 16px 16px 15px; border-radius: 16px;
+  background:
+    linear-gradient(210deg, rgba(255,255,255,.18) 0%, rgba(255,255,255,0) 32%),  /* 상단 흰 sheen(실측 15%) */
+    rgba(24,20,46,.30);                                                          /* 은은한 다크 틴트 */
+  -webkit-backdrop-filter: blur(12px) saturate(1.4); backdrop-filter: blur(12px) saturate(1.4);
+  border: 1px solid rgba(255,255,255,.14);
+  box-shadow: 0 22px 54px rgba(18,12,42,.30);
+  color: #fff; text-align: left;
+}
+.hcard--chat { left: max(24px, calc(50% - 610px)); top: 604px; }
+.hcard--log  { right: max(24px, calc(50% - 610px)); top: 336px; width: 316px; }
+.hc__row { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; }
+.hc__ava { width: 24px; height: 24px; border-radius: 7px; flex: none; display: grid; place-items: center;
+  font-size: 11px; font-weight: 700; color: #1A1A1F; background: rgba(255,255,255,.92); }
+.hc__name { font-size: 13px; font-weight: 600; letter-spacing: -.2px; color: #fff; }
+.hc__badge { margin-left: auto; display: inline-flex; align-items: center; gap: 5px;
+  height: 20px; padding: 0 9px; border-radius: 999px; font-size: 11px; font-weight: 500;
+  color: rgba(255,255,255,.72); background: rgba(255,255,255,.12); }
+.hc__badge i { width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+.hc__msg { font-size: 12.5px; line-height: 18px; color: rgba(255,255,255,.88);
+  background: rgba(255,255,255,.09); border-radius: 10px; padding: 8px 11px; margin-bottom: 7px; }
+.hc__msg--me { background: rgba(255,255,255,.17); color: #fff; margin-left: 40px; }
+.hc__act { display: flex; gap: 7px; margin-top: 10px; }
+.hc__pill { height: 28px; padding: 0 14px; border-radius: 999px; display: inline-flex; align-items: center;
+  font-size: 12px; font-weight: 600; background: #fff; color: #1A1A1F; }
+.hc__pill--o { background: transparent; color: rgba(255,255,255,.78); box-shadow: inset 0 0 0 1px rgba(255,255,255,.26); }
+.hc__line { font-size: 12px; line-height: 17px; color: rgba(255,255,255,.74);
+  display: flex; align-items: center; gap: 7px; padding: 6px 0; }
+.hc__line + .hc__line { border-top: 1px solid rgba(255,255,255,.1); }
+.hc__line--w i { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,.5); flex: none; }
+
+/* ── 8 · CTA ─────────────────────────────────────────── */
+.cta__acts { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+
+/* ── 9 · FAQ — 실측 문항 17/25.5 w500 · 행 구분선 1px ── */
+/* 제목 바로 아래에 목록이 붙어 있었다(계측 −13px — H2 의 글자 상자가 머리 블록보다 아래로
+   내려와 목록 첫 줄과 겹칠 정도였다). 다른 섹션의 머리↔내용 간격(36~48)에 맞춘다. */
+.faq__list { border-top: 1px solid var(--line); margin-top: 44px; }
+.faq__item { border-bottom: 1px solid var(--line); }
+.faq__item summary {
+  list-style: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: space-between; gap: 24px;
+  padding: 22px 4px; min-height: 44px;
+  font-size: 17px; line-height: 25.5px; font-weight: 500; color: var(--ink);
+  transition: color .2s var(--ease);
+}
+.faq__item summary::-webkit-details-marker { display: none; }
+.faq__item summary:hover { color: var(--mut); }
+.plus { position: relative; width: 16px; height: 16px; flex: none; }
+.plus::before, .plus::after {
+  content: ''; position: absolute; top: 50%; left: 0; right: 0; height: 1.5px;
+  background: var(--ink); transform: translateY(-50%);
+  transition: transform .3s var(--ease), opacity .3s var(--ease);
+}
+.plus::after { transform: translateY(-50%) rotate(90deg); }
+.faq__item[open] .plus::after { transform: translateY(-50%) rotate(0deg); opacity: 0; }
+.faq__item > p { padding: 0 60px 26px 4px; font-size: 16px; line-height: 24.8px; color: var(--mut); }
+
+/* ── 푸터 — sanalabs.com 실측 이식 ─────────────────────
+   상단 1px 구분선 · 좌 로고 / 우 3열 링크(열 제목 14 w600, 링크 14 회색 · 행 간격 28)
+   · 아래 얇은 줄에 저작권. 원본은 뉴스레터 구독과 SNS 가 더 있는데 우리는 아직 없어서 뺐다. */
+.foot { border-top: 1px solid var(--line); padding: 64px 0 40px; margin-top: 24px; }
+.foot__in { display: grid; grid-template-columns: 1fr auto; gap: 48px; }
+.foot__brand .mark { width: 34px; height: 34px; }
+.foot__cols { display: grid; grid-template-columns: repeat(4, minmax(140px, 190px)); gap: 36px; }
+.foot__col { display: grid; align-content: start; gap: 14px; }
+.foot__h { font-size: 14px; font-weight: 600; letter-spacing: -.2px; margin-bottom: 2px; }
+.foot__col a {
+  font-size: 14px; line-height: 20px; color: var(--mut);
+  transition: color .2s var(--ease);
+}
+.foot__col a:hover { color: var(--ink); }
+/* 바깥으로 나가는 링크 — 새 탭으로 열린다는 표시 */
+.foot__col a:has(.foot__ext) { display: inline-flex; align-items: center; gap: 6px; }
+.foot__ext {
+  width: 9px; height: 9px; flex: none; position: relative; opacity: .55;
+}
+.foot__ext::before {
+  content: ''; position: absolute; inset: 1px 1px 0 0; width: 7px; height: 7px;
+  border-top: 1.4px solid currentColor; border-right: 1.4px solid currentColor;
+}
+.foot__ext::after {
+  content: ''; position: absolute; left: 0; bottom: 1px; width: 8px; height: 1.4px;
+  background: currentColor; transform: rotate(-45deg); transform-origin: left center;
+}
+.foot__bar {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-top: 56px; padding-top: 22px; border-top: 1px solid var(--line);
+}
+.foot__copy { font-size: 13px; color: var(--fai); }
+.foot__legal { display: inline-flex; gap: 18px; }
+.foot__legal a { font-size: 13px; color: var(--mut); transition: color .2s var(--ease); }
+.foot__legal a:hover { color: var(--ink); }
+/* 아직 없는 페이지 — 유저플로우 IA 에는 있고 화면은 준비 중이다.
+   링크만 걸어두면 눌렀을 때 아무 일도 안 나므로 상태를 밝힌다. */
+.foot__col a.is-soon, .foot__legal a.is-soon { display: inline-flex; align-items: center; gap: 7px; }
+.is-soon i {
+  font-style: normal; font-size: 10.5px; line-height: 1; padding: 3px 6px;
+  border-radius: var(--pill); background: var(--surf); color: var(--fai);
+}
+
+/* ── 리빌 모션 ────────────────────────────────────────
+   실측: opacity, filter, transform 0.7s cubic-bezier(.22,1,.36,1) — blur 가 같이 걸린다.
+   여기엔 시작 자세만 둔다. 움직이는 건 main.js(Motion) 가 맡고,
+   지연(--rvd)도 거기서 읽는다 — 같은 값을 두 곳에 적어 두면 반드시 어긋난다. */
+[data-rv] { opacity: 0; filter: blur(6px); transform: translateY(18px); }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  [data-rv] { opacity: 1; filter: none; transform: none; transition: none; }
+  .btn:active { transform: none; }
+}
+
+/* ── 반응형 ─────────────────────────────────────────── */
+@media (max-width: 1080px) {
+
+  .nav { max-width: calc(100% - 32px); }
+  .nav__pill { display: none; }
+  .hcard, .hmenu { display: none; }          /* 좁은 화면: 떠 있는 카드·메뉴 숨김(장식·aria-hidden) */
+  .hero { min-height: 0; padding: 178px 20px 88px; }   /* 내비와의 간격 60 → 106 */
+  .hero__h { font-size: 44px; line-height: 46px; letter-spacing: -1.2px; }
+  .duo__text, .duo__shot { min-height: 0; }
+  .duo__shot { aspect-ratio: 4/3; }
+}
+@media (max-width: 760px) {
+
+  .faq__list { margin-top: 30px; }
+  .foot__in { grid-template-columns: 1fr; gap: 32px; }
+  .foot__cols { grid-template-columns: 1fr 1fr; gap: 28px; }
+  .foot { padding: 48px 0 32px; }
+  h1 { font-size: 38px; line-height: 40px; letter-spacing: -1.1px; }
+  h2 { font-size: 27px; line-height: 30px; letter-spacing: -.4px; }
+  .wrap { width: min(var(--w), 100% - 32px); }
+  .sec { padding-block: 56px; }
+  .sec--tall { padding-block: 72px; }
+  .sec__head { margin-bottom: 32px; }
+  .hero { padding: 156px 18px 72px; }                  /* 내비와의 간격 44 → 84 */
+  .hero__h { font-size: 34px; line-height: 37px; letter-spacing: -.9px; }
+  .hero__sub { font-size: 16px; line-height: 24px; margin-top: 16px; }
+  .duo__text { padding: 32px 24px; }
+  .tbl__cta { grid-template-columns: 1fr; }
+  /* 좁은 화면에서 3열을 우겨넣으면 글자가 깨진다 — 라벨 위, 값 두 줄로 쌓는다 */
+  .foot { margin-top: 64px; }
+}
+
+/* ═══ 카드 그래픽 — paraform 문법 ══════════════════════════
+   실측 (paraform.com 메인, 1440px):
+     카드    614×658 / 614×319 · radius 10 · bg rgba(255,255,255,.05) · overflow hidden
+     구성    제목 → 설명 2줄 → 그래픽. 그래픽은 카드 밖으로 잘려 나간다.
+     모션    transform·opacity 0.2~0.5s cubic-bezier(.4,0,.2,1) / 루프는 느리게(원본 마퀴 94.5s)
+   가져온 문법 — 실제 화면을 축소해 넣지 않는다. 축소하면 아무것도 안 읽힌다.
+     ① 한 장면만 고른다  ② 요소를 2~3개로 줄인다  ③ 실제보다 1.5~2배로 키운다
+     ④ 주인공 하나만 흰 패널로 띄우고 나머지는 흐린다  ⑤ 카드 가장자리로 흘려보낸다
+   그래서 12장 전부 콘솔 캡처를 빼고 콘솔의 어휘로 다시 그렸다. */
+
+:root {
+  --pe: cubic-bezier(.4, 0, .2, 1);
+  /* 카드 안 목업 = 실제 콘솔(Astryx 모노톤) 색. 랜딩 브랜드 틸(--point)과 별개 */
+  --m-accent: #262626;   /* 활성·선택·체크·토글 켜짐 (콘솔 accent) */
+  --m-avatar: #3f3f46;   /* 에이전트 아이콘 타일(모노 non-subtle) */
+  --m-ok: #007004;       /* 완료·활성 텍스트 */  --m-ok-bg: #c5e5c0;
+  --m-warn: #745b00;     /* 승인 대기 텍스트 */  --m-warn-bg: #f8da9d;
+  --m-err: #a50c25;      /* 오류·반려 텍스트 */  --m-err-bg: #facecb;
+}
+
+.cg {
+  position: relative; flex: 1; min-height: 0; margin: 16px 0 0;
+  overflow: visible; isolation: isolate;   /* hidden 이면 패널 테두리·그림자가 좌우에서 잘린다 */
+}
+.cg > * { position: absolute; }
+.cg::after {                              /* 아래로 흘려보내는 페이드 — 잘린 끝을 감춘다 */
+  content: ''; position: absolute; inset: auto -24px 0; height: 52px; z-index: 5;
+  background: linear-gradient(180deg, rgba(245,245,245,0), var(--surf)); pointer-events: none;
+}
+
+/* ══ 히어로 아래 본문 — sanalabs.com/products/sana/ 1440px 실측 이식 ══════════════
+   실측값 (capture.js / scrub.js / rAF):
+     컨테이너 1376px (1440 − 좌우 32)          루트 폰트 10px
+     H2       48 / lh 48(1.0) / ls −0.96px / w500      플랜명 40px · 통계 숫자 56px
+     배경     #FFFFFF · 다크 밴드 #000 · sand #F6F5F4 · 표면 rgba(0,0,0,.05)
+     글자     #0A0A0A · 보조 rgba(0,0,0,.65)
+     이징     easeOut cubic-bezier(.16,1,.3,1) — 지배적
+              easeInOut cubic-bezier(.83,0,.17,1) 0.2s (버튼)
+     duration 0.2 / 0.3 / 0.4 / 0.6 / 0.8 / 1.0 / 1.2s
+     탭       자동 순환 7.0초 (7021·7028·7063·7015·7050ms) · 활성 = rgba(255,255,255,.7) 알약
+              원형 일시정지 토글(.toggle-autoplay) 있음
+     sticky   0개 · 스크롤 스크럽 없음 · 로고 마퀴 없음 → 모션은 전부 시간축
+   가져온 것은 구조·간격·타이밍뿐이다. 원본은 kicker 에 파랑 #0055FF·빨강 #FA0019 를 쓰지만
+   우리는 색을 쓰지 않는다 — 2026-07-30 결정으로 메인컬러가 블랙이고 전체가 모노톤이다.
+   강조는 색이 아니라 명도(검정 채움 · 회색 면 · 흰 반전)로 만든다.
+   사진 자리는 전부 코드로 그린 목업으로 바꿨다. */
+
+:root {
+  --sw: 1376px;                                  /* 실측 컨테이너 */
+  --s-ease: cubic-bezier(.16, 1, .3, 1);         /* 원본 --easeOut */
+  --s-ease-io: cubic-bezier(.83, 0, .17, 1);     /* 원본 --easeInOut */
+  --sand: #F6F5F4;                               /* 원본 --sand */
+  --s-surf: rgba(0, 0, 0, .05);                  /* 원본 --black-5 */
+  --s-mut: rgba(0, 0, 0, .65);                   /* 원본 --black-65 */
+  --s-ink: #0A0A0A;                              /* 모노톤 액센트 — 예전 --teal 자리 */
+}
+
+.swrap { width: min(var(--sw), 100% - 64px); margin-inline: auto; }
+.sec2 { padding: 96px 0; }
+.sec2--tight { padding: 64px 0; }
+
+/* 고정 내비가 섹션 제목을 덮지 않게 — 내비 하단 72px + 여유 */
+[id] { scroll-margin-top: 104px; }
+
+/* ── 공통 타이포 (실측) ─────────────────────────────── */
+.s-head { display: grid; justify-items: center; text-align: center; }
+.s-h {
+  font-size: clamp(30px, 3.34vw, 48px); line-height: 1; letter-spacing: -.02em;
+  font-weight: 500; text-wrap: balance; color: var(--ink);
+}
+.s-h--media { color: #fff; }
+.s-kick { font-size: 14px; line-height: 21px; font-weight: 500; color: var(--mut); margin-bottom: 12px; }
+.s-kick--l { text-align: left; }
+.s-kick--on-dark { color: rgba(255, 255, 255, .82); }
+.s-lead {
+  margin-top: 18px; max-width: 470px;
+  font-size: 16px; line-height: 1.5; color: var(--s-mut); text-wrap: pretty;
+}
+.s-lead--on-dark { color: rgba(255, 255, 255, .7); }
+.s-acts { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-top: 30px; }
+
+/* ── 4 · 업무 예시 칩 (원본 알약: 1px 선, 채움 없음) ── */
+
+/* ── 5 · 동작 방식 탭 — 원본 탭 섹션(풀블리드 배경 · 목업이 아래로 잘림) ── */
+.s-tabs {
+  position: relative; isolation: isolate; overflow: hidden;
+  padding: 88px 0 0; margin-top: 24px;
+}
+.s-tabs__bg {
+  position: absolute; inset: 0; z-index: -1;
+  /* 원본처럼 사진 풀블리드. 우리 사진(mockup-background-01.jpg, 2400×1600) 원본 색 그대로 쓴다.
+     2026-07-30 요청: 흑백 처리(grayscale) 제거 — 사진은 컬러, UI 는 모노톤.
+     스크림은 남긴다. 원본 사진이 하이키(거의 흰색)라 스크림 없이는 흰 글씨·흰 알약이 사라진다
+     (히어로에서 스크림 뺐다가 겪은 문제). 대비는 계측해서 4.5:1 이상을 지킨다. */
+  background: #0A0A0A url('assets/img/mockup-background-01.jpg') center / cover no-repeat;
+}
+.s-tabs__bg::after {
+  content: ''; position: absolute; inset: 0;
+  /* 스크림은 글씨가 얹히는 곳에만 무겁게 준다 —
+     위(탭바·헤드라인) 진하게 → 가운데(폰) 옅게 해서 사진이 드러나고 → 아래(설명 한 줄) 다시 조금.
+     균등하게 깔면 원본 사진 색이 전부 죽는다. */
+  background: linear-gradient(180deg,
+    rgba(10, 10, 10, .74) 0%, rgba(10, 10, 10, .66) 22%,
+    rgba(10, 10, 10, .30) 52%, rgba(10, 10, 10, .44) 86%,
+    rgba(10, 10, 10, .74) 100%);      /* 하단: 설명 한 줄(15px 본문)이 4.5:1 을 넘게 */
+}
+.s-tabbar {
+  position: relative; z-index: 2;
+  display: flex; align-items: center; justify-content: center; gap: 4px; flex-wrap: wrap;
+  padding: 0 24px;
+}
+.s-tab {
+  appearance: none; border: 0; background: transparent; cursor: pointer;
+  height: 40px; padding: 0 20px; border-radius: var(--pill);
+  font-family: inherit; font-size: 17px; line-height: 24px; font-weight: 500;
+  color: rgba(255, 255, 255, .72);
+  transition: background-color .4s var(--s-ease), color .4s var(--s-ease);
+}
+.s-tab:hover { color: #fff; }
+/* 실측: 활성 탭 배경 rgba(255,255,255,.7) */
+.s-tab.is-on { background: rgba(255, 255, 255, .7); color: #0A0A0A; }
+.s-auto {
+  appearance: none; border: 0; cursor: pointer; margin-left: 8px;
+  width: 36px; height: 36px; border-radius: 50%;
+  background: #fff; display: grid; place-items: center;
+  transition: transform .2s var(--s-ease-io);
+}
+.s-auto:active { transform: scale(.94); }
+/* 재생 중 = 일시정지 아이콘(막대 2개), 멈춤 = 재생 삼각형 */
+.s-auto i { display: block; width: 10px; height: 11px; position: relative; }
+.s-auto.is-playing i::before, .s-auto.is-playing i::after {
+  content: ''; position: absolute; top: 0; width: 3px; height: 11px; background: #0A0A0A; border-radius: 1px;
+}
+.s-auto.is-playing i::before { left: 1px; }
+.s-auto.is-playing i::after { right: 1px; }
+.s-auto:not(.is-playing) i::before {
+  content: ''; position: absolute; top: 0; left: 2px;
+  border-left: 9px solid #0A0A0A; border-top: 5.5px solid transparent; border-bottom: 5.5px solid transparent;
+}
+
+.s-panes { position: relative; z-index: 1; }
+.s-pane { display: grid; justify-items: center; padding-top: 44px; }
+.s-pane[hidden] { display: none; }
+.s-pane .s-h { text-align: center; }
+/* ── 폰 목업 — 이 섹션의 기능은 전부 메신저(모바일)에서 실행되는 것이라
+      브라우저 창이 아니라 실제 폰 화면으로 그린다. 화면 안은 Slack 모바일 대화 문법:
+      상태바 → 채널 헤더 → 말풍선/카드 → 입력바. 전부 코드다(스크린샷 없음). ── */
+.s-shot.s-shot--phone {
+  /* .s-shot 이 이 규칙보다 아래에 있어서 클래스 2개로 특정도를 올렸다.
+     폰은 아래로 잘리지 않는다 — 대화 끝(입력바)까지 보여야 뜻이 통한다. */
+  max-height: none; border-radius: 0; box-shadow: none;
+  width: auto; display: grid; justify-items: center;
+}
+.s-phone {
+  /* 실제 아이폰 비율 — 논리 해상도 393×852pt (19.5:9 = 2.168).
+     높이를 px 로 박으면 반드시 어긋나므로 화면에 aspect-ratio 를 준다.
+     기기 화면 라운드 55pt, 다이나믹 아일랜드 125×37pt 를 폭에 비례해 줄인 값이다. */
+  --phw: 340px;                               /* 화면 폭 (393pt 를 0.865 로 축소) */
+  --phbz: 10px;                               /* 베젤 */
+  position: relative; width: calc(var(--phw) + var(--phbz) * 2); max-width: 100%;
+  padding: var(--phbz);
+  border-radius: calc(48px + var(--phbz));    /* 외곽 = 내부 + 패딩 (동심원) */
+  background: #0C0C0C;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .16), 0 40px 90px rgba(0, 0, 0, .55);
+}
+.s-phone__island {
+  position: absolute; z-index: 3; top: calc(var(--phbz) + 10px); left: 50%; transform: translateX(-50%);
+  width: 108px; height: 32px; border-radius: var(--pill); background: #000;   /* 125×37pt 비례 */
+}
+.s-phone__screen {
+  /* Slack 실제 색 — 이 스코프 안에서만 쓴다. 사이트 본체는 모노톤 그대로다.
+     출처: Slack 브랜드/UI 색 (텍스트 #1D1C1D · 보조 #616061 · 선 #DDDDDD ·
+     링크·멘션 #1264A3 · Block Kit primary·전송 #007A5A · danger #E01E5A) */
+  --sl-ink: #1D1C1D;
+  --sl-2:   #616061;
+  --sl-3:   #868686;
+  --sl-line:#DDDDDD;
+  --sl-link:#1264A3;
+  --sl-men: rgba(29, 155, 209, .12);
+  --sl-green:#007A5A;
+  --sl-red: #E01E5A;
+  --sl-surf:#F8F8F8;
+  --sl-react-bg: #E8F5FA;
+  --sl-react-bd: #1D9BD1;
+  color: var(--sl-ink);
+  width: var(--phw); aspect-ratio: 393 / 852;  /* 실제 아이폰 비율 */
+  border-radius: 48px; overflow: hidden; background: #fff;
+  display: grid; grid-template-rows: auto auto 1fr auto auto; align-content: start;
+  font-size: 13px; line-height: 19px; color: var(--sl-ink); text-align: left;
+}
+/* 상태바 — 시각 · 신호 4칸 · 배터리 */
+.ph__status {
+  display: flex; align-items: center; justify-content: space-between;
+  height: 47px; padding: 6px 26px 0;          /* 실제 상태바 54pt 비례 */
+  font-size: 12.5px; font-weight: 600; letter-spacing: -.2px;
+}
+.ph__sig { display: inline-flex; align-items: flex-end; gap: 2px; }
+.ph__sig i { width: 3px; background: var(--ink); border-radius: 1px; }
+.ph__sig i:nth-child(1) { height: 4px; }
+.ph__sig i:nth-child(2) { height: 6px; }
+.ph__sig i:nth-child(3) { height: 8px; }
+.ph__sig i:nth-child(4) { height: 10px; }
+.ph__bat {
+  width: 22px; height: 11px; margin-left: 5px; border-radius: 3px;
+  box-shadow: inset 0 0 0 1.2px rgba(10, 10, 10, .45);
+  background: linear-gradient(90deg, var(--ink) 72%, transparent 72%);
+  background-clip: content-box; padding: 1.6px;
+}
+/* ── 화면 안 = 모바일 Slack UI ────────────────────────────
+   Slack 은 말풍선을 쓰지 않는다. 아바타(라운드 사각 36) + 굵은 이름 + 시각 + 평문 행이고,
+   카드는 왼쪽 세로 바가 붙는 첨부(Block Kit)다. 버튼은 사각(라운드 4).
+   '입력 중'은 점 버블이 아니라 작성창 위 한 줄이고, 날짜 구분선은 좌우 가로선을 끼고 온다.
+   색은 사이트 방침대로 무채색으로 둔다 — 구조가 Slack 이면 색 없이도 Slack 으로 읽힌다. */
+.sl__head {
+  display: flex; align-items: center; gap: 10px;
+  padding: 4px 14px 10px; border-bottom: 1px solid var(--sl-line);
+}
+.ph__back {                                  /* 뒤로 — 실제 앱의 좌측 셰브론 */
+  width: 9px; height: 9px; flex-shrink: 0; margin-right: 2px;
+  border-left: 1.8px solid var(--sl-ink); border-bottom: 1.8px solid var(--sl-ink);
+  transform: rotate(45deg);
+}
+.sl__title { flex: 1; display: grid; min-width: 0; }
+.sl__title b { font-size: 15.5px; font-weight: 700; letter-spacing: -.2px; }
+.sl__title em { font-style: normal; font-size: 11.5px; color: var(--sl-2); }
+.sl__hicons { display: inline-flex; gap: 14px; }
+.sl__ic { width: 18px; height: 18px; position: relative; opacity: .62; }
+/* 허들(헤드폰) */
+.sl__ic--huddle::before {
+  content: ''; position: absolute; inset: 3px 1px auto 1px; height: 9px;
+  border: 1.6px solid var(--sl-ink); border-bottom: 0; border-radius: 9px 9px 0 0;
+}
+.sl__ic--huddle::after {
+  content: ''; position: absolute; left: 1px; right: 1px; top: 10px; height: 6px;
+  border-left: 3px solid var(--sl-ink); border-right: 3px solid var(--sl-ink); border-radius: 2px;
+}
+/* 정보(원 안 i) */
+.sl__ic--info::before {
+  content: ''; position: absolute; inset: 1px; border: 1.6px solid var(--sl-ink); border-radius: 50%;
+}
+.sl__ic--info::after {
+  content: ''; position: absolute; left: 8px; top: 6px; width: 1.6px; height: 7px;
+  background: var(--sl-ink); border-radius: 1px;
+}
+
+.sl__body { padding: 12px 14px 8px; display: grid; gap: 15px; align-content: end; overflow: hidden; }
+/* 날짜 구분선 — 좌우 가로선 사이에 라벨 */
+.sl__day { display: flex; align-items: center; gap: 10px; margin: 2px 0 0; }
+.sl__day::before, .sl__day::after { content: ''; flex: 1; height: 1px; background: var(--sl-line); }
+.sl__day span {
+  font-size: 11.5px; font-weight: 600; color: var(--sl-2);
+  padding: 3px 10px; border-radius: var(--pill); box-shadow: inset 0 0 0 1px var(--sl-line);
+}
+/* 메시지 행 — 말풍선 없음 */
+.sl__msg { display: flex; gap: 9px; align-items: flex-start; }
+.sl__in { flex: 1; min-width: 0; display: grid; gap: 3px; }
+.sl__ava {
+  width: 34px; height: 34px; flex-shrink: 0; border-radius: 8px;      /* Slack 은 라운드 사각 */
+  display: grid; place-items: center; background: var(--sl-surf);
+  font-size: 12px; font-weight: 700; color: var(--sl-2);
+}
+/* 앱 아바타 = Byr 앱 아이콘 자리 */
+.sl__ava--b { background: var(--ink); color: #fff; }
+.sl__meta { display: flex; align-items: center; gap: 6px; }
+.sl__meta b { font-size: 14px; font-weight: 700; letter-spacing: -.2px; }
+.sl__meta em { font-style: normal; font-size: 11px; color: var(--sl-2); }   /* Slack 타임스탬프 #616061 */
+/* 앱 배지 — 봇 메시지 표시. Slack 의 APP 태그 */
+.sl__app {
+  font-size: 9.5px; font-weight: 700; line-height: 1; letter-spacing: .02em;
+  padding: 3px 4px; border-radius: 3px; background: #E8E8E8; color: var(--sl-2);
+}
+.sl__txt { font-size: 14.5px; line-height: 20.5px; }
+/* 멘션 — Slack 은 배경 있는 인라인 칩 */
+.sl__mention {
+  padding: 1px 3px; border-radius: 3px;
+  background: var(--sl-men); color: var(--sl-link); font-weight: 600;
+}
+/* 리액션 알약 */
+.sl__react { display: flex; gap: 5px; margin-top: 4px; }
+.sl__chip {
+  height: 23px; padding: 0 8px; border-radius: var(--pill);
+  display: inline-flex; align-items: center; gap: 4px;
+  background: var(--sl-react-bg); box-shadow: inset 0 0 0 1px var(--sl-react-bd);
+  font-size: 11.5px; font-weight: 600; color: var(--sl-link);
+}
+.sl__ck { width: 11px; height: 11px; border-radius: 50%; background: var(--sl-green); position: relative; }
+.sl__ck::after {
+  content: ''; position: absolute; left: 3.6px; top: 2.8px;
+  width: 2.6px; height: 4.4px; border: 1.3px solid #fff; border-top: 0; border-left: 0;
+  transform: rotate(42deg);
+}
+.sl__chip--add { width: 26px; padding: 0; justify-content: center;
+  background: var(--sl-surf); box-shadow: inset 0 0 0 1px var(--sl-line); }
+.sl__chip--add::before {
+  content: ''; width: 9px; height: 9px;
+  background:
+    linear-gradient(var(--sl-2), var(--sl-2)) center / 9px 1.4px no-repeat,
+    linear-gradient(var(--sl-2), var(--sl-2)) center / 1.4px 9px no-repeat;
+}
+/* 첨부(Block Kit) — 왼쪽 세로 바 */
+.sl__att {
+  margin-top: 6px; padding: 2px 0 2px 12px;
+  border-left: 3px solid var(--sl-line);
+  display: grid; gap: 6px;
+}
+.sl__att--ask { border-left-color: var(--sl-green); }        /* 승인 대기 = primary 색 바 */
+.sl__att__ttl { font-size: 14px; font-weight: 700; letter-spacing: -.2px; }
+.sl__att__row {
+  display: flex; align-items: baseline; justify-content: space-between; gap: 10px;
+  font-size: 13px; line-height: 19px;
+}
+.sl__att__row em { font-style: normal; font-weight: 600; flex-shrink: 0; font-variant-numeric: tabular-nums; }
+.sl__att__ctx { font-size: 11.5px; line-height: 17px; color: var(--sl-2); }
+.sl__em--on { color: var(--sl-green); }
+/* Block Kit 버튼 — 사각(라운드 4) */
+.sl__btns { display: flex; gap: 7px; margin-top: 3px; }
+.sl__btn {
+  height: 32px; padding: 0 14px; border-radius: 4px;
+  display: inline-flex; align-items: center;
+  background: #fff; box-shadow: inset 0 0 0 1px var(--sl-line);
+  font-size: 12.5px; font-weight: 600; color: var(--sl-ink);
+}
+.sl__btn--pri { background: var(--sl-green); color: #fff; box-shadow: none; }
+/* danger 는 반려처럼 되돌리기 어려운 것에만 — 기본 버튼을 빨강으로 두면 승인까지 위험해 보인다 */
+.sl__btn--danger { color: var(--sl-red); box-shadow: inset 0 0 0 1px var(--sl-red); }
+/* 스레드 링크 */
+.sl__thread { margin-top: 4px; font-size: 12.5px; font-weight: 600; color: var(--sl-link); }
+/* 승인 완료 상태 — 라벨·체크로 남긴다(모션만으로 알리지 않는다) */
+.sl__ok { display: flex; align-items: center; gap: 7px; font-size: 12.5px; font-weight: 700; }
+.sl__ok em { font-style: normal; margin-left: auto; font-weight: 400; font-size: 11px; color: var(--sl-2); }
+.sl__ok__ck { width: 16px; height: 16px; flex-shrink: 0; border-radius: 50%; background: var(--sl-green); position: relative; }
+/* 반려 — 색과 글리프를 함께 뒤집는다(색만 바꾸면 체크 모양이 남아 뜻이 어긋난다) */
+.sl__ok--no { color: var(--sl-red); }
+.sl__ok--no .sl__ok__ck { background: var(--sl-red); }
+.sl__ok--no .sl__ok__ck::after {
+  width: 7px; height: 7px; left: 4.5px; top: 4.5px; transform: none; border: 0;
+  background:
+    linear-gradient(#fff, #fff) center / 7px 1.5px no-repeat,
+    linear-gradient(#fff, #fff) center / 1.5px 7px no-repeat;
+  rotate: 45deg;
+}
+.sl__ok__ck::after {
+  content: ''; position: absolute; left: 5.2px; top: 4.2px;
+  width: 3.6px; height: 6px; border: 1.5px solid #fff; border-top: 0; border-left: 0;
+  transform: rotate(42deg);
+}
+/* 입력 중 — Slack 은 작성창 위 한 줄 */
+.sl__typing {
+  display: flex; align-items: center; gap: 6px;
+  padding: 0 16px 6px; font-size: 11.5px; color: var(--sl-2);
+}
+.sl__tdot { display: inline-flex; gap: 2.5px; }
+.sl__tdot i { width: 4px; height: 4px; border-radius: 50%; background: var(--sl-2); }
+/* 작성창 */
+.sl__comp {
+  margin: 0 10px 8px; padding: 6px 6px 6px 8px;
+  display: flex; align-items: center; gap: 8px;
+  border-radius: 10px; box-shadow: inset 0 0 0 1px var(--sl-line);
+}
+.sl__plus {
+  width: 26px; height: 26px; flex-shrink: 0; border-radius: 50%; background: var(--sl-surf); position: relative;
+}
+.sl__plus::before {
+  content: ''; position: absolute; inset: 0; margin: auto; width: 11px; height: 11px;
+  background:
+    linear-gradient(var(--sl-2), var(--sl-2)) center / 11px 1.5px no-repeat,
+    linear-gradient(var(--sl-2), var(--sl-2)) center / 1.5px 11px no-repeat;
+}
+.sl__type { position: relative; flex: 1; min-width: 0; display: inline-flex; align-items: center; height: 26px; }
+.sl__cicons { display: inline-flex; align-items: center; gap: 10px; flex-shrink: 0; }
+.sl__ci { width: 15px; height: 15px; position: relative; opacity: .55; font-style: normal; }
+.sl__ci--at { font-size: 14px; font-weight: 700; line-height: 15px; text-align: center; color: var(--sl-ink); }
+.sl__ci--emoji::before {
+  content: ''; position: absolute; inset: 0; border: 1.5px solid var(--sl-ink); border-radius: 50%;
+}
+.sl__ci--emoji::after {
+  content: ''; position: absolute; left: 4px; right: 4px; top: 8.5px; height: 3px;
+  border-bottom: 1.5px solid var(--sl-ink); border-radius: 0 0 4px 4px;
+}
+.sl__ci--cam::before {
+  content: ''; position: absolute; inset: 3px 0 3px 0; border: 1.5px solid var(--sl-ink); border-radius: 3px;
+}
+.sl__ci--cam::after {
+  content: ''; position: absolute; left: 5px; top: 6px; width: 5px; height: 5px;
+  border: 1.5px solid var(--sl-ink); border-radius: 50%;
+}
+.sl__ci--mic::before {
+  content: ''; position: absolute; left: 4.5px; top: 1px; width: 6px; height: 8px;
+  border: 1.5px solid var(--sl-ink); border-radius: 3px;
+}
+.sl__ci--mic::after {
+  content: ''; position: absolute; left: 2px; top: 9px; width: 11px; height: 4px;
+  border: 1.5px solid var(--sl-ink); border-top: 0; border-radius: 0 0 5px 5px;
+}
+/* 보내기 — Slack 은 입력이 있을 때만 나타난다. 흐름 모션이 누르는 대상 */
+.sl__send {                                  /* Slack 모바일 전송 버튼 = 그린 */
+  width: 28px; height: 28px; flex-shrink: 0; border-radius: 6px; background: var(--sl-green); position: relative;
+}
+.sl__send::after {
+  content: ''; position: absolute; left: 10px; top: 10px; width: 6px; height: 6px;
+  border-top: 1.6px solid #fff; border-right: 1.6px solid #fff; transform: rotate(-45deg);
+}
+/* 작성창 안 타이핑 텍스트·자리표시자 */
+.ph__type { color: var(--sl-ink); white-space: nowrap; font-size: 13.5px; font-variant-numeric: tabular-nums; }
+.ph__caret { width: 1.5px; height: 15px; margin-left: 1px; background: var(--sl-ink); flex-shrink: 0; }
+.s-tabs.fx-on .ph__caret { opacity: 0; }
+.ph__ph {
+  position: absolute; left: 0; white-space: nowrap; font-size: 13.5px; color: var(--sl-2);
+  transition: opacity .2s var(--s-ease);
+}
+.ph__ph--static { position: static; }
+/* 홈 인디케이터 */
+.ph__home {
+  width: 120px; height: 4px; margin: 0 auto 9px; border-radius: var(--pill);   /* 139×5pt 비례 */
+  background: rgba(10, 10, 10, .28);
+}
+
+/* ── 흐름 모션용 조각 ────────────────────────────────────
+   시작 상태(투명)는 .fx-on 이 붙었을 때만 건다 — JS 가 안 돌거나 reduce 면
+   목업이 완성된 화면으로 그냥 서 있어야 한다(빈 폰이 남으면 안 된다). */
+.s-tabs.fx-on [data-fx],
+.s-tabs.fx-on [data-sent],
+.s-tabs.fx-on [data-log],
+.s-tabs.fx-on [data-dots] { opacity: 0; }
+
+.ph__type { color: var(--ink); white-space: nowrap; }
+/* 타이핑 커서 — 글자 높이만큼. JS 가 돌 때는 타이핑 시작 전까지 안 보인다 */
+.ph__caret {
+  width: 1.5px; height: 15px; margin-left: 1px; background: var(--ink); flex-shrink: 0;
+}
+.s-tabs.fx-on .ph__caret { opacity: 0; }
+.ph__ph {                                  /* 자리표시자 — 타이핑 시작하면 사라진다 */
+  position: absolute; left: 0; white-space: nowrap; color: var(--fai);
+  transition: opacity .2s var(--s-ease);
+}
+/* 봇이 답을 쓰는 중 */
+/* 승인 완료 상태 — 모션만으로 알리지 않고 라벨·체크로 남긴다 */
+/* 세어지는 숫자는 자리수가 흔들리면 줄이 떨린다 */
+
+/* 목업은 아래로 잘려 나간다 — 원본 실측 문법 */
+.s-shot {
+  width: min(1180px, 100% - 48px); margin-top: 40px;
+  max-height: 420px; overflow: hidden;
+  border-radius: 16px 16px 0 0;
+  box-shadow: 0 -1px 0 rgba(255, 255, 255, .22), 0 30px 80px rgba(4, 26, 25, .45);
+}
+
+/* 탭 목업은 폭이 1180px 이라 내용이 왼쪽에 몰린다. 원본처럼 가운데 기둥으로 세운다 */
+.s-shot .sm__body { width: min(820px, 100%); margin-inline: auto; }
+.s-shot .sm__msg { max-width: 100%; }
+
+/* ── 콘솔 목업 — 실제 Byr 콘솔 화면을 코드로 재현 ─────────
+   근거: 01-agents.webp(내 에이전트) · 10-settings-llm.webp(설정 → LLM 연결) 실측 캡처.
+   캡처를 붙이지 않고 다시 그렸다 — 푸터에 "화면 목업은 전부 코드"라고 적어 뒀다.
+   콘솔 실제 색(사이드바 회색면 · 직무별 아이콘 색 · Admin 노랑 · 안내 파랑)은
+   Slack 목업과 같은 원칙으로 이 스코프 안에만 둔다. 사이트 본체는 모노톤 그대로. */
+.cs {
+  --cs-ink: #0A0A0A;
+  --cs-2:   #6B6B6B;
+  --cs-3:   #9A9A9A;
+  --cs-line:#E7E7E8;
+  --cs-side:#F7F7F8;          /* 사이드바 면 */
+  --cs-on:  #EDEDED;          /* 활성 메뉴·탭 채움 */
+  --cs-surf:#F5F5F6;          /* 카드 면 */
+  --cs-admin-bg:#FFD84D;      /* Admin 배지 */
+  --cs-info-bg: #BDD7FB;      /* 안내 배너 */
+  --cs-info-fg: #123B86;
+  /* 2026-07-30 요청: LNB 제거 — 목업은 본문 영역만 보여준다 */
+  background: #fff; color: var(--cs-ink);
+  border-radius: 14px; overflow: hidden;
+  box-shadow: inset 0 0 0 1px var(--cs-line);
+  font-size: 11px; line-height: 16px; text-align: left;
+}
+/* 본문 */
+.cs__main { padding: 14px 16px 16px; display: grid; align-content: start; gap: 0; overflow: hidden; }
+.cs__h { font-size: 16px; font-weight: 700; letter-spacing: -.3px; }
+.cs__sub { margin-top: 3px; font-size: 10.5px; color: var(--cs-2); }
+.cs__tabs, .cs__chips, .cs__filters, .cs__stabs { display: flex; align-items: center; gap: 6px; }
+.cs__tabs { margin-top: 12px; }
+.cs__tab {
+  height: 24px; padding: 0 10px; border-radius: var(--pill);
+  display: inline-flex; align-items: center; gap: 4px;
+  font-size: 10.5px; font-weight: 500; color: var(--cs-2);
+  box-shadow: inset 0 0 0 1px var(--cs-line);
+}
+.cs__tab.is-on { background: var(--cs-on); color: var(--cs-ink); font-weight: 600; box-shadow: none; }
+.cs__tab b { font-size: 9.5px; font-weight: 700; padding: 1px 5px; border-radius: var(--pill); background: #fff; }
+/* 필터 행 — 콘솔 표준: 40px 필 드롭다운 + 필 검색창 + 검정 만들기 버튼 (여기선 비례 축소) */
+.cs__filters { margin-top: 9px; }
+.cs__dd, .cs__search {
+  height: 26px; border-radius: var(--pill); display: inline-flex; align-items: center;
+  box-shadow: inset 0 0 0 1px var(--cs-line); font-size: 10.5px; color: var(--cs-2);
+}
+.cs__dd { padding: 0 9px; gap: 5px; flex-shrink: 0; }
+.cs__dd i {
+  width: 5px; height: 5px; border-right: 1.2px solid var(--cs-2); border-bottom: 1.2px solid var(--cs-2);
+  transform: rotate(45deg) translateY(-1px);
+}
+.cs__search { flex: 1; min-width: 0; padding: 0 10px; gap: 6px; overflow: hidden; white-space: nowrap; }
+.cs__search i {
+  width: 9px; height: 9px; flex-shrink: 0; border-radius: 50%;
+  box-shadow: inset 0 0 0 1.2px var(--cs-2); position: relative;
+}
+.cs__search i::after {
+  content: ''; position: absolute; right: -2px; bottom: -1px; width: 4px; height: 1.2px;
+  background: var(--cs-2); transform: rotate(45deg);
+}
+.cs__new {
+  height: 26px; padding: 0 10px; border-radius: var(--pill); flex-shrink: 0;
+  display: inline-flex; align-items: center; background: var(--cs-ink); color: #fff;
+  font-size: 10.5px; font-weight: 600;
+}
+.cs__chips { margin-top: 8px; }
+.cs__chip {
+  height: 23px; padding: 0 10px; border-radius: var(--pill);
+  display: inline-flex; align-items: center;
+  font-size: 10.5px; font-weight: 500; color: var(--cs-2); box-shadow: inset 0 0 0 1px var(--cs-line);
+}
+.cs__chip.is-on { background: var(--cs-on); color: var(--cs-ink); font-weight: 600; box-shadow: none; }
+/* 카드 그리드 — 콘솔은 4열, 목업에서는 2열로 잘라 보여준다 */
+.cs__grid { margin-top: 11px; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.cs__card {
+  background: var(--cs-surf); border-radius: 10px; padding: 10px;
+  display: grid; grid-template-columns: 26px 1fr; grid-template-areas:
+    'tile name' 'tile role' 'desc desc' 'foot foot';
+  column-gap: 8px; row-gap: 2px; align-content: start;
+}
+.cs__tile { grid-area: tile; width: 26px; height: 26px; border-radius: 7px; position: relative; }
+/* 타일 안 흰 글리프 — 콘솔은 직무마다 다른 아이콘이다. 넷이 같으면 자리표시자로 읽힌다 */
+.cs__tile::after { content: ''; position: absolute; inset: 0; margin: auto; }
+.cs__tile--navy::after {                /* 문서 — 세금계산서 검증 */
+  width: 10px; height: 11px;
+  background:
+    linear-gradient(#fff, #fff) 0 0 / 10px 1.4px no-repeat,      /* 윗줄 */
+    linear-gradient(#fff, #fff) 0 4px / 10px 1.4px no-repeat,
+    linear-gradient(#fff, #fff) 0 8px / 6.5px 1.4px no-repeat;   /* 짧은 마지막 줄 */
+}
+.cs__tile--green::after {               /* 막대 — 예산 집행 현황 */
+  width: 11px; height: 10px;
+  background:
+    linear-gradient(#fff, #fff) 0 100% / 2.4px 5px no-repeat,
+    linear-gradient(#fff, #fff) 50% 100% / 2.4px 10px no-repeat,
+    linear-gradient(#fff, #fff) 100% 100% / 2.4px 7px no-repeat;
+}
+.cs__tile--purple::after {              /* 격자 — 지출결의 요약 */
+  width: 11px; height: 11px;
+  background:
+    linear-gradient(#fff, #fff) 0 0 / 4.6px 4.6px no-repeat,
+    linear-gradient(#fff, #fff) 100% 0 / 4.6px 4.6px no-repeat,
+    linear-gradient(#fff, #fff) 0 100% / 4.6px 4.6px no-repeat,
+    linear-gradient(#fff, #fff) 100% 100% / 4.6px 4.6px no-repeat;
+  border-radius: 1px;
+}
+/* 직무별 색 — 콘솔 실제 팔레트 */
+.cs__tile--navy   { background: #2F4B9B; }
+.cs__tile--green  { background: #2E9E5B; }
+.cs__tile--purple { background: #8B3FE8; }
+.cs__cname {
+  grid-area: name; display: flex; align-items: center; gap: 4px;
+  font-size: 11px; font-weight: 700; letter-spacing: -.2px;
+}
+.cs__star {                            /* 즐겨찾기 — 아직 안 누른 상태(연회색) */
+  width: 11px; height: 11px; margin-left: auto; flex-shrink: 0; background: #CFCFD2;
+  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+}
+.cs__crole { grid-area: role; font-size: 9.5px; color: var(--cs-2); }
+.cs__cdesc { grid-area: desc; margin-top: 7px; font-size: 9.5px; line-height: 14px; color: var(--cs-2); }
+.cs__cfoot { grid-area: foot; margin-top: 7px; display: flex; align-items: center; gap: 5px; }
+.cs__badge {
+  height: 18px; padding: 0 7px; border-radius: var(--pill);
+  display: inline-flex; align-items: center; background: var(--cs-on);
+  font-size: 9px; font-weight: 600; color: var(--cs-2);
+}
+.cs__mini { width: 11px; height: 11px; border-radius: 3px; }
+.cs__mini--a { background: #2F4B9B; }
+.cs__mini--b { background: #2E9E5B; }
+.cs__mini--c { background: #1F7AE0; }
+
+/* ── 팀 운영 5화면 조각 ─────────────────────────────────── */
+.cs-pane[hidden] { display: none; }
+.cs__crumb { font-size: 10px; color: var(--cs-2); margin-bottom: 4px; }
+.cs__hint { margin-top: 9px; font-size: 9.5px; line-height: 14px; color: var(--cs-3); }
+.cs__hint b { color: var(--cs-ink); font-weight: 700; }
+/* 필터가 걸린 상태 — 콘솔 규칙: 선택값이 기본이 아니면 채움 + 굵게 */
+.cs__dd.is-set { background: var(--cs-on); color: var(--cs-ink); font-weight: 600; box-shadow: none; }
+.cs__search--typed { color: var(--cs-ink); font-weight: 600; }
+.cs__x {
+  margin-left: auto; width: 12px; height: 12px; border-radius: 50%; background: var(--cs-on); position: relative;
+}
+.cs__x::before, .cs__x::after {
+  content: ''; position: absolute; inset: 0; margin: auto; width: 6px; height: 1.2px; background: var(--cs-2);
+}
+.cs__x::before { transform: rotate(45deg); }
+.cs__x::after { transform: rotate(-45deg); }
+/* 즐겨찾기 채워진 상태 */
+.cs__star--on { background: #F5B301; }
+/* 스케줄 행 */
+.cs__srow, .cs__step {
+  display: flex; align-items: center; gap: 8px; padding: 9px 11px;
+  border-bottom: 1px solid var(--cs-line); font-size: 10.5px;
+}
+.cs__srow:last-child { border-bottom: 0; }
+.cs__sname { flex: 1; min-width: 0; display: grid; gap: 1px; }
+.cs__sname b { font-size: 10.5px; font-weight: 700; color: var(--cs-ink); }
+.cs__sname { color: var(--cs-2); font-size: 9.5px; }
+.cs__toggle {
+  width: 26px; height: 15px; border-radius: var(--pill); flex-shrink: 0;
+  background: #DEDEE0; position: relative;
+}
+.cs__toggle::after {
+  content: ''; position: absolute; top: 2px; left: 2px; width: 11px; height: 11px;
+  border-radius: 50%; background: #fff;
+}
+.cs__toggle.is-on { background: var(--cs-ink); }
+.cs__toggle.is-on::after { left: 13px; }
+/* 단계 카드 */
+.cs__steps { margin-top: 10px; border-radius: 10px; box-shadow: inset 0 0 0 1px var(--cs-line); }
+.cs__step:last-child { border-bottom: 0; }
+.cs__step > b {
+  width: 18px; height: 18px; flex-shrink: 0; border-radius: 5px;
+  display: grid; place-items: center; background: var(--cs-on);
+  font-size: 9.5px; font-weight: 700; color: var(--cs-ink);
+}
+/* 검토·승인 2단 */
+/* 배지 변형 */
+.cs__badge--warn { background: #FDF1D3; color: #6B4A08; }
+.cs__badge--ok { background: #E4F3EA; color: #1C6B41; }
+/* 팀 카드 */
+.cs__card--team .cs__cname { font-size: 11.5px; }
+
+/* 목록 항목을 버튼으로 만들었다 — 기본 버튼 모양을 지운다 */
+.s-rot button {
+  appearance: none; border: 0; background: none; padding: 0; margin: 0; cursor: pointer;
+  font: inherit; color: inherit; text-align: left; display: block; width: 100%;
+}
+.s-rot li { position: relative; }
+.s-rot button:focus-visible { outline-offset: 6px; }
+
+/* ── 설정 → LLM 연결 화면 ── */
+.cs__stabs { margin-top: 12px; flex-wrap: wrap; gap: 5px; }
+.cs__stab {
+  height: 24px; padding: 0 9px; border-radius: var(--pill);
+  display: inline-flex; align-items: center; gap: 4px;
+  font-size: 10.5px; font-weight: 500; color: var(--cs-2); box-shadow: inset 0 0 0 1px var(--cs-line);
+}
+.cs__stab.is-on { background: var(--cs-on); color: var(--cs-ink); font-weight: 600; box-shadow: none; }
+.cs__stab b {
+  font-size: 8.5px; font-weight: 700; padding: 1.5px 4px; border-radius: var(--pill);
+  background: var(--cs-admin-bg); color: #3A2E00;
+}
+.cs__sh { margin-top: 14px; font-size: 12px; font-weight: 700; }
+.cs__sd { margin-top: 3px; font-size: 9.5px; line-height: 14px; color: var(--cs-2); }
+.cs__list { margin-top: 10px; border-radius: 10px; box-shadow: inset 0 0 0 1px var(--cs-line); }
+.cs__lrow {
+  display: flex; align-items: center; gap: 8px; padding: 10px 11px;
+  border-bottom: 1px solid var(--cs-line); font-size: 10.5px; color: var(--cs-2);
+}
+.cs__lrow:last-child { border-bottom: 0; }
+.cs__lrow > span:first-child { flex: 1; }
+.cs__lrow b { font-size: 11.5px; font-weight: 700; color: var(--cs-ink); margin-right: 4px; }
+.cs__reg {
+  height: 24px; padding: 0 10px; border-radius: 7px;
+  display: inline-flex; align-items: center; flex-shrink: 0;
+  box-shadow: inset 0 0 0 1px var(--cs-line); font-size: 10px; font-weight: 600; color: var(--cs-ink);
+}
+.cs__note {
+  margin-top: 10px; padding: 10px 11px; border-radius: 10px;
+  background: var(--cs-info-bg); color: var(--cs-info-fg);
+  display: flex; align-items: flex-start; gap: 8px;
+}
+.cs__note i {
+  width: 13px; height: 13px; flex-shrink: 0; margin-top: 1px; border-radius: 50%;
+  box-shadow: inset 0 0 0 1.3px currentColor; position: relative;
+}
+.cs__note i::after {
+  content: ''; position: absolute; left: 5.8px; top: 4px; width: 1.3px; height: 5px;
+  background: currentColor; border-radius: 1px;
+}
+.cs__note span { display: grid; gap: 2px; font-size: 9.5px; line-height: 14px; }
+.cs__note b { font-size: 10.5px; font-weight: 700; }
+
+@media (max-width: 760px) {
+  .cs { font-size: 10.5px; }
+  .cs__grid { grid-template-columns: 1fr; }
+}
+
+/* ── 2 · 한 줄 소개 (원본: 가운데 정렬 · H2 64 · 부제 20 · 검정 알약 버튼) ── */
+.s-h--xl { font-size: clamp(36px, 4.45vw, 64px); line-height: 1.04; letter-spacing: -.03em; }
+.s-intro__sub { margin-top: 24px; font-size: clamp(16px, 1.4vw, 20px); line-height: 1.55; color: var(--ink); }
+.s-intro__cta { margin-top: 28px; }
+
+/* ── 7 · 팀 운영 (원본: 좌 미디어 / 우 자동 순환 목록) ── */
+.s-split { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+.s-split__media {
+  /* 콘솔 목업이 자기 테두리를 갖는다 — 회색 프레임을 겹치지 않는다.
+     5장 중 4번은 폰(메신저에서 하는 일)이라 높이가 크게 다르다. 상자 높이를 고정해
+     순환할 때 섹션이 위아래로 튀지 않게 한다. */
+  border-radius: 14px; min-height: 560px; display: grid; align-items: center;
+}
+/* 폰 화면 — 이 자리에서는 좁게. 세로 비율은 aspect-ratio 가 지킨다 */
+.cs-pane--phone { justify-self: center; }
+.cs-pane--phone .s-phone { --phw: 250px; --phbz: 8px; border-radius: calc(35px + var(--phbz)); }
+.cs-pane--phone .s-phone__screen { border-radius: 35px; }
+.cs-pane--phone .s-phone__island { width: 78px; height: 23px; top: calc(var(--phbz) + 7px); }
+.cs-pane--phone .ph__status { height: 34px; font-size: 10.5px; padding: 4px 18px 0; }
+.cs-pane--phone .sl__body { padding: 10px 11px 6px; gap: 11px; }
+.cs-pane--phone .sl__txt { font-size: 12.5px; line-height: 18px; }
+.cs-pane--phone .sl__att__ttl { font-size: 12px; }
+/* 250px 폭에서는 아이콘 4개가 플레이스홀더 위로 겹친다 — 이모지·마이크만 남긴다 */
+.cs-pane--phone .sl__ci--at, .cs-pane--phone .sl__ci--cam { display: none; }
+.cs-pane--phone .sl__comp { margin: 0 8px 8px; gap: 6px; }
+.cs-pane--phone .ph__ph { font-size: 11.5px; }
+.s-split__body { margin-top: 26px; font-size: 16px; line-height: 24.8px; color: var(--s-mut); max-width: 520px; }
+.s-split .btn { margin-top: 24px; }
+/* 원본 실측: 활성 항목만 검정 + 화살표, 나머지는 회색 */
+.s-rot { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; }
+.s-rot li > button {
+  /* 줄 높이만 두면 탭 대상이 30px 밖에 안 된다. 폭마다 글자 크기가 달라지므로
+     여백이 아니라 min-height 로 못 박는다 — 어느 폭에서도 44px 이상. */
+  position: relative; padding: 4px 0 4px 34px; min-height: 44px;
+  display: flex; align-items: center;
+  font-size: clamp(24px, 2.2vw, 32px); line-height: 1.24; letter-spacing: -.02em; font-weight: 500;
+  color: rgba(10, 10, 10, .26);
+  transition: color .6s var(--s-ease);
+}
+.s-rot li.is-on > button { color: var(--ink); }
+.s-rot__ar {
+  position: absolute; left: 0; top: 0;
+  opacity: 0; transform: translateX(-6px);
+  transition: opacity .4s var(--s-ease), transform .4s var(--s-ease);
+}
+.s-rot li.is-on .s-rot__ar { opacity: 1; transform: none; }
+.s-rot li:not(.is-on) > button:hover { color: rgba(10, 10, 10, .5); }
+
+/* ── 8 · 승인·보안 패널 (원본: 회색 대형 패널 · 좌 제목+알약 / 우 3열 리스트) ── */
+/* ── 5 · 승인·보안 패널 — ref-img-mcp.png 레이아웃 ─────────
+   좌: 제목 + 알약 / 우: 3열 그리드. 각 항목은 흰 라운드 타일 + 라벨.
+   1번 패널은 우리가 제공하는 MCP 서비스라 로고를 브랜드 색 그대로 쓴다
+   (사이트는 모노톤이지만 서비스 로고는 색이 곧 식별이다 — Slack 목업과 같은 원칙).
+   2번 패널의 보안 아이콘은 모노톤 lucide. */
+.s-panels { display: grid; gap: 16px; margin-top: 56px; }
+/* 연동 카드는 아래 보안 카드와 한 덩어리로 보여야 한다 —
+   라운드·패딩·좌측 단 폭을 맞춰 두 카드의 항목이 같은 선에서 시작하게 한다 */
+.s-panels .s-panel--wide { grid-template-columns: 292px 1fr; gap: 28px; border-radius: 24px; padding: 32px; }
+.s-panel {
+  display: grid; grid-template-columns: 292px 1fr; gap: 28px;
+  padding: 32px; border-radius: 24px; background: var(--s-surf);
+}
+.s-panel__side { display: grid; align-content: space-between; gap: 24px; }
+.s-panel__ttl { font-size: 19px; line-height: 26px; font-weight: 600; letter-spacing: -.3px; }
+.s-panel__pill {
+  justify-self: start; display: inline-flex; align-items: center; height: 40px; padding: 0 18px;
+  border-radius: var(--pill); background: #fff; font-size: 14.5px; font-weight: 500; color: var(--ink);
+}
+.s-panel__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px 20px; }
+/* 통합·보안은 한 섹션이다 — 두 카드는 s-panels 의 간격(16)으로 붙어 있다 */
+/* 연동 전용 패널 — 참고 이미지는 좌측 단이 더 넓고 행 간격이 크다 */
+.s-panel--wide { grid-template-columns: 340px 1fr; gap: 40px; padding: 44px; border-radius: 28px; }
+.s-panel--wide .s-panel__ttl { font-size: 22px; line-height: 30px; }
+.s-panel__sub { margin: 12px 0 0; font-size: 14.5px; line-height: 22px; color: var(--s-mut); }
+.s-panel__grid--4 { grid-template-columns: repeat(4, 1fr); gap: 26px 22px; align-content: center; }
+.s-panel__grid--4 .s-item__ico { width: 44px; height: 44px; border-radius: 12px; }
+.s-panel__grid--4 .s-item__ico svg { width: 22px; height: 22px; }
+.s-panel__grid--4 .s-item { font-size: 15px; }
+.s-item {
+  display: flex; align-items: center; gap: 12px;
+  font-size: 14.5px; line-height: 20px; color: var(--ink);
+}
+.s-item__ico {
+  width: 40px; height: 40px; flex: none; border-radius: 11px; background: #fff;
+  display: grid; place-items: center; color: var(--ink);
+  box-shadow: 0 1px 2px rgba(10, 10, 10, .06);
+}
+.s-item__ico svg { width: 20px; height: 20px; }
+/* 보안 아이콘 — 모노톤 선 아이콘 */
+.s-item__ico:not(.s-item__ico--logo) svg {
+  fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round;
+}
+
+
+/* ── 9 · 모델 선택 미디어 카드 (원본: 대형 라운드 카드 · 좌 목업 / 우 흰 텍스트) ── */
+.s-media {
+  position: relative; border-radius: 24px; overflow: hidden;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center;
+  padding: 56px;
+  /* 2026-07-30 요청: 배경을 사진으로. mockup-background-03.jpg 는 이미 어두워서
+     스크림은 얕게만 얹는다(히어로에서 스크림 과다로 사진이 죽었던 것과 반대 경우). */
+  background: #0A0A0A url('assets/img/mockup-background-03.jpg') center / cover no-repeat;
+}
+.s-media::before {
+  content: ''; position: absolute; inset: 0; z-index: 0; border-radius: inherit;
+  background: linear-gradient(100deg, rgba(8, 10, 12, .58) 0%, rgba(8, 10, 12, .34) 46%, rgba(8, 10, 12, .62) 100%);
+}
+.s-media__shot, .s-media__copy { position: relative; z-index: 1; }
+.s-media__shot { border-radius: 18px; }
+.s-media__h {
+  font-size: clamp(22px, 2.1vw, 30px); line-height: 1.3; letter-spacing: -.02em;
+  font-weight: 500; color: #fff; text-wrap: pretty;
+}
+
+/* ── 콘솔 목업 · 글래스 변형 (모델 선택 섹션) ─────────────
+   히어로 글래스 카드(.hcard)의 실측값을 그대로 옮겼다:
+   blur(12px) saturate(1.4) · 상단 흰 sheen 18% · 다크 틴트 rgba(24,20,46,.30)
+   · 1px rgba(255,255,255,.14) 테두리 · radius 16. 흰 글씨. */
+.cs--glass {
+  background:
+    linear-gradient(210deg, rgba(255,255,255,.18) 0%, rgba(255,255,255,0) 32%),
+    rgba(24, 20, 46, .30);
+  -webkit-backdrop-filter: blur(12px) saturate(1.4); backdrop-filter: blur(12px) saturate(1.4);
+  border: 1px solid rgba(255,255,255,.14);
+  box-shadow: 0 22px 54px rgba(18,12,42,.30);
+  border-radius: 16px;
+  color: #fff;
+}
+.cs--glass .cs__h { color: #fff; }
+.cs--glass .cs__sub, .cs--glass .cs__sd { color: rgba(255,255,255,.72); }
+.cs--glass .cs__sh { color: #fff; }
+.cs--glass .cs__stab {
+  color: rgba(255,255,255,.74); box-shadow: inset 0 0 0 1px rgba(255,255,255,.2);
+}
+.cs--glass .cs__stab.is-on { background: rgba(255,255,255,.2); color: #fff; box-shadow: none; }
+.cs--glass .cs__stab b { background: rgba(255,255,255,.86); color: #2A2208; }
+.cs--glass .cs__list { box-shadow: inset 0 0 0 1px rgba(255,255,255,.16); }
+.cs--glass .cs__lrow { border-bottom-color: rgba(255,255,255,.12); color: rgba(255,255,255,.72); }
+.cs--glass .cs__lrow b { color: #fff; }
+.cs--glass .cs__badge { background: rgba(255,255,255,.14); color: rgba(255,255,255,.82); }
+.cs--glass .cs__reg {
+  background: rgba(255,255,255,.1); color: #fff; box-shadow: inset 0 0 0 1px rgba(255,255,255,.28);
+}
+/* 안내 배너 — 파란 채움 대신 글래스 위 반투명. 아이콘·글씨는 흰색 */
+.cs--glass .cs__note {
+  background: rgba(255,255,255,.12); color: #fff;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.16);
+}
+.cs--glass .cs__note span { color: rgba(255,255,255,.78); }
+.cs--glass .cs__note b { color: #fff; }
+
+/* ── 8 · 대상 + 가치 제안 ─────────────────────────────
+   sanalabs 「Driving AI adoption together」 레이아웃 실측:
+   좌 사진 카드 / 우 2열 카드 그리드 · 카드마다 회색 체크 원 · 마지막 칸은 검정 CTA.
+   원본은 흰 배경이라 카드가 회색(#F5F5F5)이지만 우리는 sand 밴드 위라 카드를 흰색으로 뒤집었다
+   — sand 위에 회색 카드를 두면 면이 서로 묻힌다. */
+.s-sand { background: var(--sand); padding: 88px 0; }
+.s-duo {
+  margin-top: 48px;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: stretch;
+}
+/* 왼쪽 이미지 영역 — 사진 + 글라스 입력창.
+   치수는 참고 영상(1356 폭)에서 재서 우리 폭에 비례로 옮겼다:
+     바 높이 105/1356 ≈ 7.7%  ·  radius 필  ·  글자 34px → 1.06vw 대역
+     좌우 여백 118/1356 ≈ 8.7%  ·  칩 줄은 바 아래 24px */
+.s-ph {
+  position: relative; margin: 0; overflow: hidden;
+  /* 높이는 오른쪽(탭+카드)이 정한다. 520 으로 고정했더니 카드 아래가 텅 비었다 */
+  border-radius: 22px; min-height: 380px;
+  background: #DDD url('assets/img/hero-background-01.jpg') center / cover no-repeat;
+  outline: 1px solid rgba(0, 0, 0, .06); outline-offset: -1px;   /* 사진 가장자리 정리 */
+  display: flex; align-items: flex-end;
+}
+.s-ph__img {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; display: block;
+  opacity: 0; transition: opacity .5s var(--s-ease);
+}
+.s-ph__img.is-in { opacity: 1; }
+
+.s-ph::after {
+  /* 유리 뒤를 어둡게 깐다 — 히어로가 영상 위에 하는 것과 같은 방식.
+     유리 자체는 투명하게 두고(틴트 .28) 배경을 눌러 흰 글자를 살린다.
+     세기는 8개 탭 사진 위에서 재서 골랐다(--ph-scrim). */
+  content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 62%;
+  background: linear-gradient(to top,
+    rgba(0, 0, 0, var(--ph-scrim, .74)),
+    rgba(0, 0, 0, calc(var(--ph-scrim, .74) * .6)) 46%,
+    transparent);
+  pointer-events: none; z-index: 1;
+}
+.s-ph__cap { position: relative; z-index: 2; width: 100%; padding: 0 5% 6%; }
+
+/* 사진 위 슬랙 스레드 — 우리 서비스는 메신저에서 쓰는 것이라
+   생성형 프롬프트 바가 아니라 실제 대화창 문법으로 둔다.
+   Slack 색 변수는 #how 섹션(.s-phone__screen)과 같은 값을 여기서도 연다. */
+.s-ph__card {
+  /* 메인(히어로·내비)과 같은 유리 문법 — 사선 하이라이트 + 얇은 흰 테두리 + 블러.
+     다만 배경이 사진이라 흰 틴트로는 글자가 안 읽힌다. 그래서 어두운 틴트에
+     Slack 다크 테마 색을 얹었다(Slack 이 실제로 쓰는 화면이라 문법도 어긋나지 않는다).
+     틴트 알파는 8개 탭 사진 위에서 재서 골랐다 — 아래 --ph-tint 주석 참고. */
+  /* 틴트 — 스크림 .74 위에서 잰 값이다(흰 글자 기준, 가장 밝은 사진인 재무 탭이 최악):
+       .36 → 4.19:1 미달 · .46 → 5.01:1 통과 · .56 → 6.08:1
+     투명도를 최대한 살리려고 통과선 바로 위인 .46 을 쓴다. */
+  --ph-tint: .46;
+
+  --sl-ink: #F4F4F5;      /* Slack 다크 본문 */
+  --sl-2:   #D3D3D6;      /* 보조·타임스탬프 — 사진 위라 기본(#ABABAD)보다 올렸다 */
+  --sl-line:rgba(255, 255, 255, .18);
+  --sl-link:#8FD0F5;
+  --sl-green:#2EB67D;     /* Slack 브랜드 그린 — 어두운 면에서 쓰는 값 */
+  --sl-red: #F2789F;
+  --sl-surf:rgba(255, 255, 255, .10);
+
+  background:
+    linear-gradient(210deg, rgba(255, 255, 255, .22) 0%, rgba(255, 255, 255, 0) 38%),
+    rgba(10, 10, 14, var(--ph-tint));
+  -webkit-backdrop-filter: blur(18px) saturate(1.5);
+  backdrop-filter: blur(18px) saturate(1.5);
+  border: 0;
+  color: var(--sl-ink);
+  border-radius: 18px; overflow: hidden;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, .24),
+    0 18px 40px rgba(10, 10, 20, .28);
+  font-size: 14px;
+}
+/* 채널 머리 — #how 섹션과 같은 문법: 채널명 + 멤버 수 + 우측 아이콘 한 줄 */
+.s-ph__ch {
+  display: flex; align-items: center; gap: 10px;
+  padding: 11px 14px; border-bottom: 1px solid rgba(255, 255, 255, .16);
+}
+.s-ph__ch .sl__title { flex: 1; display: grid; min-width: 0; }
+.s-ph__chn { font-size: 14.5px; font-weight: 700; letter-spacing: -.2px; }
+.s-ph__mem { font-style: normal; font-size: 11.5px; color: var(--sl-2); }
+.s-ph__ch .sl__hicons { flex: none; }
+.s-ph__ch .sl__ic { opacity: .8; }
+.s-ph__ch .sl__ic::before, .s-ph__ch .sl__ic::after { border-color: var(--sl-ink); }
+
+/* 유리 위 구분선·면은 흰 알파로 — 검정 선은 유리를 깨 보이게 한다 */
+.s-ph__card .sl__comp {
+  background: rgba(255, 255, 255, .08);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .22);
+}
+.s-ph__card .sl__att { border-left-color: rgba(255, 255, 255, .28); }
+.s-ph__card .sl__att--ask { border-left-color: var(--sl-green); }
+.s-ph__card .sl__btn {
+  background: rgba(255, 255, 255, .10); color: var(--sl-ink);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .3);
+}
+.s-ph__card .sl__btn--pri { background: var(--sl-green); color: #06231A; box-shadow: none; }
+.s-ph__card .sl__btn--danger { color: var(--sl-red); box-shadow: inset 0 0 0 1px rgba(242, 120, 159, .55); }
+.s-ph__card .sl__plus { background: rgba(255, 255, 255, .12); }
+.s-ph__card .sl__plus::before {
+  background:
+    linear-gradient(var(--sl-2), var(--sl-2)) center / 11px 1.5px no-repeat,
+    linear-gradient(var(--sl-2), var(--sl-2)) center / 1.5px 11px no-repeat;
+}
+.s-ph__card .sl__ava { background: rgba(255, 255, 255, .16); color: var(--sl-ink); }
+.s-ph__card .sl__ava--b { background: rgba(255, 255, 255, .92); color: #111; }
+.s-ph__card .sl__app { background: rgba(255, 255, 255, .16); color: var(--sl-2); }
+.s-ph__card .sl__mention { background: rgba(143, 208, 245, .18); color: var(--sl-link); }
+.s-ph__card .sl__ok__ck { background: var(--sl-green); }
+.s-ph__card .sl__ok__ck::after { border-color: #06231A; }
+.s-ph__card .sl__tdot i { background: var(--sl-2); }
+/* 한글은 기본 규칙이면 단어 중간에서 끊긴다("지원본 / 부") */
+.s-ph__card .sl__txt, .s-ph__card .sl__att__row, .s-ph__card .sl__att__ctx { word-break: keep-all; }
+
+.s-ph__log { display: grid; gap: 14px; padding: 14px 14px 6px; }
+.s-ph__log:empty { display: none; }
+.s-ph__ind[hidden] { display: none; }
+.s-ph__comp { margin: 6px 10px 10px; }
+.s-ph__text {
+  font-size: 14px; line-height: 20px; color: var(--sl-ink);
+  white-space: nowrap; overflow: hidden;      /* 길어져도 줄바꿈으로 튀지 않게 */
+}
+/* Slack 작성창 안내문은 채널명을 달고 나온다 — JS 가 data-ph 로 채운다 */
+.s-ph__text:empty::before { content: attr(data-ph); color: var(--sl-2); opacity: .75; }
+.s-ph__caret {
+  width: 1.5px; height: 16px; flex: none; margin-right: auto;
+  background: var(--sl-ink); opacity: .85;
+}
+.s-ph__caret.is-blink { animation: phBlink 1s steps(1, end) infinite; }
+@keyframes phBlink { 0%, 50% { opacity: .85 } 50.01%, 100% { opacity: 0 } }
+/* 보내기 — 입력이 있을 때만 초록으로 살아난다(Slack 문법) */
+.s-ph__comp .sl__send { opacity: .3; transition: opacity .2s var(--s-ease); }
+.s-ph__comp.is-ready .sl__send { opacity: 1; }
+
+.s-roles { display: grid; align-content: start; gap: 16px; }
+/* 직무 탭 — 콘솔 「에이전트 만들기」의 직무 8종. 알약 줄로 감싼다 */
+.s-rtabs { display: flex; flex-wrap: wrap; gap: 6px; }
+.s-rtab {
+  appearance: none; border: 0; cursor: pointer; font: inherit;
+  height: 34px; padding: 0 14px; border-radius: var(--pill);
+  background: #fff; color: var(--s-mut);
+  font-size: 14px; font-weight: 500; letter-spacing: -.2px;
+  transition: background-color .3s var(--s-ease), color .3s var(--s-ease);
+}
+.s-rtab:hover { color: var(--ink); }
+.s-rtab.is-on { background: var(--fill); color: #fff; font-weight: 600; }
+.s-rpane[hidden] { display: none; }
+.s-duo__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; align-content: start; }
+.s-cell {
+  display: grid; align-content: start; gap: 10px; min-height: 132px;
+  padding: 18px 20px; border-radius: 18px; background: #fff;
+  font-size: 15px; line-height: 22px; font-weight: 500; color: var(--ink);
+  transition: background-color .3s var(--s-ease);
+}
+/* 에이전트 카드 — 콘솔 카드 구성(타일 + 이름 + 목적)을 모노톤으로 */
+.s-cell__tile {
+  width: 30px; height: 30px; border-radius: 9px;
+  display: grid; place-items: center; background: rgba(10, 10, 10, .07);
+  color: var(--s-mut);
+}
+/* 콘솔과 같은 lucide 아이콘 — 선 굵기도 콘솔(strokeWidth 1.5)에 맞춘다 */
+.s-cell__tile svg {
+  width: 17px; height: 17px;
+  fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round;
+}
+.s-cell__n { font-size: 15px; font-weight: 600; letter-spacing: -.2px; }
+.s-cell__d { font-size: 13px; line-height: 19px; font-weight: 400; color: var(--s-mut); }
+/* 공통 업무 템플릿 — 콘솔에서도 직무 템플릿 뒤에 붙는 묶음이라 면을 한 단 낮춘다 */
+.s-cell--common { background: rgba(255, 255, 255, .55); }
+.s-cell--common .s-cell__tile { background: rgba(10, 10, 10, .05); }
+
+/* ── 9 · 요금 — 콘솔 Billing.tsx 플랜 모달 실측 이식 ──────
+   월간/연간 토글(알약 안 스위치 40×22 · 손잡이 16 · 연간일 때 「20% 절약」 배지)
+   카드: radius 16 · padding 24 · 1.5px 테두리 · 플랜명 15/700 · 가격 28/800 ·
+        연간이면 월정가를 취소선으로 함께 · 서브 12 · CTA 알약 · 구분선 · 체크 목록 13/1.5
+   가격 두 벌을 마크업에 다 넣고 CSS 로 바꾼다 — JS 가 없어도 월간 가격이 보인다. */
+.s-toggle { display: flex; justify-content: center; margin-top: 36px; }
+.s-toggle__in {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 8px 16px; border-radius: var(--pill);
+  border: 1px solid var(--line); background: var(--s-surf);
+  font-size: 14px;
+}
+.s-toggle__lab { color: var(--s-mut); transition: color .2s var(--s-ease), font-weight .2s; }
+.s-toggle__lab.is-on { color: var(--ink); font-weight: 600; }
+.s-toggle__sw {
+  appearance: none; border: 0; cursor: pointer; flex: none;
+  width: 40px; height: 22px; border-radius: var(--pill); background: #CFCFD2; position: relative;
+  transition: background-color .2s var(--s-ease);
+}
+.s-toggle__sw i {
+  position: absolute; top: 3px; left: 3px; width: 16px; height: 16px; border-radius: 50%;
+  background: #fff; box-shadow: 0 1px 3px rgba(0, 0, 0, .2);
+  transition: left .2s var(--s-ease);
+}
+.s-toggle__sw[aria-checked="true"] { background: var(--fill); }
+.s-toggle__sw[aria-checked="true"] i { left: 21px; }
+/* 「20% 절약」 배지 — 월간일 때 opacity 로만 숨겼더니 자리를 차지한 채 남아
+   보이는 항목(월간·스위치·연간)이 알약 안에서 왼쪽으로 밀렸다.
+   콘솔도 연간일 때만 렌더링하므로 display 로 넣고 뺀다. */
+.s-toggle__save {
+  display: none;
+  padding: 3px 9px; border-radius: var(--pill);
+  background: var(--ink); color: #fff; font-size: 12px; font-weight: 600;
+}
+.s-toggle__in:has([aria-checked="true"]) .s-toggle__save { display: inline-flex; align-items: center; }
+
+.s-plans { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 28px; }
+.s-plan {
+  display: grid; align-content: start;
+  padding: 24px; border-radius: 16px; border: 1.5px solid var(--line); background: #fff;
+}
+.s-plan__n { font-size: 15px; font-weight: 700; letter-spacing: -.2px; margin-bottom: 10px; }
+.s-plan__price { display: flex; align-items: baseline; gap: 6px; flex-wrap: wrap; margin-bottom: 4px; }
+.s-plan__amt { font-size: 28px; font-weight: 800; line-height: 1; letter-spacing: -.03em; }
+.s-plan__amt--y, .s-plan__was { display: none; }
+.s-plan__was { font-size: 14px; color: var(--s-mut); text-decoration: line-through; }
+.s-plan__price em { font-style: normal; font-size: 13px; color: var(--s-mut); }
+/* 연간 보기 */
+.s-plans.is-annual .s-plan__amt--m { display: none; }
+.s-plans.is-annual .s-plan__amt--y, .s-plans.is-annual .s-plan__was { display: inline; }
+.s-plan__sub { font-size: 12px; line-height: 18px; color: var(--s-mut); margin-bottom: 20px; }
+/* 플랜 CTA — 요청 반영: 평소엔 회색 톤, 호버에서 검정.
+   네 장이 모두 같은 무게라 「어느 하나를 밀고 있다」로 읽히지 않는다.
+   (콘솔은 현재 플랜만 강조하지만 랜딩에는 현재 플랜이라는 상태가 없다) */
+.s-plan .s-plan__cta {
+  width: 100%; height: 42px; margin-bottom: 20px;
+  background: #EFEFF1; color: var(--ink); box-shadow: none;
+  transition: background-color .2s var(--s-ease), color .2s var(--s-ease);
+}
+.s-plan .s-plan__cta:hover { background: var(--fill); color: #fff; }
+.s-plan__l {
+  list-style: none; margin: 0; padding: 16px 0 0; border-top: 1px solid var(--line);
+  display: grid; gap: 10px;
+}
+.s-plan__l li { display: flex; align-items: flex-start; gap: 9px; font-size: 13px; line-height: 19.5px; }
+.s-plan__ck {
+  width: 14px; height: 14px; flex: none; margin-top: 3px; position: relative;
+}
+.s-plan__ck::after {
+  content: ''; position: absolute; left: 3px; top: 1px;
+  width: 5px; height: 9px; border: 2px solid var(--ink); border-top: 0; border-left: 0;
+  transform: rotate(42deg);
+}
+/* 이 플랜에 없는 항목 — 콘솔과 같이 취소선 + 흐린 체크 */
+/* 상위 플랜 안내 줄 — 체크 표시 없이 회색 글자로만. 포함 기능처럼 보이지 않게 */
+.s-plan__l li.is-off { color: var(--s-mut); font-size: 13px; }
+
+/* ── 10 · 블로그 — 기능 명세 F-DIZMPC 카드 문법(제목·요약·날짜·태그 + 새 탭) ──
+   썸네일은 아직 이미지가 없어 모노톤 면으로 둔다. 실제 이미지가 생기면
+   .s-post__thumb 의 background 만 갈아끼우면 된다. */
+.s-blog__head { display: flex; align-items: baseline; justify-content: space-between; gap: 24px; }
+.s-blog__more {
+  display: inline-flex; align-items: center; gap: 8px; flex: none;
+  font-size: 15px; font-weight: 500; color: var(--s-mut);
+  transition: color .2s var(--s-ease);
+}
+.s-blog__more:hover { color: var(--ink); }
+.s-blog__more i {
+  width: 7px; height: 7px; border-top: 1.6px solid currentColor; border-right: 1.6px solid currentColor;
+  transform: rotate(45deg);
+}
+.s-posts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 36px; }
+.s-post { display: grid; align-content: start; }
+.s-post__thumb {
+  aspect-ratio: 16 / 10; border-radius: 16px; margin-bottom: 18px;
+  outline: 1px solid rgba(0, 0, 0, .06); outline-offset: -1px;
+  transition: transform .4s var(--s-ease);
+}
+.s-post:hover .s-post__thumb { transform: translateY(-3px); }
+.s-post__thumb--a { background: linear-gradient(140deg, #1B1B1D 0%, #3A3A3E 100%); }
+.s-post__thumb--b { background: linear-gradient(140deg, #E9E9EC 0%, #C9C9CE 100%); }
+.s-post__thumb--c { background: linear-gradient(140deg, #2C2C30 0%, #6E6E76 100%); }
+.s-post__meta { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+.s-post__tag {
+  font-style: normal; font-size: 12px; font-weight: 600; color: var(--s-mut);
+  padding: 4px 9px; border-radius: var(--pill); background: var(--s-surf);
+}
+.s-post__date { font-size: 12.5px; color: var(--fai); }
+.s-post__t { font-size: 18px; line-height: 25px; font-weight: 600; letter-spacing: -.3px; }
+.s-post__d { margin-top: 8px; font-size: 14px; line-height: 21px; color: var(--s-mut); }
+
+
+/* Unsplash 사진 — 마크업의 모노톤 면 위에 얹는다. 사진을 못 받으면 면이 그대로 남는다 */
+.s-post__thumb { position: relative; overflow: hidden; }
+.s-post__img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%; object-fit: cover;
+  display: block;
+}
+/* 작성일 — 카드 맨 아랫줄 */
+.s-post__date { margin-top: 12px; font-size: 12.5px; line-height: 18px; color: var(--fai); }
+
+/* ── 13 · 최종 CTA 다크 밴드 ─────────────────────────── */
+/* 마지막 배너 — 어두운 면 위에 사진을 얹는다. 사진을 못 받으면 면만 남는다.
+   스크림 세기는 흰 글자 대비를 재서 정했다(--fin-scrim). */
+.s-final {
+  position: relative; isolation: isolate; overflow: hidden;
+  color: #fff; padding: 104px 0; margin-top: 24px;
+  background: var(--dark) url('assets/img/banner-img-01.jpg') center 32% / cover no-repeat;
+}
+.s-final::before {
+  content: ''; position: absolute; inset: 0; z-index: -1;
+  background:
+    linear-gradient(90deg, rgba(10, 10, 12, var(--fin-scrim, .72)) 0%, rgba(10, 10, 12, calc(var(--fin-scrim, .72) * .82)) 100%);
+}
+.s-final__in { position: relative; z-index: 1; }
+.s-final__in { display: grid; justify-items: center; text-align: center; }
+.s-final .s-h { color: #fff; }
+
+/* ── 반응형 — 원본은 1440/834/375 세 폭 모두 오버플로 0 ── */
+@media (max-width: 1080px) {
+  /* 좁아지면 좌측 단을 접는다 — .s-panels .s-panel--wide 가 292px 를 잡고 있어 같은 단계로 눌러야 한다 */
+  .s-panel--wide, .s-panels .s-panel--wide { grid-template-columns: 1fr; gap: 28px; padding: 32px; }
+  .s-panel--wide .s-panel__grid--4 { grid-template-columns: repeat(3, 1fr); }
+
+  .s-posts { grid-template-columns: 1fr 1fr; }
+
+  .sec2 { padding: 72px 0; }
+  .swrap { width: min(var(--sw), 100% - 40px); }
+  .s-split, .s-media, .s-duo { grid-template-columns: 1fr; gap: 32px; }
+  /* 카드가 사진을 다 덮지 않게 세로를 조금 더 준다 */
+  .s-ph { min-height: 460px; }
+  .s-ph__cap { padding: 0 4% 5%; }
+  .s-ph__log { gap: 12px; padding: 12px 12px 4px; }
+  .s-media { padding: 32px; }
+  .s-panel { grid-template-columns: 1fr; gap: 20px; }
+  .s-panel__grid { grid-template-columns: repeat(2, 1fr); }
+  .s-plans { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+}
+@media (max-width: 760px) {
+
+  .s-panel--wide .s-panel__grid--4 { grid-template-columns: 1fr 1fr; gap: 20px 16px; }
+
+  .s-posts { grid-template-columns: 1fr; gap: 32px; }
+  .s-blog__head { flex-direction: column; align-items: flex-start; gap: 12px; }
+
+  .sec2 { padding: 56px 0; }
+  .sec2--tight { padding: 44px 0; }
+  .s-tabs { padding-top: 64px; }
+  .s-tab { height: 34px; padding: 0 13px; font-size: 15px; }
+  .s-shot { max-height: 300px; margin-top: 28px; }
+  .s-shot.s-shot--phone { max-height: none; }
+  .s-phone { --phw: 288px; --phbz: 9px; border-radius: calc(41px + var(--phbz)); }
+  .s-phone__screen { border-radius: 41px; }
+  .s-phone__island { width: 92px; height: 27px; top: calc(var(--phbz) + 8px); }
+  .ph__status { height: 40px; }
+  .s-panel { padding: 24px; }
+  .s-panel__grid { grid-template-columns: 1fr; }
+  .s-plans { grid-template-columns: 1fr; gap: 36px; }
+  .s-plan__n { font-size: 32px; }
+  .s-final { padding: 72px 0; }
+  .s-media__shot .sm__body { padding: 16px; }
+}
+/* 모션 최소화 — 자동 순환은 JS 가 아예 돌리지 않고, 전환도 끈다.
+   흐름 모션이 안 도니 그 과정을 나타내는 조각(타이핑 커서 · 봇 입력 중 점)은
+   의미가 없다. 결과 화면만 완성 상태로 서 있게 둔다. */
+@media (prefers-reduced-motion: reduce) {
+  .s-tab, .s-tag, .s-rot li, .s-rot__ar { transition: none; }
+  .ph__caret, [data-dots] { display: none; }
+}
+
+/* 연동 그리드만 더 좁은 폭에서 1열로 — 라벨이 길어 2열이 깨진다 */
+@media (max-width: 520px) {
+  .s-panel--wide .s-panel__grid--4 { grid-template-columns: 1fr; }
+}
+
+/* 본문 줄바꿈 — 넓은 화면에서만 의도한 자리에서 끊는다.
+   760px 아래에서는 강제 줄바꿈이 어색해 자동 줄바꿈에 맡긴다 */
+@media (max-width: 760px) { br.lb { display: none; } }
+
+/* ── 2026-10-15 모바일·태블릿 히어로: 첫 화면 높이를 모두 쓰고 인물을 헤드카피 아래에 둔다 ──
+   좁은 화면에서는 히어로가 글자 높이만큼만 잡혀 인물이 잘리고 글자와 겹쳤다.
+   히어로 = 첫 화면(100svh). 인물 이미지(2752:1536 = 1.7917)에서 사람과 태블릿은 폭의 21%~79%에 있다.
+   이미지 높이는 두 값 중 작은 쪽: ① 화면 높이 − 헤드카피 블록(--top) ② 사람·태블릿(폭의 58%)이 화면 폭에 다 들어가는 높이.
+   그 58% 구간의 가운데(폭의 50%)를 화면 가운데에 맞춘다. 위쪽 규칙을 덮어야 하므로 파일 맨 끝에 둔다. */
+@media (max-width: 1080px) {
+  .hero {
+    --top: 330px;
+    --ph: min(calc(100svh - var(--top)), calc((100vw - 24px) / .58 / 1.7917));
+    --pw: calc(var(--ph) * 1.7917);
+    min-height: 100vh; min-height: 100svh;
+    padding-bottom: 0;
+  }
+  .hero__portrait {
+    background-size: auto var(--ph);
+    background-position: calc(50vw - var(--pw) * .5) bottom;
+  }
+  .hero__portrait::before {
+    -webkit-mask-size: auto var(--ph); mask-size: auto var(--ph);
+    -webkit-mask-position: calc(50vw - var(--pw) * .5) bottom;
+    mask-position: calc(50vw - var(--pw) * .5) bottom;
+  }
+}
+@media (max-width: 760px) {
+  .hero { --top: 300px; padding-top: 128px; }
+}
+
+/* 좁은 화면에서는 내비가 본문 제목 위에 겹친다 — 히어로를 지나면 내비 뒤에 흐린 띠를 깐다 */
+@media (max-width: 1080px) {
+  .nav::before {
+    content: ''; position: absolute; z-index: -1;
+    left: -16px; right: -16px; top: -28px; height: 100px;
+    background: rgba(255, 255, 255, .86);
+    -webkit-backdrop-filter: blur(14px) saturate(1.4); backdrop-filter: blur(14px) saturate(1.4);
+    -webkit-mask-image: linear-gradient(#000 70%, transparent); mask-image: linear-gradient(#000 70%, transparent);
+    opacity: 0; transition: opacity .3s var(--ease); pointer-events: none;
+  }
+  .nav.is-light::before { opacity: 1; }
+}

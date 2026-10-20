@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<title>Byr 고객센터</title>
+<meta name="description" content="Byr 사용 방법과 문제 해결 방법을 안내합니다. 시작하기, 에이전트 만들기, 팀 운영, 승인과 보안, 연동, 요금과 결제 문서를 제공합니다.">
+<link rel="stylesheet" href="support.css">
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="byr-mark" viewBox="0 0 1024 1024">
+  <rect width="1024" height="1024" rx="225" fill="#0A0A0B"/>
+  <g transform="translate(512 512) scale(1.5) translate(-512 -512)">
+    <path d="M576.183 293.704C609.643 289.988 645.923 303.731 670.654 326.037C695.349 348.676 710.084 380.165 711.643 413.63C713.421 449.481 701.026 481.922 677.029 508.356C679.861 510.677 682.428 512.856 685.049 515.422C709.314 539.507 723.044 572.228 723.233 606.416C723.443 640.333 709.833 671.137 685.957 695.006C669.223 711.497 648.186 722.944 625.251 728.039C609.25 731.651 597.157 730.669 581.105 730.697C567.923 730.779 554.741 730.791 541.558 730.734L425.49 730.594C431.548 713.19 443.676 696.969 458.124 685.643C473.731 673.294 492.264 665.186 511.927 662.106C524.101 660.121 534.238 660.473 546.439 660.477L581.429 660.502C591.915 660.506 602.867 660.968 613.059 658.381C622.201 656.057 630.576 651.383 637.353 644.822C648.284 634.27 653.327 620.743 653.63 605.709C653.616 604.435 653.568 603.161 653.486 601.89C652.559 586.917 645.348 572.032 633.786 562.59C577.685 516.776 503.95 592.316 467.404 628.958C456.618 639.787 445.742 650.527 434.779 661.178C394.356 699.894 355.503 726.035 298.521 730.249C309.51 705.616 321.929 680.82 333.542 656.428L408.288 500.171L446.959 418.957L463.172 384.854C471.221 368.03 476.99 354.387 489.255 340.012C512.048 313.297 540.998 296.839 576.183 293.704Z" fill="#FFFFFF"/>
+    <path d="M583.81 363.206C592.924 362.338 603.705 365.072 611.512 369.469C660.991 397.287 647.805 467.516 593.068 478.499C581.648 480.79 569.885 481.493 558.528 484.483C539.753 489.495 521.768 497.098 505.092 507.074C493.34 514.31 480.164 523.047 470.17 532.607C483.72 503.143 497.608 473.836 511.829 444.69L526.929 412.924C531.212 403.93 536.59 391.359 542.819 383.989C553.781 371.021 567.019 364.682 583.81 363.206Z" fill="#0A0A0B"/>
+  </g>
+</symbol></svg>
+
+<!-- 카테고리 아이콘 — lucide, stroke 1.5. 콘솔·랜딩과 같은 결 -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" fill="none" stroke="currentColor"
+     stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <symbol id="h-rocket" viewBox="0 0 24 24"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09Z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2Z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></symbol>
+  <symbol id="h-bot" viewBox="0 0 24 24"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2M20 14h2M15 13v2M9 13v2"/></symbol>
+  <symbol id="h-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+  <symbol id="h-shield" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1Z"/><path d="m9 12 2 2 4-4"/></symbol>
+  <symbol id="h-plug" viewBox="0 0 24 24"><path d="M12 22v-5"/><path d="M9 8V2M15 8V2"/><path d="M18 8v3a6 6 0 0 1-12 0V8Z"/></symbol>
+  <symbol id="h-wallet" viewBox="0 0 24 24"><path d="M19 7V5a2 2 0 0 0-2-2H5a2 2 0 0 0 0 4h14a2 2 0 0 1 2 2v3"/><path d="M3 5v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-3"/><path d="M18 12a2 2 0 0 0 0 4h3v-4Z"/></symbol>
+  <symbol id="h-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></symbol>
+  <symbol id="h-chev" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></symbol>
+</svg>
+
+<!-- 상단 밴드 — 원본(Intercom 헬프센터)은 하늘색 면. 우리는 모노톤이라 밝은 회색으로 바꿨다.
+     실측: 밴드 높이 267 · 컨테이너 960 · H1 28/34.7/700 · 검색창 960×63 -->
+<header class="band">
+  <div class="wrap">
+    <a class="brand" href="../index.html">
+      <svg class="mark" aria-hidden="true"><use href="#byr-mark"/></svg>
+      <span>Byr</span>
+    </a>
+    <h1>무엇을 도와드릴까요?</h1>
+    <form class="find" role="search" onsubmit="return false">
+      <svg class="find__ico" aria-hidden="true"><use href="#h-search"/></svg>
+      <input id="q" type="search" placeholder="도움말 검색..." autocomplete="off" aria-label="도움말 검색">
+    </form>
+  </div>
+</header>
+
+<main class="wrap main">
+
+  <!-- 강조 카드 — 원본의 「New in Sana?」 자리. 처음 온 사람을 가이드로 보낸다 -->
+  <section class="feat">
+    <h2>Byr를 처음 사용한다면 아래 두 문서를 먼저 확인해 주세요.</h2>
+    <a class="row" href="http://localhost:5173/guide" target="_blank" rel="noreferrer">
+      <span>처음 시작하기: 첫 에이전트 만들기</span>
+      <svg aria-hidden="true"><use href="#h-chev"/></svg>
+    </a>
+    <a class="row" href="http://localhost:5173/guide#security" target="_blank" rel="noreferrer">
+      <span>관리자 체크리스트: 권한, 승인, 기록 설정</span>
+      <svg aria-hidden="true"><use href="#h-chev"/></svg>
+    </a>
+  </section>
+
+  <!-- 카테고리 카드 2열 — 실측: 468×219 · radius 8 · 1px #E6E6E6 · 그림자 0 1px 2px rgba(0,0,0,.05) -->
+  <section class="cats" id="cats" aria-label="도움말 카테고리">
+
+    <a class="cat" href="http://localhost:5173/guide#overview" target="_blank" rel="noreferrer">
+      <svg class="cat__ico" aria-hidden="true"><use href="#h-rocket"/></svg>
+      <h3>시작하기</h3>
+      <p>계정 생성부터 첫 업무 요청까지.</p>
+      <span class="cat__meta">서비스 가이드에서 보기</span>
+    </a>
+
+    <a class="cat" href="http://localhost:5173/guide#create" target="_blank" rel="noreferrer">
+      <svg class="cat__ico" aria-hidden="true"><use href="#h-bot"/></svg>
+      <h3>에이전트 만들기</h3>
+      <p>직무 템플릿 선택과 스킬 설정 방법.</p>
+      <span class="cat__meta">서비스 가이드에서 보기</span>
+    </a>
+
+    <a class="cat" href="http://localhost:5173/guide#studio" target="_blank" rel="noreferrer">
+      <svg class="cat__ico" aria-hidden="true"><use href="#h-users"/></svg>
+      <h3>팀으로 운영하기</h3>
+      <p>에이전트 팀 구성과 진행 상태 확인 방법.</p>
+      <span class="cat__meta">서비스 가이드에서 보기</span>
+    </a>
+
+    <a class="cat" href="http://localhost:5173/guide#security" target="_blank" rel="noreferrer">
+      <svg class="cat__ico" aria-hidden="true"><use href="#h-shield"/></svg>
+      <h3>승인과 보안</h3>
+      <p>되돌리기 어려운 작업의 승인 단계, 권한 범위, 작업 기록.</p>
+      <span class="cat__meta">서비스 가이드에서 보기</span>
+    </a>
+
+    <a class="cat" href="http://localhost:5173/guide#mcp" target="_blank" rel="noreferrer">
+      <svg class="cat__ico" aria-hidden="true"><use href="#h-plug"/></svg>
+      <h3>연동: 메신저와 MCP</h3>
+      <p>메신저 채널 연결과 사내 도구 커넥터 설정 방법.</p>
+      <span class="cat__meta">서비스 가이드에서 보기</span>
+    </a>
+
+    <a class="cat" href="../index.html#pricing">
+      <svg class="cat__ico" aria-hidden="true"><use href="#h-wallet"/></svg>
+      <h3>요금과 결제</h3>
+      <p>플랜별 차이, 월간·연간 결제, 사용량 확인.</p>
+      <span class="cat__meta">요금 안내로 이동</span>
+    </a>
+
+  </section>
+
+  <p class="empty" id="empty" hidden>검색 결과가 없습니다. 다른 검색어를 입력해 주세요.</p>
+
+  <!-- 원본은 인터콤 메신저 버튼이 이 자리에 뜬다. 우리는 상담·문의 두 갈래로 -->
+  <section class="ask">
+    <h2>찾는 내용이 없나요?</h2>
+    <p>도입을 검토 중이라면 상담을 신청해 주세요. 사용 중 문제가 생겼다면 자주 묻는 질문을 먼저 확인해 주세요.</p>
+    <div class="ask__acts">
+      <a class="btn btn--fill" href="http://localhost:5173/contact" target="_blank" rel="noreferrer">도입 상담 신청하기</a>
+      <a class="btn btn--line" href="../index.html#faq">자주 묻는 질문</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <a href="../index.html">Byr 고객센터</a>
+</footer>
+
+<script>
+// 검색 — 카테고리 카드를 제목·설명으로 거른다(백엔드 없음, 화면에 있는 것만 찾는다)
+(function () {
+  var q = document.getElementById('q');
+  var cards = [].slice.call(document.querySelectorAll('.cat'));
+  var empty = document.getElementById('empty');
+  q.addEventListener('input', function () {
+    var v = q.value.trim().toLowerCase();
+    var hit = 0;
+    cards.forEach(function (c) {
+      var on = !v || c.textContent.toLowerCase().indexOf(v) > -1;
+      c.hidden = !on;
+      if (on) hit++;
+    });
+    empty.hidden = hit > 0;
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+Pretendard — SIL Open Font License 1.1
+글꼴: Pretendard (길형진 / orioncactus)
+원본: https://github.com/orioncactus/pretendard
+
+이 폴더의 woff2 파일은 SIL Open Font License 1.1 로 배포된다.
+OFL 은 글꼴 파일을 재배포할 때 라이선스가 함께 가야 한다고 요구한다.
+화면(푸터)에 표기할 의무는 없어서 페이지에서는 빼고, 파일 옆에 이 문서를 둔다.
+
+전문: https://openfontlicense.org/open-font-license-official-text/
+(SIL OPEN FONT LICENSE Version 1.1 - 26 February 2007)
+
+요약 — 허용/조건
+  · 자유롭게 사용·수정·재배포할 수 있다(판매 목적 포함).
+  · 글꼴 파일 자체를 판매할 수는 없다.
+  · 재배포 시 이 라이선스 고지가 함께 가야 한다.
+  · 수정본은 원본과 다른 이름(Reserved Font Name 제외)으로 배포한다.

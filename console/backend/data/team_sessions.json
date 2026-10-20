@@ -1,0 +1,108 @@
+{
+  "team|slack|C0BJZTA04RG|U0BBS69J2LT|team-7ae7d5": {
+    "platform": "slack",
+    "channel_id": "C0BJZTA04RG",
+    "user_id": "U0BBS69J2LT",
+    "team_id": "team-7ae7d5",
+    "team_name": "증권 리서치 팀",
+    "active": null,
+    "tasks": {},
+    "pending": [],
+    "seq": 0,
+    "updated_at": "2026-07-22T18:51:29.424455"
+  },
+  "team|slack|C1|U1|t1": {
+    "platform": "slack",
+    "channel_id": "C1",
+    "user_id": "U1",
+    "team_id": "t1",
+    "team_name": "소이팀",
+    "active": "t1",
+    "tasks": {
+      "t1": {
+        "task_id": "t1",
+        "request_id": "req-t1-t1",
+        "request_text": "이번달 월마감",
+        "state": "dispatching",
+        "plan": [
+          {
+            "task_id": "t1",
+            "job": "vat_reconcile",
+            "template_key": "close",
+            "name": "월마감",
+            "inputs": {},
+            "missing": [
+              "period_from",
+              "period_to",
+              "company_code",
+              "close_scope"
+            ],
+            "asking": "period_from",
+            "stage_id": null,
+            "status": null,
+            "result": null
+          }
+        ],
+        "cur": 0,
+        "committed": false,
+        "dry_run_ok": false,
+        "blocked_count": 0,
+        "prev_state": null,
+        "last_status": null,
+        "last_error": null,
+        "created_at": "2026-07-22T18:45:44.304086",
+        "updated_at": "2026-07-22T18:45:44.304497"
+      }
+    },
+    "pending": [],
+    "seq": 1,
+    "updated_at": "2026-07-22T18:45:44.304550"
+  },
+  "team|slack|C0BK4H5AXQR|U0BBS69J2LT|team-7a862b": {
+    "platform": "slack",
+    "channel_id": "C0BK4H5AXQR",
+    "user_id": "U0BBS69J2LT",
+    "team_id": "team-7a862b",
+    "team_name": "재무·회계 팀",
+    "active": "t1",
+    "tasks": {
+      "t1": {
+        "task_id": "t1",
+        "request_id": "req-team-7a862b-t1",
+        "request_text": "이번달 월마감 진행해줘",
+        "state": "dispatching",
+        "plan": [
+          {
+            "task_id": "t1",
+            "job": "vat_reconcile",
+            "template_key": "close",
+            "name": "월마감",
+            "inputs": {},
+            "missing": [
+              "period_from",
+              "period_to",
+              "company_code",
+              "close_scope"
+            ],
+            "asking": "period_from",
+            "stage_id": null,
+            "status": null,
+            "result": null
+          }
+        ],
+        "cur": 0,
+        "committed": false,
+        "dry_run_ok": false,
+        "blocked_count": 0,
+        "prev_state": null,
+        "last_status": null,
+        "last_error": null,
+        "created_at": "2026-07-23T00:06:11.749275",
+        "updated_at": "2026-07-23T00:06:22.105618"
+      }
+    },
+    "pending": [],
+    "seq": 1,
+    "updated_at": "2026-07-23T00:06:22.105966"
+  }
+}

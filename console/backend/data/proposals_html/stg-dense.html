@@ -1,0 +1,167 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><style>
+  @page { size: 1280px 720px; margin: 0; }
+  * { box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  html, body { margin: 0; padding: 0; font-family: 'Apple SD Gothic Neo','Pretendard','Malgun Gothic',sans-serif; color: #1a1c2e; }
+  .slide { width: 1280px; height: 720px; page-break-after: always; position: relative; overflow: hidden; padding: 72px 84px; }
+  /* 표지 */
+  .cover { background: radial-gradient(120% 120% at 100% 0%, #2b2f6b 0%, #14163a 55%, #0d0f28 100%); color: #fff; display: flex; flex-direction: column; justify-content: center; }
+  .cover .brand { position: absolute; top: 64px; left: 84px; font-weight: 800; letter-spacing: .5px; font-size: 22px; color: #c9ccff; }
+  .cover .bar { width: 64px; height: 6px; border-radius: 6px; background: linear-gradient(90deg,#6d7bff,#a98bff); margin-bottom: 26px; }
+  .cover h1 { font-size: 58px; line-height: 1.15; margin: 0 0 20px; font-weight: 800; letter-spacing: -0.5px; max-width: 900px; }
+  .cover .sub { font-size: 22px; color: #b9bde6; max-width: 820px; line-height: 1.5; }
+  .cover .meta { position: absolute; bottom: 60px; left: 84px; font-size: 16px; color: #8f93c9; }
+  .cover .client { position: absolute; bottom: 60px; right: 84px; font-size: 18px; color: #c9ccff; font-weight: 700; }
+  /* 내용 슬라이드 */
+  .content { background: #ffffff; display: flex; flex-direction: column; }
+  .kicker { display: inline-block; font-size: 15px; font-weight: 800; color: #5b6cff; letter-spacing: 1px; margin-bottom: 10px; }
+  .content h2 { font-size: 40px; font-weight: 800; margin: 0 0 6px; letter-spacing: -0.5px; }
+  .subhead { font-size: 20px; color: #5b6cff; font-weight: 600; margin-top: 4px; }
+  .slide-head { border-bottom: 3px solid #eceefb; padding-bottom: 18px; margin-bottom: 26px; }
+  ul.bullets { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 22px; flex: 1; }
+  ul.bullets.dense { gap: 15px; }
+  ul.bullets li { position: relative; padding-left: 30px; color: #2a2d45; }
+  ul.bullets li::before { content: ""; position: absolute; left: 4px; top: 11px; width: 10px; height: 10px; border-radius: 3px; background: linear-gradient(135deg,#6d7bff,#a98bff); }
+  .b-lead { font-size: 23px; font-weight: 800; color: #14163a; line-height: 1.35; }
+  ul.bullets.dense .b-lead { font-size: 21px; }
+  .b-detail { display: block; font-size: 18px; font-weight: 400; color: #4b4f6b; margin-top: 5px; line-height: 1.5; }
+  ul.bullets.dense .b-detail { font-size: 16.5px; margin-top: 3px; }
+  .b-lead strong { color: #4b57d6; }
+  .body { flex: 1; display: flex; flex-direction: column; justify-content: flex-start; }
+  /* 수치 카드 */
+  .metrics { display: flex; gap: 24px; align-items: stretch; flex: 1; }
+  .metric { flex: 1; background: linear-gradient(160deg,#f5f6ff,#eceeff); border: 1px solid #e2e5ff; border-radius: 20px; padding: 40px 30px; display: flex; flex-direction: column; justify-content: center; }
+  .metric .val { font-size: 60px; font-weight: 900; letter-spacing: -1.5px; line-height: 1; background: linear-gradient(135deg,#5b6cff,#a98bff); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+  .metric .lab { font-size: 21px; font-weight: 800; color: #14163a; margin-top: 16px; line-height: 1.3; }
+  .metric .sub { font-size: 15px; color: #7a7e9c; margin-top: 8px; }
+  /* 비교 표 */
+  .table-wrap { width: 100%; }
+  table.cmp { width: 100%; border-collapse: separate; border-spacing: 0; font-size: 20px; }
+  table.cmp th { text-align: left; padding: 16px 22px; background: #14163a; color: #fff; font-weight: 700; }
+  table.cmp th:first-child { border-top-left-radius: 12px; }
+  table.cmp th:last-child { border-top-right-radius: 12px; }
+  table.cmp th.hl { background: #4b57d6; }
+  table.cmp td { padding: 15px 22px; border-bottom: 1px solid #ececf6; color: #333650; }
+  table.cmp tr td:first-child { font-weight: 700; color: #14163a; }
+  table.cmp td.hl { background: #eef0ff; font-weight: 700; color: #2f38a8; }
+  table.cmp tbody tr:last-child td { border-bottom: none; }
+  /* 막대 인포그래픽 */
+  .bars { display: flex; flex-direction: column; gap: 24px; flex: 1; justify-content: center; }
+  .bar-row { display: grid; grid-template-columns: 200px 1fr auto; align-items: center; gap: 20px; }
+  .bar-label { font-size: 21px; font-weight: 700; color: #14163a; text-align: right; }
+  .bar-track { height: 34px; background: #f0f1f9; border-radius: 10px; overflow: hidden; }
+  .bar-fill { height: 100%; border-radius: 10px; background: linear-gradient(90deg,#c3c9ff,#aab2ff); }
+  .bar-fill.hl { background: linear-gradient(90deg,#6d7bff,#a98bff); }
+  .bar-val { font-size: 22px; font-weight: 800; color: #3b46c9; min-width: 90px; }
+  .bar-note { display: block; font-size: 13px; font-weight: 500; color: #9195b4; }
+  /* 도넛 */
+  .donut-wrap { display: flex; align-items: center; gap: 48px; flex: 1; justify-content: center; }
+  .donut-side .donut-label { font-size: 30px; font-weight: 800; color: #14163a; }
+  .donut-side .donut-cap { font-size: 19px; color: #6b6f8e; margin-top: 8px; max-width: 360px; line-height: 1.5; }
+  /* 타임라인 */
+  .timeline { display: flex; gap: 0; flex: 1; align-items: flex-start; padding-top: 30px; }
+  .tl-step { flex: 1; position: relative; padding: 0 12px; text-align: center; }
+  .tl-line { position: absolute; top: 17px; left: 50%; width: 100%; height: 3px; background: #e4e6f5; z-index: 0; }
+  .tl-step:last-child .tl-line { display: none; }
+  .tl-dot { position: relative; z-index: 1; width: 36px; height: 36px; border-radius: 50%; margin: 0 auto 16px; background: linear-gradient(135deg,#6d7bff,#a98bff); color: #fff; font-weight: 800; font-size: 18px; display: flex; align-items: center; justify-content: center; }
+  .tl-phase { font-size: 15px; font-weight: 800; color: #5b6cff; letter-spacing: .5px; }
+  .tl-title { font-size: 21px; font-weight: 800; color: #14163a; margin-top: 6px; }
+  .tl-desc { font-size: 16px; color: #6b6f8e; margin-top: 8px; line-height: 1.5; }
+  /* 조합 레이아웃(차트+불릿) */
+  .split { display: flex; gap: 44px; flex: 1; align-items: center; }
+  .split-viz { flex: 1.25; min-width: 0; }
+  .split-aside { flex: 1; min-width: 0; }
+  .split-aside ul.bullets { gap: 16px; }
+  .split-aside .b-lead { font-size: 20px; }
+  .split-aside .b-detail { font-size: 15.5px; }
+  .stack { display: flex; flex-direction: column; gap: 22px; flex: 1; }
+  .stack-viz { flex-shrink: 0; }
+  .stack-viz.metrics-wrap { }
+  .stack ul.bullets { gap: 12px; }
+  .stack ul.bullets .b-lead { font-size: 19px; }
+  .stack ul.bullets .b-detail { font-size: 15px; margin-top: 2px; }
+  .stack-viz.table .table-wrap table.cmp { font-size: 18px; }
+  .viz-full { flex: 1; display: flex; flex-direction: column; justify-content: center; }
+  .cite { display: inline-block; margin-left: 6px; padding: 2px 9px; border-radius: 999px; background: #eef0ff; color: #4b57d6; font-size: 14px; font-weight: 700; vertical-align: middle; }
+  .note { margin-top: 18px; padding: 14px 18px; background: #f6f7fb; border-left: 4px solid #5b6cff; border-radius: 8px; font-size: 18px; color: #454863; }
+  .foot { position: absolute; bottom: 40px; left: 84px; right: 84px; display: flex; justify-content: space-between; font-size: 14px; color: #a9adc6; }
+</style></head><body>
+  <section class="slide cover">
+    <div class="brand">Byr</div>
+    <div class="bar"></div>
+    <h1>하나제조 대상 Byr 도입 제안</h1>
+    <div class="sub">사내 근거 기반 · 사람 승인 게이트 · 감사 기록</div>
+    <div class="meta"></div>
+    <div class="client">하나제조</div>
+  </section>
+  
+    <section class="slide content">
+      <div class="slide-head">
+        <div class="kicker">과제</div>
+        <h2>고객 현황과 과제</h2>
+        <div class="subhead">요청하신 상황을 정리했어요</div>
+      </div>
+      <div class="body"><ul class="bullets "><li><span class="b-lead">요청 요약</span><span class="b-detail">30명 CS팀 반복문의 자동응대, 보안 중요</span></li><li><span class="b-lead">반복 업무 부담</span><span class="b-detail">정형적·반복적 처리가 많아 담당자 시간이 소진됩니다.</span></li><li><span class="b-lead">정확도·보안 요구</span><span class="b-detail">결과를 사람이 검증하고 데이터 보호가 필요한 환경입니다.</span></li></ul></div>
+      
+      <div class="foot"><span>Byr · 제안서</span><span>2 / 8</span></div>
+    </section>
+    <section class="slide content">
+      <div class="slide-head">
+        <div class="kicker">제안</div>
+        <h2>Byr 제안 개요</h2>
+        <div class="subhead">핵심 3가지</div>
+      </div>
+      <div class="body"><ul class="bullets "><li><span class="b-lead">사내 근거 자동화</span><span class="b-detail">연결된 문서에서 근거를 찾아 업무 결과를 자동으로 만들고 출처를 인용합니다.</span></li><li><span class="b-lead">사람 승인 게이트</span><span class="b-detail">외부 발송·제출 같은 고위험 작업은 사람이 확인·승인하기 전까지 실행되지 않습니다.</span></li><li><span class="b-lead">전 과정 감사 기록</span><span class="b-detail">누가 무엇을 언제 실행·승인했는지 작업 기록부에 남아 규제 대응이 쉽습니다.</span></li></ul></div>
+      
+      <div class="foot"><span>Byr · 제안서</span><span>3 / 8</span></div>
+    </section>
+    <section class="slide content">
+      <div class="slide-head">
+        
+        <h2>기대 효과</h2>
+        <div class="subhead">도입 사례 기준</div>
+      </div>
+      <div class="body"><div class="stack"><div class="stack-viz metrics"><div class="metrics"><div class="metric"><div class="val">20분</div><div class="lab">1차 응답 시간</div><div class="sub">기존 4시간</div></div><div class="metric"><div class="val">-73%</div><div class="lab">처리 시간</div><div class="sub">반복 업무 기준</div></div><div class="metric"><div class="val">60%</div><div class="lab">자동 처리 비중</div><div class="sub">반복 문의</div></div><div class="metric"><div class="val">4주</div><div class="lab">성과 확인</div><div class="sub">파일럿(PoC)</div></div></div></div><ul class="bullets "><li><span class="b-lead">응대 속도</span><span class="b-detail">상담사는 예외 케이스에 집중하고 반복 문의는 자동 초안으로 처리합니다.</span></li><li><span class="b-lead">품질 유지</span><span class="b-detail">모든 답변이 사내 문서를 근거로 하고 사람 승인 후 나갑니다.</span></li></ul></div></div>
+      <div class="note">예시 수치 — 실제 데이터로 교체하세요</div>
+      <div class="foot"><span>Byr · 제안서</span><span>4 / 8</span></div>
+    </section>
+    <section class="slide content">
+      <div class="slide-head">
+        
+        <h2>핵심 지표</h2>
+        <div class="subhead">자동 응대로 처리량을 확 줄입니다</div>
+      </div>
+      <div class="body"><div class="split"><div class="split-viz"><div class="bars"><div class="bar-row"><div class="bar-label">기존 수기 응대</div><div class="bar-track"><div class="bar-fill " style="width:100%"></div></div><div class="bar-val">120건/일</div></div><div class="bar-row"><div class="bar-label">도입 1개월</div><div class="bar-track"><div class="bar-fill " style="width:65%"></div></div><div class="bar-val">78건/일<span class="bar-note">35% 감소</span></div></div><div class="bar-row"><div class="bar-label">도입 3개월</div><div class="bar-track"><div class="bar-fill hl" style="width:28%"></div></div><div class="bar-val">34건/일<span class="bar-note">약 72% 감소</span></div></div></div></div><aside class="split-aside"><ul class="bullets aside"><li><span class="b-lead">선형적 감소</span><span class="b-detail">자동 응대 커버리지가 늘수록 수기 처리량이 빠르게 줄어듭니다.</span></li><li><span class="b-lead">재배치 효과</span><span class="b-detail">확보된 시간을 고부가 상담·클레임 대응으로 돌립니다.</span></li></ul></aside></div></div>
+      <div class="note">예시 수치 — 실제 데이터로 교체하세요</div>
+      <div class="foot"><span>Byr · 제안서</span><span>5 / 8</span></div>
+    </section>
+    <section class="slide content">
+      <div class="slide-head">
+        
+        <h2>범용 챗봇 대비 Byr</h2>
+        <div class="subhead">실무 투입 관점</div>
+      </div>
+      <div class="body"><div class="stack"><div class="stack-viz table"><div class="table-wrap"><table class="cmp"><thead><tr><th class="">항목</th><th class="">범용 챗봇</th><th class="hl">Byr</th></tr></thead><tbody><tr><td class="">사내 근거</td><td class="">약함</td><td class="hl">강함(출처 인용)</td></tr><tr><td class="">실행 전 사람 승인</td><td class="">없음</td><td class="hl">기본 제공</td></tr><tr><td class="">감사 기록</td><td class="">제한적</td><td class="hl">전 과정 기록</td></tr><tr><td class="">보안·설치형</td><td class="">제한적</td><td class="hl">테넌트 격리·설치형</td></tr><tr><td class="">업무 자동 실행</td><td class="">제한적</td><td class="hl">스킬·MCP로 실제 실행</td></tr></tbody></table></div></div><ul class="bullets "><li><span class="b-lead">규제 대응</span><span class="b-detail">승인 게이트와 작업 기록부로 감사 추적이 가능합니다.</span></li><li><span class="b-lead">데이터 보호</span><span class="b-detail">내장 LLM·설치형으로 데이터가 외부로 나가지 않게 운영합니다.</span></li></ul></div></div>
+      
+      <div class="foot"><span>Byr · 제안서</span><span>6 / 8</span></div>
+    </section>
+    <section class="slide content">
+      <div class="slide-head">
+        
+        <h2>도입 로드맵</h2>
+        <div class="subhead">4주면 성과를 확인할 수 있어요</div>
+      </div>
+      <div class="body"><div class="stack"><div class="stack-viz timeline"><div class="timeline"><div class="tl-step"><div class="tl-line"></div><div class="tl-dot">1</div><div class="tl-phase">1주</div><div class="tl-title">상담·진단</div><div class="tl-desc">반복 업무·문서 현황 파악</div></div><div class="tl-step"><div class="tl-line"></div><div class="tl-dot">2</div><div class="tl-phase">2–4주</div><div class="tl-title">파일럿(PoC)</div><div class="tl-desc">한 업무를 실제 에이전트로 검증</div></div><div class="tl-step"><div class="tl-line"></div><div class="tl-dot">3</div><div class="tl-phase">5주~</div><div class="tl-title">정식 도입</div><div class="tl-desc">플랜·권한 설정, 팀 온보딩</div></div><div class="tl-step"><div class="tl-line"></div><div class="tl-dot">4</div><div class="tl-phase">이후</div><div class="tl-title">확대</div><div class="tl-desc">직무·팀 단위로 확장</div></div></div></div><ul class="bullets "><li><span class="b-lead">빠른 검증</span><span class="b-detail">4주 파일럿으로 실제 업무에서 성과를 먼저 확인합니다.</span></li><li><span class="b-lead">안전한 확장</span><span class="b-detail">성공 업무부터 순차 확대해 리스크를 낮춥니다.</span></li></ul></div></div>
+      
+      <div class="foot"><span>Byr · 제안서</span><span>7 / 8</span></div>
+    </section>
+    <section class="slide content">
+      <div class="slide-head">
+        <div class="kicker">플랜</div>
+        <h2>추천 플랜</h2>
+        <div class="subhead">승인 게이트가 필요한 팀에 적합</div>
+      </div>
+      <div class="body"><ul class="bullets "><li><span class="b-lead">플랜</span><span class="b-detail">연결된 요금 자료를 확인하세요.</span></li></ul></div>
+      
+      <div class="foot"><span>Byr · 제안서</span><span>8 / 8</span></div>
+    </section>
+</body></html>

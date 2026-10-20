@@ -1,0 +1,24 @@
+# 로컬 전용 키·설정 — 배포 환경변수로 넣는다
+.env
+.env.local
+**/.env.local
+**/config.local.js
+
+# 빌드 산출물·의존성
+node_modules/
+dist/
+__pycache__/
+*.pyc
+.venv/
+venv/
+*.tsbuildinfo
+.vercel/
+
+.DS_Store
+
+# 로컬 캡처·스크린샷(포트폴리오 작업용, 저장소 제외)
+/Screenshot.png
+/captures/
+
+# OAuth 클라이언트 보안 비밀번호 파일(Google Cloud에서 내려받은 것) — 저장소에 올리지 않는다
+client_secret*.json

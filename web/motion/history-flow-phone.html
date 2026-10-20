@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>작업 이력 흐름(아이폰) · Byr</title>
+<!--
+  Byr가 실제로 연동된 iOS Slack 화면(2026-10 캡처, 393×852pt)을 그대로 따른 모션 목업.
+  - 위: 떠 있는 유리 막대(뒤로 · # 채널 알약 · 아이콘 알약) / 아래: 입력창 알약 + 하단 탭 + 검색 원
+  - 본문 17pt, 이름 옆 '앱' 배지, 시각은 "2:01 오후", 같은 사람의 연속 메시지는 묶는다
+  - 승인은 실제 제품처럼 채널에 `승인`을 입력한다(승인자 박태현 팀장)
+  새 메시지가 오면 이전 메시지는 위 유리 막대 아래로 밀려 올라간다. 마지막 메시지가 작업 이력 전체를 담는다.
+
+  규칙(motion/README.md): CSS 애니메이션 없이 render(t). t ∈ [0,1) — 같은 t 면 같은 프레임.
+    /motion/history-flow-phone            18초 반복
+    /motion/history-flow-phone?t=0.85     정지 화면(완성 장면)
+    /motion/history-flow-phone?bg=transparent | ?bg=F4F3F0   화면 바깥 배경
+  iframe 예: <iframe src="https://byr-web.vercel.app/motion/history-flow-phone" style="width:393px;aspect-ratio:393/852;border:0"></iframe>
+-->
+<style>
+@font-face { font-family:'Pretendard'; src:url('../assets/fonts/Pretendard-Regular.woff2') format('woff2'); font-weight:400; font-display:swap; }
+@font-face { font-family:'Pretendard'; src:url('../assets/fonts/Pretendard-SemiBold.woff2') format('woff2'); font-weight:600; font-display:swap; }
+
+:root {
+  --ink: #1D1C1D; --sub: #616061; --line: #DDDDDD; --link: #1264A3;
+  --code: #E01E5A; --code-bg: #F8F8F8; --code-bd: #E3E3E3;
+  --men: #E8F5FA; --men-ink: #1264A3; --purple: #611F69;
+  --font: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Apple SD Gothic Neo', 'Pretendard', system-ui, sans-serif;
+  --bg: #F4F3F0;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; }
+body { font-family: var(--font); background: var(--bg); -webkit-font-smoothing: antialiased; overflow: hidden; }
+
+/* 393×852 화면 — 창·iframe 크기에 맞춰 통째로 확대·축소 */
+.screen {
+  position: absolute; left: 50%; top: 50%; width: 393px; height: 852px; transform-origin: center;
+  background: #fff; color: var(--ink); overflow: hidden;
+}
+
+/* ── 대화: 입력창 위에서부터 아래로 붙고, 넘치면 위로 밀려 올라간다 ── */
+.thread {
+  position: absolute; left: 0; right: 0; top: 0; bottom: 146px;
+  display: flex; flex-direction: column; justify-content: flex-end; overflow: hidden;
+}
+.item { overflow: hidden; flex: none; }
+.msg { display: grid; grid-template-columns: 36px 1fr; column-gap: 12px; padding: 10px 16px 2px; }
+.msg--cont { padding-top: 2px; }
+.ava { width: 36px; height: 36px; border-radius: 8px; overflow: hidden; display: grid; place-items: center; font-size: 15px; font-weight: 600; color: #fff; }
+.ava img { width: 100%; height: 100%; display: block; }
+.ava--k { background: #8C6A5B; }
+.ava--p { background: #4F6B87; }
+.col { grid-column: 2; min-width: 0; }
+.meta { display: flex; align-items: center; gap: 8px; height: 24px; }
+.meta b { font-size: 17px; font-weight: 700; letter-spacing: -.2px; }
+.meta .app { font-size: 13px; font-weight: 600; color: var(--sub); background: #EFEFEF; border-radius: 8px; padding: 2px 8px; }
+.meta em { font-style: normal; font-size: 15px; color: var(--sub); }
+.p { font-size: 17px; line-height: 22px; letter-spacing: -.2px; word-break: keep-all; overflow-wrap: anywhere; }
+.p + .p { margin-top: 0; }
+.gap { height: 22px; }
+.p b { font-weight: 700; }
+.p .men { color: var(--men-ink); background: var(--men); border-radius: 4px; padding: 0 3px; font-weight: 600; }
+.p code { font-family: inherit; color: var(--code); background: var(--code-bg); border: 1px solid var(--code-bd); border-radius: 4px; padding: 0 3px; font-weight: 600; }
+.p.small { font-size: 15px; line-height: 20px; color: var(--sub); }
+.emo { font-family: 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', sans-serif; margin-right: 6px; }
+
+/* PDF 첨부 카드 */
+.file { margin-top: 12px; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+.file__head { display: flex; align-items: center; gap: 12px; padding: 11px 12px; }
+.file__ico { width: 36px; height: 36px; border-radius: 8px; background: #E5456D; display: grid; place-items: center; flex: none; }
+.file__ico svg { width: 20px; height: 20px; }
+.file__head b { display: block; font-size: 17px; font-weight: 700; letter-spacing: -.2px; }
+.file__head em { display: block; font-style: normal; font-size: 15px; color: var(--sub); }
+.file__prev { height: 132px; background: #EEF0F3; padding: 14px 18px 0; display: flex; gap: 10px; }
+.doc { flex: 1; background: #fff; border-radius: 4px 4px 0 0; box-shadow: 0 1px 3px rgba(0,0,0,.08); padding: 12px 14px; }
+.doc h5 { font-size: 10px; font-weight: 700; margin-bottom: 8px; color: #222; }
+.doc i { display: block; height: 5px; border-radius: 2px; background: #E6E8EC; margin-bottom: 6px; }
+.doc i.r { background: #F6C9D4; width: 60%; }
+
+/* ── 유리 막대 ── */
+.glass {
+  position: absolute; background: rgba(255,255,255,.74);
+  -webkit-backdrop-filter: blur(18px) saturate(180%); backdrop-filter: blur(18px) saturate(180%);
+  box-shadow: 0 2px 12px rgba(0,0,0,.08), inset 0 0 0 .5px rgba(0,0,0,.06);
+}
+.status { position: absolute; left: 0; right: 0; top: 0; height: 54px; display: flex; align-items: center; justify-content: space-between; padding: 8px 30px 0 46px; font-size: 17px; font-weight: 600; z-index: 3; }
+.status .r { display: flex; align-items: center; gap: 6px; }
+.status .bat { min-width: 30px; height: 15px; border-radius: 5px; background: #1D1C1D; color: #fff; font-size: 11px; font-weight: 700; display: grid; place-items: center; padding: 0 4px; }
+.topfade { position: absolute; left: 0; right: 0; top: 0; height: 112px; background: linear-gradient(#fff 45%, rgba(255,255,255,0)); z-index: 1; }
+.back { left: 17px; top: 60px; width: 42px; height: 42px; border-radius: 50%; display: grid; place-items: center; z-index: 2; }
+.back svg { width: 12px; height: 20px; }
+.chan { left: 70px; top: 60px; width: 198px; height: 42px; border-radius: 21px; display: flex; align-items: center; gap: 10px; padding: 0 16px 0 14px; z-index: 2; }
+.chan .hash { font-size: 24px; font-weight: 600; line-height: 1; }
+.chan b { display: block; font-size: 15px; font-weight: 700; letter-spacing: -.2px; line-height: 18px; }
+.chan em { display: block; font-style: normal; font-size: 12px; color: var(--ink); line-height: 15px; }
+.icons { left: 279px; top: 60px; width: 98px; height: 42px; border-radius: 21px; display: flex; align-items: center; justify-content: space-around; padding: 0 8px; z-index: 2; }
+.icons svg { width: 22px; height: 22px; }
+
+.comp { left: 16px; right: 16px; top: 716px; height: 44px; border-radius: 22px; display: flex; align-items: center; gap: 12px; padding: 0 14px 0 6px; z-index: 2; }
+.comp .plus { width: 34px; height: 34px; border-radius: 50%; background: rgba(255,255,255,.9); box-shadow: 0 1px 4px rgba(0,0,0,.12); display: grid; place-items: center; flex: none; }
+.comp .plus svg { width: 16px; height: 16px; }
+.comp .ph { flex: 1; font-size: 17px; color: #8A8A8A; white-space: nowrap; overflow: hidden; letter-spacing: -.3px; }
+.comp .ph .val { color: var(--ink); }
+.comp .mic svg { width: 18px; height: 22px; display: block; }
+.caret { display: inline-block; width: 2px; height: 20px; background: #1264A3; vertical-align: -4px; margin-left: 1px; border-radius: 1px; }
+.tabs { left: 22px; top: 770px; width: 278px; height: 60px; border-radius: 30px; display: grid; grid-template-columns: repeat(4, 1fr); align-items: center; padding: 0 4px; z-index: 2; }
+.tab { display: grid; justify-items: center; gap: 2px; font-size: 12px; font-weight: 500; color: var(--ink); position: relative; height: 52px; align-content: center; border-radius: 26px; }
+.tab svg { width: 24px; height: 24px; }
+.tab.on { background: rgba(0,0,0,.06); color: var(--purple); }
+.tab .dot { position: absolute; top: 8px; right: 17px; width: 8px; height: 8px; border-radius: 50%; background: #D7B9F0; }
+.search { left: 311px; top: 770px; width: 60px; height: 60px; border-radius: 50%; display: grid; place-items: center; z-index: 2; }
+.search svg { width: 24px; height: 24px; }
+</style>
+</head>
+<body>
+<div class="screen" id="screen" role="img" aria-label="Byr가 연동된 Slack 화면 애니메이션: 요청부터 승인, 제출, 작업 이력 기록까지">
+
+  <div class="thread" id="thread">
+    <!-- 1 · 요청 -->
+    <div class="item" data-at="2.4"><div class="msg">
+      <span class="ava ava--k">김</span>
+      <div class="col"><p class="meta"><b>김민지</b><em>2:01 오후</em></p>
+        <p class="p"><span class="men">@세금계산서 점검 도우미</span> 이번 달 것 정리해줘</p></div>
+    </div></div>
+    <!-- 2 · Byr 수집 중 -->
+    <div class="item" data-at="3.4"><div class="msg">
+      <span class="ava"><img src="../favicon.svg" alt=""></span>
+      <div class="col"><p class="meta"><b>Byr</b><span class="app">앱</span><em>2:01 오후</em></p>
+        <p class="p"><span class="emo">⏳</span>근거를 찾아 점검 초안을 작성하는 중…</p></div>
+    </div></div>
+    <!-- 3 · 초안 준비 완료(같은 사람 연속 메시지 — 머리 없음) -->
+    <div class="item" data-at="5.6"><div class="msg msg--cont">
+      <div class="col">
+        <p class="p"><span class="emo">📄</span><b>6월 세금계산서 점검 초안</b> 준비 완료 (근거 기반 · 사내 AI)</p>
+        <p class="p">불일치 4건 — 공급가액 3건 · 사업자번호 1건</p>
+        <div class="gap"></div>
+        <p class="p"><b>근거</b></p>
+        <p class="p">• 6월 매입 세금계산서 42건</p>
+        <p class="p">• 부가세 신고 사내 지침 최신본</p>
+        <div class="gap"></div>
+        <p class="p">검토 후 제출하려면 채널에 <code>승인</code> 이라고 보내주세요. (다시 만들려면 <code>다시</code>)</p>
+      </div>
+    </div></div>
+    <!-- 4 · PDF -->
+    <div class="item" data-at="6.6"><div class="msg msg--cont">
+      <div class="col"><div class="file">
+        <div class="file__head"><span class="file__ico"><svg viewBox="0 0 20 20" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3c-1.5 0-1.2 4.5 1.8 8.6 2 2.8 5.2 3.4 5.2 2s-4.6-1.6-9.6.4c-3.2 1.3-4.6 3.4-3.5 3.9 1.3.6 3.6-3 5-7.2C10 6.8 11.3 3 10 3z"/></svg></span>
+          <span><b>세금계산서 점검 초안(PDF)</b><em>212KB PDF</em></span></div>
+        <div class="file__prev"><div class="doc"><h5>6월 세금계산서 점검</h5><i></i><i class="r"></i><i></i><i style="width:80%"></i><i class="r" style="width:45%"></i><i></i></div></div>
+      </div></div>
+    </div></div>
+    <!-- 5 · 승인(승인자) -->
+    <div class="item" data-at="9.8"><div class="msg">
+      <span class="ava ava--p">박</span>
+      <div class="col"><p class="meta"><b>박태현</b><em>2:11 오후</em></p>
+        <p class="p">승인</p></div>
+    </div></div>
+    <!-- 6 · 제출 완료 + 작업 이력 -->
+    <div class="item" data-at="11.2"><div class="msg">
+      <span class="ava"><img src="../favicon.svg" alt=""></span>
+      <div class="col"><p class="meta"><b>Byr</b><span class="app">앱</span><em>2:11 오후</em></p>
+        <p class="p"><span class="emo">✅</span><b>승인 완료</b> — 신고서를 제출했습니다.</p>
+        <div class="gap"></div>
+        <p class="p"><b>작업 이력</b></p>
+        <p class="p">• 14:01 요청 접수 · 김민지</p>
+        <p class="p">• 14:04 세금계산서 42건 열람 · 사내 AI</p>
+        <p class="p">• 14:09 초안 작성 · 근거 문서 6개</p>
+        <p class="p">• 14:11 박태현 승인 · 제출 완료</p>
+        <p class="p small" style="margin-top:6px">보존 기간(기본 1년) 동안 수정·삭제할 수 없습니다</p>
+      </div>
+    </div></div>
+  </div>
+
+  <!-- 위 -->
+  <div class="topfade"></div>
+  <div class="status"><span>9:41</span><span class="r">
+    <svg width="18" height="12" viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5.5" width="3" height="6.5" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1" opacity=".3"/></svg>
+    <svg width="16" height="12" viewBox="0 0 16 12"><path d="M8 11.5l2.2-2.6a3.3 3.3 0 0 0-4.4 0zM3.6 6.6l1.3 1.5a4.8 4.8 0 0 1 6.2 0l1.3-1.5a6.8 6.8 0 0 0-8.8 0zM1.1 3.7l1.3 1.5a8.6 8.6 0 0 1 11.2 0l1.3-1.5a10.6 10.6 0 0 0-13.8 0z"/></svg>
+    <span class="bat">68</span></span></div>
+  <div class="glass back"><svg viewBox="0 0 12 20" fill="none" stroke="#1D1C1D" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2L2 10l8 8"/></svg></div>
+  <div class="glass chan"><span class="hash">#</span><span><b>재무팀</b><em>12명의 멤버 • 3개의 탭</em></span></div>
+  <div class="glass icons">
+    <svg viewBox="0 0 24 24"><rect x="3" y="3" width="8.5" height="8.5" rx="3" fill="#36C5F0"/><rect x="12.5" y="3" width="8.5" height="8.5" rx="3" fill="#2EB67D"/><rect x="3" y="12.5" width="8.5" height="8.5" rx="3" fill="#E01E5A"/><rect x="12.5" y="12.5" width="8.5" height="8.5" rx="3" fill="#ECB22E"/></svg>
+    <svg viewBox="0 0 24 24" fill="none" stroke="#1D1C1D" stroke-width="1.8" stroke-linecap="round"><path d="M4 15v-3a8 8 0 0 1 16 0v3"/><rect x="3.5" y="14" width="4" height="6.5" rx="1.6"/><rect x="16.5" y="14" width="4" height="6.5" rx="1.6"/></svg>
+  </div>
+
+  <!-- 아래 -->
+  <div class="glass comp"><span class="plus"><svg viewBox="0 0 16 16" stroke="#1D1C1D" stroke-width="1.8" stroke-linecap="round"><path d="M8 2v12M2 8h12"/></svg></span>
+    <span class="ph" id="ph"></span>
+    <span class="mic"><svg viewBox="0 0 18 22" fill="none" stroke="#1D1C1D" stroke-width="1.7" stroke-linecap="round"><rect x="5.5" y="1.5" width="7" height="12" rx="3.5"/><path d="M2 10.5a7 7 0 0 0 14 0M9 17.5v3"/></svg></span></div>
+  <div class="glass tabs">
+    <div class="tab on"><svg viewBox="0 0 24 24"><path d="M3.5 10.2L12 3.5l8.5 6.7V19a1.5 1.5 0 0 1-1.5 1.5H5A1.5 1.5 0 0 1 3.5 19z" fill="#611F69"/><circle cx="12" cy="14" r="2" fill="#fff"/></svg>홈</div>
+    <div class="tab"><svg viewBox="0 0 24 24" fill="none" stroke="#1D1C1D" stroke-width="1.7" stroke-linejoin="round"><path d="M9 4.5h6a5 5 0 0 1 5 5 5 5 0 0 1-3 4.6V17l-3-2.5H9a5 5 0 0 1 0-10z"/><path d="M6.2 9.2A4.5 4.5 0 0 0 4 13a4.4 4.4 0 0 0 2 3.7V19.5l2.6-2"/></svg>DM</div>
+    <div class="tab"><span class="dot"></span><svg viewBox="0 0 24 24" fill="none" stroke="#1D1C1D" stroke-width="1.7" stroke-linejoin="round"><path d="M6 16.5V11a6 6 0 0 1 12 0v5.5l1.5 2h-15z"/><path d="M10 20.5a2 2 0 0 0 4 0"/></svg>내 활동</div>
+    <div class="tab"><svg viewBox="0 0 24 24" fill="#1D1C1D"><circle cx="5.5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="18.5" cy="12" r="2"/></svg>더 보기</div>
+  </div>
+  <div class="glass search"><svg viewBox="0 0 24 24" fill="none" stroke="#1D1C1D" stroke-width="2.2" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5l5 5"/></svg></div>
+</div>
+
+<script>
+(() => {
+  const q = new URLSearchParams(location.search)
+  const bg = q.get('bg')
+  if (bg) document.documentElement.style.setProperty('--bg', bg === 'transparent' ? 'transparent' : '#' + bg.replace(/[^0-9a-fA-F]/g, ''))
+
+  const DUR = 18
+  const screen = document.getElementById('screen')
+  const fit = () => {
+    const s = Math.min(innerWidth / 393, innerHeight / 852)
+    screen.style.transform = `translate(-50%, -50%) scale(${s})`
+  }
+  addEventListener('resize', fit); fit()
+
+  const items = [...document.querySelectorAll('.item')].map(el => ({ el, at: parseFloat(el.dataset.at), h: 0 }))
+  const ph = document.getElementById('ph')
+  const ease = x => 1 - Math.pow(1 - Math.min(Math.max(x, 0), 1), 3)
+  const span = (s, a, b) => ease((s - a) / (b - a))
+  const PLACE = '#재무팀에(게) 메시지 보내기'
+  const PROMPT = '@세금계산서 점검 도우미 이번 달 것 정리해줘'
+
+  // 메시지 실제 높이 — 생길 때 0 → 높이로 펼쳐 이전 메시지가 자연스럽게 밀려 올라가게 한다
+  const measure = () => items.forEach(it => { it.el.style.height = 'auto'; it.h = it.el.scrollHeight })
+
+  function render(t) {
+    const s = t * DUR
+    const fade = s > 16.6 ? 1 - span(s, 16.6, 17.4) : 1
+
+    items.forEach(it => {
+      const p = span(s, it.at, it.at + 0.45)
+      it.el.style.height = (it.h * p) + 'px'
+      it.el.style.opacity = Math.min(1, p * 1.4) * fade
+    })
+
+    // 입력창: 김민지가 요청을 입력하고(0.4~2.2초) 보낸다(2.4초)
+    const n = s < 0.4 ? 0 : s < 2.0 ? Math.round(PROMPT.length * (s - 0.4) / 1.6) : s < 2.4 ? PROMPT.length : 0
+    const caret = s < 2.4 && Math.floor(s * 2.2) % 2 === 0 ? '<span class="caret"></span>' : ''
+    const typed = PROMPT.slice(0, n)
+    const vis = typed.length > 16 ? '…' + typed.slice(-15) : typed
+    ph.innerHTML = n ? `<span class="val">${vis}</span>${caret}` : (s < 2.4 ? caret : '') + PLACE
+  }
+  window.render = render
+
+  const start = () => {
+    measure()
+    const fixed = q.get('t')
+    const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches
+    if (fixed !== null || reduce) {
+      render(fixed !== null ? Math.min(Math.max(parseFloat(fixed) || 0, 0), 0.999) : 0.85)
+      return
+    }
+    // rAF가 멈추는 환경(일부 iframe·헤드리스)에서는 보조 타이머가 대신 그린다
+    const t0 = performance.now()
+    let lastFrame = 0
+    const draw = () => render(((performance.now() - t0) / 1000 / DUR) % 1)
+    const loop = () => { lastFrame = performance.now(); draw(); requestAnimationFrame(loop) }
+    requestAnimationFrame(loop)
+    setInterval(() => { if (performance.now() - lastFrame > 200) draw() }, 50)
+  }
+  // 글꼴·아이콘이 다 들어온 뒤 높이를 잰다
+  const ready = document.fonts ? document.fonts.ready : Promise.resolve()
+  ready.then(() => (document.readyState === 'complete' ? start() : addEventListener('load', start)))
+})()
+</script>
+</body>
+</html>

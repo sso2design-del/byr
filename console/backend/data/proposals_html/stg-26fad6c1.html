@@ -1,0 +1,186 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><style>
+  @page { size: 1280px 720px; margin: 0; }
+  * { box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  html, body { margin: 0; padding: 0; font-family: 'Apple SD Gothic Neo','Pretendard','Malgun Gothic',sans-serif; color: #1a1c2e; }
+  .slide { width: 1280px; height: 720px; page-break-after: always; position: relative; overflow: hidden; padding: 72px 84px; }
+  /* 표지 */
+  .cover { background: radial-gradient(120% 120% at 100% 0%, #2b2f6b 0%, #14163a 55%, #0d0f28 100%); color: #fff; display: flex; flex-direction: column; justify-content: center; }
+  .cover .brand { position: absolute; top: 64px; left: 84px; font-weight: 800; letter-spacing: .5px; font-size: 22px; color: #c9ccff; }
+  .cover .bar { width: 64px; height: 6px; border-radius: 6px; background: linear-gradient(90deg,#6d7bff,#a98bff); margin-bottom: 26px; }
+  .cover h1 { font-size: 58px; line-height: 1.15; margin: 0 0 20px; font-weight: 800; letter-spacing: -0.5px; max-width: 900px; }
+  .cover .sub { font-size: 22px; color: #b9bde6; max-width: 820px; line-height: 1.5; }
+  .cover .meta { position: absolute; bottom: 60px; left: 84px; font-size: 16px; color: #8f93c9; }
+  .cover .client { position: absolute; bottom: 60px; right: 84px; font-size: 18px; color: #c9ccff; font-weight: 700; }
+  /* 마무리(클로징) */
+  .closing { background: radial-gradient(120% 120% at 0% 100%, #2b2f6b 0%, #14163a 55%, #0d0f28 100%); color: #fff; display: flex; flex-direction: column; justify-content: center; }
+  .closing .brand { position: absolute; top: 64px; left: 84px; font-weight: 800; letter-spacing: .5px; font-size: 22px; color: #c9ccff; }
+  .closing .bar { width: 64px; height: 6px; border-radius: 6px; background: linear-gradient(90deg,#6d7bff,#a98bff); margin-bottom: 22px; }
+  .closing .thanks { font-size: 20px; font-weight: 700; letter-spacing: 3px; color: #8f93c9; margin-bottom: 10px; }
+  .closing h1 { font-size: 52px; line-height: 1.15; margin: 0 0 16px; font-weight: 800; letter-spacing: -0.5px; }
+  .closing .csub { font-size: 21px; color: #b9bde6; margin-bottom: 40px; }
+  .closing .card { display: inline-flex; flex-direction: column; gap: 14px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.14); border-radius: 18px; padding: 28px 34px; max-width: 620px; }
+  .closing .c-row { display: flex; align-items: baseline; gap: 18px; font-size: 20px; }
+  .closing .c-key { width: 64px; flex-shrink: 0; font-size: 14px; font-weight: 700; letter-spacing: 1px; color: #8f93c9; }
+  .closing .c-val { font-weight: 600; color: #eceeff; }
+  /* 내용 슬라이드 */
+  .content { background: #ffffff; display: flex; flex-direction: column; }
+  .kicker { display: inline-block; font-size: 15px; font-weight: 800; color: #5b6cff; letter-spacing: 1px; margin-bottom: 10px; }
+  .content h2 { font-size: 40px; font-weight: 800; margin: 0 0 6px; letter-spacing: -0.5px; }
+  .subhead { font-size: 20px; color: #5b6cff; font-weight: 600; margin-top: 4px; }
+  .slide-head { border-bottom: 3px solid #eceefb; padding-bottom: 18px; margin-bottom: 26px; }
+  ul.bullets { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 22px; flex: 1; }
+  ul.bullets.dense { gap: 15px; }
+  ul.bullets li { position: relative; padding-left: 30px; color: #2a2d45; }
+  ul.bullets li::before { content: ""; position: absolute; left: 4px; top: 11px; width: 10px; height: 10px; border-radius: 3px; background: linear-gradient(135deg,#6d7bff,#a98bff); }
+  .b-lead { font-size: 23px; font-weight: 800; color: #14163a; line-height: 1.35; }
+  ul.bullets.dense .b-lead { font-size: 21px; }
+  .b-detail { display: block; font-size: 18px; font-weight: 400; color: #4b4f6b; margin-top: 5px; line-height: 1.5; }
+  ul.bullets.dense .b-detail { font-size: 16.5px; margin-top: 3px; }
+  .b-lead strong { color: #4b57d6; }
+  .body { flex: 1; display: flex; flex-direction: column; justify-content: flex-start; }
+  /* 수치 카드 */
+  .metrics { display: flex; gap: 24px; align-items: stretch; flex: 1; }
+  .metric { flex: 1; background: linear-gradient(160deg,#f5f6ff,#eceeff); border: 1px solid #e2e5ff; border-radius: 20px; padding: 40px 30px; display: flex; flex-direction: column; justify-content: center; }
+  .metric .val { font-size: 60px; font-weight: 900; letter-spacing: -1.5px; line-height: 1; background: linear-gradient(135deg,#5b6cff,#a98bff); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+  .metric .lab { font-size: 21px; font-weight: 800; color: #14163a; margin-top: 16px; line-height: 1.3; }
+  .metric .sub { font-size: 15px; color: #7a7e9c; margin-top: 8px; }
+  /* 비교 표 */
+  .table-wrap { width: 100%; }
+  table.cmp { width: 100%; border-collapse: separate; border-spacing: 0; font-size: 20px; }
+  table.cmp th { text-align: left; padding: 16px 22px; background: #14163a; color: #fff; font-weight: 700; }
+  table.cmp th:first-child { border-top-left-radius: 12px; }
+  table.cmp th:last-child { border-top-right-radius: 12px; }
+  table.cmp th.hl { background: #4b57d6; }
+  table.cmp td { padding: 15px 22px; border-bottom: 1px solid #ececf6; color: #333650; }
+  table.cmp tr td:first-child { font-weight: 700; color: #14163a; }
+  table.cmp td.hl { background: #eef0ff; font-weight: 700; color: #2f38a8; }
+  table.cmp tbody tr:last-child td { border-bottom: none; }
+  /* 막대 인포그래픽 */
+  .bars { display: flex; flex-direction: column; gap: 24px; flex: 1; justify-content: center; }
+  .bar-row { display: grid; grid-template-columns: 200px 1fr auto; align-items: center; gap: 20px; }
+  .bar-label { font-size: 21px; font-weight: 700; color: #14163a; text-align: right; }
+  .bar-track { height: 34px; background: #f0f1f9; border-radius: 10px; overflow: hidden; }
+  .bar-fill { height: 100%; border-radius: 10px; background: linear-gradient(90deg,#c3c9ff,#aab2ff); }
+  .bar-fill.hl { background: linear-gradient(90deg,#6d7bff,#a98bff); }
+  .bar-val { font-size: 22px; font-weight: 800; color: #3b46c9; min-width: 90px; }
+  .bar-note { display: block; font-size: 13px; font-weight: 500; color: #9195b4; }
+  /* 도넛 */
+  .donut-wrap { display: flex; align-items: center; gap: 48px; flex: 1; justify-content: center; }
+  .donut-side .donut-label { font-size: 30px; font-weight: 800; color: #14163a; }
+  .donut-side .donut-cap { font-size: 19px; color: #6b6f8e; margin-top: 8px; max-width: 360px; line-height: 1.5; }
+  /* 타임라인 */
+  .timeline { display: flex; gap: 0; flex: 1; align-items: flex-start; padding-top: 30px; }
+  .tl-step { flex: 1; position: relative; padding: 0 12px; text-align: center; }
+  .tl-line { position: absolute; top: 17px; left: 50%; width: 100%; height: 3px; background: #e4e6f5; z-index: 0; }
+  .tl-step:last-child .tl-line { display: none; }
+  .tl-dot { position: relative; z-index: 1; width: 36px; height: 36px; border-radius: 50%; margin: 0 auto 16px; background: linear-gradient(135deg,#6d7bff,#a98bff); color: #fff; font-weight: 800; font-size: 18px; display: flex; align-items: center; justify-content: center; }
+  .tl-phase { font-size: 15px; font-weight: 800; color: #5b6cff; letter-spacing: .5px; }
+  .tl-title { font-size: 21px; font-weight: 800; color: #14163a; margin-top: 6px; }
+  .tl-desc { font-size: 16px; color: #6b6f8e; margin-top: 8px; line-height: 1.5; }
+  /* 조합 레이아웃(차트+불릿) */
+  .split { display: flex; gap: 44px; flex: 1; align-items: center; }
+  .split-viz { flex: 1.25; min-width: 0; }
+  .split-aside { flex: 1; min-width: 0; }
+  .split-aside ul.bullets { gap: 16px; }
+  .split-aside .b-lead { font-size: 20px; }
+  .split-aside .b-detail { font-size: 15.5px; }
+  .stack { display: flex; flex-direction: column; gap: 22px; flex: 1; }
+  .stack-viz { flex-shrink: 0; }
+  .stack-viz.metrics-wrap { }
+  .stack ul.bullets { gap: 12px; }
+  .stack ul.bullets .b-lead { font-size: 19px; }
+  .stack ul.bullets .b-detail { font-size: 15px; margin-top: 2px; }
+  .stack-viz.table .table-wrap table.cmp { font-size: 18px; }
+  .viz-full { flex: 1; display: flex; flex-direction: column; justify-content: center; }
+  .cite { display: inline-block; margin-left: 6px; padding: 2px 9px; border-radius: 999px; background: #eef0ff; color: #4b57d6; font-size: 14px; font-weight: 700; vertical-align: middle; }
+  .note { margin-top: 18px; padding: 14px 18px; background: #f6f7fb; border-left: 4px solid #5b6cff; border-radius: 8px; font-size: 18px; color: #454863; }
+  .foot { position: absolute; bottom: 40px; left: 84px; right: 84px; display: flex; justify-content: space-between; font-size: 14px; color: #a9adc6; }
+</style></head><body>
+  <section class="slide cover">
+    <div class="brand">Byr</div>
+    <div class="bar"></div>
+    <h1>하나제조의 반복 문의 자동화</h1>
+    <div class="sub">효율적인 CS팀 운영의 시작</div>
+    <div class="meta">2026-07-21</div>
+    <div class="client">하나제조</div>
+  </section>
+  
+    <section class="slide content">
+      <div class="slide-head">
+        
+        <h2>고객 현황·과제</h2>
+        <div class="subhead">CS팀 운영 현황</div>
+      </div>
+      <div class="body"><ul class="bullets dense "><li><span class="b-lead">CS팀 규모</span><span class="b-detail">하나제조는 30명의 CS팀을 운영하고 있습니다.</span></li><li><span class="b-lead">반복 문의 문제</span><span class="b-detail">반복 문의가 전체 문의의 60%를 차지하고 있어 응대가 밀리고 있습니다.</span></li><li><span class="b-lead">보안 우선</span><span class="b-detail">고객 데이터의 안전성을 보장하는 솔루션이 필요합니다.</span></li><li><span class="b-lead">효율성 필요</span><span class="b-detail">CS팀의 효율성을 높이기 위해 자동 응대 시스템 도입을 원하고 있습니다.</span></li></ul></div>
+      
+      <div class="foot"><span>Byr · 제안서</span><span>2 / 9</span></div>
+    </section>
+    <section class="slide content">
+      <div class="slide-head">
+        
+        <h2>Byr 제안 개요</h2>
+        <div class="subhead">Byr의 솔루션</div>
+      </div>
+      <div class="body"><ul class="bullets dense "><li><span class="b-lead">FAQ 자동응대</span><span class="b-detail">정확하고 신뢰성 있는 FAQ 응대를 통해 반복 문의를 줄입니다.</span></li><li><span class="b-lead">사내 데이터 처리</span><span class="b-detail">데이터를 사내에서만 처리하는 보안 옵션 제공합니다.</span></li><li><span class="b-lead">상담사 승인 프로세스</span><span class="b-detail">AI 응답의 정확성을 높이기 위해 상담사의 승인 절차를 포함합니다.</span></li><li><span class="b-lead">조직 맞춤형 솔루션</span><span class="b-detail">CS팀의 특성과 요구 사항에 맞춘 맞춤형 배포가 가능합니다.</span></li></ul></div>
+      
+      <div class="foot"><span>Byr · 제안서</span><span>3 / 9</span></div>
+    </section>
+    <section class="slide content">
+      <div class="slide-head">
+        
+        <h2>기대 효과</h2>
+        <div class="subhead">성과 개선 예시</div>
+      </div>
+      <div class="body"><div class="stack"><div class="stack-viz metrics"><div class="metrics"><div class="metric"><div class="val">20분</div><div class="lab">1차 응답 시간</div><div class="sub">기존 4시간</div></div><div class="metric"><div class="val">60%</div><div class="lab">자동 응대 목표 비중</div><div class="sub">반복 문의</div></div><div class="metric"><div class="val">90%</div><div class="lab">상담사 집중율</div><div class="sub">예외 케이스에</div></div><div class="metric"><div class="val">4주</div><div class="lab">파일럿 성과 확인</div><div class="sub">실제 업무 자동화</div></div></div></div><ul class="bullets "><li><span class="b-lead">신속한 응대</span><span class="b-detail">응답 시간을 크게 단축하여 고객 만족도를 높입니다.</span></li><li><span class="b-lead">상담사 전문성 향상</span><span class="b-detail">상담사가 에너지와 시간을 더 중요한 업무에 집중할 수 있도록 합니다.</span></li></ul></div></div>
+      
+      <div class="foot"><span>Byr · 제안서</span><span>4 / 9</span></div>
+    </section>
+    <section class="slide content">
+      <div class="slide-head">
+        
+        <h2>핵심 지표</h2>
+        <div class="subhead">업무 효율성 변화</div>
+      </div>
+      <div class="body"><div class="split"><div class="split-viz"><div class="bars"><div class="bar-row"><div class="bar-label">기존</div><div class="bar-track"><div class="bar-fill " style="width:100%"></div></div><div class="bar-val">100건</div></div><div class="bar-row"><div class="bar-label">Byr 도입</div><div class="bar-track"><div class="bar-fill hl" style="width:30%"></div></div><div class="bar-val">30건</div></div><div class="bar-row"><div class="bar-label">자동 응대</div><div class="bar-track"><div class="bar-fill " style="width:60%"></div></div><div class="bar-val">60건</div></div></div></div><aside class="split-aside"><ul class="bullets aside"><li><span class="b-lead">효율적 업무</span><span class="b-detail">반복적인 업무를 자동화하여 CS팀의 전체 생산성을 향상시킵니다.</span></li><li><span class="b-lead">AI 신뢰성</span><span class="b-detail">상담사 승인 절차가 AI 신뢰성을 강화합니다.</span></li><li><span class="b-lead">실적 극대화</span><span class="b-detail">Byr 도입 후 상담사 실적이 개선됩니다.</span></li></ul></aside></div></div>
+      
+      <div class="foot"><span>Byr · 제안서</span><span>5 / 9</span></div>
+    </section>
+    <section class="slide content">
+      <div class="slide-head">
+        
+        <h2>범용 챗봇 대비 Byr</h2>
+        <div class="subhead">비교 분석</div>
+      </div>
+      <div class="body"><div class="stack"><div class="stack-viz table"><div class="table-wrap"><table class="cmp"><thead><tr><th class="">항목</th><th class="">범용 챗봇</th><th class="hl">Byr</th></tr></thead><tbody><tr><td class="">사내 근거</td><td class="">약함</td><td class="hl">강함</td></tr><tr><td class="">보안 성능</td><td class="">기본 제공</td><td class="hl">최상급 보안</td></tr><tr><td class="">응대 승인</td><td class="">자동</td><td class="hl">상담사 승인 포함</td></tr><tr><td class="">데이터 처리</td><td class="">외부 서버</td><td class="hl">사내 전용</td></tr><tr><td class="">기능 맞춤화</td><td class="">제한적</td><td class="hl">유연한 맞춤 설정</td></tr></tbody></table></div></div><ul class="bullets "><li><span class="b-lead">보안 우위</span><span class="b-detail">Byr는 높은 보안 기준을 적용하며, 데이터 유출 위험을 줄입니다.</span></li><li><span class="b-lead">유연한 판매</span><span class="b-detail">고객의 필요에 맞춰 맞춤 기능을 제공합니다.</span></li></ul></div></div>
+      
+      <div class="foot"><span>Byr · 제안서</span><span>6 / 9</span></div>
+    </section>
+    <section class="slide content">
+      <div class="slide-head">
+        
+        <h2>도입 로드맵</h2>
+        <div class="subhead">단계별 진행 계획</div>
+      </div>
+      <div class="body"><div class="stack"><div class="stack-viz timeline"><div class="timeline"><div class="tl-step"><div class="tl-line"></div><div class="tl-dot">1</div><div class="tl-phase">1주</div><div class="tl-title">상담·진단</div><div class="tl-desc">CS팀의 반복 업무와 문서 현황 파악.</div></div><div class="tl-step"><div class="tl-line"></div><div class="tl-dot">2</div><div class="tl-phase">4주</div><div class="tl-title">파일럿 검증</div><div class="tl-desc">한 업무를 실제 에이전트로 검증.</div></div><div class="tl-step"><div class="tl-line"></div><div class="tl-dot">3</div><div class="tl-phase">2주</div><div class="tl-title">정식 도입</div><div class="tl-desc">플랜 선택 및 팀 온보딩.</div></div><div class="tl-step"><div class="tl-line"></div><div class="tl-dot">4</div><div class="tl-phase">확장</div><div class="tl-title">업무 확대</div><div class="tl-desc">팀 단위로 에이전트를 확장.</div></div></div></div><ul class="bullets "><li><span class="b-lead">체계적 접근</span><span class="b-detail">각 단계에서 효율적으로 진행하여 성과를 극대화합니다.</span></li><li><span class="b-lead">신속한 도입</span><span class="b-detail">파일럿을 통해 빠르게 성과를 확인할 수 있습니다.</span></li></ul></div></div>
+      
+      <div class="foot"><span>Byr · 제안서</span><span>7 / 9</span></div>
+    </section>
+    <section class="slide content">
+      <div class="slide-head">
+        
+        <h2>추천 플랜</h2>
+        <div class="subhead">Byr 도입 제안</div>
+      </div>
+      <div class="body"><ul class="bullets dense "><li><span class="b-lead">엔터프라이즈 플랜</span><span class="b-detail">모든 기능 포함 및 고객 성공 매니저 지원이 가능.</span></li><li><span class="b-lead">유연한 배포</span><span class="b-detail">사내와 클라우드 환경 모두 지원하므로 보안 적합성이 높음.</span></li><li><span class="b-lead">맞춤형 서비스</span><span class="b-detail">고객 요구에 맞춰 커스텀 연동이 가능합니다.</span></li><li><span class="b-lead">비용 명확</span><span class="b-detail">사용량 기반으로 정확한 예산 수립 가능 <span class="cite">Byr 요금제, 엔터프라이즈</span>.</span></li></ul></div>
+      
+      <div class="foot"><span>Byr · 제안서</span><span>8 / 9</span></div>
+    </section>
+    <section class="slide closing">
+      <div class="brand">Byr</div>
+      <div class="bar"></div>
+      <div class="thanks">감사합니다</div>
+      <h1>하나제조의 다음 단계를 함께 만들어요</h1>
+      <div class="csub">무료 상담·데모부터 시작합니다. 편하게 연락 주세요.</div>
+      <div class="card"><div class="c-row"><span class="c-key">담당</span><span class="c-val">Byr 영업팀</span></div><div class="c-row"><span class="c-key">이메일</span><span class="c-val">demo.user2@example.com</span></div><div class="c-row"><span class="c-key">전화</span><span class="c-val">02-1234-5678</span></div></div>
+    </section>
+</body></html>

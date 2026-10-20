@@ -1,0 +1,4699 @@
+[
+  {
+    "stage_id": "stg-036a7efb",
+    "agent_id": "agent-24cbb5",
+    "kind": "proposal",
+    "task": "NHN 제안서",
+    "customer": "NHN",
+    "request": "AI 도입하여 전사적으로 업무 자동화",
+    "recipient": "",
+    "pdf_path": "data/proposals_pdf/stg-036a7efb.pdf",
+    "draft": "# AI로 업무 자동화 혁신\n\nNHN에게 Byr의 제안을 소개합니다\n\n## 제안 요약\n_Byr로 전사 업무 자동화_\n\n## 고객 현황·과제\n_NHN의 현재 도전 과제_\n- **인력 과중** — 반복 문서 작성 및 데이터 검증에 많은 자원 투입.\n- **업무 비효율성** — 수작업으로 인한 오류 및 지연 발생.\n- **데이터 보안 우려** — 외부 유출 및 감사 필요성 증가.\n- **자동화 필요** — AI 기반 자동화 시스템 도입에 대한 필요성 대두.\n\n## Byr 제안 개요\n_고객 맞춤형 AI 솔루션_\n- **AI 에이전트** — 각 부서 별로 반복 업무를 처리하는 에이전트 개발.\n- **사람 승인** — AI 결과는 반드시 사람이 검증하고 승인 후 실행.\n- **감사 기록** — 모든 과정에서 운영 기록을 남겨 감사 가능.\n- **빠른 도입** — 파일럿로 신속하게 자동화 효과 검증.\n\n## 작동 방식\n_Byr의 AI 프로세스_\n> 설명 추가 가능.\n\n## 기대 효과\n_Byr 도입 기대 성과_\n- **80%** 업무 감소율 (반복 업무 시간 절약)\n- **30분** 검증 시간 단축 (히스토리 관리 가능)\n- **40%** 정확도 향상 (AI의 일관된 결과)\n- **20%** 비용 절감 (효율적 자원 관리)\n> 예시 수치 — 실제 데이터로 교체\n\n## 핵심 지표\n_Byr 도입의 성과_\n- **업무 효율성 증대** — 업무 처리 속도가 현저히 증가.\n- **검증 프로세스 개선** — AI가 제공하는 정보에 대한 믿음 형성.\n- **비용 절감** — 필요 없는 인력 및 시간 소모 감소.\n> 예시 수치 — 실제 데이터로 교체\n\n## Byr vs 범용 챗봇\n_차별화 포인트 분석_\n| 항목 | 범용 챗봇 | Byr |\n| 업무 자동화 | 부분적 | 완전 자동화 |\n| 사람 검증 | 제공 안 함 | 필수적 |\n| 보안 수준 | 기본적 | 엔터프라이즈 |\n| 감사 기록 | 없음 | 완벽 실현 |\n- **고립된 결과** — 범용 챗봇은 제한적인 기능 제공.\n- **철저한 검증** — Byr는 모든 결과에 대해 사람 승인 필요.\n\n## 보안·컴플라이언스\n_데이터 안전성 보장_\n- **프라이빗 클라우드** — 모든 데이터는 사내에서 안전하게 처리.\n- **SSO·SCIM 지원** — 통합 인증 시스템 제공으로 보안 강화.\n- **작업 기록부** — 모든 작업의 감사 로그 보관 기능.\n- **커스텀 연동** — 사내 시스템과 안전하게 연결 가능.\n\n## 도입 로드맵\n_단계별 계획_\n- **단계적 접근** — 실패 리스크를 줄이기 위한 단계적 접근.\n- **지속적 지원** — AI의 지속적인 성능 개선 및 발전.\n\n## 추천 플랜\n_이제 시작하세요_\n- **기초 플랜** — 기본 기능 제공, 소규모 도입에 적합.\n- **표준 플랜** — 중간 규모 조직에 추천, 필요한 모든 기능 포함.\n- **프리미엄 플랜** — 대규모 조직에서 완벽한 자동화를 지원.\n- **고객 맞춤형** — 고객 니즈에 맞춘 유연한 플랜 설정.\n",
+    "citations": [
+      {
+        "doc": "Byr 도입 사례",
+        "section": "공통 패턴",
+        "label": "Byr 도입 사례 · 공통 패턴",
+        "source": "uploaded"
+      },
+      {
+        "doc": "Byr 제품 소개",
+        "section": "한 줄 정의",
+        "label": "Byr 제품 소개 · 한 줄 정의",
+        "source": "uploaded"
+      },
+      {
+        "doc": "Byr 회사 소개 · 자주 묻는 질문",
+        "section": "도입 절차",
+        "label": "Byr 회사 소개 · 자주 묻는 질문 · 도입 절차",
+        "source": "uploaded"
+      },
+      {
+        "doc": "Byr 회사 소개 · 자주 묻는 질문",
+        "section": "자주 묻는 질문(FAQ)",
+        "label": "Byr 회사 소개 · 자주 묻는 질문 · 자주 묻는 질문(FAQ)",
+        "source": "uploaded"
+      },
+      {
+        "doc": "Byr 도입 사례",
+        "section": "사례 3 — 금융 계열사 준법·감사팀 (설치형)",
+        "label": "Byr 도입 사례 · 사례 3 — 금융 계열사 준법·감사팀 (설치형)",
+        "source": "uploaded"
+      },
+      {
+        "doc": "Byr 제품 소개",
+        "section": "적합 고객",
+        "label": "Byr 제품 소개 · 적합 고객",
+        "source": "uploaded"
+      }
+    ],
+    "used_llm": true,
+    "model": "gpt-4o-mini",
+    "channel_id": "C0BJKUQ3QS1",
+    "thread_ts": "",
+    "created_at": "2026-07-23T01:13:51.440723",
+    "status": "staged",
+    "sent": false
+  },
+  {
+    "stage_id": "stg-df3189e0",
+    "agent_id": "agent-24cbb5",
+    "kind": "proposal",
+    "task": "NHN 제안서",
+    "customer": "NHN",
+    "request": "AI 도입하여 전사적으로 업무 자동화",
+    "recipient": "",
+    "pdf_path": "data/proposals_pdf/stg-df3189e0.pdf",
+    "draft": "# NHN 대상 Byr 도입 제안\n\n사내 근거 기반 · 사람 승인 게이트 · 감사 기록\n\n## 제안 요약\n_한 장으로 보는 제안_\n\n## 고객 현황과 과제\n_요청하신 상황을 정리했어요_\n- **요청 요약** — AI 도입하여 전사적으로 업무 자동화\n- **반복 업무 부담** — 정형적·반복적 처리가 많아 담당자 시간이 소진됩니다.\n- **정확도·보안 요구** — 결과를 사람이 검증하고 데이터 보호가 필요한 환경입니다.\n\n## Byr 제안 개요\n_핵심 3가지_\n- **사내 근거 자동화** — 연결된 문서에서 근거를 찾아 업무 결과를 자동으로 만들고 출처를 인용합니다.\n- **사람 승인 게이트** — 외부 발송·제출 같은 고위험 작업은 사람이 확인·승인하기 전까지 실행되지 않습니다.\n- **전 과정 감사 기록** — 누가 무엇을 언제 실행·승인했는지 작업 기록부에 남아 규제 대응이 쉽습니다.\n\n## 작동 방식\n_요청부터 실행까지 한 흐름_\n- **덮어쓰기 없음** — 결과는 새 버전으로 스테이징되어 되돌리기가 가능합니다.\n- **전 과정 기록** — 요청·근거·승인·실행이 모두 감사 로그에 남습니다.\n\n## 기대 효과\n_도입 사례 기준_\n- **20분** 1차 응답 시간 (기존 4시간)\n- **-73%** 처리 시간 (반복 업무 기준)\n- **60%** 자동 처리 비중 (반복 문의)\n- **4주** 성과 확인 (파일럿(PoC))\n- **응대 속도** — 상담사는 예외 케이스에 집중하고 반복 문의는 자동 초안으로 처리합니다.\n- **품질 유지** — 모든 답변이 사내 문서를 근거로 하고 사람 승인 후 나갑니다.\n> 예시 수치 — 실제 데이터로 교체하세요\n\n## 핵심 지표\n_자동 응대로 처리량을 확 줄입니다_\n- **선형적 감소** — 자동 응대 커버리지가 늘수록 수기 처리량이 빠르게 줄어듭니다.\n- **재배치 효과** — 확보된 시간을 고부가 상담·클레임 대응으로 돌립니다.\n> 예시 수치 — 실제 데이터로 교체하세요\n\n## 범용 챗봇 대비 Byr\n_실무 투입 관점_\n| 항목 | 범용 챗봇 | Byr |\n| 사내 근거 | 약함 | 강함(출처 인용) |\n| 실행 전 사람 승인 | 없음 | 기본 제공 |\n| 감사 기록 | 제한적 | 전 과정 기록 |\n| 보안·설치형 | 제한적 | 테넌트 격리·설치형 |\n| 업무 자동 실행 | 제한적 | 스킬·MCP로 실제 실행 |\n- **규제 대응** — 승인 게이트와 작업 기록부로 감사 추적이 가능합니다.\n- **데이터 보호** — 내장 LLM·설치형으로 데이터가 외부로 나가지 않게 운영합니다.\n\n## 보안·컴플라이언스\n_규제·검증 환경에 맞춥니다_\n- **데이터 미유출** — 내장 LLM 사용 시 데이터는 사내에서만 처리되고 외부로 나가지 않습니다.\n- **사람 승인 게이트** — 외부 발송·제출은 사람이 승인하기 전까지 실행되지 않습니다.\n- **전 과정 감사 기록** — 누가 무엇을 언제 실행·승인했는지 작업 기록부에 남아 감사 추적이 됩니다.\n- **설치형·테넌트 격리** — 설치형·프라이빗 클라우드로 전용 스토리지·KMS·작업 기록부를 분리 운영합니다.\n\n## 도입 로드맵\n_4주면 성과를 확인할 수 있어요_\n- **빠른 검증** — 4주 파일럿으로 실제 업무에서 성과를 먼저 확인합니다.\n- **안전한 확장** — 성공 업무부터 순차 확대해 리스크를 낮춥니다.\n\n## 추천 플랜\n_승인 게이트가 필요한 팀에 적합_\n- **공통 패턴** — ## 공통 패턴 도입 효과가 큰 조직의 공통점: (1) 반복 문서·데이터 업무 비중이 높고, (2) AI 결과를 사람이 검증·승인하는 절차가 이미 필요하며, (3) 근거·감사 추적이 중요하다. Byr의 \"사내 근거 + 사람 승인 + 감사 기록\"이 이 세 지점에 정확히 … [출처: Byr 도입 사례 · 공통 패턴]\n- **한 줄 정의** — ## 한 줄 정의 Byr는 업무별 AI 에이전트를 만들어 반복 업무를 자동화하는 L3 Agentic AI 플랫폼이다. 사용자는 코드 없이 에이전트를 생성하고, 스킬과 외부 시스템(MCP 커넥터)을 연결해 실제 업무를 맡긴다.… [출처: Byr 제품 소개 · 한 줄 정의]\n- **도입 절차** — ## 도입 절차 1. 무료 상담 → 업무 진단(반복 업무·문서 현황 파악) 2. 파일럿(PoC): 한 직무의 한 업무를 4주 내 실제 에이전트로 검증 3. 정식 도입: 플랜 선택, 커넥터·권한 설정, 팀 온보딩 4. 확장: 직무·팀 단위로 에이전트 확대… [출처: Byr 회사 소개 · 자주 묻는 질문 · 도입 절차]\n- **자주 묻는 질문(FAQ)** — ## 자주 묻는 질문(FAQ) - Q. 데이터가 외부로 나가나요? A. 내장 LLM 사용 시 데이터는 사내에서만 처리된다. 설치형·프라이빗 클라우드에서는 테넌트 격리로 완전히 분리된다. - Q. AI가 틀리면요? A. 고위험 작업은 사람 승인 게이트를 통과해야 실행된다… [출처: Byr 회사 소개 · 자주 묻는 질문 · 자주 묻는 질문(FAQ)]\n",
+    "citations": [
+      {
+        "doc": "Byr 도입 사례",
+        "section": "공통 패턴",
+        "label": "Byr 도입 사례 · 공통 패턴",
+        "source": "uploaded"
+      },
+      {
+        "doc": "Byr 제품 소개",
+        "section": "한 줄 정의",
+        "label": "Byr 제품 소개 · 한 줄 정의",
+        "source": "uploaded"
+      },
+      {
+        "doc": "Byr 회사 소개 · 자주 묻는 질문",
+        "section": "도입 절차",
+        "label": "Byr 회사 소개 · 자주 묻는 질문 · 도입 절차",
+        "source": "uploaded"
+      },
+      {
+        "doc": "Byr 회사 소개 · 자주 묻는 질문",
+        "section": "자주 묻는 질문(FAQ)",
+        "label": "Byr 회사 소개 · 자주 묻는 질문 · 자주 묻는 질문(FAQ)",
+        "source": "uploaded"
+      },
+      {
+        "doc": "Byr 도입 사례",
+        "section": "사례 3 — 금융 계열사 준법·감사팀 (설치형)",
+        "label": "Byr 도입 사례 · 사례 3 — 금융 계열사 준법·감사팀 (설치형)",
+        "source": "uploaded"
+      },
+      {
+        "doc": "Byr 제품 소개",
+        "section": "적합 고객",
+        "label": "Byr 제품 소개 · 적합 고객",
+        "source": "uploaded"
+      }
+    ],
+    "used_llm": false,
+    "model": null,
+    "channel_id": "C0BJKUQ3QS1",
+    "thread_ts": "",
+    "created_at": "2026-07-23T01:12:25.408363",
+    "status": "staged",
+    "sent": false
+  },
+  {
+    "stage_id": "stg-42f764db",
+    "agent_id": "agent-test",
+    "job": "securities_research",
+    "kind": "job_task",
+    "task": "실행",
+    "template_key": "rs_company",
+    "inputs": {
+      "company": "네이버",
+      "period": "2026Q2"
+    },
+    "summary": "네이버 리서치 초안 생성 완료 (2026Q2)",
+    "artifact": {
+      "research_type": "rs_company",
+      "highlights": [
+        "핵심 포인트 3건 요약",
+        "리스크/기회 요인 정리",
+        "추가 확인 필요 데이터 명시"
+      ],
+      "next_actions": [
+        "근거 데이터 검토",
+        "대표 승인",
+        "채널 공유"
+      ]
+    },
+    "approval_required": true,
+    "approval_reasons": [
+      "리서치 배포 전 승인 필요"
+    ],
+    "rule_findings": [],
+    "blocked": false,
+    "created_at": "2026-07-22T01:32:14.520543",
+    "status": "staged"
+  },
+  {
+    "stage_id": "stg-46b94b11",
+    "agent_id": "agent-fin01",
+    "job": "vat_reconcile",
+    "kind": "job_task",
+    "task": "부가세 대사·승인·반영",
+    "template_key": "close",
+    "inputs": {
+      "period_from": "2026-01-01",
+      "period_to": "2026-01-31",
+      "company_code": "NHN01",
+      "close_scope": "법인 전체"
+    },
+    "summary": "NHN01 2026-01-01~2026-01-31 대사: 매칭 47건 · 이상 3건(고위험 2)",
+    "artifact": {
+      "matched_count": 47,
+      "anomalies": [
+        {
+          "rule": "VAT-R-001",
+          "desc": "세금계산서 중복 의심(거래처 A · 2026-05-11 · ₩3,300,000)",
+          "severity": "high",
+          "action": "manual_review",
+          "ref": "매출_2026Q2.xlsx · B23"
+        },
+        {
+          "rule": "VAT-R-002",
+          "desc": "공급가액-세액 불일치(오차 2.0% > 허용 0.0%)",
+          "severity": "high",
+          "action": "manual_review",
+          "ref": "매입_2026Q2.xlsx · D41"
+        },
+        {
+          "rule": "VAT-R-003",
+          "desc": "거래처-계정 매핑 누락(거래처 C)",
+          "severity": "medium",
+          "action": "warn",
+          "ref": "매입_2026Q2.xlsx · E17"
+        }
+      ],
+      "approval_queue": [
+        {
+          "rule": "VAT-R-001",
+          "desc": "세금계산서 중복 의심(거래처 A · 2026-05-11 · ₩3,300,000)",
+          "severity": "high",
+          "action": "manual_review",
+          "ref": "매출_2026Q2.xlsx · B23"
+        },
+        {
+          "rule": "VAT-R-002",
+          "desc": "공급가액-세액 불일치(오차 2.0% > 허용 0.0%)",
+          "severity": "high",
+          "action": "manual_review",
+          "ref": "매입_2026Q2.xlsx · D41"
+        }
+      ],
+      "commit_payload": {
+        "target": "update_erp|update_sheet",
+        "entries": 47,
+        "adjustments": 3,
+        "approval_id": null,
+        "dry_run": true
+      }
+    },
+    "approval_required": true,
+    "approval_reasons": [
+      "고위험 이상 2건(중복·공급가액-세액 규칙) — 재무 담당자 승인 필요",
+      "경고 항목 1건(계정 매핑) 확인 필요"
+    ],
+    "rule_findings": [
+      {
+        "rule": "VAT-R-001",
+        "desc": "세금계산서 중복 의심(거래처 A · 2026-05-11 · ₩3,300,000)",
+        "severity": "high",
+        "action": "manual_review",
+        "ref": "매출_2026Q2.xlsx · B23"
+      },
+      {
+        "rule": "VAT-R-002",
+        "desc": "공급가액-세액 불일치(오차 2.0% > 허용 0.0%)",
+        "severity": "high",
+        "action": "manual_review",
+        "ref": "매입_2026Q2.xlsx · D41"
+      },
+      {
+        "rule": "VAT-R-003",
+        "desc": "거래처-계정 매핑 누락(거래처 C)",
+        "severity": "medium",
+        "action": "warn",
+        "ref": "매입_2026Q2.xlsx · E17"
+      }
+    ],
+    "blocked": false,
+    "created_at": "2026-07-22T01:29:41.391767",
+    "status": "staged"
+  },
+  {
+    "stage_id": "stg-af27242e",
+    "agent_id": "agent-test",
+    "job": "securities_research",
+    "kind": "job_task",
+    "task": "실행",
+    "template_key": "rs_company",
+    "inputs": {
+      "company": "네이버",
+      "period": "2026Q2"
+    },
+    "summary": "네이버 리서치 초안 생성 완료 (2026Q2)",
+    "artifact": {
+      "research_type": "rs_company",
+      "highlights": [
+        "핵심 포인트 3건 요약",
+        "리스크/기회 요인 정리",
+        "추가 확인 필요 데이터 명시"
+      ],
+      "next_actions": [
+        "근거 데이터 검토",
+        "대표 승인",
+        "채널 공유"
+      ]
+    },
+    "approval_required": true,
+    "approval_reasons": [
+      "리서치 배포 전 승인 필요"
+    ],
+    "rule_findings": [],
+    "blocked": false,
+    "created_at": "2026-07-22T01:29:35.019067",
+    "status": "staged"
+  },
+  {
+    "stage_id": "stg-07687b13",
+    "agent_id": "agent-fin01",
+    "job": "vat_reconcile",
+    "kind": "job_task",
+    "task": "부가세 대사·승인·반영",
+    "inputs": {
+      "period_from": "2026-04-01",
+      "period_to": "2026-06-30",
+      "company_code": "NHN01",
+      "amount_tolerance_pct": 0
+    },
+    "summary": "NHN01 2026-04-01~2026-06-30 대사: 매칭 47건 · 이상 3건(고위험 2)",
+    "artifact": {
+      "matched_count": 47,
+      "anomalies": [
+        {
+          "rule": "VAT-R-001",
+          "desc": "세금계산서 중복 의심(거래처 A · 2026-05-11 · ₩3,300,000)",
+          "severity": "high",
+          "action": "manual_review",
+          "ref": "매출_2026Q2.xlsx · B23"
+        },
+        {
+          "rule": "VAT-R-002",
+          "desc": "공급가액-세액 불일치(오차 2.0% > 허용 0.0%)",
+          "severity": "high",
+          "action": "manual_review",
+          "ref": "매입_2026Q2.xlsx · D41"
+        },
+        {
+          "rule": "VAT-R-003",
+          "desc": "거래처-계정 매핑 누락(거래처 C)",
+          "severity": "medium",
+          "action": "warn",
+          "ref": "매입_2026Q2.xlsx · E17"
+        }
+      ],
+      "approval_queue": [
+        {
+          "rule": "VAT-R-001",
+          "desc": "세금계산서 중복 의심(거래처 A · 2026-05-11 · ₩3,300,000)",
+          "severity": "high",
+          "action": "manual_review",
+          "ref": "매출_2026Q2.xlsx · B23"
+        },
+        {
+          "rule": "VAT-R-002",
+          "desc": "공급가액-세액 불일치(오차 2.0% > 허용 0.0%)",
+          "severity": "high",
+          "action": "manual_review",
+          "ref": "매입_2026Q2.xlsx · D41"
+        }
+      ],
+      "commit_payload": {
+        "target": "update_erp|update_sheet",
+        "entries": 47,
+        "adjustments": 3,
+        "approval_id": null,
+        "dry_run": true
+      }
+    },
+    "approval_required": true,
+    "approval_reasons": [
+      "고위험 이상 2건(중복·공급가액-세액 규칙) — 재무 담당자 승인 필요",
+      "경고 항목 1건(계정 매핑) 확인 필요"
+    ],
+    "rule_findings": [
+      {
+        "rule": "VAT-R-001",
+        "desc": "세금계산서 중복 의심(거래처 A · 2026-05-11 · ₩3,300,000)",
+        "severity": "high",
+        "action": "manual_review",
+        "ref": "매출_2026Q2.xlsx · B23"
+      },
+      {
+        "rule": "VAT-R-002",
+        "desc": "공급가액-세액 불일치(오차 2.0% > 허용 0.0%)",
+        "severity": "high",
+        "action": "manual_review",
+        "ref": "매입_2026Q2.xlsx · D41"
+      },
+      {
+        "rule": "VAT-R-003",
+        "desc": "거래처-계정 매핑 누락(거래처 C)",
+        "severity": "medium",
+        "action": "warn",
+        "ref": "매입_2026Q2.xlsx · E17"
+      }
+    ],
+    "blocked": false,
+    "created_at": "2026-07-22T00:55:28.805666",
+    "status": "staged"
+  },
+  {
+    "stage_id": "stg-e85bba97",
+    "agent_id": "agent-30f602",
+    "job": "pm_brief",
+    "kind": "job_task",
+    "task": "요구사항 정리·스펙 확정",
+    "inputs": {
+      "problem_statement": "외부 액션 승인 흐름이 없어 반영이 수동이라 자동화가 필요하다.",
+      "success_metrics": [
+        "반영 소요시간 50% 단축"
+      ],
+      "in_scope": [
+        "승인 게이트",
+        "외부 반영 커넥터",
+        "감사 로그"
+      ],
+      "out_of_scope": []
+    },
+    "summary": "요구사항 3건 스펙화 · 티켓 3 · QA 3 · 미결정 1건",
+    "artifact": {
+      "spec_sections": [
+        {
+          "title": "1. 배경·문제",
+          "body": "외부 액션 승인 흐름이 없어 반영이 수동이라 자동화가 필요하다."
+        },
+        {
+          "title": "2. 목표·성공지표",
+          "body": "반영 소요시간 50% 단축"
+        },
+        {
+          "title": "3. 범위",
+          "body": "포함: 승인 게이트, 외부 반영 커넥터, 감사 로그 / 제외: 없음"
+        },
+        {
+          "title": "4. 요구사항·수용기준(AC)",
+          "body": "요구 3건, 각 AC 포함"
+        },
+        {
+          "title": "5. 미결정",
+          "body": "(미결정) 성공지표 목표치 확정 필요"
+        }
+      ],
+      "acceptance_criteria": [
+        {
+          "requirement": "승인 게이트",
+          "criteria": [
+            "승인 게이트 완료 시 반영 소요시간 50% 단축 충족",
+            "승인 게이트 예외/에러 처리가 정의됨"
+          ]
+        },
+        {
+          "requirement": "외부 반영 커넥터",
+          "criteria": [
+            "외부 반영 커넥터 완료 시 반영 소요시간 50% 단축 충족",
+            "외부 반영 커넥터 예외/에러 처리가 정의됨"
+          ]
+        },
+        {
+          "requirement": "감사 로그",
+          "criteria": [
+            "감사 로그 완료 시 반영 소요시간 50% 단축 충족",
+            "감사 로그 예외/에러 처리가 정의됨"
+          ]
+        }
+      ],
+      "jira_items": [
+        {
+          "key": "PMX-1",
+          "type": "Story",
+          "summary": "승인 게이트"
+        },
+        {
+          "key": "PMX-2",
+          "type": "Story",
+          "summary": "외부 반영 커넥터"
+        },
+        {
+          "key": "PMX-3",
+          "type": "Story",
+          "summary": "감사 로그"
+        }
+      ],
+      "qa_checklist": [
+        "승인 게이트 정상/예외 케이스 검증",
+        "외부 반영 커넥터 정상/예외 케이스 검증",
+        "감사 로그 정상/예외 케이스 검증"
+      ],
+      "risks": [
+        "의존성: 인증/권한 모듈",
+        "리스크: 일정·범위 변동"
+      ]
+    },
+    "approval_required": true,
+    "approval_reasons": [
+      "미결정 정책 포함 — PM/대표 승인 필요"
+    ],
+    "rule_findings": [],
+    "blocked": false,
+    "created_at": "2026-07-22T00:51:14.111665",
+    "status": "reflected",
+    "committed_at": "2026-07-22T00:51:14.121102",
+    "approved_by": "user",
+    "rollback_window_min": 120,
+    "rollback_deadline": "2026-07-22T02:51:14.121102",
+    "external_action_log": [
+      {
+        "actor": "user",
+        "timestamp": "2026-07-22T00:51:14.127047",
+        "source_refs": [
+          "기존 spec.md",
+          "관련 정책 문서"
+        ],
+        "decision": "approved",
+        "dry_run": true,
+        "external_id": null,
+        "request_hash": "4cd2aca91db9062b",
+        "mode": "stub",
+        "result": {
+          "ok": true,
+          "target": "create_ticket",
+          "id": null,
+          "error": null
+        }
+      },
+      {
+        "actor": "user",
+        "timestamp": "2026-07-22T00:51:17.647161",
+        "source_refs": [
+          "기존 spec.md",
+          "관련 정책 문서"
+        ],
+        "decision": "approved",
+        "dry_run": false,
+        "external_id": "KAN-5",
+        "request_hash": "4cd2aca91db9062b",
+        "mode": "live-real",
+        "result": {
+          "ok": true,
+          "target": "create_ticket",
+          "id": "KAN-5",
+          "error": null
+        }
+      }
+    ],
+    "external_action_result": {
+      "ok": true,
+      "target": "create_ticket",
+      "dry_run": false,
+      "mode": "live-real",
+      "id": "KAN-5",
+      "external_ids": [
+        "KAN-5",
+        "KAN-6",
+        "KAN-7"
+      ],
+      "url": "https://byr-ai.atlassian.net/browse/KAN-5",
+      "items": [
+        {
+          "summary": "승인 게이트",
+          "status": "created",
+          "id": "KAN-5",
+          "url": "https://byr-ai.atlassian.net/browse/KAN-5"
+        },
+        {
+          "summary": "외부 반영 커넥터",
+          "status": "created",
+          "id": "KAN-6",
+          "url": "https://byr-ai.atlassian.net/browse/KAN-6"
+        },
+        {
+          "summary": "감사 로그",
+          "status": "created",
+          "id": "KAN-7",
+          "url": "https://byr-ai.atlassian.net/browse/KAN-7"
+        }
+      ],
+      "partial_success": false,
+      "message": "Jira 티켓 3/3건 생성",
+      "request_hash": "4cd2aca91db9062b",
+      "payload_fields": [
+        "ticket_summaries",
+        "release_note_draft"
+      ]
+    },
+    "reflected_at": "2026-07-22T00:51:17.647194"
+  },
+  {
+    "stage_id": "stg-367d5478",
+    "agent_id": "agent-fin01",
+    "job": "vat_reconcile",
+    "kind": "job_task",
+    "task": "부가세 대사·승인·반영",
+    "inputs": {
+      "period_from": "2026-04-01",
+      "period_to": "2026-06-30",
+      "company_code": "NHN01",
+      "amount_tolerance_pct": 0
+    },
+    "summary": "NHN01 2026-04-01~2026-06-30 대사: 매칭 47건 · 이상 3건(고위험 2)",
+    "artifact": {
+      "matched_count": 47,
+      "anomalies": [
+        {
+          "rule": "VAT-R-001",
+          "desc": "세금계산서 중복 의심(거래처 A · 2026-05-11 · ₩3,300,000)",
+          "severity": "high",
+          "action": "manual_review",
+          "ref": "매출_2026Q2.xlsx · B23"
+        },
+        {
+          "rule": "VAT-R-002",
+          "desc": "공급가액-세액 불일치(오차 2.0% > 허용 0.0%)",
+          "severity": "high",
+          "action": "manual_review",
+          "ref": "매입_2026Q2.xlsx · D41"
+        },
+        {
+          "rule": "VAT-R-003",
+          "desc": "거래처-계정 매핑 누락(거래처 C)",
+          "severity": "medium",
+          "action": "warn",
+          "ref": "매입_2026Q2.xlsx · E17"
+        }
+      ],
+      "approval_queue": [
+        {
+          "rule": "VAT-R-001",
+          "desc": "세금계산서 중복 의심(거래처 A · 2026-05-11 · ₩3,300,000)",
+          "severity": "high",
+          "action": "manual_review",
+          "ref": "매출_2026Q2.xlsx · B23"
+        },
+        {
+          "rule": "VAT-R-002",
+          "desc": "공급가액-세액 불일치(오차 2.0% > 허용 0.0%)",
+          "severity": "high",
+          "action": "manual_review",
+          "ref": "매입_2026Q2.xlsx · D41"
+        }
+      ],
+      "commit_payload": {
+        "target": "update_erp|update_sheet",
+        "entries": 47,
+        "adjustments": 3,
+        "approval_id": null,
+        "dry_run": true
+      }
+    },
+    "approval_required": true,
+    "approval_reasons": [
+      "고위험 이상 2건(중복·공급가액-세액 규칙) — 재무 담당자 승인 필요",
+      "경고 항목 1건(계정 매핑) 확인 필요"
+    ],
+    "rule_findings": [
+      {
+        "rule": "VAT-R-001",
+        "desc": "세금계산서 중복 의심(거래처 A · 2026-05-11 · ₩3,300,000)",
+        "severity": "high",
+        "action": "manual_review",
+        "ref": "매출_2026Q2.xlsx · B23"
+      },
+      {
+        "rule": "VAT-R-002",
+        "desc": "공급가액-세액 불일치(오차 2.0% > 허용 0.0%)",
+        "severity": "high",
+        "action": "manual_review",
+        "ref": "매입_2026Q2.xlsx · D41"
+      },
+      {
+        "rule": "VAT-R-003",
+        "desc": "거래처-계정 매핑 누락(거래처 C)",
+        "severity": "medium",
+        "action": "warn",
+        "ref": "매입_2026Q2.xlsx · E17"
+      }
+    ],
+    "blocked": false,
+    "created_at": "2026-07-22T00:37:20.598630",
+    "status": "committed",
+    "committed_at": "2026-07-22T00:37:20.612697",
+    "approved_by": "user",
+    "rollback_window_min": 60,
+    "rollback_deadline": "2026-07-22T01:37:20.612697",
+    "external_action_log": [
+      {
+        "actor": "user",
+        "timestamp": "2026-07-22T00:37:20.626982",
+        "source_refs": [
+          "매출원장",
+          "매입원장"
+        ],
+        "decision": "approved",
+        "dry_run": true,
+        "external_id": null,
+        "request_hash": "47aac6981bd44957",
+        "mode": "stub",
+        "result": {
+          "ok": true,
+          "target": "update_erp",
+          "id": null,
+          "error": null
+        }
+      },
+      {
+        "actor": "user",
+        "timestamp": "2026-07-22T00:37:20.637096",
+        "source_refs": [
+          "매출원장",
+          "매입원장"
+        ],
+        "decision": "approved",
+        "dry_run": false,
+        "external_id": null,
+        "request_hash": "47aac6981bd44957",
+        "mode": "live-real",
+        "result": {
+          "ok": false,
+          "target": "update_erp",
+          "id": null,
+          "error": "not_configured"
+        }
+      }
+    ],
+    "external_action_result": {
+      "ok": false,
+      "target": "update_erp",
+      "dry_run": false,
+      "mode": "live-real",
+      "error": "not_configured",
+      "request_hash": "47aac6981bd44957",
+      "message": "실 커넥터 미배선 — 샌드박스 연결 후 사용(BYR_CONNECTORS_LIVE)",
+      "payload_fields": [
+        "entries",
+        "adjustments",
+        "approval_id"
+      ]
+    }
+  },
+  {
+    "stage_id": "stg-daa51bcd",
+    "agent_id": "agent-328f91",
+    "job": "hr",
+    "kind": "job_task",
+    "task": "이력서 스크리닝·승인 큐",
+    "inputs": {
+      "job_description": "백엔드 5년 이상 채용. Python/FastAPI 실무. 대용량 처리 경험 우대. 협업 필수요건 다수.",
+      "must_have_requirements": [
+        "Python 5년",
+        "FastAPI"
+      ],
+      "experience_range": "5-10 years"
+    },
+    "summary": "지원자 3명 스크리닝: 숏리스트 1 · 보류 1 · 탈락 1",
+    "artifact": {
+      "candidate_scorecard": [
+        {
+          "name": "후보 A",
+          "score": 86,
+          "decision": "shortlist",
+          "rationale": "필수요건 2개 중 대부분 충족: 관련 경력(5-10 years)·유사 프로젝트 근거 확인"
+        },
+        {
+          "name": "후보 B",
+          "score": 71,
+          "decision": "hold",
+          "rationale": "핵심 경력 일부 부합, 요건 1개 근거 불명확 — 인터뷰로 확인 권장"
+        },
+        {
+          "name": "후보 C",
+          "score": 39,
+          "decision": "reject",
+          "rationale": "필수요건 다수 미충족(근거: 요구 기술 실무 경험 서류상 없음)"
+        }
+      ],
+      "shortlist": [
+        {
+          "name": "후보 A",
+          "score": 86,
+          "decision": "shortlist",
+          "rationale": "필수요건 2개 중 대부분 충족: 관련 경력(5-10 years)·유사 프로젝트 근거 확인"
+        }
+      ],
+      "hold_list": [
+        {
+          "name": "후보 B",
+          "score": 71,
+          "decision": "hold",
+          "rationale": "핵심 경력 일부 부합, 요건 1개 근거 불명확 — 인터뷰로 확인 권장"
+        }
+      ],
+      "reject_list": [
+        {
+          "name": "후보 C",
+          "score": 39,
+          "decision": "reject",
+          "rationale": "필수요건 다수 미충족(근거: 요구 기술 실무 경험 서류상 없음)"
+        }
+      ],
+      "rationale": "필수요건 대비 점수화. 각 후보 근거 첨부. 민감정보(나이·성별·혼인·종교)는 평가에 반영하지 않음."
+    },
+    "approval_required": true,
+    "approval_reasons": [
+      "숏리스트 확정 전 채용 담당자 승인 필요",
+      "자동 탈락 후보 1명 — 탈락 근거 검토 필요"
+    ],
+    "rule_findings": [],
+    "blocked": false,
+    "created_at": "2026-07-22T00:37:18.951221",
+    "status": "reflected",
+    "committed_at": "2026-07-22T00:37:18.960870",
+    "approved_by": "user",
+    "rollback_window_min": 120,
+    "rollback_deadline": "2026-07-22T02:37:18.960870",
+    "external_action_log": [
+      {
+        "actor": "user",
+        "timestamp": "2026-07-22T00:37:18.964781",
+        "source_refs": [
+          "지원자 이력서 묶음"
+        ],
+        "decision": "approved",
+        "dry_run": true,
+        "external_id": null,
+        "request_hash": "a056989861fc5e57",
+        "mode": "stub",
+        "result": {
+          "ok": true,
+          "target": "update_sheet",
+          "id": null,
+          "error": null
+        }
+      },
+      {
+        "actor": "user",
+        "timestamp": "2026-07-22T00:37:20.582155",
+        "source_refs": [
+          "지원자 이력서 묶음"
+        ],
+        "decision": "approved",
+        "dry_run": false,
+        "external_id": "'시트1'!A2:E2",
+        "request_hash": "a056989861fc5e57",
+        "mode": "live-real",
+        "result": {
+          "ok": true,
+          "target": "update_sheet",
+          "id": "'시트1'!A2:E2",
+          "error": null
+        }
+      }
+    ],
+    "external_action_result": {
+      "ok": true,
+      "id": "'시트1'!A2:E2",
+      "target": "update_sheet",
+      "dry_run": false,
+      "mode": "live-real",
+      "message": "'Byr' 시트 반영 완료: 1행 ('시트1'!A2:E2)",
+      "request_hash": "a056989861fc5e57",
+      "payload_fields": [
+        "shortlist_rows",
+        "review_request_message"
+      ]
+    },
+    "reflected_at": "2026-07-22T00:37:20.582224"
+  },
+  {
+    "stage_id": "stg-1e17b990",
+    "agent_id": "agent-fin01",
+    "job": "vat_reconcile",
+    "kind": "job_task",
+    "task": "부가세 대사·승인·반영",
+    "inputs": {
+      "period_from": "2026-04-01",
+      "period_to": "2026-06-30",
+      "company_code": "NHN01",
+      "amount_tolerance_pct": 0
+    },
+    "summary": "NHN01 2026-04-01~2026-06-30 대사: 매칭 47건 · 이상 3건(고위험 2)",
+    "artifact": {
+      "matched_count": 47,
+      "anomalies": [
+        {
+          "rule": "VAT-R-001",
+          "desc": "세금계산서 중복 의심(거래처 A · 2026-05-11 · ₩3,300,000)",
+          "severity": "high",
+          "action": "manual_review",
+          "ref": "매출_2026Q2.xlsx · B23"
+        },
+        {
+          "rule": "VAT-R-002",
+          "desc": "공급가액-세액 불일치(오차 2.0% > 허용 0.0%)",
+          "severity": "high",
+          "action": "manual_review",
+          "ref": "매입_2026Q2.xlsx · D41"
+        },
+        {
+          "rule": "VAT-R-003",
+          "desc": "거래처-계정 매핑 누락(거래처 C)",
+          "severity": "medium",
+          "action": "warn",
+          "ref": "매입_2026Q2.xlsx · E17"
+        }
+      ],
+      "approval_queue": [
+        {
+          "rule": "VAT-R-001",
+          "desc": "세금계산서 중복 의심(거래처 A · 2026-05-11 · ₩3,300,000)",
+          "severity": "high",
+          "action": "manual_review",
+          "ref": "매출_2026Q2.xlsx · B23"
+        },
+        {
+          "rule": "VAT-R-002",
+          "desc": "공급가액-세액 불일치(오차 2.0% > 허용 0.0%)",
+          "severity": "high",
+          "action": "manual_review",
+          "ref": "매입_2026Q2.xlsx · D41"
+        }
+      ],
+      "commit_payload": {
+        "target": "update_erp|update_sheet",
+        "entries": 47,
+        "adjustments": 3,
+        "approval_id": null,
+        "dry_run": true
+      }
+    },
+    "approval_required": true,
+    "approval_reasons": [
+      "고위험 이상 2건(중복·공급가액-세액 규칙) — 재무 담당자 승인 필요",
+      "경고 항목 1건(계정 매핑) 확인 필요"
+    ],
+    "rule_findings": [
+      {
+        "rule": "VAT-R-001",
+        "desc": "세금계산서 중복 의심(거래처 A · 2026-05-11 · ₩3,300,000)",
+        "severity": "high",
+        "action": "manual_review",
+        "ref": "매출_2026Q2.xlsx · B23"
+      },
+      {
+        "rule": "VAT-R-002",
+        "desc": "공급가액-세액 불일치(오차 2.0% > 허용 0.0%)",
+        "severity": "high",
+        "action": "manual_review",
+        "ref": "매입_2026Q2.xlsx · D41"
+      },
+      {
+        "rule": "VAT-R-003",
+        "desc": "거래처-계정 매핑 누락(거래처 C)",
+        "severity": "medium",
+        "action": "warn",
+        "ref": "매입_2026Q2.xlsx · E17"
+      }
+    ],
+    "blocked": false,
+    "created_at": "2026-07-22T00:03:57.421249",
+    "status": "reflected",
+    "committed_at": "2026-07-22T00:03:57.425865",
+    "approved_by": "user",
+    "rollback_window_min": 60,
+    "rollback_deadline": "2026-07-22T01:03:57.425865",
+    "external_action_log": [
+      {
+        "actor": "user",
+        "timestamp": "2026-07-22T00:03:57.428638",
+        "source_refs": [
+          "매출원장",
+          "매입원장"
+        ],
+        "decision": "approved",
+        "dry_run": true,
+        "external_id": null,
+        "request_hash": "b9ac6badf77d2c9b",
+        "mode": "stub",
+        "result": {
+          "ok": true,
+          "target": "update_erp",
+          "id": null,
+          "error": null
+        }
+      },
+      {
+        "actor": "user",
+        "timestamp": "2026-07-22T00:03:57.433260",
+        "source_refs": [
+          "매출원장",
+          "매입원장"
+        ],
+        "decision": "approved",
+        "dry_run": false,
+        "external_id": "ERP-17b990",
+        "request_hash": "b9ac6badf77d2c9b",
+        "mode": "stub",
+        "result": {
+          "ok": true,
+          "target": "update_erp",
+          "id": "ERP-17b990",
+          "error": null
+        }
+      }
+    ],
+    "external_action_result": {
+      "ok": true,
+      "id": "ERP-17b990",
+      "target": "update_erp",
+      "dry_run": false,
+      "mode": "stub",
+      "message": "ERP 반영 완료: 전표 47건 · 조정 3건 (전표번호 ERP-17b990)",
+      "request_hash": "b9ac6badf77d2c9b",
+      "payload_fields": [
+        "entries",
+        "adjustments",
+        "approval_id"
+      ]
+    },
+    "reflected_at": "2026-07-22T00:03:57.433263"
+  },
+  {
+    "stage_id": "stg-20bfb1af",
+    "agent_id": "agent-30f602",
+    "job": "pm_brief",
+    "kind": "job_task",
+    "task": "요구사항 정리·스펙 확정",
+    "inputs": {
+      "problem_statement": "콘솔 외부액션 승인 흐름 자동화 필요함 명확히.",
+      "success_metrics": [
+        "시간 50% 단축"
+      ],
+      "in_scope": [
+        "게이트"
+      ],
+      "out_of_scope": [],
+      "simulate_action": "fail"
+    },
+    "summary": "요구사항 1건 스펙화 · 티켓 1 · QA 1 · 미결정 1건",
+    "artifact": {
+      "spec_sections": [
+        {
+          "title": "1. 배경·문제",
+          "body": "콘솔 외부액션 승인 흐름 자동화 필요함 명확히."
+        },
+        {
+          "title": "2. 목표·성공지표",
+          "body": "시간 50% 단축"
+        },
+        {
+          "title": "3. 범위",
+          "body": "포함: 게이트 / 제외: 없음"
+        },
+        {
+          "title": "4. 요구사항·수용기준(AC)",
+          "body": "요구 1건, 각 AC 포함"
+        },
+        {
+          "title": "5. 미결정",
+          "body": "(미결정) 성공지표 목표치 확정 필요"
+        }
+      ],
+      "acceptance_criteria": [
+        {
+          "requirement": "게이트",
+          "criteria": [
+            "게이트 완료 시 시간 50% 단축 충족",
+            "게이트 예외/에러 처리가 정의됨"
+          ]
+        }
+      ],
+      "jira_items": [
+        {
+          "key": "PMX-1",
+          "type": "Story",
+          "summary": "게이트"
+        }
+      ],
+      "qa_checklist": [
+        "게이트 정상/예외 케이스 검증"
+      ],
+      "risks": [
+        "의존성: 인증/권한 모듈",
+        "리스크: 일정·범위 변동"
+      ]
+    },
+    "approval_required": true,
+    "approval_reasons": [
+      "미결정 정책 포함 — PM/대표 승인 필요"
+    ],
+    "rule_findings": [],
+    "blocked": false,
+    "created_at": "2026-07-22T00:03:57.406044",
+    "status": "committed",
+    "committed_at": "2026-07-22T00:03:57.410659",
+    "approved_by": "user",
+    "rollback_window_min": 120,
+    "rollback_deadline": "2026-07-22T02:03:57.410659",
+    "external_action_log": [
+      {
+        "actor": "user",
+        "timestamp": "2026-07-22T00:03:57.413427",
+        "source_refs": [
+          "기존 spec.md",
+          "관련 정책 문서"
+        ],
+        "decision": "approved",
+        "dry_run": true,
+        "external_id": null,
+        "request_hash": "0f936a4041c876de",
+        "mode": "stub",
+        "result": {
+          "ok": false,
+          "target": "create_ticket",
+          "id": null,
+          "error": "permission_denied"
+        }
+      },
+      {
+        "actor": "user",
+        "timestamp": "2026-07-22T00:03:57.417925",
+        "source_refs": [
+          "기존 spec.md",
+          "관련 정책 문서"
+        ],
+        "decision": "approved",
+        "dry_run": false,
+        "external_id": null,
+        "request_hash": "0f936a4041c876de",
+        "mode": "stub",
+        "result": {
+          "ok": false,
+          "target": "create_ticket",
+          "id": null,
+          "error": "permission_denied"
+        }
+      }
+    ],
+    "external_action_result": {
+      "ok": false,
+      "target": "create_ticket",
+      "dry_run": false,
+      "mode": "stub",
+      "error": "permission_denied",
+      "message": "티켓 생성 권한 부족 — 전체 실패(롤백)",
+      "rolled_back": true,
+      "request_hash": "0f936a4041c876de",
+      "payload_fields": [
+        "ticket_summaries",
+        "release_note_draft"
+      ]
+    }
+  },
+  {
+    "stage_id": "stg-9ad94dc2",
+    "agent_id": "agent-fin01",
+    "job": "vat_reconcile",
+    "kind": "job_task",
+    "task": "부가세 대사·승인·반영",
+    "inputs": {
+      "period_from": "2026-04-01",
+      "period_to": "2026-06-30",
+      "company_code": "NHN01",
+      "amount_tolerance_pct": 0,
+      "simulate_action": "timeout"
+    },
+    "summary": "NHN01 2026-04-01~2026-06-30 대사: 매칭 47건 · 이상 3건(고위험 2)",
+    "artifact": {
+      "matched_count": 47,
+      "anomalies": [
+        {
+          "rule": "VAT-R-001",
+          "desc": "세금계산서 중복 의심(거래처 A · 2026-05-11 · ₩3,300,000)",
+          "severity": "high",
+          "action": "manual_review",
+          "ref": "매출_2026Q2.xlsx · B23"
+        },
+        {
+          "rule": "VAT-R-002",
+          "desc": "공급가액-세액 불일치(오차 2.0% > 허용 0.0%)",
+          "severity": "high",
+          "action": "manual_review",
+          "ref": "매입_2026Q2.xlsx · D41"
+        },
+        {
+          "rule": "VAT-R-003",
+          "desc": "거래처-계정 매핑 누락(거래처 C)",
+          "severity": "medium",
+          "action": "warn",
+          "ref": "매입_2026Q2.xlsx · E17"
+        }
+      ],
+      "approval_queue": [
+        {
+          "rule": "VAT-R-001",
+          "desc": "세금계산서 중복 의심(거래처 A · 2026-05-11 · ₩3,300,000)",
+          "severity": "high",
+          "action": "manual_review",
+          "ref": "매출_2026Q2.xlsx · B23"
+        },
+        {
+          "rule": "VAT-R-002",
+          "desc": "공급가액-세액 불일치(오차 2.0% > 허용 0.0%)",
+          "severity": "high",
+          "action": "manual_review",
+          "ref": "매입_2026Q2.xlsx · D41"
+        }
+      ],
+      "commit_payload": {
+        "target": "update_erp|update_sheet",
+        "entries": 47,
+        "adjustments": 3,
+        "approval_id": null,
+        "dry_run": true
+      }
+    },
+    "approval_required": true,
+    "approval_reasons": [
+      "고위험 이상 2건(중복·공급가액-세액 규칙) — 재무 담당자 승인 필요",
+      "경고 항목 1건(계정 매핑) 확인 필요"
+    ],
+    "rule_findings": [
+      {
+        "rule": "VAT-R-001",
+        "desc": "세금계산서 중복 의심(거래처 A · 2026-05-11 · ₩3,300,000)",
+        "severity": "high",
+        "action": "manual_review",
+        "ref": "매출_2026Q2.xlsx · B23"
+      },
+      {
+        "rule": "VAT-R-002",
+        "desc": "공급가액-세액 불일치(오차 2.0% > 허용 0.0%)",
+        "severity": "high",
+        "action": "manual_review",
+        "ref": "매입_2026Q2.xlsx · D41"
+      },
+      {
+        "rule": "VAT-R-003",
+        "desc": "거래처-계정 매핑 누락(거래처 C)",
+        "severity": "medium",
+        "action": "warn",
+        "ref": "매입_2026Q2.xlsx · E17"
+      }
+    ],
+    "blocked": false,
+    "created_at": "2026-07-22T00:03:57.384703",
+    "status": "committed",
+    "committed_at": "2026-07-22T00:03:57.392210",
+    "approved_by": "user",
+    "rollback_window_min": 60,
+    "rollback_deadline": "2026-07-22T01:03:57.392210",
+    "external_action_log": [
+      {
+        "actor": "user",
+        "timestamp": "2026-07-22T00:03:57.397504",
+        "source_refs": [
+          "매출원장",
+          "매입원장"
+        ],
+        "decision": "approved",
+        "dry_run": true,
+        "external_id": null,
+        "request_hash": "0392b9e31781636e",
+        "mode": "stub",
+        "result": {
+          "ok": false,
+          "target": "update_erp",
+          "id": null,
+          "error": "timeout"
+        }
+      },
+      {
+        "actor": "user",
+        "timestamp": "2026-07-22T00:03:57.402717",
+        "source_refs": [
+          "매출원장",
+          "매입원장"
+        ],
+        "decision": "approved",
+        "dry_run": false,
+        "external_id": null,
+        "request_hash": "0392b9e31781636e",
+        "mode": "stub",
+        "result": {
+          "ok": false,
+          "target": "update_erp",
+          "id": null,
+          "error": "timeout"
+        }
+      }
+    ],
+    "external_action_result": {
+      "ok": false,
+      "target": "update_erp",
+      "dry_run": false,
+      "mode": "stub",
+      "error": "timeout",
+      "message": "ERP 응답 시간 초과 — 반영 없음",
+      "rolled_back": true,
+      "request_hash": "0392b9e31781636e",
+      "payload_fields": [
+        "entries",
+        "adjustments",
+        "approval_id"
+      ]
+    }
+  },
+  {
+    "stage_id": "stg-63f70a38",
+    "agent_id": "agent-fin01",
+    "job": "vat_reconcile",
+    "kind": "job_task",
+    "task": "부가세 대사·승인·반영",
+    "inputs": {
+      "period_from": "2026-04-01",
+      "period_to": "2026-06-30",
+      "company_code": "NHN01",
+      "amount_tolerance_pct": 0
+    },
+    "summary": "NHN01 2026-04-01~2026-06-30 대사: 매칭 47건 · 이상 3건(고위험 2)",
+    "artifact": {
+      "matched_count": 47,
+      "anomalies": [
+        {
+          "rule": "VAT-R-001",
+          "desc": "세금계산서 중복 의심(거래처 A · 2026-05-11 · ₩3,300,000)",
+          "severity": "high",
+          "action": "manual_review",
+          "ref": "매출_2026Q2.xlsx · B23"
+        },
+        {
+          "rule": "VAT-R-002",
+          "desc": "공급가액-세액 불일치(오차 2.0% > 허용 0.0%)",
+          "severity": "high",
+          "action": "manual_review",
+          "ref": "매입_2026Q2.xlsx · D41"
+        },
+        {
+          "rule": "VAT-R-003",
+          "desc": "거래처-계정 매핑 누락(거래처 C)",
+          "severity": "medium",
+          "action": "warn",
+          "ref": "매입_2026Q2.xlsx · E17"
+        }
+      ],
+      "approval_queue": [
+        {
+          "rule": "VAT-R-001",
+          "desc": "세금계산서 중복 의심(거래처 A · 2026-05-11 · ₩3,300,000)",
+          "severity": "high",
+          "action": "manual_review",
+          "ref": "매출_2026Q2.xlsx · B23"
+        },
+        {
+          "rule": "VAT-R-002",
+          "desc": "공급가액-세액 불일치(오차 2.0% > 허용 0.0%)",
+          "severity": "high",
+          "action": "manual_review",
+          "ref": "매입_2026Q2.xlsx · D41"
+        }
+      ],
+      "commit_payload": {
+        "target": "update_erp|update_sheet",
+        "entries": 47,
+        "adjustments": 3,
+        "approval_id": null,
+        "dry_run": true
+      }
+    },
+    "approval_required": true,
+    "approval_reasons": [
+      "고위험 이상 2건(중복·공급가액-세액 규칙) — 재무 담당자 승인 필요",
+      "경고 항목 1건(계정 매핑) 확인 필요"
+    ],
+    "rule_findings": [
+      {
+        "rule": "VAT-R-001",
+        "desc": "세금계산서 중복 의심(거래처 A · 2026-05-11 · ₩3,300,000)",
+        "severity": "high",
+        "action": "manual_review",
+        "ref": "매출_2026Q2.xlsx · B23"
+      },
+      {
+        "rule": "VAT-R-002",
+        "desc": "공급가액-세액 불일치(오차 2.0% > 허용 0.0%)",
+        "severity": "high",
+        "action": "manual_review",
+        "ref": "매입_2026Q2.xlsx · D41"
+      },
+      {
+        "rule": "VAT-R-003",
+        "desc": "거래처-계정 매핑 누락(거래처 C)",
+        "severity": "medium",
+        "action": "warn",
+        "ref": "매입_2026Q2.xlsx · E17"
+      }
+    ],
+    "blocked": false,
+    "created_at": "2026-07-22T00:01:13.270003",
+    "status": "undone",
+    "committed_at": "2026-07-22T00:01:13.293672",
+    "approved_by": "user",
+    "rollback_window_min": 60,
+    "rollback_deadline": "2026-07-22T01:01:13.293672",
+    "external_action_log": [
+      {
+        "actor": "user",
+        "timestamp": "2026-07-22T00:01:13.298171",
+        "source_refs": [
+          "매출원장",
+          "매입원장"
+        ],
+        "decision": "approved",
+        "dry_run": true,
+        "result": {
+          "ok": true,
+          "target": "update_erp",
+          "id": null,
+          "error": null
+        }
+      }
+    ],
+    "external_action_result": {
+      "ok": true,
+      "id": null,
+      "target": "update_erp",
+      "dry_run": true,
+      "message": "[DRY-RUN] ERP 반영 예정: 전표 47건 · 조정 3건",
+      "payload_fields": [
+        "entries",
+        "adjustments",
+        "approval_id"
+      ]
+    },
+    "undone_at": "2026-07-22T00:01:13.311182",
+    "undone_by": "user"
+  },
+  {
+    "stage_id": "stg-2a9e6b52",
+    "agent_id": "agent-328f91",
+    "job": "hr",
+    "kind": "job_task",
+    "task": "이력서 스크리닝·승인 큐",
+    "inputs": {
+      "job_description": "백엔드 5년 이상 채용. Python/FastAPI 실무. 대용량 처리 경험 우대. 협업 필수요건 다수 포함. 나이 35세 이하 우대.",
+      "must_have_requirements": [
+        "Python 5년",
+        "FastAPI"
+      ],
+      "experience_range": "5-10 years"
+    },
+    "summary": "민감정보 감지 1건 — 스크리닝 차단(입력에서 나이/연령('나이') 제거 필요)",
+    "artifact": {
+      "pii_findings": [
+        {
+          "field": "job_description",
+          "label": "나이/연령",
+          "term": "나이"
+        }
+      ],
+      "rationale": "채용 평가에 반영 금지 정보(나이·성별·혼인·종교·건강 등)가 입력에 포함되어 실행을 차단했습니다."
+    },
+    "approval_required": true,
+    "approval_reasons": [
+      "민감정보 포함 — 입력 정정 후 재실행 필요"
+    ],
+    "rule_findings": [
+      {
+        "rule": "HR-R-002",
+        "desc": "민감정보 평가 반영 금지 위반: 나이/연령('나이')",
+        "severity": "high",
+        "action": "block",
+        "evidence": [
+          {
+            "field": "job_description",
+            "label": "나이/연령",
+            "term": "나이"
+          }
+        ]
+      }
+    ],
+    "blocked": true,
+    "created_at": "2026-07-21T23:59:30.273105",
+    "status": "blocked"
+  },
+  {
+    "stage_id": "stg-3ac2855f",
+    "agent_id": "agent-fin01",
+    "job": "vat_reconcile",
+    "kind": "job_task",
+    "task": "부가세 대사·승인·반영",
+    "inputs": {
+      "period_from": "2026-04-01",
+      "period_to": "2026-06-30",
+      "company_code": "NHN01",
+      "amount_tolerance_pct": 0
+    },
+    "summary": "NHN01 2026-04-01~2026-06-30 대사: 매칭 47건 · 이상 3건(고위험 2)",
+    "artifact": {
+      "matched_count": 47,
+      "anomalies": [
+        {
+          "rule": "VAT-R-001",
+          "desc": "세금계산서 중복 의심(거래처 A · 2026-05-11 · ₩3,300,000)",
+          "severity": "high",
+          "action": "manual_review",
+          "ref": "매출_2026Q2.xlsx · B23"
+        },
+        {
+          "rule": "VAT-R-002",
+          "desc": "공급가액-세액 불일치(오차 2.0% > 허용 0.0%)",
+          "severity": "high",
+          "action": "manual_review",
+          "ref": "매입_2026Q2.xlsx · D41"
+        },
+        {
+          "rule": "VAT-R-003",
+          "desc": "거래처-계정 매핑 누락(거래처 C)",
+          "severity": "medium",
+          "action": "warn",
+          "ref": "매입_2026Q2.xlsx · E17"
+        }
+      ],
+      "approval_queue": [
+        {
+          "rule": "VAT-R-001",
+          "desc": "세금계산서 중복 의심(거래처 A · 2026-05-11 · ₩3,300,000)",
+          "severity": "high",
+          "action": "manual_review",
+          "ref": "매출_2026Q2.xlsx · B23"
+        },
+        {
+          "rule": "VAT-R-002",
+          "desc": "공급가액-세액 불일치(오차 2.0% > 허용 0.0%)",
+          "severity": "high",
+          "action": "manual_review",
+          "ref": "매입_2026Q2.xlsx · D41"
+        }
+      ],
+      "commit_payload": {
+        "target": "update_erp|update_sheet",
+        "entries": 47,
+        "adjustments": 3,
+        "approval_id": null,
+        "dry_run": true
+      }
+    },
+    "approval_required": true,
+    "approval_reasons": [
+      "고위험 이상 2건(중복·공급가액-세액 규칙) — 재무 담당자 승인 필요",
+      "경고 항목 1건(계정 매핑) 확인 필요"
+    ],
+    "rule_findings": [
+      {
+        "rule": "VAT-R-001",
+        "desc": "세금계산서 중복 의심(거래처 A · 2026-05-11 · ₩3,300,000)",
+        "severity": "high",
+        "action": "manual_review",
+        "ref": "매출_2026Q2.xlsx · B23"
+      },
+      {
+        "rule": "VAT-R-002",
+        "desc": "공급가액-세액 불일치(오차 2.0% > 허용 0.0%)",
+        "severity": "high",
+        "action": "manual_review",
+        "ref": "매입_2026Q2.xlsx · D41"
+      },
+      {
+        "rule": "VAT-R-003",
+        "desc": "거래처-계정 매핑 누락(거래처 C)",
+        "severity": "medium",
+        "action": "warn",
+        "ref": "매입_2026Q2.xlsx · E17"
+      }
+    ],
+    "blocked": false,
+    "created_at": "2026-07-21T23:59:30.258256",
+    "status": "reflected",
+    "committed_at": "2026-07-21T23:59:30.262562",
+    "external_action_log": [
+      {
+        "actor": "user",
+        "timestamp": "2026-07-21T23:59:30.265297",
+        "source_refs": [
+          "매출원장",
+          "매입원장"
+        ],
+        "decision": "approved",
+        "dry_run": true,
+        "result": {
+          "ok": true,
+          "target": "update_erp",
+          "id": null,
+          "error": null
+        }
+      },
+      {
+        "actor": "user",
+        "timestamp": "2026-07-21T23:59:30.270100",
+        "source_refs": [
+          "매출원장",
+          "매입원장"
+        ],
+        "decision": "approved",
+        "dry_run": false,
+        "result": {
+          "ok": true,
+          "target": "update_erp",
+          "id": "ERP-c2855f",
+          "error": null
+        }
+      }
+    ],
+    "external_action_result": {
+      "ok": true,
+      "id": "ERP-c2855f",
+      "target": "update_erp",
+      "dry_run": false,
+      "message": "ERP 반영 완료: 전표 47건 · 조정 3건 (전표번호 ERP-c2855f)",
+      "payload_fields": [
+        "entries",
+        "adjustments",
+        "approval_id"
+      ]
+    },
+    "reflected_at": "2026-07-21T23:59:30.270104"
+  },
+  {
+    "stage_id": "stg-03aacf23",
+    "agent_id": "agent-328f91",
+    "job": "hr",
+    "kind": "job_task",
+    "task": "이력서 스크리닝·승인 큐",
+    "inputs": {
+      "job_description": "백엔드 5년 이상 채용. Python/FastAPI 실무. 대용량 처리 경험 우대. 협업 필수요건 다수 포함.",
+      "must_have_requirements": [
+        "Kubernetes 운영",
+        "관찰가능성 도구"
+      ],
+      "experience_range": "5-10 years"
+    },
+    "summary": "지원자 3명 스크리닝: 숏리스트 1 · 보류 1 · 탈락 1",
+    "artifact": {
+      "candidate_scorecard": [
+        {
+          "name": "후보 A",
+          "score": 86,
+          "decision": "shortlist",
+          "rationale": "필수요건 2개 중 대부분 충족: 관련 경력(5-10 years)·유사 프로젝트 근거 확인"
+        },
+        {
+          "name": "후보 B",
+          "score": 71,
+          "decision": "hold",
+          "rationale": "핵심 경력 일부 부합, 요건 1개 근거 불명확 — 인터뷰로 확인 권장"
+        },
+        {
+          "name": "후보 C",
+          "score": 39,
+          "decision": "reject",
+          "rationale": "필수요건 다수 미충족(근거: 요구 기술 실무 경험 서류상 없음)"
+        }
+      ],
+      "shortlist": [
+        {
+          "name": "후보 A",
+          "score": 86,
+          "decision": "shortlist",
+          "rationale": "필수요건 2개 중 대부분 충족: 관련 경력(5-10 years)·유사 프로젝트 근거 확인"
+        }
+      ],
+      "hold_list": [
+        {
+          "name": "후보 B",
+          "score": 71,
+          "decision": "hold",
+          "rationale": "핵심 경력 일부 부합, 요건 1개 근거 불명확 — 인터뷰로 확인 권장"
+        }
+      ],
+      "reject_list": [
+        {
+          "name": "후보 C",
+          "score": 39,
+          "decision": "reject",
+          "rationale": "필수요건 다수 미충족(근거: 요구 기술 실무 경험 서류상 없음)"
+        }
+      ],
+      "rationale": "필수요건 대비 점수화. 각 후보 근거 첨부. 민감정보(나이·성별·혼인·종교)는 평가에 반영하지 않음."
+    },
+    "approval_required": true,
+    "approval_reasons": [
+      "숏리스트 확정 전 채용 담당자 승인 필요",
+      "자동 탈락 후보 1명 — 탈락 근거 검토 필요"
+    ],
+    "rule_findings": [],
+    "blocked": false,
+    "created_at": "2026-07-21T23:59:30.254382",
+    "status": "staged"
+  },
+  {
+    "stage_id": "stg-d68fa9ae",
+    "agent_id": "agent-328f91",
+    "job": "hr",
+    "kind": "job_task",
+    "task": "이력서 스크리닝·승인 큐",
+    "inputs": {
+      "job_description": "프론트엔드 3~7년. React/TS 실무. 성능 최적화 경험. 시니어 멘토링 가능자.",
+      "must_have_requirements": [
+        "Python 5년",
+        "FastAPI"
+      ],
+      "experience_range": "5-10 years"
+    },
+    "summary": "지원자 3명 스크리닝: 숏리스트 1 · 보류 1 · 탈락 1",
+    "artifact": {
+      "candidate_scorecard": [
+        {
+          "name": "후보 A",
+          "score": 86,
+          "decision": "shortlist",
+          "rationale": "필수요건 2개 중 대부분 충족: 관련 경력(5-10 years)·유사 프로젝트 근거 확인"
+        },
+        {
+          "name": "후보 B",
+          "score": 71,
+          "decision": "hold",
+          "rationale": "핵심 경력 일부 부합, 요건 1개 근거 불명확 — 인터뷰로 확인 권장"
+        },
+        {
+          "name": "후보 C",
+          "score": 39,
+          "decision": "reject",
+          "rationale": "필수요건 다수 미충족(근거: 요구 기술 실무 경험 서류상 없음)"
+        }
+      ],
+      "shortlist": [
+        {
+          "name": "후보 A",
+          "score": 86,
+          "decision": "shortlist",
+          "rationale": "필수요건 2개 중 대부분 충족: 관련 경력(5-10 years)·유사 프로젝트 근거 확인"
+        }
+      ],
+      "hold_list": [
+        {
+          "name": "후보 B",
+          "score": 71,
+          "decision": "hold",
+          "rationale": "핵심 경력 일부 부합, 요건 1개 근거 불명확 — 인터뷰로 확인 권장"
+        }
+      ],
+      "reject_list": [
+        {
+          "name": "후보 C",
+          "score": 39,
+          "decision": "reject",
+          "rationale": "필수요건 다수 미충족(근거: 요구 기술 실무 경험 서류상 없음)"
+        }
+      ],
+      "rationale": "필수요건 대비 점수화. 각 후보 근거 첨부. 민감정보(나이·성별·혼인·종교)는 평가에 반영하지 않음."
+    },
+    "approval_required": true,
+    "approval_reasons": [
+      "숏리스트 확정 전 채용 담당자 승인 필요",
+      "자동 탈락 후보 1명 — 탈락 근거 검토 필요"
+    ],
+    "rule_findings": [],
+    "blocked": false,
+    "created_at": "2026-07-21T23:59:30.250371",
+    "status": "staged"
+  },
+  {
+    "stage_id": "stg-4467043a",
+    "agent_id": "agent-328f91",
+    "job": "hr",
+    "kind": "job_task",
+    "task": "이력서 스크리닝·승인 큐",
+    "inputs": {
+      "job_description": "백엔드 5년 이상 채용. Python/FastAPI 실무. 대용량 처리 경험 우대. 협업 필수요건 다수 포함.",
+      "must_have_requirements": [
+        "Python 5년",
+        "FastAPI"
+      ],
+      "experience_range": "5-10 years"
+    },
+    "summary": "지원자 3명 스크리닝: 숏리스트 1 · 보류 1 · 탈락 1",
+    "artifact": {
+      "candidate_scorecard": [
+        {
+          "name": "후보 A",
+          "score": 86,
+          "decision": "shortlist",
+          "rationale": "필수요건 2개 중 대부분 충족: 관련 경력(5-10 years)·유사 프로젝트 근거 확인"
+        },
+        {
+          "name": "후보 B",
+          "score": 71,
+          "decision": "hold",
+          "rationale": "핵심 경력 일부 부합, 요건 1개 근거 불명확 — 인터뷰로 확인 권장"
+        },
+        {
+          "name": "후보 C",
+          "score": 39,
+          "decision": "reject",
+          "rationale": "필수요건 다수 미충족(근거: 요구 기술 실무 경험 서류상 없음)"
+        }
+      ],
+      "shortlist": [
+        {
+          "name": "후보 A",
+          "score": 86,
+          "decision": "shortlist",
+          "rationale": "필수요건 2개 중 대부분 충족: 관련 경력(5-10 years)·유사 프로젝트 근거 확인"
+        }
+      ],
+      "hold_list": [
+        {
+          "name": "후보 B",
+          "score": 71,
+          "decision": "hold",
+          "rationale": "핵심 경력 일부 부합, 요건 1개 근거 불명확 — 인터뷰로 확인 권장"
+        }
+      ],
+      "reject_list": [
+        {
+          "name": "후보 C",
+          "score": 39,
+          "decision": "reject",
+          "rationale": "필수요건 다수 미충족(근거: 요구 기술 실무 경험 서류상 없음)"
+        }
+      ],
+      "rationale": "필수요건 대비 점수화. 각 후보 근거 첨부. 민감정보(나이·성별·혼인·종교)는 평가에 반영하지 않음."
+    },
+    "approval_required": true,
+    "approval_reasons": [
+      "숏리스트 확정 전 채용 담당자 승인 필요",
+      "자동 탈락 후보 1명 — 탈락 근거 검토 필요"
+    ],
+    "rule_findings": [],
+    "blocked": false,
+    "created_at": "2026-07-21T23:59:30.246751",
+    "status": "staged"
+  },
+  {
+    "stage_id": "stg-c154f6a0",
+    "agent_id": "agent-328f91",
+    "job": "hr",
+    "kind": "job_task",
+    "task": "이력서 스크리닝·승인 큐",
+    "inputs": {
+      "job_description": "백엔드 5년 이상 채용. Python/FastAPI 실무. 대용량 처리 경험 우대. 협업 필수요건 다수 포함. 장애 여부 확인.",
+      "must_have_requirements": [
+        "Python 5년",
+        "FastAPI"
+      ],
+      "experience_range": "5-10 years"
+    },
+    "summary": "민감정보 감지 1건 — 스크리닝 차단(입력에서 건강/장애('장애 여부') 제거 필요)",
+    "artifact": {
+      "pii_findings": [
+        {
+          "field": "job_description",
+          "label": "건강/장애",
+          "term": "장애 여부"
+        }
+      ],
+      "rationale": "채용 평가에 반영 금지 정보(나이·성별·혼인·종교·건강 등)가 입력에 포함되어 실행을 차단했습니다."
+    },
+    "approval_required": true,
+    "approval_reasons": [
+      "민감정보 포함 — 입력 정정 후 재실행 필요"
+    ],
+    "rule_findings": [
+      {
+        "rule": "HR-R-002",
+        "desc": "민감정보 평가 반영 금지 위반: 건강/장애('장애 여부')",
+        "severity": "high",
+        "action": "block",
+        "evidence": [
+          {
+            "field": "job_description",
+            "label": "건강/장애",
+            "term": "장애 여부"
+          }
+        ]
+      }
+    ],
+    "blocked": true,
+    "created_at": "2026-07-21T23:59:30.242935",
+    "status": "blocked"
+  },
+  {
+    "stage_id": "stg-246ab025",
+    "agent_id": "agent-328f91",
+    "job": "hr",
+    "kind": "job_task",
+    "task": "이력서 스크리닝·승인 큐",
+    "inputs": {
+      "job_description": "백엔드 5년 이상 채용. Python/FastAPI 실무. 대용량 처리 경험 우대. 협업 필수요건 다수 포함.",
+      "must_have_requirements": [
+        "Python 5년",
+        "FastAPI",
+        "병력 없는 자"
+      ],
+      "experience_range": "5-10 years"
+    },
+    "summary": "민감정보 감지 1건 — 스크리닝 차단(입력에서 건강/장애('병력') 제거 필요)",
+    "artifact": {
+      "pii_findings": [
+        {
+          "field": "must_have_requirements",
+          "label": "건강/장애",
+          "term": "병력"
+        }
+      ],
+      "rationale": "채용 평가에 반영 금지 정보(나이·성별·혼인·종교·건강 등)가 입력에 포함되어 실행을 차단했습니다."
+    },
+    "approval_required": true,
+    "approval_reasons": [
+      "민감정보 포함 — 입력 정정 후 재실행 필요"
+    ],
+    "rule_findings": [
+      {
+        "rule": "HR-R-002",
+        "desc": "민감정보 평가 반영 금지 위반: 건강/장애('병력')",
+        "severity": "high",
+        "action": "block",
+        "evidence": [
+          {
+            "field": "must_have_requirements",
+            "label": "건강/장애",
+            "term": "병력"
+          }
+        ]
+      }
+    ],
+    "blocked": true,
+    "created_at": "2026-07-21T23:59:30.239373",
+    "status": "blocked"
+  },
+  {
+    "stage_id": "stg-f2ee5986",
+    "agent_id": "agent-328f91",
+    "job": "hr",
+    "kind": "job_task",
+    "task": "이력서 스크리닝·승인 큐",
+    "inputs": {
+      "job_description": "백엔드 5년 이상 채용. Python/FastAPI 실무. 대용량 처리 경험 우대. 협업 필수요건 다수 포함. 종교 무관.",
+      "must_have_requirements": [
+        "Python 5년",
+        "FastAPI"
+      ],
+      "experience_range": "5-10 years"
+    },
+    "summary": "민감정보 감지 1건 — 스크리닝 차단(입력에서 종교('종교') 제거 필요)",
+    "artifact": {
+      "pii_findings": [
+        {
+          "field": "job_description",
+          "label": "종교",
+          "term": "종교"
+        }
+      ],
+      "rationale": "채용 평가에 반영 금지 정보(나이·성별·혼인·종교·건강 등)가 입력에 포함되어 실행을 차단했습니다."
+    },
+    "approval_required": true,
+    "approval_reasons": [
+      "민감정보 포함 — 입력 정정 후 재실행 필요"
+    ],
+    "rule_findings": [
+      {
+        "rule": "HR-R-002",
+        "desc": "민감정보 평가 반영 금지 위반: 종교('종교')",
+        "severity": "high",
+        "action": "block",
+        "evidence": [
+          {
+            "field": "job_description",
+            "label": "종교",
+            "term": "종교"
+          }
+        ]
+      }
+    ],
+    "blocked": true,
+    "created_at": "2026-07-21T23:59:30.235787",
+    "status": "blocked"
+  },
+  {
+    "stage_id": "stg-04fe4b3b",
+    "agent_id": "agent-328f91",
+    "job": "hr",
+    "kind": "job_task",
+    "task": "이력서 스크리닝·승인 큐",
+    "inputs": {
+      "job_description": "백엔드 5년 이상 채용. Python/FastAPI 실무. 대용량 처리 경험 우대. 협업 필수요건 다수 포함. 기혼자 우대.",
+      "must_have_requirements": [
+        "Python 5년",
+        "FastAPI"
+      ],
+      "experience_range": "5-10 years"
+    },
+    "summary": "민감정보 감지 1건 — 스크리닝 차단(입력에서 혼인('기혼') 제거 필요)",
+    "artifact": {
+      "pii_findings": [
+        {
+          "field": "job_description",
+          "label": "혼인",
+          "term": "기혼"
+        }
+      ],
+      "rationale": "채용 평가에 반영 금지 정보(나이·성별·혼인·종교·건강 등)가 입력에 포함되어 실행을 차단했습니다."
+    },
+    "approval_required": true,
+    "approval_reasons": [
+      "민감정보 포함 — 입력 정정 후 재실행 필요"
+    ],
+    "rule_findings": [
+      {
+        "rule": "HR-R-002",
+        "desc": "민감정보 평가 반영 금지 위반: 혼인('기혼')",
+        "severity": "high",
+        "action": "block",
+        "evidence": [
+          {
+            "field": "job_description",
+            "label": "혼인",
+            "term": "기혼"
+          }
+        ]
+      }
+    ],
+    "blocked": true,
+    "created_at": "2026-07-21T23:59:30.231804",
+    "status": "blocked"
+  },
+  {
+    "stage_id": "stg-440c0232",
+    "agent_id": "agent-328f91",
+    "job": "hr",
+    "kind": "job_task",
+    "task": "이력서 스크리닝·승인 큐",
+    "inputs": {
+      "job_description": "백엔드 5년 이상 채용. Python/FastAPI 실무. 대용량 처리 경험 우대. 협업 필수요건 다수 포함.",
+      "must_have_requirements": [
+        "Python 5년",
+        "FastAPI",
+        "여성 우대"
+      ],
+      "experience_range": "5-10 years"
+    },
+    "summary": "민감정보 감지 1건 — 스크리닝 차단(입력에서 성별('여성 우대') 제거 필요)",
+    "artifact": {
+      "pii_findings": [
+        {
+          "field": "must_have_requirements",
+          "label": "성별",
+          "term": "여성 우대"
+        }
+      ],
+      "rationale": "채용 평가에 반영 금지 정보(나이·성별·혼인·종교·건강 등)가 입력에 포함되어 실행을 차단했습니다."
+    },
+    "approval_required": true,
+    "approval_reasons": [
+      "민감정보 포함 — 입력 정정 후 재실행 필요"
+    ],
+    "rule_findings": [
+      {
+        "rule": "HR-R-002",
+        "desc": "민감정보 평가 반영 금지 위반: 성별('여성 우대')",
+        "severity": "high",
+        "action": "block",
+        "evidence": [
+          {
+            "field": "must_have_requirements",
+            "label": "성별",
+            "term": "여성 우대"
+          }
+        ]
+      }
+    ],
+    "blocked": true,
+    "created_at": "2026-07-21T23:59:30.227871",
+    "status": "blocked"
+  },
+  {
+    "stage_id": "stg-6147b5a8",
+    "agent_id": "agent-328f91",
+    "job": "hr",
+    "kind": "job_task",
+    "task": "이력서 스크리닝·승인 큐",
+    "inputs": {
+      "job_description": "백엔드 5년 이상 채용. Python/FastAPI 실무. 대용량 처리 경험 우대. 협업 필수요건 다수 포함. 나이 35세 이하 우대.",
+      "must_have_requirements": [
+        "Python 5년",
+        "FastAPI"
+      ],
+      "experience_range": "5-10 years"
+    },
+    "summary": "민감정보 감지 1건 — 스크리닝 차단(입력에서 나이/연령('나이') 제거 필요)",
+    "artifact": {
+      "pii_findings": [
+        {
+          "field": "job_description",
+          "label": "나이/연령",
+          "term": "나이"
+        }
+      ],
+      "rationale": "채용 평가에 반영 금지 정보(나이·성별·혼인·종교·건강 등)가 입력에 포함되어 실행을 차단했습니다."
+    },
+    "approval_required": true,
+    "approval_reasons": [
+      "민감정보 포함 — 입력 정정 후 재실행 필요"
+    ],
+    "rule_findings": [
+      {
+        "rule": "HR-R-002",
+        "desc": "민감정보 평가 반영 금지 위반: 나이/연령('나이')",
+        "severity": "high",
+        "action": "block",
+        "evidence": [
+          {
+            "field": "job_description",
+            "label": "나이/연령",
+            "term": "나이"
+          }
+        ]
+      }
+    ],
+    "blocked": true,
+    "created_at": "2026-07-21T23:59:30.220683",
+    "status": "blocked"
+  },
+  {
+    "stage_id": "stg-8b9107f6",
+    "agent_id": "agent-328f91",
+    "job": "hr",
+    "kind": "job_task",
+    "task": "이력서 스크리닝·승인 큐",
+    "inputs": {
+      "job_description": "UX 디자이너",
+      "must_have_requirements": [
+        "Figma"
+      ],
+      "experience_range": "5-10 years",
+      "simulate_action": "fail"
+    },
+    "summary": "지원자 3명 스크리닝: 숏리스트 1 · 보류 1 · 탈락 1",
+    "artifact": {
+      "candidate_scorecard": [
+        {
+          "name": "후보 A",
+          "score": 86,
+          "decision": "shortlist",
+          "rationale": "필수요건 1개 중 대부분 충족: 관련 경력(5-10 years)·유사 프로젝트 근거 확인"
+        },
+        {
+          "name": "후보 B",
+          "score": 71,
+          "decision": "hold",
+          "rationale": "핵심 경력 일부 부합, 요건 1개 근거 불명확 — 인터뷰로 확인 권장"
+        },
+        {
+          "name": "후보 C",
+          "score": 39,
+          "decision": "reject",
+          "rationale": "필수요건 다수 미충족(근거: 요구 기술 실무 경험 서류상 없음)"
+        }
+      ],
+      "shortlist": [
+        {
+          "name": "후보 A",
+          "score": 86,
+          "decision": "shortlist",
+          "rationale": "필수요건 1개 중 대부분 충족: 관련 경력(5-10 years)·유사 프로젝트 근거 확인"
+        }
+      ],
+      "hold_list": [
+        {
+          "name": "후보 B",
+          "score": 71,
+          "decision": "hold",
+          "rationale": "핵심 경력 일부 부합, 요건 1개 근거 불명확 — 인터뷰로 확인 권장"
+        }
+      ],
+      "reject_list": [
+        {
+          "name": "후보 C",
+          "score": 39,
+          "decision": "reject",
+          "rationale": "필수요건 다수 미충족(근거: 요구 기술 실무 경험 서류상 없음)"
+        }
+      ],
+      "rationale": "필수요건 대비 점수화. 각 후보 근거 첨부. 민감정보(나이·성별·혼인·종교)는 평가에 반영하지 않음."
+    },
+    "approval_required": true,
+    "approval_reasons": [
+      "숏리스트 확정 전 채용 담당자 승인 필요",
+      "자동 탈락 후보 1명 — 탈락 근거 검토 필요"
+    ],
+    "rule_findings": [],
+    "blocked": false,
+    "created_at": "2026-07-21T23:47:10.968673",
+    "status": "committed",
+    "committed_at": "2026-07-21T23:47:10.973153",
+    "external_action_log": [
+      {
+        "actor": "user",
+        "timestamp": "2026-07-21T23:47:10.975230",
+        "source_refs": [
+          "지원자 이력서 묶음"
+        ],
+        "decision": "approved",
+        "dry_run": false,
+        "result": {
+          "ok": false,
+          "target": "update_sheet",
+          "id": null,
+          "error": "sheet_write_failed"
+        }
+      }
+    ],
+    "external_action_result": {
+      "ok": false,
+      "target": "update_sheet",
+      "dry_run": false,
+      "error": "sheet_write_failed",
+      "rolled_back": true,
+      "message": "시트 반영 실패 — 원자적 롤백(부분 반영 없음)",
+      "payload_fields": [
+        "shortlist_rows",
+        "review_request_message"
+      ]
+    }
+  },
+  {
+    "stage_id": "stg-9548f38e",
+    "agent_id": "agent-fin01",
+    "job": "vat_reconcile",
+    "kind": "job_task",
+    "task": "부가세 대사·승인·반영",
+    "inputs": {
+      "period_from": "2026-04-01",
+      "period_to": "2026-06-30",
+      "company_code": "C01",
+      "amount_tolerance_pct": 1
+    },
+    "summary": "C01 2026-04-01~2026-06-30 대사: 매칭 47건 · 이상 3건(고위험 2)",
+    "artifact": {
+      "matched_count": 47,
+      "anomalies": [
+        {
+          "rule": "VAT-R-001",
+          "desc": "세금계산서 중복 의심(거래처 A · 2026-05-11 · ₩3,300,000)",
+          "severity": "high",
+          "action": "manual_review",
+          "ref": "매출_2026Q2.xlsx · B23"
+        },
+        {
+          "rule": "VAT-R-002",
+          "desc": "공급가액-세액 불일치(오차 2.0% > 허용 1.0%)",
+          "severity": "high",
+          "action": "manual_review",
+          "ref": "매입_2026Q2.xlsx · D41"
+        },
+        {
+          "rule": "VAT-R-003",
+          "desc": "거래처-계정 매핑 누락(거래처 C)",
+          "severity": "medium",
+          "action": "warn",
+          "ref": "매입_2026Q2.xlsx · E17"
+        }
+      ],
+      "approval_queue": [
+        {
+          "rule": "VAT-R-001",
+          "desc": "세금계산서 중복 의심(거래처 A · 2026-05-11 · ₩3,300,000)",
+          "severity": "high",
+          "action": "manual_review",
+          "ref": "매출_2026Q2.xlsx · B23"
+        },
+        {
+          "rule": "VAT-R-002",
+          "desc": "공급가액-세액 불일치(오차 2.0% > 허용 1.0%)",
+          "severity": "high",
+          "action": "manual_review",
+          "ref": "매입_2026Q2.xlsx · D41"
+        }
+      ],
+      "commit_payload": {
+        "target": "update_erp|update_sheet",
+        "entries": 47,
+        "adjustments": 3,
+        "approval_id": null,
+        "dry_run": true
+      }
+    },
+    "approval_required": true,
+    "approval_reasons": [
+      "고위험 이상 2건(중복·공급가액-세액 규칙) — 재무 담당자 승인 필요",
+      "경고 항목 1건(계정 매핑) 확인 필요"
+    ],
+    "rule_findings": [
+      {
+        "rule": "VAT-R-001",
+        "desc": "세금계산서 중복 의심(거래처 A · 2026-05-11 · ₩3,300,000)",
+        "severity": "high",
+        "action": "manual_review",
+        "ref": "매출_2026Q2.xlsx · B23"
+      },
+      {
+        "rule": "VAT-R-002",
+        "desc": "공급가액-세액 불일치(오차 2.0% > 허용 1.0%)",
+        "severity": "high",
+        "action": "manual_review",
+        "ref": "매입_2026Q2.xlsx · D41"
+      },
+      {
+        "rule": "VAT-R-003",
+        "desc": "거래처-계정 매핑 누락(거래처 C)",
+        "severity": "medium",
+        "action": "warn",
+        "ref": "매입_2026Q2.xlsx · E17"
+      }
+    ],
+    "blocked": false,
+    "created_at": "2026-07-21T23:47:03.218423",
+    "status": "reflected",
+    "committed_at": "2026-07-21T23:47:03.222929",
+    "external_action_log": [
+      {
+        "actor": "user",
+        "timestamp": "2026-07-21T23:47:03.224940",
+        "source_refs": [
+          "매출원장",
+          "매입원장"
+        ],
+        "decision": "approved",
+        "dry_run": true,
+        "result": {
+          "ok": true,
+          "target": "update_erp",
+          "id": null,
+          "error": null
+        }
+      },
+      {
+        "actor": "user",
+        "timestamp": "2026-07-21T23:47:03.229477",
+        "source_refs": [
+          "매출원장",
+          "매입원장"
+        ],
+        "decision": "approved",
+        "dry_run": false,
+        "result": {
+          "ok": true,
+          "target": "update_erp",
+          "id": "ERP-48f38e",
+          "error": null
+        }
+      }
+    ],
+    "external_action_result": {
+      "ok": true,
+      "id": "ERP-48f38e",
+      "target": "update_erp",
+      "dry_run": false,
+      "message": "ERP 반영 완료: 전표 47건 · 조정 3건 (전표번호 ERP-48f38e)",
+      "payload_fields": [
+        "entries",
+        "adjustments",
+        "approval_id"
+      ]
+    },
+    "reflected_at": "2026-07-21T23:47:03.229481"
+  },
+  {
+    "stage_id": "stg-dcec6ace",
+    "agent_id": "agent-30f602",
+    "job": "pm_brief",
+    "kind": "job_task",
+    "task": "요구사항 정리·스펙 확정",
+    "inputs": {
+      "problem_statement": "온보딩 이탈",
+      "success_metrics": [
+        "가입완료율+10%"
+      ],
+      "in_scope": [
+        "가입개선",
+        "튜토리얼",
+        "리텐션메시지"
+      ],
+      "out_of_scope": [],
+      "simulate_action": "partial"
+    },
+    "summary": "요구사항 3건 스펙화 · 티켓 3 · QA 3 · 미결정 1건",
+    "artifact": {
+      "spec_sections": [
+        {
+          "title": "1. 배경·문제",
+          "body": "온보딩 이탈"
+        },
+        {
+          "title": "2. 목표·성공지표",
+          "body": "가입완료율+10%"
+        },
+        {
+          "title": "3. 범위",
+          "body": "포함: 가입개선, 튜토리얼, 리텐션메시지 / 제외: 없음"
+        },
+        {
+          "title": "4. 요구사항·수용기준(AC)",
+          "body": "요구 3건, 각 AC 포함"
+        },
+        {
+          "title": "5. 미결정",
+          "body": "(미결정) 성공지표 목표치 확정 필요"
+        }
+      ],
+      "acceptance_criteria": [
+        {
+          "requirement": "가입개선",
+          "criteria": [
+            "가입개선 완료 시 가입완료율+10% 충족",
+            "가입개선 예외/에러 처리가 정의됨"
+          ]
+        },
+        {
+          "requirement": "튜토리얼",
+          "criteria": [
+            "튜토리얼 완료 시 가입완료율+10% 충족",
+            "튜토리얼 예외/에러 처리가 정의됨"
+          ]
+        },
+        {
+          "requirement": "리텐션메시지",
+          "criteria": [
+            "리텐션메시지 완료 시 가입완료율+10% 충족",
+            "리텐션메시지 예외/에러 처리가 정의됨"
+          ]
+        }
+      ],
+      "jira_items": [
+        {
+          "key": "PMX-1",
+          "type": "Story",
+          "summary": "가입개선"
+        },
+        {
+          "key": "PMX-2",
+          "type": "Story",
+          "summary": "튜토리얼"
+        },
+        {
+          "key": "PMX-3",
+          "type": "Story",
+          "summary": "리텐션메시지"
+        }
+      ],
+      "qa_checklist": [
+        "가입개선 정상/예외 케이스 검증",
+        "튜토리얼 정상/예외 케이스 검증",
+        "리텐션메시지 정상/예외 케이스 검증"
+      ],
+      "risks": [
+        "의존성: 인증/권한 모듈",
+        "리스크: 일정·범위 변동"
+      ]
+    },
+    "approval_required": true,
+    "approval_reasons": [
+      "미결정 정책 포함 — PM/대표 승인 필요"
+    ],
+    "rule_findings": [],
+    "blocked": false,
+    "created_at": "2026-07-21T23:46:52.992558",
+    "status": "reflected",
+    "committed_at": "2026-07-21T23:46:52.996421",
+    "external_action_log": [
+      {
+        "actor": "user",
+        "timestamp": "2026-07-21T23:46:52.998391",
+        "source_refs": [
+          "기존 spec.md",
+          "관련 정책 문서"
+        ],
+        "decision": "approved",
+        "dry_run": false,
+        "result": {
+          "ok": true,
+          "target": "create_ticket",
+          "id": "PMX-c6ace0",
+          "error": null
+        }
+      }
+    ],
+    "external_action_result": {
+      "ok": true,
+      "target": "create_ticket",
+      "dry_run": false,
+      "id": "PMX-c6ace0",
+      "external_ids": [
+        "PMX-c6ace0",
+        "PMX-c6ace1"
+      ],
+      "items": [
+        {
+          "summary": "가입개선",
+          "status": "created",
+          "id": "PMX-c6ace0"
+        },
+        {
+          "summary": "튜토리얼",
+          "status": "created",
+          "id": "PMX-c6ace1"
+        },
+        {
+          "summary": "리텐션메시지",
+          "status": "failed",
+          "error": "rate_limited"
+        }
+      ],
+      "partial_success": true,
+      "message": "티켓 2/3건 생성 (부분 실패 — 성공분 유지)",
+      "payload_fields": [
+        "ticket_summaries",
+        "release_note_draft"
+      ]
+    },
+    "reflected_at": "2026-07-21T23:46:52.998394"
+  },
+  {
+    "stage_id": "stg-2c4a04b9",
+    "agent_id": "agent-fin01",
+    "job": "vat_reconcile",
+    "kind": "job_task",
+    "task": "부가세 대사·승인·반영",
+    "inputs": {
+      "period_from": "2026-04-01",
+      "period_to": "2026-06-30",
+      "company_code": "C01",
+      "amount_tolerance_pct": 1,
+      "simulate_action": "fail"
+    },
+    "summary": "C01 2026-04-01~2026-06-30 대사: 매칭 47건 · 이상 3건(고위험 2)",
+    "artifact": {
+      "matched_count": 47,
+      "anomalies": [
+        {
+          "rule": "VAT-R-001",
+          "desc": "세금계산서 중복 의심(거래처 A · 2026-05-11 · ₩3,300,000)",
+          "severity": "high",
+          "action": "manual_review",
+          "ref": "매출_2026Q2.xlsx · B23"
+        },
+        {
+          "rule": "VAT-R-002",
+          "desc": "공급가액-세액 불일치(오차 2.0% > 허용 1.0%)",
+          "severity": "high",
+          "action": "manual_review",
+          "ref": "매입_2026Q2.xlsx · D41"
+        },
+        {
+          "rule": "VAT-R-003",
+          "desc": "거래처-계정 매핑 누락(거래처 C)",
+          "severity": "medium",
+          "action": "warn",
+          "ref": "매입_2026Q2.xlsx · E17"
+        }
+      ],
+      "approval_queue": [
+        {
+          "rule": "VAT-R-001",
+          "desc": "세금계산서 중복 의심(거래처 A · 2026-05-11 · ₩3,300,000)",
+          "severity": "high",
+          "action": "manual_review",
+          "ref": "매출_2026Q2.xlsx · B23"
+        },
+        {
+          "rule": "VAT-R-002",
+          "desc": "공급가액-세액 불일치(오차 2.0% > 허용 1.0%)",
+          "severity": "high",
+          "action": "manual_review",
+          "ref": "매입_2026Q2.xlsx · D41"
+        }
+      ],
+      "commit_payload": {
+        "target": "update_erp|update_sheet",
+        "entries": 47,
+        "adjustments": 3,
+        "approval_id": null,
+        "dry_run": true
+      }
+    },
+    "approval_required": true,
+    "approval_reasons": [
+      "고위험 이상 2건(중복·공급가액-세액 규칙) — 재무 담당자 승인 필요",
+      "경고 항목 1건(계정 매핑) 확인 필요"
+    ],
+    "rule_findings": [
+      {
+        "rule": "VAT-R-001",
+        "desc": "세금계산서 중복 의심(거래처 A · 2026-05-11 · ₩3,300,000)",
+        "severity": "high",
+        "action": "manual_review",
+        "ref": "매출_2026Q2.xlsx · B23"
+      },
+      {
+        "rule": "VAT-R-002",
+        "desc": "공급가액-세액 불일치(오차 2.0% > 허용 1.0%)",
+        "severity": "high",
+        "action": "manual_review",
+        "ref": "매입_2026Q2.xlsx · D41"
+      },
+      {
+        "rule": "VAT-R-003",
+        "desc": "거래처-계정 매핑 누락(거래처 C)",
+        "severity": "medium",
+        "action": "warn",
+        "ref": "매입_2026Q2.xlsx · E17"
+      }
+    ],
+    "blocked": false,
+    "created_at": "2026-07-21T23:46:52.982882",
+    "status": "committed",
+    "committed_at": "2026-07-21T23:46:52.986868",
+    "external_action_log": [
+      {
+        "actor": "user",
+        "timestamp": "2026-07-21T23:46:52.988846",
+        "source_refs": [
+          "매출원장",
+          "매입원장"
+        ],
+        "decision": "approved",
+        "dry_run": false,
+        "result": {
+          "ok": false,
+          "target": "update_erp",
+          "id": null,
+          "error": "erp_write_failed"
+        }
+      }
+    ],
+    "external_action_result": {
+      "ok": false,
+      "target": "update_erp",
+      "dry_run": false,
+      "error": "erp_write_failed",
+      "rolled_back": true,
+      "message": "ERP 반영 실패 — 원자적 롤백(부분 반영 없음)",
+      "payload_fields": [
+        "entries",
+        "adjustments",
+        "approval_id"
+      ]
+    }
+  },
+  {
+    "stage_id": "stg-b131d3d1",
+    "agent_id": "agent-30f602",
+    "job": "pm_brief",
+    "kind": "job_task",
+    "task": "요구사항 정리·스펙 확정",
+    "inputs": {
+      "problem_statement": "온보딩 이탈",
+      "success_metrics": [
+        "가입완료율+10%"
+      ],
+      "in_scope": [
+        "가입개선",
+        "튜토리얼"
+      ],
+      "out_of_scope": []
+    },
+    "summary": "요구사항 2건 스펙화 · 티켓 2 · QA 2 · 미결정 1건",
+    "artifact": {
+      "spec_sections": [
+        {
+          "title": "1. 배경·문제",
+          "body": "온보딩 이탈"
+        },
+        {
+          "title": "2. 목표·성공지표",
+          "body": "가입완료율+10%"
+        },
+        {
+          "title": "3. 범위",
+          "body": "포함: 가입개선, 튜토리얼 / 제외: 없음"
+        },
+        {
+          "title": "4. 요구사항·수용기준(AC)",
+          "body": "요구 2건, 각 AC 포함"
+        },
+        {
+          "title": "5. 미결정",
+          "body": "(미결정) 성공지표 목표치 확정 필요"
+        }
+      ],
+      "acceptance_criteria": [
+        {
+          "requirement": "가입개선",
+          "criteria": [
+            "가입개선 완료 시 가입완료율+10% 충족",
+            "가입개선 예외/에러 처리가 정의됨"
+          ]
+        },
+        {
+          "requirement": "튜토리얼",
+          "criteria": [
+            "튜토리얼 완료 시 가입완료율+10% 충족",
+            "튜토리얼 예외/에러 처리가 정의됨"
+          ]
+        }
+      ],
+      "jira_items": [
+        {
+          "key": "PMX-1",
+          "type": "Story",
+          "summary": "가입개선"
+        },
+        {
+          "key": "PMX-2",
+          "type": "Story",
+          "summary": "튜토리얼"
+        }
+      ],
+      "qa_checklist": [
+        "가입개선 정상/예외 케이스 검증",
+        "튜토리얼 정상/예외 케이스 검증"
+      ],
+      "risks": [
+        "의존성: 인증/권한 모듈",
+        "리스크: 일정·범위 변동"
+      ]
+    },
+    "approval_required": true,
+    "approval_reasons": [
+      "미결정 정책 포함 — PM/대표 승인 필요"
+    ],
+    "rule_findings": [],
+    "blocked": false,
+    "created_at": "2026-07-21T23:46:52.965178",
+    "status": "staged"
+  },
+  {
+    "stage_id": "stg-e96a6ea1",
+    "agent_id": "agent-328f91",
+    "job": "hr",
+    "kind": "job_task",
+    "task": "이력서 스크리닝·승인 큐",
+    "inputs": {
+      "job_description": "UX 디자이너",
+      "must_have_requirements": [
+        "Figma"
+      ],
+      "experience_range": "5-10 years"
+    },
+    "summary": "지원자 3명 스크리닝: 숏리스트 1 · 보류 1 · 탈락 1",
+    "artifact": {
+      "candidate_scorecard": [
+        {
+          "name": "후보 A",
+          "score": 86,
+          "decision": "shortlist",
+          "rationale": "필수요건 1개 중 대부분 충족: 관련 경력(5-10 years)·유사 프로젝트 근거 확인"
+        },
+        {
+          "name": "후보 B",
+          "score": 71,
+          "decision": "hold",
+          "rationale": "핵심 경력 일부 부합, 요건 1개 근거 불명확 — 인터뷰로 확인 권장"
+        },
+        {
+          "name": "후보 C",
+          "score": 39,
+          "decision": "reject",
+          "rationale": "필수요건 다수 미충족(근거: 요구 기술 실무 경험 서류상 없음)"
+        }
+      ],
+      "shortlist": [
+        {
+          "name": "후보 A",
+          "score": 86,
+          "decision": "shortlist",
+          "rationale": "필수요건 1개 중 대부분 충족: 관련 경력(5-10 years)·유사 프로젝트 근거 확인"
+        }
+      ],
+      "hold_list": [
+        {
+          "name": "후보 B",
+          "score": 71,
+          "decision": "hold",
+          "rationale": "핵심 경력 일부 부합, 요건 1개 근거 불명확 — 인터뷰로 확인 권장"
+        }
+      ],
+      "reject_list": [
+        {
+          "name": "후보 C",
+          "score": 39,
+          "decision": "reject",
+          "rationale": "필수요건 다수 미충족(근거: 요구 기술 실무 경험 서류상 없음)"
+        }
+      ],
+      "rationale": "필수요건 대비 점수화. 각 후보 근거 첨부. 민감정보(나이·성별·혼인·종교)는 평가에 반영하지 않음."
+    },
+    "approval_required": true,
+    "approval_reasons": [
+      "숏리스트 확정 전 채용 담당자 승인 필요",
+      "자동 탈락 후보 1명 — 탈락 근거 검토 필요"
+    ],
+    "rule_findings": [],
+    "blocked": false,
+    "created_at": "2026-07-21T23:46:52.961801",
+    "status": "reflected",
+    "committed_at": "2026-07-21T23:46:52.977205",
+    "external_action_log": [
+      {
+        "actor": "user",
+        "timestamp": "2026-07-21T23:46:52.978984",
+        "source_refs": [
+          "지원자 이력서 묶음"
+        ],
+        "decision": "approved",
+        "dry_run": false,
+        "result": {
+          "ok": true,
+          "target": "update_sheet",
+          "id": "SHEET-6a6ea1",
+          "error": null
+        }
+      }
+    ],
+    "external_action_result": {
+      "ok": true,
+      "id": "SHEET-6a6ea1",
+      "target": "update_sheet",
+      "dry_run": false,
+      "message": "공유 시트 반영 완료: 1행 (범위 SHEET-6a6ea1)",
+      "payload_fields": [
+        "shortlist_rows",
+        "review_request_message"
+      ]
+    },
+    "reflected_at": "2026-07-21T23:46:52.978988"
+  },
+  {
+    "stage_id": "stg-b38a2594",
+    "agent_id": "agent-fin01",
+    "job": "vat_reconcile",
+    "kind": "job_task",
+    "task": "부가세 대사·승인·반영",
+    "inputs": {
+      "period_from": "2026-04-01",
+      "period_to": "2026-06-30",
+      "company_code": "C01",
+      "amount_tolerance_pct": 1
+    },
+    "summary": "C01 2026-04-01~2026-06-30 대사: 매칭 47건 · 이상 3건(고위험 2)",
+    "artifact": {
+      "matched_count": 47,
+      "anomalies": [
+        {
+          "rule": "VAT-R-001",
+          "desc": "세금계산서 중복 의심(거래처 A · 2026-05-11 · ₩3,300,000)",
+          "severity": "high",
+          "action": "manual_review",
+          "ref": "매출_2026Q2.xlsx · B23"
+        },
+        {
+          "rule": "VAT-R-002",
+          "desc": "공급가액-세액 불일치(오차 2.0% > 허용 1.0%)",
+          "severity": "high",
+          "action": "manual_review",
+          "ref": "매입_2026Q2.xlsx · D41"
+        },
+        {
+          "rule": "VAT-R-003",
+          "desc": "거래처-계정 매핑 누락(거래처 C)",
+          "severity": "medium",
+          "action": "warn",
+          "ref": "매입_2026Q2.xlsx · E17"
+        }
+      ],
+      "approval_queue": [
+        {
+          "rule": "VAT-R-001",
+          "desc": "세금계산서 중복 의심(거래처 A · 2026-05-11 · ₩3,300,000)",
+          "severity": "high",
+          "action": "manual_review",
+          "ref": "매출_2026Q2.xlsx · B23"
+        },
+        {
+          "rule": "VAT-R-002",
+          "desc": "공급가액-세액 불일치(오차 2.0% > 허용 1.0%)",
+          "severity": "high",
+          "action": "manual_review",
+          "ref": "매입_2026Q2.xlsx · D41"
+        }
+      ],
+      "commit_payload": {
+        "target": "update_erp|update_sheet",
+        "entries": 47,
+        "adjustments": 3,
+        "approval_id": null,
+        "dry_run": true
+      }
+    },
+    "approval_required": true,
+    "approval_reasons": [
+      "고위험 이상 2건(중복·공급가액-세액 규칙) — 재무 담당자 승인 필요",
+      "경고 항목 1건(계정 매핑) 확인 필요"
+    ],
+    "rule_findings": [
+      {
+        "rule": "VAT-R-001",
+        "desc": "세금계산서 중복 의심(거래처 A · 2026-05-11 · ₩3,300,000)",
+        "severity": "high",
+        "action": "manual_review",
+        "ref": "매출_2026Q2.xlsx · B23"
+      },
+      {
+        "rule": "VAT-R-002",
+        "desc": "공급가액-세액 불일치(오차 2.0% > 허용 1.0%)",
+        "severity": "high",
+        "action": "manual_review",
+        "ref": "매입_2026Q2.xlsx · D41"
+      },
+      {
+        "rule": "VAT-R-003",
+        "desc": "거래처-계정 매핑 누락(거래처 C)",
+        "severity": "medium",
+        "action": "warn",
+        "ref": "매입_2026Q2.xlsx · E17"
+      }
+    ],
+    "blocked": false,
+    "created_at": "2026-07-21T23:46:52.955203",
+    "status": "committed",
+    "committed_at": "2026-07-21T23:46:52.971203",
+    "external_action_log": [
+      {
+        "actor": "user",
+        "timestamp": "2026-07-21T23:46:52.972972",
+        "source_refs": [
+          "매출원장",
+          "매입원장"
+        ],
+        "decision": "approved",
+        "dry_run": true,
+        "result": {
+          "ok": true,
+          "target": "update_erp",
+          "id": null,
+          "error": null
+        }
+      }
+    ],
+    "external_action_result": {
+      "ok": true,
+      "id": null,
+      "target": "update_erp",
+      "dry_run": true,
+      "message": "[DRY-RUN] ERP 반영 예정: 전표 47건 · 조정 3건",
+      "payload_fields": [
+        "entries",
+        "adjustments",
+        "approval_id"
+      ]
+    }
+  },
+  {
+    "stage_id": "stg-aa7c066a",
+    "agent_id": "agent-fin01",
+    "job": "vat_reconcile",
+    "kind": "job_task",
+    "task": "부가세 대사·승인·반영",
+    "inputs": {
+      "period_from": "2026-04-01",
+      "period_to": "2026-06-30",
+      "company_code": "NHN01",
+      "amount_tolerance_pct": 0
+    },
+    "summary": "NHN01 2026-04-01~2026-06-30 대사: 매칭 47건 · 이상 3건(고위험 2)",
+    "artifact": {
+      "matched_count": 47,
+      "anomalies": [
+        {
+          "rule": "VAT-R-001",
+          "desc": "세금계산서 중복 의심(거래처 A · 2026-05-11 · ₩3,300,000)",
+          "severity": "high",
+          "action": "manual_review",
+          "ref": "매출_2026Q2.xlsx · B23"
+        },
+        {
+          "rule": "VAT-R-002",
+          "desc": "공급가액-세액 불일치(오차 2.0% > 허용 0.0%)",
+          "severity": "high",
+          "action": "manual_review",
+          "ref": "매입_2026Q2.xlsx · D41"
+        },
+        {
+          "rule": "VAT-R-003",
+          "desc": "거래처-계정 매핑 누락(거래처 C)",
+          "severity": "medium",
+          "action": "warn",
+          "ref": "매입_2026Q2.xlsx · E17"
+        }
+      ],
+      "approval_queue": [
+        {
+          "rule": "VAT-R-001",
+          "desc": "세금계산서 중복 의심(거래처 A · 2026-05-11 · ₩3,300,000)",
+          "severity": "high",
+          "action": "manual_review",
+          "ref": "매출_2026Q2.xlsx · B23"
+        },
+        {
+          "rule": "VAT-R-002",
+          "desc": "공급가액-세액 불일치(오차 2.0% > 허용 0.0%)",
+          "severity": "high",
+          "action": "manual_review",
+          "ref": "매입_2026Q2.xlsx · D41"
+        }
+      ],
+      "commit_payload": {
+        "target": "update_erp|update_sheet",
+        "entries": 47,
+        "adjustments": 3,
+        "approval_id": null,
+        "dry_run": true
+      }
+    },
+    "approval_required": true,
+    "approval_reasons": [
+      "고위험 이상 2건(중복·공급가액-세액 규칙) — 재무 담당자 승인 필요",
+      "경고 항목 1건(계정 매핑) 확인 필요"
+    ],
+    "rule_findings": [
+      {
+        "rule": "VAT-R-001",
+        "desc": "세금계산서 중복 의심(거래처 A · 2026-05-11 · ₩3,300,000)",
+        "severity": "high",
+        "action": "manual_review",
+        "ref": "매출_2026Q2.xlsx · B23"
+      },
+      {
+        "rule": "VAT-R-002",
+        "desc": "공급가액-세액 불일치(오차 2.0% > 허용 0.0%)",
+        "severity": "high",
+        "action": "manual_review",
+        "ref": "매입_2026Q2.xlsx · D41"
+      },
+      {
+        "rule": "VAT-R-003",
+        "desc": "거래처-계정 매핑 누락(거래처 C)",
+        "severity": "medium",
+        "action": "warn",
+        "ref": "매입_2026Q2.xlsx · E17"
+      }
+    ],
+    "blocked": false,
+    "created_at": "2026-07-21T23:44:25.906723",
+    "status": "staged"
+  },
+  {
+    "stage_id": "stg-c95d94ce",
+    "agent_id": "agent-30f602",
+    "job": "pm_brief",
+    "kind": "job_task",
+    "task": "요구사항 정리·스펙 확정",
+    "inputs": {
+      "problem_statement": "콘솔에서 외부 액션 승인 흐름이 없어 반영이 수동이다. 자동화 필요.",
+      "success_metrics": [
+        "반영 소요시간 50% 단축"
+      ],
+      "in_scope": [
+        "승인 게이트",
+        "외부 반영",
+        "감사로그"
+      ],
+      "out_of_scope": [],
+      "simulate_action": "partial"
+    },
+    "summary": "요구사항 3건 스펙화 · 티켓 3 · QA 3 · 미결정 1건",
+    "artifact": {
+      "spec_sections": [
+        {
+          "title": "1. 배경·문제",
+          "body": "콘솔에서 외부 액션 승인 흐름이 없어 반영이 수동이다. 자동화 필요."
+        },
+        {
+          "title": "2. 목표·성공지표",
+          "body": "반영 소요시간 50% 단축"
+        },
+        {
+          "title": "3. 범위",
+          "body": "포함: 승인 게이트, 외부 반영, 감사로그 / 제외: 없음"
+        },
+        {
+          "title": "4. 요구사항·수용기준(AC)",
+          "body": "요구 3건, 각 AC 포함"
+        },
+        {
+          "title": "5. 미결정",
+          "body": "(미결정) 성공지표 목표치 확정 필요"
+        }
+      ],
+      "acceptance_criteria": [
+        {
+          "requirement": "승인 게이트",
+          "criteria": [
+            "승인 게이트 완료 시 반영 소요시간 50% 단축 충족",
+            "승인 게이트 예외/에러 처리가 정의됨"
+          ]
+        },
+        {
+          "requirement": "외부 반영",
+          "criteria": [
+            "외부 반영 완료 시 반영 소요시간 50% 단축 충족",
+            "외부 반영 예외/에러 처리가 정의됨"
+          ]
+        },
+        {
+          "requirement": "감사로그",
+          "criteria": [
+            "감사로그 완료 시 반영 소요시간 50% 단축 충족",
+            "감사로그 예외/에러 처리가 정의됨"
+          ]
+        }
+      ],
+      "jira_items": [
+        {
+          "key": "PMX-1",
+          "type": "Story",
+          "summary": "승인 게이트"
+        },
+        {
+          "key": "PMX-2",
+          "type": "Story",
+          "summary": "외부 반영"
+        },
+        {
+          "key": "PMX-3",
+          "type": "Story",
+          "summary": "감사로그"
+        }
+      ],
+      "qa_checklist": [
+        "승인 게이트 정상/예외 케이스 검증",
+        "외부 반영 정상/예외 케이스 검증",
+        "감사로그 정상/예외 케이스 검증"
+      ],
+      "risks": [
+        "의존성: 인증/권한 모듈",
+        "리스크: 일정·범위 변동"
+      ]
+    },
+    "approval_required": true,
+    "approval_reasons": [
+      "미결정 정책 포함 — PM/대표 승인 필요"
+    ],
+    "rule_findings": [],
+    "blocked": false,
+    "created_at": "2026-07-21T23:44:10.677427",
+    "status": "reflected",
+    "committed_at": "2026-07-21T23:44:10.680456",
+    "external_action_log": [
+      {
+        "actor": "user",
+        "timestamp": "2026-07-21T23:44:10.682020",
+        "source_refs": [
+          "기존 spec.md",
+          "관련 정책 문서"
+        ],
+        "decision": "approved",
+        "dry_run": false,
+        "result": {
+          "ok": true,
+          "target": "create_ticket",
+          "id": "PMX-d94ce0",
+          "error": null
+        }
+      }
+    ],
+    "external_action_result": {
+      "ok": true,
+      "target": "create_ticket",
+      "dry_run": false,
+      "id": "PMX-d94ce0",
+      "external_ids": [
+        "PMX-d94ce0",
+        "PMX-d94ce1"
+      ],
+      "items": [
+        {
+          "summary": "승인 게이트",
+          "status": "created",
+          "id": "PMX-d94ce0"
+        },
+        {
+          "summary": "외부 반영",
+          "status": "created",
+          "id": "PMX-d94ce1"
+        },
+        {
+          "summary": "감사로그",
+          "status": "failed",
+          "error": "rate_limited"
+        }
+      ],
+      "partial_success": true,
+      "message": "티켓 2/3건 생성 (부분 실패 — 성공분 유지)",
+      "payload_fields": [
+        "ticket_summaries",
+        "release_note_draft"
+      ]
+    },
+    "reflected_at": "2026-07-21T23:44:10.682024"
+  },
+  {
+    "stage_id": "stg-141fee68",
+    "agent_id": "agent-30f602",
+    "job": "pm_brief",
+    "kind": "job_task",
+    "task": "요구사항 정리·스펙 확정",
+    "inputs": {
+      "problem_statement": "콘솔에서 외부 액션 승인 흐름이 없어 반영이 수동이다. 자동화 필요.",
+      "success_metrics": [
+        "반영 소요시간 50% 단축"
+      ],
+      "in_scope": [
+        "승인 게이트",
+        "외부 반영",
+        "감사로그"
+      ],
+      "out_of_scope": []
+    },
+    "summary": "요구사항 3건 스펙화 · 티켓 3 · QA 3 · 미결정 1건",
+    "artifact": {
+      "spec_sections": [
+        {
+          "title": "1. 배경·문제",
+          "body": "콘솔에서 외부 액션 승인 흐름이 없어 반영이 수동이다. 자동화 필요."
+        },
+        {
+          "title": "2. 목표·성공지표",
+          "body": "반영 소요시간 50% 단축"
+        },
+        {
+          "title": "3. 범위",
+          "body": "포함: 승인 게이트, 외부 반영, 감사로그 / 제외: 없음"
+        },
+        {
+          "title": "4. 요구사항·수용기준(AC)",
+          "body": "요구 3건, 각 AC 포함"
+        },
+        {
+          "title": "5. 미결정",
+          "body": "(미결정) 성공지표 목표치 확정 필요"
+        }
+      ],
+      "acceptance_criteria": [
+        {
+          "requirement": "승인 게이트",
+          "criteria": [
+            "승인 게이트 완료 시 반영 소요시간 50% 단축 충족",
+            "승인 게이트 예외/에러 처리가 정의됨"
+          ]
+        },
+        {
+          "requirement": "외부 반영",
+          "criteria": [
+            "외부 반영 완료 시 반영 소요시간 50% 단축 충족",
+            "외부 반영 예외/에러 처리가 정의됨"
+          ]
+        },
+        {
+          "requirement": "감사로그",
+          "criteria": [
+            "감사로그 완료 시 반영 소요시간 50% 단축 충족",
+            "감사로그 예외/에러 처리가 정의됨"
+          ]
+        }
+      ],
+      "jira_items": [
+        {
+          "key": "PMX-1",
+          "type": "Story",
+          "summary": "승인 게이트"
+        },
+        {
+          "key": "PMX-2",
+          "type": "Story",
+          "summary": "외부 반영"
+        },
+        {
+          "key": "PMX-3",
+          "type": "Story",
+          "summary": "감사로그"
+        }
+      ],
+      "qa_checklist": [
+        "승인 게이트 정상/예외 케이스 검증",
+        "외부 반영 정상/예외 케이스 검증",
+        "감사로그 정상/예외 케이스 검증"
+      ],
+      "risks": [
+        "의존성: 인증/권한 모듈",
+        "리스크: 일정·범위 변동"
+      ]
+    },
+    "approval_required": true,
+    "approval_reasons": [
+      "미결정 정책 포함 — PM/대표 승인 필요"
+    ],
+    "rule_findings": [],
+    "blocked": false,
+    "created_at": "2026-07-21T23:44:10.670099",
+    "status": "reflected",
+    "committed_at": "2026-07-21T23:44:10.672685",
+    "external_action_log": [
+      {
+        "actor": "user",
+        "timestamp": "2026-07-21T23:44:10.674523",
+        "source_refs": [
+          "기존 spec.md",
+          "관련 정책 문서"
+        ],
+        "decision": "approved",
+        "dry_run": false,
+        "result": {
+          "ok": true,
+          "target": "create_ticket",
+          "id": "PMX-fee680",
+          "error": null
+        }
+      }
+    ],
+    "external_action_result": {
+      "ok": true,
+      "target": "create_ticket",
+      "dry_run": false,
+      "id": "PMX-fee680",
+      "external_ids": [
+        "PMX-fee680",
+        "PMX-fee681",
+        "PMX-fee682"
+      ],
+      "items": [
+        {
+          "summary": "승인 게이트",
+          "status": "created",
+          "id": "PMX-fee680"
+        },
+        {
+          "summary": "외부 반영",
+          "status": "created",
+          "id": "PMX-fee681"
+        },
+        {
+          "summary": "감사로그",
+          "status": "created",
+          "id": "PMX-fee682"
+        }
+      ],
+      "partial_success": false,
+      "message": "티켓 3/3건 생성",
+      "payload_fields": [
+        "ticket_summaries",
+        "release_note_draft"
+      ]
+    },
+    "reflected_at": "2026-07-21T23:44:10.674526"
+  },
+  {
+    "stage_id": "stg-f30f02fc",
+    "agent_id": "agent-328f91",
+    "job": "hr",
+    "kind": "job_task",
+    "task": "이력서 스크리닝·승인 큐",
+    "inputs": {
+      "job_description": "백엔드 5년 이상 채용. Python/FastAPI 실무. 대용량 처리 경험 우대. 팀 협업 필수 요건 다수.",
+      "must_have_requirements": [
+        "Python 5년",
+        "FastAPI"
+      ],
+      "experience_range": "5-10 years"
+    },
+    "summary": "지원자 3명 스크리닝: 숏리스트 1 · 보류 1 · 탈락 1",
+    "artifact": {
+      "candidate_scorecard": [
+        {
+          "name": "후보 A",
+          "score": 86,
+          "decision": "shortlist",
+          "rationale": "필수요건 2개 중 대부분 충족: 관련 경력(5-10 years)·유사 프로젝트 근거 확인"
+        },
+        {
+          "name": "후보 B",
+          "score": 71,
+          "decision": "hold",
+          "rationale": "핵심 경력 일부 부합, 요건 1개 근거 불명확 — 인터뷰로 확인 권장"
+        },
+        {
+          "name": "후보 C",
+          "score": 39,
+          "decision": "reject",
+          "rationale": "필수요건 다수 미충족(근거: 요구 기술 실무 경험 서류상 없음)"
+        }
+      ],
+      "shortlist": [
+        {
+          "name": "후보 A",
+          "score": 86,
+          "decision": "shortlist",
+          "rationale": "필수요건 2개 중 대부분 충족: 관련 경력(5-10 years)·유사 프로젝트 근거 확인"
+        }
+      ],
+      "hold_list": [
+        {
+          "name": "후보 B",
+          "score": 71,
+          "decision": "hold",
+          "rationale": "핵심 경력 일부 부합, 요건 1개 근거 불명확 — 인터뷰로 확인 권장"
+        }
+      ],
+      "reject_list": [
+        {
+          "name": "후보 C",
+          "score": 39,
+          "decision": "reject",
+          "rationale": "필수요건 다수 미충족(근거: 요구 기술 실무 경험 서류상 없음)"
+        }
+      ],
+      "rationale": "필수요건 대비 점수화. 각 후보 근거 첨부. 민감정보(나이·성별·혼인·종교)는 평가에 반영하지 않음."
+    },
+    "approval_required": true,
+    "approval_reasons": [
+      "숏리스트 확정 전 채용 담당자 승인 필요",
+      "자동 탈락 후보 1명 — 탈락 근거 검토 필요"
+    ],
+    "rule_findings": [],
+    "blocked": false,
+    "created_at": "2026-07-21T23:44:10.663286",
+    "status": "reflected",
+    "committed_at": "2026-07-21T23:44:10.665757",
+    "external_action_log": [
+      {
+        "actor": "user",
+        "timestamp": "2026-07-21T23:44:10.666961",
+        "source_refs": [
+          "지원자 이력서 묶음"
+        ],
+        "decision": "approved",
+        "dry_run": false,
+        "result": {
+          "ok": true,
+          "target": "update_sheet",
+          "id": "SHEET-0f02fc",
+          "error": null
+        }
+      }
+    ],
+    "external_action_result": {
+      "ok": true,
+      "id": "SHEET-0f02fc",
+      "target": "update_sheet",
+      "dry_run": false,
+      "message": "공유 시트 반영 완료: 1행 (범위 SHEET-0f02fc)",
+      "payload_fields": [
+        "shortlist_rows",
+        "review_request_message"
+      ]
+    },
+    "reflected_at": "2026-07-21T23:44:10.666965"
+  },
+  {
+    "stage_id": "stg-3072d48f",
+    "agent_id": "agent-fin01",
+    "job": "vat_reconcile",
+    "kind": "job_task",
+    "task": "부가세 대사·승인·반영",
+    "inputs": {
+      "period_from": "2026-04-01",
+      "period_to": "2026-06-30",
+      "company_code": "NHN01",
+      "amount_tolerance_pct": 0,
+      "simulate_action": "fail"
+    },
+    "summary": "NHN01 2026-04-01~2026-06-30 대사: 매칭 47건 · 이상 3건(고위험 2)",
+    "artifact": {
+      "matched_count": 47,
+      "anomalies": [
+        {
+          "rule": "VAT-R-001",
+          "desc": "세금계산서 중복 의심(거래처 A · 2026-05-11 · ₩3,300,000)",
+          "severity": "high",
+          "action": "manual_review",
+          "ref": "매출_2026Q2.xlsx · B23"
+        },
+        {
+          "rule": "VAT-R-002",
+          "desc": "공급가액-세액 불일치(오차 2.0% > 허용 0.0%)",
+          "severity": "high",
+          "action": "manual_review",
+          "ref": "매입_2026Q2.xlsx · D41"
+        },
+        {
+          "rule": "VAT-R-003",
+          "desc": "거래처-계정 매핑 누락(거래처 C)",
+          "severity": "medium",
+          "action": "warn",
+          "ref": "매입_2026Q2.xlsx · E17"
+        }
+      ],
+      "approval_queue": [
+        {
+          "rule": "VAT-R-001",
+          "desc": "세금계산서 중복 의심(거래처 A · 2026-05-11 · ₩3,300,000)",
+          "severity": "high",
+          "action": "manual_review",
+          "ref": "매출_2026Q2.xlsx · B23"
+        },
+        {
+          "rule": "VAT-R-002",
+          "desc": "공급가액-세액 불일치(오차 2.0% > 허용 0.0%)",
+          "severity": "high",
+          "action": "manual_review",
+          "ref": "매입_2026Q2.xlsx · D41"
+        }
+      ],
+      "commit_payload": {
+        "target": "update_erp|update_sheet",
+        "entries": 47,
+        "adjustments": 3,
+        "approval_id": null,
+        "dry_run": true
+      }
+    },
+    "approval_required": true,
+    "approval_reasons": [
+      "고위험 이상 2건(중복·공급가액-세액 규칙) — 재무 담당자 승인 필요",
+      "경고 항목 1건(계정 매핑) 확인 필요"
+    ],
+    "rule_findings": [
+      {
+        "rule": "VAT-R-001",
+        "desc": "세금계산서 중복 의심(거래처 A · 2026-05-11 · ₩3,300,000)",
+        "severity": "high",
+        "action": "manual_review",
+        "ref": "매출_2026Q2.xlsx · B23"
+      },
+      {
+        "rule": "VAT-R-002",
+        "desc": "공급가액-세액 불일치(오차 2.0% > 허용 0.0%)",
+        "severity": "high",
+        "action": "manual_review",
+        "ref": "매입_2026Q2.xlsx · D41"
+      },
+      {
+        "rule": "VAT-R-003",
+        "desc": "거래처-계정 매핑 누락(거래처 C)",
+        "severity": "medium",
+        "action": "warn",
+        "ref": "매입_2026Q2.xlsx · E17"
+      }
+    ],
+    "blocked": false,
+    "created_at": "2026-07-21T23:44:10.656721",
+    "status": "committed",
+    "committed_at": "2026-07-21T23:44:10.659564",
+    "external_action_log": [
+      {
+        "actor": "user",
+        "timestamp": "2026-07-21T23:44:10.660862",
+        "source_refs": [
+          "매출원장",
+          "매입원장"
+        ],
+        "decision": "approved",
+        "dry_run": false,
+        "result": {
+          "ok": false,
+          "target": "update_erp",
+          "id": null,
+          "error": "erp_write_failed"
+        }
+      }
+    ],
+    "external_action_result": {
+      "ok": false,
+      "target": "update_erp",
+      "dry_run": false,
+      "error": "erp_write_failed",
+      "rolled_back": true,
+      "message": "ERP 반영 실패 — 원자적 롤백(부분 반영 없음)",
+      "payload_fields": [
+        "entries",
+        "adjustments",
+        "approval_id"
+      ]
+    }
+  },
+  {
+    "stage_id": "stg-b5ed39f5",
+    "agent_id": "agent-fin01",
+    "job": "vat_reconcile",
+    "kind": "job_task",
+    "task": "부가세 대사·승인·반영",
+    "inputs": {
+      "period_from": "2026-04-01",
+      "period_to": "2026-06-30",
+      "company_code": "NHN01",
+      "amount_tolerance_pct": 0
+    },
+    "summary": "NHN01 2026-04-01~2026-06-30 대사: 매칭 47건 · 이상 3건(고위험 2)",
+    "artifact": {
+      "matched_count": 47,
+      "anomalies": [
+        {
+          "rule": "VAT-R-001",
+          "desc": "세금계산서 중복 의심(거래처 A · 2026-05-11 · ₩3,300,000)",
+          "severity": "high",
+          "action": "manual_review",
+          "ref": "매출_2026Q2.xlsx · B23"
+        },
+        {
+          "rule": "VAT-R-002",
+          "desc": "공급가액-세액 불일치(오차 2.0% > 허용 0.0%)",
+          "severity": "high",
+          "action": "manual_review",
+          "ref": "매입_2026Q2.xlsx · D41"
+        },
+        {
+          "rule": "VAT-R-003",
+          "desc": "거래처-계정 매핑 누락(거래처 C)",
+          "severity": "medium",
+          "action": "warn",
+          "ref": "매입_2026Q2.xlsx · E17"
+        }
+      ],
+      "approval_queue": [
+        {
+          "rule": "VAT-R-001",
+          "desc": "세금계산서 중복 의심(거래처 A · 2026-05-11 · ₩3,300,000)",
+          "severity": "high",
+          "action": "manual_review",
+          "ref": "매출_2026Q2.xlsx · B23"
+        },
+        {
+          "rule": "VAT-R-002",
+          "desc": "공급가액-세액 불일치(오차 2.0% > 허용 0.0%)",
+          "severity": "high",
+          "action": "manual_review",
+          "ref": "매입_2026Q2.xlsx · D41"
+        }
+      ],
+      "commit_payload": {
+        "target": "update_erp|update_sheet",
+        "entries": 47,
+        "adjustments": 3,
+        "approval_id": null,
+        "dry_run": true
+      }
+    },
+    "approval_required": true,
+    "approval_reasons": [
+      "고위험 이상 2건(중복·공급가액-세액 규칙) — 재무 담당자 승인 필요",
+      "경고 항목 1건(계정 매핑) 확인 필요"
+    ],
+    "rule_findings": [
+      {
+        "rule": "VAT-R-001",
+        "desc": "세금계산서 중복 의심(거래처 A · 2026-05-11 · ₩3,300,000)",
+        "severity": "high",
+        "action": "manual_review",
+        "ref": "매출_2026Q2.xlsx · B23"
+      },
+      {
+        "rule": "VAT-R-002",
+        "desc": "공급가액-세액 불일치(오차 2.0% > 허용 0.0%)",
+        "severity": "high",
+        "action": "manual_review",
+        "ref": "매입_2026Q2.xlsx · D41"
+      },
+      {
+        "rule": "VAT-R-003",
+        "desc": "거래처-계정 매핑 누락(거래처 C)",
+        "severity": "medium",
+        "action": "warn",
+        "ref": "매입_2026Q2.xlsx · E17"
+      }
+    ],
+    "blocked": false,
+    "created_at": "2026-07-21T23:44:10.642999",
+    "status": "reflected",
+    "committed_at": "2026-07-21T23:44:10.650296",
+    "external_action_log": [
+      {
+        "actor": "user",
+        "timestamp": "2026-07-21T23:44:10.651731",
+        "source_refs": [
+          "매출원장",
+          "매입원장"
+        ],
+        "decision": "approved",
+        "dry_run": false,
+        "result": {
+          "ok": true,
+          "target": "update_erp",
+          "id": "ERP-ed39f5",
+          "error": null
+        }
+      },
+      {
+        "actor": "user",
+        "timestamp": "2026-07-21T23:44:10.654812",
+        "source_refs": [
+          "매출원장",
+          "매입원장"
+        ],
+        "decision": "approved",
+        "dry_run": true,
+        "result": {
+          "ok": true,
+          "target": "update_erp",
+          "id": null,
+          "error": null
+        }
+      }
+    ],
+    "external_action_result": {
+      "ok": true,
+      "id": null,
+      "target": "update_erp",
+      "dry_run": true,
+      "message": "[DRY-RUN] ERP 반영 예정: 전표 47건 · 조정 3건",
+      "payload_fields": [
+        "entries",
+        "adjustments",
+        "approval_id"
+      ]
+    },
+    "reflected_at": "2026-07-21T23:44:10.651735"
+  },
+  {
+    "stage_id": "stg-25d815ae",
+    "agent_id": "agent-24cbb5",
+    "job": "sales",
+    "kind": "job_task",
+    "task": "영업 실행",
+    "inputs": {},
+    "summary": "이 직무의 실행 로직은 아직 준비 중입니다.",
+    "artifact": {},
+    "approval_required": true,
+    "approval_reasons": [
+      "미구현 직무 — 사람 검토 필요"
+    ],
+    "rule_findings": [],
+    "blocked": false,
+    "created_at": "2026-07-21T23:29:48.576989",
+    "status": "staged"
+  },
+  {
+    "stage_id": "stg-e6d0de0c",
+    "agent_id": "agent-30f602",
+    "job": "pm_brief",
+    "kind": "job_task",
+    "task": "요구사항 정리·스펙 확정",
+    "inputs": {
+      "problem_statement": "온보딩 이탈",
+      "success_metrics": [
+        "가입완료율+10%"
+      ],
+      "in_scope": [
+        "가입개선"
+      ],
+      "out_of_scope": []
+    },
+    "summary": "요구사항 1건 스펙화 · 티켓 1 · QA 1 · 미결정 1건",
+    "artifact": {
+      "spec_sections": [
+        {
+          "title": "1. 배경·문제",
+          "body": "온보딩 이탈"
+        },
+        {
+          "title": "2. 목표·성공지표",
+          "body": "가입완료율+10%"
+        },
+        {
+          "title": "3. 범위",
+          "body": "포함: 가입개선 / 제외: 없음"
+        },
+        {
+          "title": "4. 요구사항·수용기준(AC)",
+          "body": "요구 1건, 각 AC 포함"
+        },
+        {
+          "title": "5. 미결정",
+          "body": "(미결정) 성공지표 목표치 확정 필요"
+        }
+      ],
+      "acceptance_criteria": [
+        {
+          "requirement": "가입개선",
+          "criteria": [
+            "가입개선 완료 시 가입완료율+10% 충족",
+            "가입개선 예외/에러 처리가 정의됨"
+          ]
+        }
+      ],
+      "jira_items": [
+        {
+          "key": "PMX-1",
+          "type": "Story",
+          "summary": "가입개선"
+        }
+      ],
+      "qa_checklist": [
+        "가입개선 정상/예외 케이스 검증"
+      ],
+      "risks": [
+        "의존성: 인증/권한 모듈",
+        "리스크: 일정·범위 변동"
+      ]
+    },
+    "approval_required": true,
+    "approval_reasons": [
+      "미결정 정책 포함 — PM/대표 승인 필요"
+    ],
+    "rule_findings": [],
+    "blocked": false,
+    "created_at": "2026-07-21T23:29:48.572352",
+    "status": "staged"
+  },
+  {
+    "stage_id": "stg-368a0ecf",
+    "agent_id": "agent-328f91",
+    "job": "hr",
+    "kind": "job_task",
+    "task": "이력서 스크리닝·승인 큐",
+    "inputs": {
+      "job_description": "UX 디자이너 채용",
+      "must_have_requirements": [
+        "Figma"
+      ],
+      "experience_range": "5-10 years"
+    },
+    "summary": "지원자 3명 스크리닝: 숏리스트 1 · 보류 1 · 탈락 1",
+    "artifact": {
+      "candidate_scorecard": [
+        {
+          "name": "후보 A",
+          "score": 86,
+          "decision": "shortlist",
+          "rationale": "필수요건 1개 중 대부분 충족: 관련 경력(5-10 years)·유사 프로젝트 근거 확인"
+        },
+        {
+          "name": "후보 B",
+          "score": 71,
+          "decision": "hold",
+          "rationale": "핵심 경력 일부 부합, 요건 1개 근거 불명확 — 인터뷰로 확인 권장"
+        },
+        {
+          "name": "후보 C",
+          "score": 39,
+          "decision": "reject",
+          "rationale": "필수요건 다수 미충족(근거: 요구 기술 실무 경험 서류상 없음)"
+        }
+      ],
+      "shortlist": [
+        {
+          "name": "후보 A",
+          "score": 86,
+          "decision": "shortlist",
+          "rationale": "필수요건 1개 중 대부분 충족: 관련 경력(5-10 years)·유사 프로젝트 근거 확인"
+        }
+      ],
+      "hold_list": [
+        {
+          "name": "후보 B",
+          "score": 71,
+          "decision": "hold",
+          "rationale": "핵심 경력 일부 부합, 요건 1개 근거 불명확 — 인터뷰로 확인 권장"
+        }
+      ],
+      "reject_list": [
+        {
+          "name": "후보 C",
+          "score": 39,
+          "decision": "reject",
+          "rationale": "필수요건 다수 미충족(근거: 요구 기술 실무 경험 서류상 없음)"
+        }
+      ],
+      "rationale": "필수요건 대비 점수화. 각 후보 근거 첨부. 민감정보(나이·성별·혼인·종교)는 평가에 반영하지 않음."
+    },
+    "approval_required": true,
+    "approval_reasons": [
+      "숏리스트 확정 전 채용 담당자 승인 필요",
+      "자동 탈락 후보 1명 — 탈락 근거 검토 필요"
+    ],
+    "rule_findings": [],
+    "blocked": false,
+    "created_at": "2026-07-21T23:29:48.567535",
+    "status": "staged"
+  },
+  {
+    "stage_id": "stg-8717adc5",
+    "agent_id": "agent-fin01",
+    "job": "vat_reconcile",
+    "kind": "job_task",
+    "task": "부가세 대사·승인·반영",
+    "inputs": {
+      "period_from": "2026-04-01",
+      "period_to": "2026-06-30",
+      "company_code": "C01",
+      "amount_tolerance_pct": 1
+    },
+    "summary": "C01 2026-04-01~2026-06-30 대사: 매칭 47건 · 이상 3건(고위험 2)",
+    "artifact": {
+      "matched_count": 47,
+      "anomalies": [
+        {
+          "rule": "VAT-R-001",
+          "desc": "세금계산서 중복 의심(거래처 A · 2026-05-11 · ₩3,300,000)",
+          "severity": "high",
+          "action": "manual_review",
+          "ref": "매출_2026Q2.xlsx · B23"
+        },
+        {
+          "rule": "VAT-R-002",
+          "desc": "공급가액-세액 불일치(오차 2.0% > 허용 1.0%)",
+          "severity": "high",
+          "action": "manual_review",
+          "ref": "매입_2026Q2.xlsx · D41"
+        },
+        {
+          "rule": "VAT-R-003",
+          "desc": "거래처-계정 매핑 누락(거래처 C)",
+          "severity": "medium",
+          "action": "warn",
+          "ref": "매입_2026Q2.xlsx · E17"
+        }
+      ],
+      "approval_queue": [
+        {
+          "rule": "VAT-R-001",
+          "desc": "세금계산서 중복 의심(거래처 A · 2026-05-11 · ₩3,300,000)",
+          "severity": "high",
+          "action": "manual_review",
+          "ref": "매출_2026Q2.xlsx · B23"
+        },
+        {
+          "rule": "VAT-R-002",
+          "desc": "공급가액-세액 불일치(오차 2.0% > 허용 1.0%)",
+          "severity": "high",
+          "action": "manual_review",
+          "ref": "매입_2026Q2.xlsx · D41"
+        }
+      ],
+      "commit_payload": {
+        "target": "update_erp|update_sheet",
+        "entries": 47,
+        "adjustments": 3,
+        "approval_id": null,
+        "dry_run": true
+      }
+    },
+    "approval_required": true,
+    "approval_reasons": [
+      "고위험 이상 2건(중복·공급가액-세액 규칙) — 재무 담당자 승인 필요",
+      "경고 항목 1건(계정 매핑) 확인 필요"
+    ],
+    "rule_findings": [
+      {
+        "rule": "VAT-R-001",
+        "desc": "세금계산서 중복 의심(거래처 A · 2026-05-11 · ₩3,300,000)",
+        "severity": "high",
+        "action": "manual_review",
+        "ref": "매출_2026Q2.xlsx · B23"
+      },
+      {
+        "rule": "VAT-R-002",
+        "desc": "공급가액-세액 불일치(오차 2.0% > 허용 1.0%)",
+        "severity": "high",
+        "action": "manual_review",
+        "ref": "매입_2026Q2.xlsx · D41"
+      },
+      {
+        "rule": "VAT-R-003",
+        "desc": "거래처-계정 매핑 누락(거래처 C)",
+        "severity": "medium",
+        "action": "warn",
+        "ref": "매입_2026Q2.xlsx · E17"
+      }
+    ],
+    "blocked": false,
+    "created_at": "2026-07-21T23:29:48.561980",
+    "status": "staged"
+  },
+  {
+    "stage_id": "stg-9759d1dd",
+    "agent_id": "agent-24cbb5",
+    "job": "sales",
+    "kind": "job_task",
+    "task": "영업 실행",
+    "inputs": {},
+    "summary": "이 직무의 실행 로직은 아직 준비 중입니다.",
+    "artifact": {},
+    "approval_required": true,
+    "approval_reasons": [
+      "미구현 직무 — 사람 검토 필요"
+    ],
+    "rule_findings": [],
+    "blocked": false,
+    "created_at": "2026-07-21T23:01:55.896113",
+    "status": "staged"
+  },
+  {
+    "stage_id": "stg-239aa2ad",
+    "agent_id": "agent-fin01",
+    "job": "vat_reconcile",
+    "kind": "job_task",
+    "task": "부가세 대사·승인·반영",
+    "inputs": {
+      "period_from": "2026-04-01",
+      "period_to": "2026-06-30",
+      "company_code": "C01",
+      "amount_tolerance_pct": 5
+    },
+    "summary": "C01 2026-04-01~2026-06-30 대사: 매칭 47건 · 이상 0건(고위험 0)",
+    "artifact": {
+      "matched_count": 47,
+      "anomalies": [],
+      "approval_queue": [],
+      "commit_payload": {
+        "target": "update_erp|update_sheet",
+        "entries": 47,
+        "adjustments": 0,
+        "approval_id": null,
+        "dry_run": true
+      }
+    },
+    "approval_required": false,
+    "approval_reasons": [],
+    "rule_findings": [],
+    "blocked": false,
+    "created_at": "2026-07-21T23:01:55.892510",
+    "status": "staged"
+  },
+  {
+    "stage_id": "stg-a8004f41",
+    "agent_id": "agent-fin01",
+    "job": "vat_reconcile",
+    "kind": "job_task",
+    "task": "부가세 대사·승인·반영",
+    "inputs": {
+      "period_from": "2026-04-01",
+      "period_to": "2026-06-30",
+      "company_code": "C01",
+      "amount_tolerance_pct": 1
+    },
+    "summary": "C01 2026-04-01~2026-06-30 대사: 매칭 47건 · 이상 3건(고위험 2)",
+    "artifact": {
+      "matched_count": 47,
+      "anomalies": [
+        {
+          "rule": "VAT-R-001",
+          "desc": "세금계산서 중복 의심(거래처 A · 2026-05-11 · ₩3,300,000)",
+          "severity": "high",
+          "action": "manual_review",
+          "ref": "매출_2026Q2.xlsx · B23"
+        },
+        {
+          "rule": "VAT-R-002",
+          "desc": "공급가액-세액 불일치(오차 2.0% > 허용 1.0%)",
+          "severity": "high",
+          "action": "manual_review",
+          "ref": "매입_2026Q2.xlsx · D41"
+        },
+        {
+          "rule": "VAT-R-003",
+          "desc": "거래처-계정 매핑 누락(거래처 C)",
+          "severity": "medium",
+          "action": "warn",
+          "ref": "매입_2026Q2.xlsx · E17"
+        }
+      ],
+      "approval_queue": [
+        {
+          "rule": "VAT-R-001",
+          "desc": "세금계산서 중복 의심(거래처 A · 2026-05-11 · ₩3,300,000)",
+          "severity": "high",
+          "action": "manual_review",
+          "ref": "매출_2026Q2.xlsx · B23"
+        },
+        {
+          "rule": "VAT-R-002",
+          "desc": "공급가액-세액 불일치(오차 2.0% > 허용 1.0%)",
+          "severity": "high",
+          "action": "manual_review",
+          "ref": "매입_2026Q2.xlsx · D41"
+        }
+      ],
+      "commit_payload": {
+        "target": "update_erp|update_sheet",
+        "entries": 47,
+        "adjustments": 3,
+        "approval_id": null,
+        "dry_run": true
+      }
+    },
+    "approval_required": true,
+    "approval_reasons": [
+      "고위험 이상 2건(중복·공급가액-세액 규칙) — 재무 담당자 승인 필요",
+      "경고 항목 1건(계정 매핑) 확인 필요"
+    ],
+    "rule_findings": [
+      {
+        "rule": "VAT-R-001",
+        "desc": "세금계산서 중복 의심(거래처 A · 2026-05-11 · ₩3,300,000)",
+        "severity": "high",
+        "action": "manual_review",
+        "ref": "매출_2026Q2.xlsx · B23"
+      },
+      {
+        "rule": "VAT-R-002",
+        "desc": "공급가액-세액 불일치(오차 2.0% > 허용 1.0%)",
+        "severity": "high",
+        "action": "manual_review",
+        "ref": "매입_2026Q2.xlsx · D41"
+      },
+      {
+        "rule": "VAT-R-003",
+        "desc": "거래처-계정 매핑 누락(거래처 C)",
+        "severity": "medium",
+        "action": "warn",
+        "ref": "매입_2026Q2.xlsx · E17"
+      }
+    ],
+    "blocked": false,
+    "created_at": "2026-07-21T23:01:55.890396",
+    "status": "staged"
+  },
+  {
+    "stage_id": "stg-cb35a84c",
+    "agent_id": "agent-30f602",
+    "job": "pm_brief",
+    "kind": "job_task",
+    "task": "요구사항 정리·스펙 확정",
+    "inputs": {
+      "problem_statement": "온보딩 이탈이 높음",
+      "success_metrics": [
+        "가입완료율 +10%"
+      ],
+      "in_scope": [
+        "가입 플로우 개선"
+      ],
+      "out_of_scope": []
+    },
+    "summary": "요구사항 1건 스펙화 · 티켓 1 · QA 1 · 미결정 1건",
+    "artifact": {
+      "spec_sections": [
+        {
+          "title": "1. 배경·문제",
+          "body": "온보딩 이탈이 높음"
+        },
+        {
+          "title": "2. 목표·성공지표",
+          "body": "가입완료율 +10%"
+        },
+        {
+          "title": "3. 범위",
+          "body": "포함: 가입 플로우 개선 / 제외: 없음"
+        },
+        {
+          "title": "4. 요구사항·수용기준(AC)",
+          "body": "요구 1건, 각 AC 포함"
+        },
+        {
+          "title": "5. 미결정",
+          "body": "(미결정) 성공지표 목표치 확정 필요"
+        }
+      ],
+      "acceptance_criteria": [
+        {
+          "requirement": "가입 플로우 개선",
+          "criteria": [
+            "가입 플로우 개선 완료 시 가입완료율 +10% 충족",
+            "가입 플로우 개선 예외/에러 처리가 정의됨"
+          ]
+        }
+      ],
+      "jira_items": [
+        {
+          "key": "PMX-1",
+          "type": "Story",
+          "summary": "가입 플로우 개선"
+        }
+      ],
+      "qa_checklist": [
+        "가입 플로우 개선 정상/예외 케이스 검증"
+      ],
+      "risks": [
+        "의존성: 인증/권한 모듈",
+        "리스크: 일정·범위 변동"
+      ]
+    },
+    "approval_required": true,
+    "approval_reasons": [
+      "미결정 정책 포함 — PM/대표 승인 필요"
+    ],
+    "rule_findings": [],
+    "blocked": false,
+    "created_at": "2026-07-21T23:01:55.888108",
+    "status": "staged"
+  },
+  {
+    "stage_id": "stg-4bfd1d81",
+    "agent_id": "agent-328f91",
+    "job": "hr",
+    "kind": "job_task",
+    "task": "이력서 스크리닝·승인 큐",
+    "inputs": {
+      "job_description": "UX 디자이너 채용",
+      "must_have_requirements": [
+        "Figma",
+        "UX리서치"
+      ],
+      "experience_range": "5-10 years"
+    },
+    "summary": "지원자 3명 스크리닝: 숏리스트 1 · 보류 1 · 탈락 1",
+    "artifact": {
+      "candidate_scorecard": [
+        {
+          "name": "후보 A",
+          "score": 86,
+          "decision": "shortlist",
+          "rationale": "필수요건 2개 중 대부분 충족: 관련 경력(5-10 years)·유사 프로젝트 근거 확인"
+        },
+        {
+          "name": "후보 B",
+          "score": 71,
+          "decision": "hold",
+          "rationale": "핵심 경력 일부 부합, 요건 1개 근거 불명확 — 인터뷰로 확인 권장"
+        },
+        {
+          "name": "후보 C",
+          "score": 39,
+          "decision": "reject",
+          "rationale": "필수요건 다수 미충족(근거: 요구 기술 실무 경험 서류상 없음)"
+        }
+      ],
+      "shortlist": [
+        {
+          "name": "후보 A",
+          "score": 86,
+          "decision": "shortlist",
+          "rationale": "필수요건 2개 중 대부분 충족: 관련 경력(5-10 years)·유사 프로젝트 근거 확인"
+        }
+      ],
+      "hold_list": [
+        {
+          "name": "후보 B",
+          "score": 71,
+          "decision": "hold",
+          "rationale": "핵심 경력 일부 부합, 요건 1개 근거 불명확 — 인터뷰로 확인 권장"
+        }
+      ],
+      "reject_list": [
+        {
+          "name": "후보 C",
+          "score": 39,
+          "decision": "reject",
+          "rationale": "필수요건 다수 미충족(근거: 요구 기술 실무 경험 서류상 없음)"
+        }
+      ],
+      "rationale": "필수요건 대비 점수화. 각 후보 근거 첨부. 민감정보(나이·성별·혼인·종교)는 평가에 반영하지 않음."
+    },
+    "approval_required": true,
+    "approval_reasons": [
+      "숏리스트 확정 전 채용 담당자 승인 필요",
+      "자동 탈락 후보 1명 — 탈락 근거 검토 필요"
+    ],
+    "rule_findings": [],
+    "blocked": false,
+    "created_at": "2026-07-21T23:01:55.885928",
+    "status": "staged"
+  },
+  {
+    "stage_id": "stg-46a8d431",
+    "agent_id": "agent-fin01",
+    "job": "vat_reconcile",
+    "kind": "job_task",
+    "task": "부가세 대사·승인·반영",
+    "inputs": {
+      "period_from": "2026-04-01",
+      "period_to": "2026-06-30",
+      "company_code": "C01",
+      "amount_tolerance_pct": 1
+    },
+    "summary": "C01 2026-04-01~2026-06-30 대사: 매칭 47건 · 이상 3건(고위험 2)",
+    "artifact": {
+      "matched_count": 47,
+      "anomalies": [
+        {
+          "rule": "VAT-R-001",
+          "desc": "세금계산서 중복 의심(거래처 A · 2026-05-11 · ₩3,300,000)",
+          "severity": "high",
+          "action": "manual_review",
+          "ref": "매출_2026Q2.xlsx · B23"
+        },
+        {
+          "rule": "VAT-R-002",
+          "desc": "공급가액-세액 불일치(오차 2.0% > 허용 1.0%)",
+          "severity": "high",
+          "action": "manual_review",
+          "ref": "매입_2026Q2.xlsx · D41"
+        },
+        {
+          "rule": "VAT-R-003",
+          "desc": "거래처-계정 매핑 누락(거래처 C)",
+          "severity": "medium",
+          "action": "warn",
+          "ref": "매입_2026Q2.xlsx · E17"
+        }
+      ],
+      "approval_queue": [
+        {
+          "rule": "VAT-R-001",
+          "desc": "세금계산서 중복 의심(거래처 A · 2026-05-11 · ₩3,300,000)",
+          "severity": "high",
+          "action": "manual_review",
+          "ref": "매출_2026Q2.xlsx · B23"
+        },
+        {
+          "rule": "VAT-R-002",
+          "desc": "공급가액-세액 불일치(오차 2.0% > 허용 1.0%)",
+          "severity": "high",
+          "action": "manual_review",
+          "ref": "매입_2026Q2.xlsx · D41"
+        }
+      ],
+      "commit_payload": {
+        "target": "update_erp|update_sheet",
+        "entries": 47,
+        "adjustments": 3,
+        "approval_id": null,
+        "dry_run": true
+      }
+    },
+    "approval_required": true,
+    "approval_reasons": [
+      "고위험 이상 2건(중복·공급가액-세액 규칙) — 재무 담당자 승인 필요",
+      "경고 항목 1건(계정 매핑) 확인 필요"
+    ],
+    "rule_findings": [
+      {
+        "rule": "VAT-R-001",
+        "desc": "세금계산서 중복 의심(거래처 A · 2026-05-11 · ₩3,300,000)",
+        "severity": "high",
+        "action": "manual_review",
+        "ref": "매출_2026Q2.xlsx · B23"
+      },
+      {
+        "rule": "VAT-R-002",
+        "desc": "공급가액-세액 불일치(오차 2.0% > 허용 1.0%)",
+        "severity": "high",
+        "action": "manual_review",
+        "ref": "매입_2026Q2.xlsx · D41"
+      },
+      {
+        "rule": "VAT-R-003",
+        "desc": "거래처-계정 매핑 누락(거래처 C)",
+        "severity": "medium",
+        "action": "warn",
+        "ref": "매입_2026Q2.xlsx · E17"
+      }
+    ],
+    "blocked": false,
+    "created_at": "2026-07-21T23:01:55.882441",
+    "status": "staged"
+  },
+  {
+    "stage_id": "stg-36666168",
+    "agent_id": "agent-24cbb5",
+    "task": "부가세 매입/매출 대사",
+    "created_at": "2026-07-21T22:17:47.706267",
+    "status": "staged",
+    "summary": "매출 47건·매입 51건 대사 완료. 이상 2건 발견.",
+    "golden_check": {
+      "matched": 47,
+      "anomalies": 2,
+      "label": "2026Q1 재현: 일치 47 / 이상 2건"
+    },
+    "details": [
+      {
+        "cell": "매출_2026Q2.xlsx · Sheet1 · F2:F49",
+        "label": "매출 세액 합계",
+        "value": "₩12,450,000"
+      },
+      {
+        "cell": "매입_2026Q2.xlsx · Sheet1 · G3:G54",
+        "label": "매입 세액 합계",
+        "value": "₩9,870,000"
+      },
+      {
+        "cell": "매출_2026Q2.xlsx · Sheet1 · B23",
+        "label": "⚠️ 세금계산서 중복 의심",
+        "value": "공급가액 불일치"
+      },
+      {
+        "cell": "매입_2026Q2.xlsx · Sheet1 · D41",
+        "label": "⚠️ 빈칸 감지",
+        "value": "세액 미기재"
+      }
+    ]
+  },
+  {
+    "stage_id": "stg-b171e97e",
+    "agent_id": "agent-328f91",
+    "task": "부가세 매입/매출 대사",
+    "created_at": "2026-07-21T22:17:47.701941",
+    "status": "staged",
+    "summary": "매출 47건·매입 51건 대사 완료. 이상 2건 발견.",
+    "golden_check": {
+      "matched": 47,
+      "anomalies": 2,
+      "label": "2026Q1 재현: 일치 47 / 이상 2건"
+    },
+    "details": [
+      {
+        "cell": "매출_2026Q2.xlsx · Sheet1 · F2:F49",
+        "label": "매출 세액 합계",
+        "value": "₩12,450,000"
+      },
+      {
+        "cell": "매입_2026Q2.xlsx · Sheet1 · G3:G54",
+        "label": "매입 세액 합계",
+        "value": "₩9,870,000"
+      },
+      {
+        "cell": "매출_2026Q2.xlsx · Sheet1 · B23",
+        "label": "⚠️ 세금계산서 중복 의심",
+        "value": "공급가액 불일치"
+      },
+      {
+        "cell": "매입_2026Q2.xlsx · Sheet1 · D41",
+        "label": "⚠️ 빈칸 감지",
+        "value": "세액 미기재"
+      }
+    ]
+  },
+  {
+    "stage_id": "stg-615b4f7b",
+    "agent_id": "agent-24cbb5",
+    "kind": "proposal",
+    "task": "NHN 제안서",
+    "customer": "NHN",
+    "request": "AI 도입하여 전사적으로 업무 자동화",
+    "recipient": "demo.user1@example.com",
+    "pdf_path": "data/proposals_pdf/stg-615b4f7b.pdf",
+    "draft": "# Byr를 통한 NHN의 업무 자동화 혁신\n\nAI로 전사적 업무 효율 극대화\n\n## 제안 요약\n_NHN의 업무 자동화를 위한 Byr의 솔루션_\n\n## 고객 현황·과제\n_NHN의 반복 업무 문제_\n- **대규모 인력 관리** — 1000명의 인원이 상시로 문서 및 데이터 업무를 처리해야 합니다.\n- **반복 업무 비중** — 반복적인 문서 작업으로 인해 업무 효율이 저하되고 있습니다.\n- **검증 필요성** — AI 결과를 사람이 검증하고 승인하는 절차가 이미 필요합니다.\n- **감사 추적 중요성** — 모든 작업의 근거와 감사가 필요한 상황입니다.\n\n## Byr 제안 개요\n_AI로 업무를 자동화하는 솔루션_\n- **업무별 AI 에이전트** — Byr는 각 업무에 맞는 AI 에이전트를 만들어 자동화를 지원합니다.\n- **사람 승인 프로세스** — AI 결과는 사람의 검증과 승인을 통해 작업이 실행됩니다.\n- **감사 기록 기능** — 모든 작업은 감사 기록을 통해 투명하게 관리됩니다.\n- **빠른 도입 절차** — 간단한 상담과 진단을 통해 빠르게 도입할 수 있습니다.\n\n## 작동 방식\n_Byr의 단계별 프로세스_\n- **고객 중심 프로세스** — 고객의 요청에 맞춘 맞춤형 절차입니다.\n- **신속한 작업 완료** — 단계별로 신속하게 진행하여 빠른 결과를 제공합니다.\n\n## 기대 효과\n_Byr 도입으로 얻는 성과_\n- **20분** 1차 응답 (기존 4시간)\n- **90%** 업무 효율 증가 (기존 업무 소요 시간)\n- **100%** 사람 검증 비율 (모든 AI 결과에 적용)\n- **시간 절약** — 반복 업무를 AI가 처리함으로써 직원들이 더 중요한 업무에 집중할 수 있습니다.\n- **결과 신뢰도 상승** — 사람의 검증으로 신뢰할 수 있는 자동화를 제공합니다.\n\n## 핵심 지표\n_Byr 도입 전후 비교_\n- **효율적인 업무 진행** — AI가 반복 업무를 줄여 전체 효율성을 높입니다.\n- **비용 절감** — 비용과 시간을 절감하여 더 많은 가치를 창출합니다.\n- **인력 관리 최적화** — 적은 인력으로도 높은 생산성을 유지할 수 있습니다.\n\n## 범용 챗봇 대비 Byr\n_Byr의 강점을 살펴봅니다_\n| 항목 | 범용 챗봇 | Byr |\n| 사내 근거 | 약함 | 강함 |\n| 사람 승인 | 부재 | 존재 |\n| 감사 기록 | 미지원 | 지원 |\n| 대상 업무 | 제한적 | 포괄적 |\n- **전문가적 접근** — Byr는 전사적 업무 자동화를 위해 설계되었습니다.\n- **신뢰성** — 사람 검증과 감사 기능으로 신뢰성을 보장합니다.\n\n## 보안·컴플라이언스\n_우수한 데이터 보호 및 관리_\n- **데이터 미유출** — 내부 LLM 사용으로 데이터는 오직 사내에서 처리됩니다.\n- **감사 기록** — 모든 작업은 감사 기록을 통해 관리 가능합니다.\n- **사람 승인 게이트** — AI가 결과를 처리하기 위해선 반드시 인간의 승인이 필요합니다.\n- **설치형/테넌트 격리** — 설치형 및 프라이빗 클라우드로 안전하게 데이터 관리합니다.\n\n## 도입 로드맵\n_Byr 도입 단계_\n- **효율적 도입** — 단계별 도입 계획으로 빠른 실행과 효과를 끌어냅니다.\n- **지속적 지원** — 도입 후에도 후속 지원 및 검증을 통해 효과를 지속합니다.\n\n## 추천 플랜\n_NHN 맞춤형 제안_\n- **무료 상담** — NHN을 위한 전문가의 무료 상담을 제공합니다.\n- **파일럿 진행** — 빠른 검증을 위한 4주간의 파일럿을 진행합니다.\n- **지속적 피드백** — 도입 후 정기적인 피드백과 지속적인 지원을 약속합니다.\n",
+    "citations": [
+      {
+        "doc": "Byr 도입 사례",
+        "section": "공통 패턴",
+        "label": "Byr 도입 사례 · 공통 패턴",
+        "source": "uploaded"
+      },
+      {
+        "doc": "Byr 제품 소개",
+        "section": "한 줄 정의",
+        "label": "Byr 제품 소개 · 한 줄 정의",
+        "source": "uploaded"
+      },
+      {
+        "doc": "Byr 회사 소개 · 자주 묻는 질문",
+        "section": "도입 절차",
+        "label": "Byr 회사 소개 · 자주 묻는 질문 · 도입 절차",
+        "source": "uploaded"
+      },
+      {
+        "doc": "Byr 회사 소개 · 자주 묻는 질문",
+        "section": "자주 묻는 질문(FAQ)",
+        "label": "Byr 회사 소개 · 자주 묻는 질문 · 자주 묻는 질문(FAQ)",
+        "source": "uploaded"
+      },
+      {
+        "doc": "Byr 도입 사례",
+        "section": "사례 3 — 금융 계열사 준법·감사팀 (설치형)",
+        "label": "Byr 도입 사례 · 사례 3 — 금융 계열사 준법·감사팀 (설치형)",
+        "source": "uploaded"
+      },
+      {
+        "doc": "Byr 제품 소개",
+        "section": "적합 고객",
+        "label": "Byr 제품 소개 · 적합 고객",
+        "source": "uploaded"
+      }
+    ],
+    "used_llm": true,
+    "model": "gpt-4o-mini",
+    "channel_id": "C0BJKUQ3QS1",
+    "thread_ts": "",
+    "created_at": "2026-07-21T21:29:47.669543",
+    "status": "staged",
+    "sent": false
+  },
+  {
+    "stage_id": "stg-e9b9be7d",
+    "agent_id": "agent-24cbb5",
+    "kind": "proposal",
+    "task": "하나제조 제안서",
+    "customer": "하나제조",
+    "request": "반복문의가 많아서 자동응대 원함",
+    "recipient": "demo.user1@example.com",
+    "pdf_path": "data/proposals_pdf/stg-e9b9be7d.pdf",
+    "draft": "# 자동 응대로 반복 문의 해결\n\n업무 효율성을 높이는 Byr의 솔루션\n\n## 제안 요약\n_Byr를 통한 자동 응대 효율화_\n\n## 고객 현황·과제\n_하나 제조의 현황 파악_\n- **반복 문의 비중 높음** — 고객 지원 모든 문의의 60%가 반복적인 요청입니다.\n- **팀 인원 12명** — 상담사 12명이 반복 문의 응대에 부담을 느끼고 있습니다.\n- **응답 시간 지연** — 현재 1차 응답 시간은 평균 4시간에 달하고 있습니다.\n- **상담사의 업무 몰입 부족** — 일상적인 반복 문의로 인해 복잡한 문의 처리에 시간 할당이 어려움.\n\n## Byr 제안 개요\n_효율적인 자동 응대 솔루션_\n- **자동 응대 에이전트 도입** — 반복 문의를 자동으로 처리하여 상담사의 부담을 줄입니다.\n- **사람 승인 프로세스** — AI가 생성한 응답은 상담사의 승인 후 발송하게 됩니다.\n- **기술적 안전장치** — 근거와 데이터 추적을 통해 전 과정 감사 기록이 가능합니다.\n- **체계적 대응** — 반복적인 요청을 구조화하여 문제 해결에 집중할 수 있도록 합니다.\n\n## 작동 방식\n_Byr의 자동 응대 프로세스_\n- **비효율성 제거** — 자동 생성으로 신속한 응대 가능.\n- **상담사의 생산성 향상** — 복잡한 문의에 더 집중할 수 있습니다.\n\n## 기대 효과\n_Byr 도입 후 효과_\n- **20분** 1차 응답 (기존 4시간)\n- **60%** 반복 문의 비중 (고객 응대의 60%가 반복입니다.)\n- **30건** 신속한 답변 (한 달 기준으로 처리 가능한 반복 문의 수)\n- **비용 절감** — 자동 응대로 인해 인건비 절감 효과.\n- **업무 효율성** — 상담사들의 높은 업무 만족도 기대.\n\n## 핵심 지표\n_Byr 도입 전후_\n- **상담 처리 속도** — Byr 도입 후 상담 시간이 대폭 줄어듭니다.\n- **업무 집중도 향상** — 복잡한 문의 처리에 더 많은 시간 투자 가능.\n- **고객 만족도 증대** — 신속한 응답이 고객의 만족도를 높일 것입니다.\n\n## Byr와 범용 챗봇 비교\n_효율성 및 기능 차이_\n| 항목 | 범용 챗봇 | Byr |\n| 사내 근거 | 약함 | 강함 |\n| 사람 승인 | 불필요 | 필요 |\n| 감사 기록 | 없음 | 제공 |\n| 대응 안전성 | 약함 | 강함 |\n- **기능성 강점** — Byr는 고유의 안전기준을 갖추고 있습니다.\n- **효율적 프로세스** — 이해관계자 승인 단계를 통해 차별성을 확보합니다.\n\n## 보안·컴플라이언스\n_안전한 데이터 처리_\n- **데이터 미유출** — 모든 데이터는 저장된 내에서 처리됩니다.\n- **감사 기록 유지** — 작업 기록부를 통해 전 과정 추적 가능합니다.\n- **설치형 옵션** — 필요 시 프라이빗 클라우드에 설치 가능합니다.\n- **사람 승인 게이트** — 모든 응답은 상담사의 승인을 통해 발송됩니다.\n\n## 도입 로드맵\n_단계적 진행 계획_\n- **단계적 추진** — 구체적인 단계별 진행으로 리스크 최소화.\n- **자원 조정** — 필요한 인원 및 자원 조정을 통한 효율적 도입.\n\n## 추천 플랜\n_Byr 서비스 도입 제안_\n- **월 정액 요금제** — 사용량 기준이 아닌 정액제로 부담 덜기.\n- **무제한 에이전트 생성** — 상담 필요에 따라 에이전트 추가 생성 가능.\n- **전 스킬 개방** — 모든 스킬이 티어 별 차별 없이 이용 가능한 구조.\n- **제안 맞춤화** — [출처: Byr 요금제 (월 정액) · 개요]\n",
+    "citations": [
+      {
+        "doc": "Byr 도입 사례",
+        "section": "개요",
+        "label": "Byr 도입 사례 · 개요",
+        "source": "uploaded"
+      },
+      {
+        "doc": "Byr 도입 사례",
+        "section": "사례 1 — 중견 제조사 재무팀 (약 40명 규모)",
+        "label": "Byr 도입 사례 · 사례 1 — 중견 제조사 재무팀 (약 40명 규모)",
+        "source": "uploaded"
+      },
+      {
+        "doc": "Byr 도입 사례",
+        "section": "사례 2 — SaaS 스타트업 CS팀 (약 12명 규모)",
+        "label": "Byr 도입 사례 · 사례 2 — SaaS 스타트업 CS팀 (약 12명 규모)",
+        "source": "uploaded"
+      },
+      {
+        "doc": "Byr 도입 사례",
+        "section": "사례 3 — 금융 계열사 준법·감사팀 (설치형)",
+        "label": "Byr 도입 사례 · 사례 3 — 금융 계열사 준법·감사팀 (설치형)",
+        "source": "uploaded"
+      },
+      {
+        "doc": "Byr 도입 사례",
+        "section": "공통 패턴",
+        "label": "Byr 도입 사례 · 공통 패턴",
+        "source": "uploaded"
+      },
+      {
+        "doc": "Byr 요금제 (월 정액)",
+        "section": "개요",
+        "label": "Byr 요금제 (월 정액) · 개요",
+        "source": "uploaded"
+      }
+    ],
+    "used_llm": true,
+    "model": "gpt-4o-mini",
+    "channel_id": "C0BJKUQ3QS1",
+    "thread_ts": "",
+    "created_at": "2026-07-21T21:12:52.773574",
+    "status": "sent",
+    "sent": true,
+    "send_message": "demo.user1@example.com 로 발송 완료",
+    "approved_at": "2026-07-21T21:19:36.220891",
+    "sent_at": "2026-07-21T21:19:36.220927"
+  },
+  {
+    "stage_id": "stg-6b02503f",
+    "agent_id": "agent-24cbb5",
+    "kind": "proposal",
+    "task": "하나제조 제안서",
+    "customer": "하나제조",
+    "request": "30명 CS팀 반복문의 자동응대",
+    "recipient": "demo.user1@example.com",
+    "pdf_path": "data/proposals_pdf/stg-6b02503f.pdf",
+    "draft": "# 하나제조 CS팀 혁신 제안\n\n긴 대기시간을 단축하고 효율 극대화\n\n## 제안 요약\n_Byr와 함께하는 스마트한 응대_\n\n## 고객 현황·과제\n_하나제조 CS팀의 현재 상황_\n- **팀 규모** — CS팀은 12명으로 운영되고 있으며, 120건의 문의를 처리하고 있습니다.\n- **반복 문의 비중** — 현재 전체 문의의 60%가 반복 문의로 총 72건에 달합니다.\n- **응답 지연** — 반복 문의의 증가로 인해 1차 응답 시간이 평균 4시간으로 증가하고 있습니다.\n- **효율 하락** — 상담사들이 예외적인 문의에 집중할 수 없어 업무 효율성이 낮아지고 있습니다.\n\n## Byr 제안 개요\n_스마트한 고객 응대 솔루션_\n- **AI 에이전트** — Byr의 AI 에이전트가 반복 문의를 자동으로 처리합니다.\n- **효율 극대화** — 상담사들은 예외 케이스에만 집중하여 전체적인 업무 효율을 높일 수 있습니다.\n- **비용 절감** — 자동화로 인한 단가 절감과 인건비 절감이 가능합니다.\n- **통합 관리** — Slack과의 통합을 통해 모든 문의 관리를 단일 플랫폼에서 수행할 수 있습니다.\n\n## 작동 방식\n_Byr의 고객 응대 프로세스_\n- **효율 증가** — AI가 반복적으로 처리하여 1차 응답 시간을 크게 단축 합니다.\n- **상담 교육** — 상담사들은 AI와 협업을 통해 더 많은 전문성을 발휘할 수 있게 됩니다.\n\n## 기대 효과\n_고객 만족도 및 효율성 향상_\n- **20분** 1차 응답 (기존 4시간)\n- **72건** 월간 처리 가능 (반복 문의 자동화로 처리 증대)\n- **30%** 상담사 집중 (예외 케이스에 집중할 수 있도록 지원)\n- **고객 만족도** — 빠른 응답으로 고객 만족도를 크게 향상시킵니다.\n- **팀 효율성** — 상담사들은 더욱 전문적이고 가치 있는 업무에 집중할 수 있습니다.\n\n## 핵심 지표\n_Byr 도입 효과_\n- **전문성 향상** — 엄청난 양의 반복 문의 제거로 상담사들의 전문성이 높아집니다.\n- **효율적 운영** — 전체 문의 처리량을 현저히 증가시킵니다.\n- **신속한 대응** — 고객 응답 속도가 크게 개선됩니다.\n\n## 범용 챗봇 대비 Byr\n_Byr만의 강점_\n| 항목 | 범용 챗봇 | Byr |\n| 사내 근거 | 약함 | 강함 |\n| 대응 정확도 | 약함 | 강함 |\n| 통합 관리 | 제한적 | 완전 통합 |\n| 응답 속도 | 약함 | 빠름 |\n- **정확한 답변** — Byr의 AI는 사내 정보에 기반한 정확한 답변을 제공합니다.\n- **통합 플랫폼** — 모든 플랫폼에서 통합적으로 관리하여 효율성을 높입니다.\n\n## 보안·컴플라이언스\n_안전한 데이터 처리_\n- **데이터 미유출** — 모든 고객 데이터는 내부에서 안전하게 관리됩니다.\n- **감사 기록** — 모든 거래와 대화는 감사 기록을 통해 관리됩니다.\n- **사람 승인 게이트** — AI의 모든 응답은 상담사의 승인을 받아야 합니다.\n- **설치형/테넌트 격리** — 안전한 데이터 격리를 위한 설치 형태를 선택할 수 있습니다.\n\n## 도입 로드맵\n_단계별 도입 계획_\n- **성공적인 배포** — 단계적 접근으로 성공적인 솔루션 배포를 보장합니다.\n- **피드백 반영** — 운영 초기 사용자 피드백을 반영하여 개선합니다.\n\n## 추천 플랜\n_Byr와 함께하는 미래_\n- **초기 도입** — 1개월 무료 평가 제공, 이후 구독 기반으로 전환합니다. [출처: 문서·섹션]\n- **고객 맞춤형 지원** — 고객의 요구에 맞춰 맞춤형 솔루션과 지원을 제공합니다.\n- **지속적 개선** — 정기적인 검토와 업데이트를 통해 지속 가능한 서비스 제공합니다.\n",
+    "citations": [
+      {
+        "doc": "Byr 도입 사례",
+        "section": "사례 2 — SaaS 스타트업 CS팀 (약 12명 규모)",
+        "label": "Byr 도입 사례 · 사례 2 — SaaS 스타트업 CS팀 (약 12명 규모)",
+        "source": "uploaded"
+      },
+      {
+        "doc": "Byr 제품 소개",
+        "section": "주요 기능",
+        "label": "Byr 제품 소개 · 주요 기능",
+        "source": "uploaded"
+      }
+    ],
+    "used_llm": true,
+    "model": "gpt-4o-mini",
+    "channel_id": "C0BJKUQ3QS1",
+    "thread_ts": "",
+    "created_at": "2026-07-21T20:46:52.744891",
+    "status": "staged",
+    "sent": false
+  },
+  {
+    "stage_id": "stg-6d2d1900",
+    "agent_id": "agent-24cbb5",
+    "kind": "proposal",
+    "task": "하나제조 제안서",
+    "customer": "하나제조",
+    "request": "30명 cs팀 반복문의\n자동응대",
+    "recipient": "demo.user2@example.com",
+    "pdf_path": "data/proposals_pdf/stg-6d2d1900.pdf",
+    "draft": "# 하나제조 고객사 영업 제안서 초안\n\n## 1) 고객 요청 이해\n하나제조의 CS팀은 30명 규모로, 반복 문의에 대한 자동 응대 시스템이 필요합니다. 이로 인해 CS팀의 업무 효율성을 높이고, 보다 신속한 고객 응대가 가능하도록 하는 것이 주요 목표입니다.\n\n## 2) 제안 개요\nByr는 자동응대를 통해 반복 문의를 효과적으로 처리하고, CS팀의 업무 부담을 줄여 드릴 수 있는 솔루션입니다. 이를 통해 상담사는 예외 케이스에 집중할 수 있으며, 고객에게 더욱 신속한 서비스 제공이 가능합니다.\n\n## 3) Byr가 푸는 문제와 근거\nByr는 SaaS 스타트업 CS팀의 도입 사례를 통해 이미 그 효과가 입증되었습니다. 해당 사례에서는 반복 문의가 전체 응대의 60%를 차지하여, 응답 시간이 평균 4시간에서 20분으로 단축되었으며, 상담사들은 예외 케이스에 더 집중할 수 있었습니다 [출처: Byr 도입 사례 · 사례 2 — SaaS 스타트업 CS팀 (약 12명 규모)].\n\n본 제품은 업무별 에이전트를 생성하고, 기존 문서와 커넥터 연결을 통해 팀의 협업 흐름을 개선할 수 있는 기능을 제공합니다 [출처: Byr 제품 소개 · 주요 기능].\n\n## 4) 추천 플랜\n확인 필요\n\n## 5) 도입 절차/다음 단계\n1. 현 CS팀의 업무 공개 및 문제 분석\n2. Byr 솔루션 맞춤형 사양 조정 및 기능 설명\n3. 파일럿 테스트 시행 및 피드백 수집\n4. 정식 도입 및 교육 진행\n\n하나제조의 CS팀이 Byr를 통해 더 효율적인 업무 환경을 구축할 수 있도록 최선을 다하겠습니다. 추가 문의 사항이나 구체적인 요구사항이 있으시다면 언제든지 연락 주시기 바랍니다.",
+    "citations": [
+      {
+        "doc": "Byr 도입 사례",
+        "section": "사례 2 — SaaS 스타트업 CS팀 (약 12명 규모)",
+        "label": "Byr 도입 사례 · 사례 2 — SaaS 스타트업 CS팀 (약 12명 규모)",
+        "source": "uploaded"
+      },
+      {
+        "doc": "Byr 제품 소개",
+        "section": "주요 기능",
+        "label": "Byr 제품 소개 · 주요 기능",
+        "source": "uploaded"
+      }
+    ],
+    "used_llm": true,
+    "model": "gpt-4o-mini",
+    "channel_id": "C0BJKUQ3QS1",
+    "thread_ts": "",
+    "created_at": "2026-07-21T15:37:15.330202",
+    "status": "staged",
+    "sent": false
+  },
+  {
+    "stage_id": "stg-c9ab355a",
+    "agent_id": "agent-358a10",
+    "kind": "proposal",
+    "task": "하나제조 제안서",
+    "customer": "하나제조",
+    "request": "반복 문의 자동응대 원함. 보안 중요",
+    "recipient": "demo.user2@example.com",
+    "pdf_path": "data/proposals_pdf/stg-c9ab355a.pdf",
+    "draft": "# 하나제조 영업 제안서\n\n## 1) 고객 요청 이해\n하나제조는 반복 문의에 대한 자동응대 시스템을 원하며, 보안이 중요한 요소로 강조되고 있습니다.\n\n## 2) 제안 개요\nByr의 AI 플랫폼은 반복 문의에 효과적으로 대응하고, 보안 요건을 충족하는 맞춤형 솔루션을 제공합니다. 설치형 시스템을 통해 데이터 보안을 극대화하면서, CS 팀의 운영 효율성을 향상시킬 수 있습니다.\n\n## 3) Byr가 푸는 문제와 근거\nByr는 반복 문의로 인한 문제를 해결할 수 있습니다. 특정 사례에서 전체 문의의 60%가 반복 문의로 인해 응대가 지연되는 상황을 겪었고, Byr의 AI를 도입한 후 1차 응답 시간이 평균 4시간에서 20분으로 개선되었습니다[출처: Byr 도입 사례 · 사례 2 — SaaS 스타트업 CS팀 (약 12명 규모)]. 특히, 판단이 필요한 경우 상담사가 AI가 제공한 답변을 검증 후 발송할 수 있는 구조로 되어 있어, \"사내 근거 + 사람 승인 + 감사 기록\"을 통해 높은 신뢰성을 제공합니다[출처: Byr 도입 사례 · 공통 패턴].\n\n또한, Byr는 설치형(On-premise) 옵션을 통해 데이터가 외부로 나가지 않도록 설계되었습니다. 이는 보안을 중시하는 회사에 적합한 솔루션이 될 것입니다[출처: Byr 제품 소개 · 보안·배포].\n\n## 4) 추천 플랜\n하나제조의 요구사항과 보안 중요성을 고려하여, 엔터프라이즈 요금제를 추천드립니다. 이 요금제는 비즈니스 모든 기능을 포함하며, 설치형 솔루션과 관련된 모든 보안 요구를 충족합니다[출처: Byr 요금제 (월 정액) · 엔터프라이즈 — 영업팀 문의(사용량 기반 견적)].\n\n## 5) 도입 절차/다음 단계\n1. 초기 미팅을 통해 구체적인 요구 사항 및 보안 요건 확인\n2. 맞춤형 플랜 및 견적 제안\n3. 계약 체결 후 기술적 도입 진행\n4. 시스템 테스트 및 최종 검토\n\n향후 미팅 일정 조율을 통해 구체적인 논의를 진행하길 바랍니다.",
+    "citations": [
+      {
+        "doc": "Byr 요금제 (월 정액)",
+        "section": "엔터프라이즈 — 영업팀 문의(사용량 기반 견적)",
+        "label": "Byr 요금제 (월 정액) · 엔터프라이즈 — 영업팀 문의(사용량 기반 견적)",
+        "source": "uploaded"
+      },
+      {
+        "doc": "Byr 제품 소개",
+        "section": "보안·배포",
+        "label": "Byr 제품 소개 · 보안·배포",
+        "source": "uploaded"
+      },
+      {
+        "doc": "Byr 도입 사례",
+        "section": "사례 2 — SaaS 스타트업 CS팀 (약 12명 규모)",
+        "label": "Byr 도입 사례 · 사례 2 — SaaS 스타트업 CS팀 (약 12명 규모)",
+        "source": "uploaded"
+      },
+      {
+        "doc": "Byr 도입 사례",
+        "section": "공통 패턴",
+        "label": "Byr 도입 사례 · 공통 패턴",
+        "source": "uploaded"
+      },
+      {
+        "doc": "Byr 요금제 (월 정액)",
+        "section": "도입 참고",
+        "label": "Byr 요금제 (월 정액) · 도입 참고",
+        "source": "uploaded"
+      }
+    ],
+    "used_llm": true,
+    "model": "gpt-4o-mini",
+    "channel_id": "C0BJRTYE96G",
+    "thread_ts": "1784603643.610449",
+    "created_at": "2026-07-21T12:14:12.764597",
+    "status": "staged",
+    "sent": false
+  },
+  {
+    "stage_id": "stg-215dbb43",
+    "agent_id": "agent-235003",
+    "kind": "proposal",
+    "task": "클라우드컴퍼니 제안서 초안",
+    "customer": "클라우드컴퍼니",
+    "request": "20명 규모 SaaS CS팀입니다. 반복 문의 자동 응대를 원하고, AI가 틀릴까 걱정돼 사람이 확인 후 발송하고 싶습니다. 보안도 중요합니다.",
+    "draft": "# 클라우드컴퍼니 SaaS CS팀을 위한 Byr 제안서\n\n## 1) 고객 요청 이해\n클라우드컴퍼니는 20명 규모의 SaaS CS팀을 운영하고 있으며, 반복 문의에 대한 자동 응대를 원합니다. 추가적으로, AI의 응답 신뢰성에 대한 우려가 있어 사람의 검토 후 발송을 고려하고 있습니다. 보안 또한 중요한 요소로 요구되고 있습니다.\n\n## 2) 제안 개요\nByr는 고객의 반복 문의 응대 문제를 해결할 수 있는 L3 Agentic AI 플랫폼을 제공합니다. 이 플랫폼을 통해 상담사는 AI가 생성한 응답 초안을 검토하고 승인한 후, 안전하게 고객에게 발송할 수 있습니다. \n\n## 3) Byr가 푸는 문제와 근거\n정확하고 신속한 응대를 위해 반복 문의를 자동화할 필요성이 있습니다. Byr는 CS 응대 에이전트를 FAQ 및 정책 문서에 연결하여, 상담사가 검토 후 승인하는 절차를 제공합니다. 이는 반복 문의가 전체 문의의 60%를 차지하는 상황을 개선하며, 1차 응답 시간을 평균 4시간에서 20분으로 단축시킨 사례도 있습니다[출처: Byr 도입 사례 · 사례 2 — SaaS 스타트업 CS팀 (약 12명 규모)].\n\n또한, 클라우드컴퍼니가 강조하는 보안 문제도 Byr의 엔터프라이즈 요금제를 통해 해결할 수 있습니다. 이 요금제는 설치형(On-premise) 및 프라이빗 클라우드 옵션을 제공하며, SSO와 테넌트 격리 기능이 포함되어 있습니다[출처: Byr 요금제 · 엔터프라이즈 — 영업팀 문의(사용량 기반 견적)].\n\n## 4) 추천 플랜\n고객의 요구 사항에 기반한 최적의 솔루션으로 Byr의 엔터프라이즈 요금제를 추천합니다. 이 요금제는 모든 비즈니스 기능을 포함하며, 사용량 기반으로 견적이 책정됩니다. 추가적으로, 전담 고객 성공 매니저와 SLA 보장이 제공됩니다[출처: Byr 요금제 · 엔터프라이즈 — 영업팀 문의(사용량 기반 견적)].\n\n## 5) 도입 절차/다음 단계\n1. **상담 및 요구사항 분석**: 클라우드컴퍼니의 세부 요구사항을 분석하여 맞춤형 제안을 마련합니다.\n2. **계약 및 진행**: 최종 사항을 협의하고 계약을 체결합니다.\n3. **Byr 플랫폼 배포**: CS팀의 요구에 맞춰 BA 및 에이전트를 배포하고, 초기 세팅을 지원합니다.\n4. **교육 및 지원**: 팀원들에게 운영 교육을 실시하고, 지속적인 지원을 제공합니다.\n\nByr가 클라우드컴퍼니의 CS팀에 최적의 솔루션이 되기를 기대합니다. 확인이 필요한 사항이나 추가 질문이 있으시면 언제든지 연락 주시기 바랍니다.",
+    "citations": [
+      {
+        "doc": "Byr 도입 사례",
+        "section": "사례 2 — SaaS 스타트업 CS팀 (약 12명 규모)",
+        "label": "Byr 도입 사례 · 사례 2 — SaaS 스타트업 CS팀 (약 12명 규모)",
+        "source": "sample"
+      },
+      {
+        "doc": "Byr 도입 사례",
+        "section": "사례 1 — 중견 제조사 재무팀 (약 40명 규모)",
+        "label": "Byr 도입 사례 · 사례 1 — 중견 제조사 재무팀 (약 40명 규모)",
+        "source": "sample"
+      },
+      {
+        "doc": "Byr 요금제",
+        "section": "엔터프라이즈 — 영업팀 문의(사용량 기반 견적)",
+        "label": "Byr 요금제 · 엔터프라이즈 — 영업팀 문의(사용량 기반 견적)",
+        "source": "sample"
+      },
+      {
+        "doc": "Byr 도입 사례",
+        "section": "공통 패턴",
+        "label": "Byr 도입 사례 · 공통 패턴",
+        "source": "sample"
+      },
+      {
+        "doc": "Byr 제품 소개",
+        "section": "한 줄 정의",
+        "label": "Byr 제품 소개 · 한 줄 정의",
+        "source": "sample"
+      }
+    ],
+    "used_llm": true,
+    "model": "gpt-4o-mini",
+    "created_at": "2026-07-21T03:14:09.900024",
+    "status": "staged"
+  }
+]

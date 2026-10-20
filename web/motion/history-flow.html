@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>작업 이력 흐름 · Byr</title>
+<!--
+  Byr 브랜드 사이트 #how 「작업 이력을 시간순으로 기록합니다」용 모션 목업.
+  요청 → 자료 수집 → 초안 생성 → 승인 요청 → 결과 전달을 한 화면에서 보여 준다.
+  왼쪽 대화창에 메시지가 쌓이는 동안, 오른쪽 '작업 이력' 패널에 같은 순간이 기록된다.
+
+  규칙(motion/README.md): CSS 애니메이션 없이 render(t) 로 그린다. t ∈ [0,1) — 같은 t 면 같은 프레임.
+  쓰는 법
+    /motion/history-flow            16초 반복 재생
+    /motion/history-flow?t=0.8      그 시점에서 멈춘 화면(포스터·캡처용)
+    /motion/history-flow?bg=transparent   배경 투명(iframe 위에 얹을 때)
+    /motion/history-flow?bg=F4F3F0        배경색 지정(# 없이)
+  iframe 예: <iframe src="https://byr-web.vercel.app/motion/history-flow" style="width:100%;aspect-ratio:16/10;border:0"></iframe>
+-->
+<style>
+@font-face { font-family:'Pretendard'; src:url('../assets/fonts/Pretendard-Regular.woff2') format('woff2'); font-weight:400; font-display:swap; }
+@font-face { font-family:'Pretendard'; src:url('../assets/fonts/Pretendard-Medium.woff2') format('woff2'); font-weight:500; font-display:swap; }
+@font-face { font-family:'Pretendard'; src:url('../assets/fonts/Pretendard-SemiBold.woff2') format('woff2'); font-weight:600; font-display:swap; }
+
+:root {
+  --ink: #0A0A0A; --mut: #6B6B6B; --sub: #9A9A9A; --line: #E5E5E5; --soft: #F5F5F4;
+  --fill: #111111; --ok: #1F7A4D; --ok-bg: #E8F3EC; --wait: #9A6A00; --wait-bg: #FBF3DF;
+  --font: 'Pretendard', system-ui, -apple-system, 'Apple SD Gothic Neo', 'Segoe UI', sans-serif;
+  --bg: #F4F3F0;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; }
+body {
+  font-family: var(--font); color: var(--ink); background: var(--bg);
+  -webkit-font-smoothing: antialiased; overflow: hidden;
+}
+/* 1280×800 고정 무대 — 화면 크기에 맞춰 통째로 확대·축소한다 */
+.stage { width: 1280px; height: 800px; position: absolute; left: 50%; top: 50%; transform-origin: center; }
+.win {
+  position: absolute; inset: 40px; background: #fff; border-radius: 16px; overflow: hidden;
+  box-shadow: 0 1px 2px rgba(0,0,0,.06), 0 24px 60px -12px rgba(0,0,0,.18);
+  display: grid; grid-template-rows: 44px 1fr;
+}
+.bar { display: flex; align-items: center; gap: 8px; padding: 0 16px; border-bottom: 1px solid var(--line); }
+.bar i { width: 12px; height: 12px; border-radius: 50%; background: #E2E2E0; }
+.bar b { margin-left: 14px; font-size: 13px; font-weight: 500; color: var(--mut); }
+
+.body { display: grid; grid-template-columns: 196px 1fr 340px; min-height: 0; }
+
+/* 왼쪽 채널 목록 */
+.side { background: var(--soft); border-right: 1px solid var(--line); padding: 18px 12px; font-size: 13px; }
+.side h4 { font-size: 11px; font-weight: 600; color: var(--sub); letter-spacing: .02em; margin: 0 8px 8px; }
+.side p { padding: 6px 8px; border-radius: 6px; color: var(--mut); }
+.side p.on { background: #fff; color: var(--ink); font-weight: 600; box-shadow: 0 0 0 1px var(--line); }
+.side .gap { height: 18px; }
+
+/* 가운데 대화 */
+.chat { display: grid; grid-template-rows: 52px 1fr 22px 64px; min-height: 0; }
+.chat__head { display: flex; align-items: center; gap: 10px; padding: 0 22px; border-bottom: 1px solid var(--line); }
+.chat__head b { font-size: 15px; font-weight: 600; }
+.chat__head em { font-style: normal; font-size: 12px; color: var(--sub); }
+.thread { padding: 16px 22px 0; display: flex; flex-direction: column; gap: 12px; overflow: hidden; }
+.msg { display: grid; grid-template-columns: 32px 1fr; gap: 10px; }
+.ava { width: 32px; height: 32px; border-radius: 8px; display: grid; place-items: center; font-size: 13px; font-weight: 600; color: #fff; }
+.ava--k { background: #5B6B7A; }
+.ava--b { background: var(--fill); }
+.meta { display: flex; align-items: baseline; gap: 6px; font-size: 13px; }
+.meta b { font-weight: 600; }
+.meta span { font-size: 10px; font-weight: 600; color: var(--mut); background: var(--soft); border-radius: 3px; padding: 1px 4px; }
+.meta em { font-style: normal; font-size: 11px; color: var(--sub); }
+.txt { font-size: 14px; line-height: 21px; margin-top: 2px; }
+.mention { color: #1D5FB8; background: #EAF1FB; border-radius: 3px; padding: 0 2px; }
+.card { margin-top: 6px; border: 1px solid var(--line); border-radius: 8px; padding: 8px 12px; font-size: 13px; line-height: 20px; max-width: 460px; }
+.card p { display: flex; justify-content: space-between; gap: 16px; }
+.card p em { font-style: normal; color: var(--mut); }
+.card .foot { margin-top: 4px; padding-top: 4px; border-top: 1px dashed var(--line); font-size: 12px; color: var(--mut); }
+.who { margin-top: 6px; font-size: 12px; color: var(--mut); }
+.acts { display: flex; gap: 8px; margin-top: 8px; }
+.btn { height: 30px; padding: 0 16px; border-radius: 999px; font-size: 13px; font-weight: 600; display: inline-flex; align-items: center; gap: 6px; }
+.btn--ok { background: var(--fill); color: #fff; }
+.btn--no { background: #fff; color: var(--ink); box-shadow: inset 0 0 0 1px var(--line); }
+.btn--done { background: var(--ok-bg); color: var(--ok); }
+.note { margin-top: 6px; font-size: 12px; color: var(--ok); font-weight: 500; }
+.typing { font-size: 12px; color: var(--sub); height: 18px; padding-left: 42px; }
+.comp { margin: 0 22px 14px; height: 46px; align-self: end; border: 1px solid var(--line); border-radius: 10px; display: flex; align-items: center; padding: 0 14px; font-size: 14px; color: var(--sub); }
+.comp .val { color: var(--ink); }
+.caret { display: inline-block; width: 1px; height: 16px; background: var(--ink); vertical-align: -3px; margin-left: 1px; }
+
+/* 오른쪽 작업 이력 */
+.log { border-left: 1px solid var(--line); display: grid; grid-template-rows: auto 1fr auto; min-height: 0; }
+.log__head { padding: 18px 22px 14px; border-bottom: 1px solid var(--line); }
+.log__head b { display: block; font-size: 15px; font-weight: 600; }
+.log__head em { font-style: normal; font-size: 12px; color: var(--mut); }
+.steps { padding: 18px 22px; display: flex; flex-direction: column; }
+.step { display: grid; grid-template-columns: 18px 1fr; gap: 12px; position: relative; padding-bottom: 20px; }
+.step:last-child { padding-bottom: 0; }
+.step::before { content: ''; position: absolute; left: 8px; top: 18px; bottom: 0; width: 2px; background: var(--line); }
+.step:last-child::before { display: none; }
+.step .dot { width: 18px; height: 18px; border-radius: 50%; border: 2px solid var(--line); background: #fff; margin-top: 1px; display: grid; place-items: center; }
+.step .dot svg { width: 10px; height: 10px; opacity: 0; }
+.step .row { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; }
+.step .lab { font-size: 14px; font-weight: 600; color: var(--sub); }
+.step .tm { font-size: 12px; color: var(--sub); font-variant-numeric: tabular-nums; }
+.step .det { font-size: 12px; line-height: 18px; color: var(--sub); margin-top: 2px; }
+.step .tag { display: inline-block; margin-top: 4px; font-size: 11px; font-weight: 600; padding: 1px 6px; border-radius: 4px; background: var(--soft); color: var(--sub); }
+.step.is-done .dot { border-color: var(--fill); background: var(--fill); }
+.step.is-done .dot svg { opacity: 1; }
+.step.is-done .lab, .step.is-done .tm { color: var(--ink); }
+.step.is-done .det { color: var(--mut); }
+.step.is-done .tag { background: var(--ok-bg); color: var(--ok); }
+.step.is-wait .dot { border-color: var(--wait); }
+.step.is-wait .lab { color: var(--ink); }
+.step.is-wait .tag { background: var(--wait-bg); color: var(--wait); }
+.log__foot { margin: 0 22px 18px; padding: 10px 12px; border-radius: 8px; background: var(--soft); font-size: 12px; line-height: 18px; color: var(--mut); display: flex; gap: 8px; align-items: center; word-break: keep-all; }
+.log__foot svg { flex: none; width: 14px; height: 14px; }
+
+.cursor { position: absolute; left: 0; top: 0; width: 22px; height: 22px; pointer-events: none; z-index: 5; }
+.cursor .ring { position: absolute; left: -9px; top: -9px; width: 18px; height: 18px; border-radius: 50%; border: 2px solid rgba(17,17,17,.35); }
+</style>
+</head>
+<body>
+<div class="stage" id="stage" aria-label="Byr 작업 흐름 애니메이션: 요청부터 결과 전달까지 작업 이력이 기록되는 화면" role="img">
+  <div class="win">
+    <div class="bar"><i></i><i></i><i></i><b>Byr · 사내 메신저</b></div>
+    <div class="body">
+      <aside class="side">
+        <h4>채널</h4>
+        <p class="on"># 재무팀</p><p># 영업팀</p><p># 인사팀</p>
+        <div class="gap"></div>
+        <h4>앱</h4>
+        <p>Byr</p>
+      </aside>
+
+      <section class="chat">
+        <div class="chat__head"><b># 재무팀</b><em>멤버 12</em></div>
+        <div class="thread" id="thread">
+          <div class="msg" data-m="1">
+            <span class="ava ava--k">김</span>
+            <div><p class="meta"><b>김민지</b><em>오후 2:01</em></p>
+              <p class="txt"><span class="mention">@세금계산서 점검 도우미</span> 이번 달 것 정리해줘</p></div>
+          </div>
+          <div class="msg" data-m="2">
+            <span class="ava ava--b">B</span>
+            <div><p class="meta"><b>Byr</b><span>앱</span><em>오후 2:04</em></p>
+              <p class="txt">자료 수집을 마쳤습니다.</p>
+              <div class="card"><p>6월 매입 세금계산서<em>42건</em></p><p>월별 정산표<em>3개</em></p>
+                <p class="foot">사내 드라이브에서 조회 · 외부 전송 없음</p></div></div>
+          </div>
+          <div class="msg" data-m="3">
+            <span class="ava ava--b">B</span>
+            <div><p class="meta"><b>Byr</b><span>앱</span><em>오후 2:09</em></p>
+              <p class="txt">6월 세금계산서 점검 초안입니다.</p>
+              <div class="card"><p>공급가액 불일치<em>3건</em></p><p>사업자번호 오류<em>1건</em></p>
+                <p class="foot">근거 문서 6개 첨부</p></div></div>
+          </div>
+          <div class="msg" data-m="4">
+            <span class="ava ava--b">B</span>
+            <div><p class="meta"><b>Byr</b><span>앱</span><em>오후 2:10</em></p>
+              <p class="txt">신고서를 제출할까요?</p>
+              <p class="who">요청 김민지 · 승인 박태현(팀장)</p>
+              <div class="acts"><span class="btn btn--ok" id="ok">승인</span><span class="btn btn--no" id="no">반려</span></div>
+              <p class="note" id="okNote">박태현 팀장이 승인했습니다 · 오후 2:11</p></div>
+          </div>
+          <div class="msg" data-m="5">
+            <span class="ava ava--b">B</span>
+            <div><p class="meta"><b>Byr</b><span>앱</span><em>오후 2:11</em></p>
+              <p class="txt">신고서를 제출했습니다. 작업 이력에 기록했습니다.</p></div>
+          </div>
+        </div>
+        <p class="typing" id="typing">Byr가 입력 중…</p>
+        <div class="comp" id="comp"><span id="compText"></span></div>
+      </section>
+
+      <aside class="log">
+        <div class="log__head"><b>작업 이력</b><em>세금계산서 점검 도우미 · 6월</em></div>
+        <div class="steps">
+          <div class="step" data-s="1"><span class="dot"></span><div>
+            <p class="row"><span class="lab">요청 접수</span><span class="tm">14:01</span></p>
+            <p class="det">김민지 · #재무팀</p></div></div>
+          <div class="step" data-s="2"><span class="dot"></span><div>
+            <p class="row"><span class="lab">자료 수집</span><span class="tm">14:04</span></p>
+            <p class="det">세금계산서 42건 열람</p><span class="tag">사내 AI</span></div></div>
+          <div class="step" data-s="3"><span class="dot"></span><div>
+            <p class="row"><span class="lab">초안 생성</span><span class="tm">14:09</span></p>
+            <p class="det">불일치 4건 정리 · 근거 문서 6개</p></div></div>
+          <div class="step" data-s="4"><span class="dot"></span><div>
+            <p class="row"><span class="lab">승인 요청</span><span class="tm">14:10</span></p>
+            <p class="det">승인자 박태현(팀장)</p><span class="tag" id="tag4">승인 대기</span></div></div>
+          <div class="step" data-s="5"><span class="dot"></span><div>
+            <p class="row"><span class="lab">결과 전달</span><span class="tm">14:11</span></p>
+            <p class="det">승인 후 신고서 제출</p><span class="tag">완료</span></div></div>
+        </div>
+        <p class="log__foot"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="7" width="10" height="7" rx="1.5"/><path d="M5.5 7V5a2.5 2.5 0 0 1 5 0v2"/></svg>
+          보존 기간(기본 1년) 동안 수정·삭제할 수 없습니다</p>
+      </aside>
+    </div>
+  </div>
+  <svg class="cursor" id="cursor" viewBox="0 0 22 22"><path d="M3 2l14 8-6 1.6L8.5 18z" fill="#111" stroke="#fff" stroke-width="1.4" stroke-linejoin="round"/></svg>
+</div>
+
+<script>
+(() => {
+  const CK = '<svg viewBox="0 0 10 10" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 5.2l2 2L8 3"/></svg>'
+  document.querySelectorAll('.dot').forEach(d => { d.innerHTML = CK })
+
+  const q = new URLSearchParams(location.search)
+  const bg = q.get('bg')
+  if (bg) document.documentElement.style.setProperty('--bg', bg === 'transparent' ? 'transparent' : '#' + bg.replace(/[^0-9a-fA-F]/g, ''))
+
+  const DUR = 16                       // 초 — 한 바퀴
+  const stage = document.getElementById('stage')
+  const fit = () => {
+    const s = Math.min(innerWidth / 1280, innerHeight / 800)
+    stage.style.transform = `translate(-50%, -50%) scale(${s})`
+  }
+  addEventListener('resize', fit); fit()
+
+  const $ = id => document.getElementById(id)
+  const msgs = [...document.querySelectorAll('.msg')]
+  const steps = [...document.querySelectorAll('.step')]
+  const ease = x => 1 - Math.pow(1 - Math.min(Math.max(x, 0), 1), 3)
+  const span = (s, a, b) => ease((s - a) / (b - a))          // a~b 초 구간의 진행도 0..1
+  const show = (el, p) => { el.style.opacity = p; el.style.transform = `translateY(${(1 - p) * 8}px)` }
+
+  // 장면 시각표(초)
+  const MSG_AT = [2.6, 4.2, 6.0, 7.8, 10.8]                   // 메시지 1..5 등장
+  const TYPING = [[3.2, 4.2], [5.0, 6.0], [6.8, 7.8], [10.2, 10.8]]
+  const PROMPT = '@세금계산서 점검 도우미 이번 달 것 정리해줘'
+
+  function render(t) {
+    const s = t * DUR
+    const fade = s > 15.2 ? 1 - span(s, 15.2, 15.9) : 1         // 끝에서 한 번 비우고 처음으로
+
+    // 입력창 타이핑(0.6~2.4초) → 2.6초에 전송
+    const n = s < 0.6 ? 0 : s < 2.4 ? Math.round(PROMPT.length * (s - 0.6) / 1.8) : s < 2.6 ? PROMPT.length : 0
+    const caret = (s < 2.6 && Math.floor(s * 2.2) % 2 === 0) ? '<span class="caret"></span>' : ''
+    $('compText').innerHTML = n ? `<span class="val">${PROMPT.slice(0, n)}</span>${caret}` : `#재무팀에 메시지 보내기${s < 2.6 ? caret : ''}`
+
+    msgs.forEach((m, i) => show(m, span(s, MSG_AT[i], MSG_AT[i] + 0.35) * fade))
+    $('typing').style.opacity = TYPING.some(([a, b]) => s >= a && s < b) ? 1 : 0
+
+    // 승인 버튼: 커서가 9.0초에 도착, 9.5초에 누름
+    const pressed = s >= 9.5
+    $('ok').className = 'btn ' + (pressed ? 'btn--done' : 'btn--ok')
+    $('ok').innerHTML = pressed ? '승인됨' : '승인'
+    $('no').style.opacity = pressed ? 0.35 : 1
+    show($('okNote'), span(s, 9.7, 10.0))
+    $('ok').style.transform = s >= 9.4 && s < 9.6 ? 'scale(.94)' : ''
+
+    // 오른쪽 이력: 메시지와 같은 순간에 기록
+    const done = [MSG_AT[0], MSG_AT[1], MSG_AT[2], 9.6, MSG_AT[4]]
+    steps.forEach((st, i) => {
+      const on = s >= done[i]
+      const wait = i === 3 && s >= MSG_AT[3] && !on
+      st.classList.toggle('is-done', on)
+      st.classList.toggle('is-wait', wait)
+      st.style.opacity = fade
+    })
+    $('tag4').textContent = s >= 9.6 ? '승인 완료' : '승인 대기'
+
+    // 커서 — 승인 장면에서만 보인다
+    const cur = $('cursor')
+    const ok = $('ok').getBoundingClientRect(), st = stage.getBoundingClientRect()
+    const k = st.width / 1280
+    const tx = (ok.left - st.left) / k + 30, ty = (ok.top - st.top) / k + 18
+    const p = span(s, 8.3, 9.2)
+    const x = 1080 + (tx - 1080) * p, y = 720 + (ty - 720) * p
+    cur.style.opacity = s > 8.2 && s < 10.6 ? 1 : 0
+    cur.style.transform = `translate(${x}px, ${y}px)`
+  }
+  window.render = render
+
+  const fixed = q.get('t')
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches
+  if (fixed !== null || reduce) {
+    const go = () => render(fixed !== null ? Math.min(Math.max(parseFloat(fixed) || 0, 0), 0.999) : 0.8)
+    document.fonts ? document.fonts.ready.then(go) : go()
+    return
+  }
+  // 재생: 화면 갱신(rAF)에 맞춰 그린다. rAF가 멈추거나 늦는 환경(일부 iframe·헤드리스)에서는
+  // 보조 타이머가 대신 그려 재생이 끊기지 않게 한다.
+  const t0 = performance.now()
+  let lastFrame = 0
+  const draw = () => render(((performance.now() - t0) / 1000 / DUR) % 1)
+  const loop = () => { lastFrame = performance.now(); draw(); requestAnimationFrame(loop) }
+  requestAnimationFrame(loop)
+  setInterval(() => { if (performance.now() - lastFrame > 200) draw() }, 50)
+})()
+</script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+/* ── 모바일(≤760px) 보정 — 2026-10-15 ──────────────────────────────────────
+ * 콘솔은 데스크톱 기준 인라인 스타일로 짜여 있어, 휴대폰 폭에서 넘치거나 찌그러진다.
+ * 인라인 스타일을 이기려면 !important 가 필요하다. 화면별로 붙인 m-* 클래스와,
+ * 인라인 격자(grid-template-columns) 패턴을 잡아 한 열로 바꾼다.
+ */
+@media (max-width: 760px) {
+  /* 로그인·가입: 오른쪽 제품 목업은 숨기고 폼만 화면 폭으로 */
+  .m-auth { flex-direction: column !important; }
+  .m-auth__form { width: 100% !important; min-width: 0 !important; padding-left: 20px !important; padding-right: 20px !important; }
+  .m-auth__mock { display: none !important; }
+  .m-auth__tip { display: none !important; }
+
+  /* 목록 화면 도구 막대: 필터·만들기 버튼 한 줄, 검색은 아래 줄 전체 폭 */
+  .m-toolbar { flex-wrap: wrap !important; row-gap: 10px !important; }
+  .m-toolbar > .m-search { order: 9; flex: 1 1 100% !important; min-width: 0; }
+
+  /* 검토·승인: 목록 위, 상세 아래 */
+  .m-split { flex-direction: column !important; align-items: stretch !important; }
+  .m-split__list { width: 100% !important; }
+  .m-split__detail { padding: 18px !important; }
+
+  /* 좌우로 놓인 줄(인보이스 등)은 넘치면 다음 줄로 */
+  .m-wrap > * { flex-wrap: wrap !important; row-gap: 10px !important; }
+
+  /* 서비스 가이드: 오른쪽 목차는 숨기고 본문 여백을 줄인다 */
+  .m-guide { padding: 24px 20px 64px !important; gap: 0 !important; }
+  .m-guide > :not(:first-child) { display: none !important; }   /* 목차를 감싼 200px 칸까지 숨긴다 */
+
+  /* 인라인 다열 격자 → 한 열 */
+  [style*="grid-template-columns: repeat(2, 1fr)"],
+  [style*="grid-template-columns: repeat(3, 1fr)"],
+  [style*="grid-template-columns: 1fr 1fr"],
+  [style*="grid-template-columns: 3fr 2fr"] { grid-template-columns: 1fr !important; }
+}
+
+@media (max-width: 760px) {
+  /* 페이지 좌우 여백 40 → 20 */
+  [style*="padding: 32px 40px"] { padding: 24px 20px !important; }
+
+  /* 에이전트·팀 상세 상단: 아이콘+제목 한 줄, 버튼은 아래 줄 전체 */
+  .m-hero > * { flex-wrap: wrap !important; row-gap: 16px !important; }
+  .m-hero > * > :last-child { flex: 1 1 100% !important; flex-wrap: wrap !important; padding-top: 0 !important; }
+  .m-hero > * > :nth-child(2) { flex: 1 1 0 !important; min-width: 0 !important; }
+}
+
+@media (max-width: 760px) {
+  /* 한 열로 바꾼 격자의 칸이 내용 폭만큼 버티지 않게(넘침 방지) */
+  [style*="grid-template-columns: repeat(2, 1fr)"] > *,
+  [style*="grid-template-columns: repeat(3, 1fr)"] > *,
+  [style*="grid-template-columns: 1fr 1fr"] > *,
+  [style*="grid-template-columns: 3fr 2fr"] > * { min-width: 0 !important; max-width: 100%; }
+}
+
+/* 개요 — 좁은 화면은 한 단으로 */
+@media (max-width: 1080px) { .ov-grid { grid-template-columns: minmax(0, 1fr) !important; } }
+@media (max-width: 760px) {
+  .ov-kpis > * { flex: 1 1 calc(50% - 6px) !important; }
+  .ov-todo { flex-wrap: wrap; }
+  .ov-todo > div:last-child { width: 100%; justify-content: flex-start !important; }
+}
+@media (max-width: 760px) { .ov-kpis .kpi-chart { display: none; } }

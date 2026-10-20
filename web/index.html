@@ -1,0 +1,1449 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<title>Byr | 메신저로 요청하는 업무용 AI 에이전트</title>
+<meta name="description" content="개발 지식이 없어도 템플릿으로 업무용 AI 에이전트를 만듭니다. 업무 요청은 사내 메신저에서 합니다. 모든 작업은 이력으로 기록됩니다.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="byr-mark" viewBox="0 0 1024 1024">
+  <rect width="1024" height="1024" rx="225" fill="var(--mark-tile)"/>
+  <g transform="translate(512 512) scale(1.5) translate(-512 -512)">
+    <path d="M576.183 293.704C609.643 289.988 645.923 303.731 670.654 326.037C695.349 348.676 710.084 380.165 711.643 413.63C713.421 449.481 701.026 481.922 677.029 508.356C679.861 510.677 682.428 512.856 685.049 515.422C709.314 539.507 723.044 572.228 723.233 606.416C723.443 640.333 709.833 671.137 685.957 695.006C669.223 711.497 648.186 722.944 625.251 728.039C609.25 731.651 597.157 730.669 581.105 730.697C567.923 730.779 554.741 730.791 541.558 730.734L425.49 730.594C431.548 713.19 443.676 696.969 458.124 685.643C473.731 673.294 492.264 665.186 511.927 662.106C524.101 660.121 534.238 660.473 546.439 660.477L581.429 660.502C591.915 660.506 602.867 660.968 613.059 658.381C622.201 656.057 630.576 651.383 637.353 644.822C648.284 634.27 653.327 620.743 653.63 605.709C653.616 604.435 653.568 603.161 653.486 601.89C652.559 586.917 645.348 572.032 633.786 562.59C577.685 516.776 503.95 592.316 467.404 628.958C456.618 639.787 445.742 650.527 434.779 661.178C394.356 699.894 355.503 726.035 298.521 730.249C309.51 705.616 321.929 680.82 333.542 656.428L408.288 500.171L446.959 418.957L463.172 384.854C471.221 368.03 476.99 354.387 489.255 340.012C512.048 313.297 540.998 296.839 576.183 293.704Z" fill="var(--mark-glyph)"/>
+    <path d="M583.81 363.206C592.924 362.338 603.705 365.072 611.512 369.469C660.991 397.287 647.805 467.516 593.068 478.499C581.648 480.79 569.885 481.493 558.528 484.483C539.753 489.495 521.768 497.098 505.092 507.074C493.34 514.31 480.164 523.047 470.17 532.607C483.72 503.143 497.608 473.836 511.829 444.69L526.929 412.924C531.212 403.93 536.59 391.359 542.819 383.989C553.781 371.021 567.019 364.682 583.81 363.206Z" fill="var(--mark-tile)"/>
+  </g>
+</symbol></svg>
+
+<!-- 프리셋 아이콘 — 콘솔 utils/icons.tsx 의 EMOJI_TO_ICON(lucide, stroke 1.5)과 같은 모양.
+     그 표에 없어 콘솔에서 Bot 으로 떨어지던 13종은 결이 맞는 lucide 아이콘으로 채웠다. -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" fill="none" stroke="currentColor"
+     stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <symbol id="i-receipt" viewBox="0 0 24 24"><path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1Z"/><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/><path d="M12 17.5v-11"/></symbol>
+  <symbol id="i-bar" viewBox="0 0 24 24"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></symbol>
+  <symbol id="i-calculator" viewBox="0 0 24 24"><rect width="16" height="20" x="4" y="2" rx="2"/><path d="M8 6h8"/><path d="M8 12h.01M12 12h.01M16 12h.01M8 16h.01M12 16h.01M16 16h.01"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+  <symbol id="i-message" viewBox="0 0 24 24"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></symbol>
+  <symbol id="i-file" viewBox="0 0 24 24"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v6h6"/><path d="M16 13H8M16 17H8M10 9H8"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></symbol>
+  <symbol id="i-bot" viewBox="0 0 24 24"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2M20 14h2M15 13v2M9 13v2"/></symbol>
+  <symbol id="i-trend" viewBox="0 0 24 24"><path d="m22 7-8.5 8.5-5-5L2 17"/><path d="M16 7h6v6"/></symbol>
+  <symbol id="i-wallet" viewBox="0 0 24 24"><path d="M19 7V5a2 2 0 0 0-2-2H5a2 2 0 0 0 0 4h14a2 2 0 0 1 2 2v3"/><path d="M3 5v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-3"/><path d="M18 12a2 2 0 0 0 0 4h3v-4Z"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-9.1 5.8a2 2 0 0 1-2 0L2 7"/></symbol>
+  <symbol id="i-mic" viewBox="0 0 24 24"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><path d="M12 19v3"/></symbol>
+  <symbol id="i-pen" viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></symbol>
+  <symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.9 1.9 0 0 0 3.4 0"/></symbol>
+  <symbol id="i-zap" viewBox="0 0 24 24"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8Z"/></symbol>
+  <symbol id="i-activity" viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></symbol>
+  <symbol id="i-building" viewBox="0 0 24 24"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4M10 10h4M10 14h4M10 18h4"/></symbol>
+  <symbol id="i-calendar" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></symbol>
+  <symbol id="i-folder" viewBox="0 0 24 24"><path d="M4 20h14a2 2 0 0 0 1.9-1.4l1.6-5.2A1 1 0 0 0 20.6 12H9.3a2 2 0 0 0-1.9 1.4L6 18"/><path d="M2 18V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.7.9l.8 1.2a2 2 0 0 0 1.7.9H18a2 2 0 0 1 2 2v2"/></symbol>
+  <symbol id="i-wrench" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.8-3.8a6 6 0 0 1-7.9 7.9l-6.9 6.9a2.1 2.1 0 0 1-3-3l6.9-6.9a6 6 0 0 1 7.9-7.9l-3.8 3.8Z"/></symbol>
+  <symbol id="i-shield-check" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1Z"/><path d="m9 12 2 2 4-4"/></symbol>
+  <symbol id="i-briefcase" viewBox="0 0 24 24"><rect width="20" height="14" x="2" y="7" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></symbol>
+</svg>
+
+<!-- 내비 — 실측: fixed · top 28px · 알약 세 덩어리가 떠 있다 -->
+<header class="nav">
+  <a class="navgroup brand" href="#top">
+    <svg class="mark mark--sm" aria-hidden="true"><use href="#byr-mark"/></svg>
+    <span>Byr</span>
+  </a>
+  <nav class="navgroup nav__pill" aria-label="주요 메뉴">
+    <a href="#who">서비스 소개</a>
+    <a href="#team">주요 기능</a>
+    <a href="#pricing">요금 안내</a>
+    <a href="#blog">블로그</a>
+    <a href="#faq">자주 묻는 질문</a>
+  </nav>
+  <div class="navgroup">
+    <a class="btn btn--ghost" href="http://localhost:5173/login">로그인</a>
+    <a class="btn btn--primary" href="http://localhost:5173/login?signup=1">시작하기</a>
+  </div>
+</header>
+
+<!-- MCP 서비스 로고 — 콘솔 utils/mcpLogos.tsx 의 SVG 를 그대로 옮겼다(브랜드 색 유지) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="m-gdrive" viewBox="0 0 24 24"><path d="M12 3 7.2 11.5h9.6L12 3z" fill="#FBBC04"/><path d="M2.5 20.5H12L7.2 11.5 2.5 20.5z" fill="#4285F4"/><path d="M21.5 20.5H12l4.8-9 4.7 9z" fill="#34A853"/></symbol>
+  <symbol id="m-hometax" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="18" rx="2" fill="#003C8F"/><rect x="5" y="7" width="14" height="1.8" rx=".9" fill="#fff" opacity=".95"/><rect x="5" y="10.8" width="14" height="1.8" rx=".9" fill="#fff" opacity=".95"/><rect x="5" y="14.6" width="9" height="1.8" rx=".9" fill="#fff" opacity=".95"/></symbol>
+  <symbol id="m-erp" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="5" rx="1.5" fill="#1E3A5F"/><rect x="2" y="9.5" width="20" height="5" rx="1.5" fill="#2A5298"/><rect x="2" y="16" width="20" height="5" rx="1.5" fill="#3B6FD4"/><circle cx="18.5" cy="5.5" r="1.2" fill="#7DD3FC"/><circle cx="18.5" cy="12" r="1.2" fill="#7DD3FC"/><circle cx="18.5" cy="18.5" r="1.2" fill="#7DD3FC"/></symbol>
+  <symbol id="m-sheets" viewBox="0 0 24 24"><rect x="3" y="2" width="18" height="20" rx="2" fill="#23A566"/><rect x="6" y="6" width="12" height="1.5" rx=".4" fill="#fff" opacity=".85"/><rect x="6" y="9.2" width="12" height="1.5" rx=".4" fill="#fff" opacity=".85"/><rect x="6" y="12.4" width="12" height="1.5" rx=".4" fill="#fff" opacity=".85"/><rect x="6" y="15.6" width="8" height="1.5" rx=".4" fill="#fff" opacity=".85"/><rect x="6" y="6" width="1.5" height="11" rx=".4" fill="#fff" opacity=".5"/><rect x="11.2" y="6" width="1.5" height="11" rx=".4" fill="#fff" opacity=".5"/></symbol>
+  <symbol id="m-jira" viewBox="0 0 24 24"><defs><linearGradient id="j-a" x1="12" y1="11.14" x2="17.29" y2="6.02" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#0052CC"/><stop offset="100%" stop-color="#2684FF"/></linearGradient><linearGradient id="j-b" x1="12" y1="12.83" x2="6.72" y2="17.95" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#0052CC"/><stop offset="100%" stop-color="#2684FF"/></linearGradient></defs><path d="M11.53 2.1 2.1 11.53a.66.66 0 0 0 0 .94l4.63 4.63 4.8-4.8 2.38-2.37L11.53 2.1z" fill="url(#j-a)"/><path d="m12.47 21.9 9.43-9.43a.66.66 0 0 0 0-.94l-4.63-4.63-4.8 4.8-2.38 2.37 2.38 7.83z" fill="url(#j-b)"/><circle cx="12" cy="12" r="2.7" fill="#2684FF"/></symbol>
+  <symbol id="m-meet" viewBox="0 0 24 24"><rect x="2.5" y="6" width="11" height="12" rx="1.8" fill="#0066DA"/><path d="M13.5 9.6l4-3.1c.6-.5 1.5 0 1.5.8v9.4c0 .8-.9 1.3-1.5.8l-4-3.1V9.6z" fill="#00AC47"/><path d="M2.5 9.6V7.8c0-1 .8-1.8 1.8-1.8h3.4L2.5 9.6z" fill="#E94235"/><path d="M13.5 14.4v1.8c0 1-.8 1.8-1.8 1.8H8.3l5.2-3.6z" fill="#FFBA00"/></symbol>
+  <symbol id="m-confluence" viewBox="0 0 24 24"><path d="M2.4 16.9c-.3.5-.1 1.1.4 1.4l4.2 2.6c.5.3 1.1.1 1.4-.4 1.6-2.7 3-2.4 5.5-1.2l4.2 2c.5.2 1.1 0 1.3-.5l2-4.5c.2-.5 0-1.1-.5-1.3-1.8-.8-5.2-2.5-8.4-2.5-4.2 0-7.9 2.6-10.1 4.4z" fill="#2684FF"/><path d="M21.6 7.1c.3-.5.1-1.1-.4-1.4L17 3.1c-.5-.3-1.1-.1-1.4.4-1.6 2.7-3 2.4-5.5 1.2l-4.2-2c-.5-.2-1.1 0-1.3.5l-2 4.5c-.2.5 0 1.1.5 1.3 1.8.8 5.2 2.5 8.4 2.5 4.2 0 7.9-2.6 10.1-4.4z" fill="#0052CC"/></symbol>
+  <symbol id="m-teams" viewBox="0 0 24 24"><circle cx="18" cy="6" r="2.5" fill="#5059C9"/><rect x="13" y="9" width="9" height="8" rx="1.8" fill="#5059C9"/><circle cx="9.6" cy="5.8" r="3" fill="#7B83EB"/><rect x="2" y="8.8" width="14" height="11.2" rx="1.8" fill="#7B83EB"/><path d="M5 11.6h8v1.7h-3v5.8H8v-5.8H5z" fill="#fff"/></symbol>
+  <symbol id="m-sharepoint" viewBox="0 0 24 24"><circle cx="10.5" cy="6.6" r="4.6" fill="#036C70"/><circle cx="16.6" cy="12.4" r="4.6" fill="#1A9BA1"/><circle cx="11.4" cy="17.6" r="3.9" fill="#37C6D0"/><rect x="2" y="8.4" width="10.4" height="10.4" rx="1.2" fill="#03787C"/><path d="M9.9 11.9c-.35-.42-.95-.7-1.65-.7-.9 0-1.5.4-1.5 1 0 .6.5.85 1.6 1.15 1.4.4 2.2.9 2.2 2.1 0 1.3-1.1 2.05-2.6 2.05-1.1 0-2-.4-2.55-1.1l.9-.85c.4.5 1 .8 1.7.8.8 0 1.3-.3 1.3-.85 0-.5-.4-.8-1.5-1.1-1.3-.4-2.3-.9-2.3-2.1 0-1.2 1-2.1 2.7-2.1 1 0 1.85.4 2.4 1z" fill="#fff"/></symbol>
+  <symbol id="m-gmail" viewBox="0 0 24 24"><path d="M3 6.5v11c0 .6.4 1 1 1h2.2V11l5.8 4.3L17.8 11v7.5H20c.6 0 1-.4 1-1v-11L12 13 3 6.5z" fill="#EA4335"/><path d="M3 6.5 12 13l9-6.5V6c0-.6-.4-1-1-1h-.6L12 10.4 4.6 5H4c-.6 0-1 .4-1 1v.5z" fill="#FBBC04"/><path d="M6.2 18.5V11L3 8.6V17.5c0 .6.4 1 1 1h2.2z" fill="#34A853"/><path d="M17.8 18.5V11l3.2-2.4V17.5c0 .6-.4 1-1 1h-2.2z" fill="#4285F4"/></symbol>
+  <symbol id="m-telegram" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#229ED9"/><path fill="#fff" d="M5.5 11.7l11-4.24c.51-.18.96.12.79.9l-1.87 8.82c-.14.63-.52.79-1.05.49l-2.9-2.14-1.4 1.35c-.15.15-.28.28-.58.28l.21-2.98 5.4-4.88c.23-.2-.05-.32-.36-.12l-6.67 4.2-2.87-.9c-.62-.19-.64-.62.13-.92z"/></symbol>
+  <symbol id="m-discord" viewBox="0 0 24 24"><path fill="#5865F2" d="M20.317 4.369a19.79 19.79 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.865-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.1 13.1 0 0 1-1.872-.892.077.077 0 0 1-.008-.128c.126-.094.252-.192.372-.291a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.009c.12.099.246.198.373.292a.077.077 0 0 1-.006.127 12.3 12.3 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.84 19.84 0 0 0 6.002-3.03.077.077 0 0 0 .032-.056c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.331c-1.183 0-2.157-1.086-2.157-2.42 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.419-2.157 2.419zm7.975 0c-1.183 0-2.157-1.086-2.157-2.42 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.419-2.157 2.419z"/></symbol>
+  <symbol id="m-slack" viewBox="0 0 24 24"><path d="M5.1 14.6a2 2 0 1 1-2-2h2v2Zm1 0a2 2 0 1 1 4 0v5a2 2 0 1 1-4 0v-5Z" fill="#E01E5A"/><path d="M9.4 5.1a2 2 0 1 1 2-2v2h-2Zm0 1a2 2 0 1 1 0 4h-5a2 2 0 1 1 0-4h5Z" fill="#36C5F0"/><path d="M18.9 9.4a2 2 0 1 1 2 2h-2v-2Zm-1 0a2 2 0 1 1-4 0v-5a2 2 0 1 1 4 0v5Z" fill="#2EB67D"/><path d="M14.6 18.9a2 2 0 1 1-2 2v-2h2Zm0-1a2 2 0 1 1 0-4h5a2 2 0 1 1 0 4h-5Z" fill="#ECB22E"/></symbol>
+</svg>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" fill="none" stroke="currentColor"
+     stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24"><rect width="18" height="11" x="3" y="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></symbol>
+  <symbol id="i-key" viewBox="0 0 24 24"><circle cx="7.5" cy="15.5" r="3.5"/><path d="m10 13 8.5-8.5"/><path d="m16 7 2 2"/><path d="m13.5 9.5 2 2"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+  <symbol id="i-eyeoff" viewBox="0 0 24 24"><path d="M10.7 5.1A11 11 0 0 1 12 5c7 0 10 7 10 7a18 18 0 0 1-2.2 3.2"/><path d="M6.6 6.6A18 18 0 0 0 2 12s3 7 10 7a11 11 0 0 0 5.4-1.4"/><path d="m2 2 20 20"/><path d="M9.9 9.9a3 3 0 0 0 4.2 4.2"/></symbol>
+  <symbol id="i-usercheck" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="m16 11 2 2 4-4"/></symbol>
+  <symbol id="i-ban" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m4.9 4.9 14.2 14.2"/></symbol>
+  <symbol id="i-history" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/><path d="M12 7v5l4 2"/></symbol>
+</svg>
+
+<main id="top">
+
+  <!-- 1 · 히어로 — superhuman 문법: 풀블리드 다크 + 가운데 정렬 + 떠 있는 글래스 카드
+       배경 = 앰비언트 루프 비디오 자리(추후 제작) 위에 틸/모노톤 그라디언트 워시 -->
+  <section class="hero">
+    <div class="hero__bg">
+      <video
+        class="hero__video"
+        src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260403_050628_c4e32401-fab4-4a27-b7a8-6e9291cd5959.mp4"
+        autoplay
+        loop
+        muted
+        playsinline
+        preload="auto"
+        aria-hidden="true"
+      ></video>
+      <div class="hero__wash"></div>
+      <div class="hero__flow" aria-hidden="true"></div>
+    </div>
+
+    <!-- 인물 포토 레이어 — 중앙 포트레이트, 다크/틸 블렌드 (superhuman 구도).
+         Byr 자체 생성 이미지 assets/img/hero-portrait.png 를 styles.css 에서 물린다.
+         파일 없으면 background-image라 투명(깨진 아이콘 없음). -->
+    <div class="hero__portrait" aria-hidden="true"></div>
+    <div class="hero__tint" aria-hidden="true"></div>
+    <canvas class="hero__spark" aria-hidden="true"></canvas>
+
+    <!-- 떠 있는 콘솔 UI 글래스 카드 -->
+    <aside class="hcard hcard--chat" data-rv style="--rvd:360ms" aria-hidden="true">
+      <div class="hc__row"><span class="hc__ava">B</span><span class="hc__name">세금계산서 점검 도우미</span><span class="hc__badge hc__badge--ok"><i></i>활성</span></div>
+      <div class="hc__chan"># 재무팀 · Slack에서 호출</div>
+      <div class="hc__msg hc__msg--me">이번 달 세금계산서 정리해줘</div>
+      <div class="hc__msg">불일치 4건을 찾았습니다. 승인하면 신고서를 제출할게요.</div>
+      <div class="hc__act"><span class="hc__pill">승인</span><span class="hc__pill hc__pill--o">보류</span></div>
+    </aside>
+    <aside class="hcard hcard--log" data-rv style="--rvd:460ms" aria-hidden="true">
+      <div class="hc__row"><span class="hc__name">활동 이력</span><span class="hc__badge hc__badge--n">1년 보존 · 수정 불가</span></div>
+      <div class="hc__line">사내 AI 호출 · 14:02:11</div>
+      <div class="hc__line">정산표 3건 열람 · 14:02:14</div>
+      <div class="hc__line hc__line--w"><i></i>승인 대기로 보류 · 14:02:20</div>
+    </aside>
+    <!-- 콘솔 사이드바 메뉴 (Byr 콘솔임을 드러냄) -->
+    <aside class="hmenu" data-rv style="--rvd:560ms" aria-hidden="true">
+      <span class="hmenu__i hmenu__i--on" title="내 에이전트"><svg viewBox="0 0 18 18"><circle cx="9" cy="6" r="3"/><path d="M3.5 15.5c0-3 2.5-5 5.5-5s5.5 2 5.5 5"/></svg></span>
+      <span class="hmenu__i" title="팀 에이전트"><svg viewBox="0 0 18 18"><circle cx="6.5" cy="6" r="2.4"/><circle cx="12" cy="7" r="2"/><path d="M2.5 15c0-2.4 1.9-4 4.2-4M9.6 15c.2-1.9 1.6-3.1 3.4-3.1 1.8 0 3 1.3 3 3.1"/></svg></span>
+      <span class="hmenu__i" title="지식"><svg viewBox="0 0 18 18"><path d="M4.5 3.5h7a1 1 0 0 1 1 1v10l-4.5-2-4.5 2v-10a1 1 0 0 1 1-1z"/><path d="M6.8 6.7h3.4M6.8 9.2h3.4"/></svg></span>
+      <span class="hmenu__i" title="마켓플레이스"><svg viewBox="0 0 18 18"><rect x="3" y="3" width="5.2" height="5.2" rx="1.2"/><rect x="9.8" y="3" width="5.2" height="5.2" rx="1.2"/><rect x="3" y="9.8" width="5.2" height="5.2" rx="1.2"/><rect x="9.8" y="9.8" width="5.2" height="5.2" rx="1.2"/></svg></span>
+      <span class="hmenu__i" title="설정"><svg viewBox="0 0 18 18"><path d="M3 6.2h12M3 11.8h12"/><circle cx="7" cy="6.2" r="2"/><circle cx="11.5" cy="11.8" r="2"/></svg></span>
+    </aside>
+    <!-- 데이터 주권 카드 (차별점 ③: 우리 데이터는 우리 안에서만) -->
+    <aside class="hcard hcard--sov" data-rv style="--rvd:720ms" aria-hidden="true">
+      <div class="hc__row"><span class="hc__name">정보 보호</span><span class="hc__badge">사내 AI 기본</span></div>
+      <div class="hc__mask">계좌 <span class="hc__stars">***-***-******</span></div>
+      <div class="hc__line">민감정보는 마스킹해 처리합니다</div>
+    </aside>
+
+    <div class="hero__in">
+      <h1 class="hero__h" data-rv>메신저로 요청하는<br>업무용 AI 에이전트</h1>
+      <p class="hero__sub" data-rv style="--rvd:90ms">자주 하는 업무는 템플릿으로 에이전트에 등록합니다. <br class="lb">메일 발송처럼 밖으로 나가는 작업은 승인 후에 실행됩니다.</p>
+    </div>
+  </section>
+
+  <!-- ══ 이 아래는 sanalabs.com/products/sana/ 를 1440px 에서 실측해 옮긴 구조다.
+          레이아웃·타이포·간격·모션 타이밍만 가져왔고 카피·그래픽·색은 전부 Byr 것이다.
+          실측 근거: H2 48/48/-0.96px/w500 · 컨테이너 1376 · 탭 자동순환 7.0초 ══ -->
+
+  <!-- 2 · 한 줄 소개 — sanalabs 「Your all-in-one AI platform for real work」 블록 문법.
+          가운데 정렬 대형 제목 + 부제 두 줄 + 검정 알약 버튼 하나. 문안은 Byr 맥락(보안 + 모든 업무)으로 새로 썼다. -->
+  <section class="sec2 s-intro" id="why">
+    <div class="swrap s-head">
+      <h2 class="s-h s-h--xl" data-rv>보안 걱정 없이<br>모든 업무에 쓰는 <span style="white-space:nowrap">AI 에이전트</span></h2>
+      <p class="s-intro__sub" data-rv style="--rvd:90ms">회사 문서는 사내 AI가 처리합니다.<br class="lb"> 누가 무엇을 맡겼는지 모두 기록에 남습니다.</p>
+      <a class="btn btn--primary btn--lg s-intro__cta" href="http://localhost:5173/contact" target="_blank" rel="noreferrer" data-rv style="--rvd:180ms">도입 상담 예약하기</a>
+    </div>
+  </section>
+
+  <!-- 3 · 대상 + 가치 제안 + 업무 예시 — sanalabs 「Driving AI adoption together」 레이아웃.
+          좌: 사진 카드 / 우: 2열 체크 카드 그리드 + 마지막 칸은 검정 CTA.
+          따로 있던 가치 제안 섹션과 업무 예시 칩 섹션을 여기로 합쳤다. -->
+  <section class="s-sand" id="who">
+    <div class="swrap s-head">
+      <p class="s-kick" data-rv>직무별 활용 예시</p>
+      <h2 class="s-h" data-rv style="--rvd:70ms">반복 업무를<br>에이전트가 처리합니다</h2>
+      <p class="s-lead" data-rv style="--rvd:140ms">팀에서 자주 하는 업무를 에이전트로 등록합니다.<br class="lb">
+         요청, 승인, 진행 상태 확인은 메신저 대화창에서 처리합니다.</p>
+    </div>
+
+    <div class="swrap s-duo" data-rv style="--rvd:260ms">
+      <!-- 왼쪽 이미지 영역 — 사진 위에 글라스 입력창을 얹고, 탭에 맞는 요청이 타이핑된다.
+           타이밍은 참고 영상 실측: 타이핑 110ms/자 · 완성 후 2.0초 유지 · 삭제 40ms/자 · 빈 상태 0.5초 -->
+      <!-- 왼쪽 이미지 영역 — 사진 위에 슬랙 스레드를 얹는다.
+           우리 서비스는 메신저에서 쓰는 것이라, 요청을 작성창에 치고 → 보내고 →
+           에이전트가 답하고 → 승인까지가 한 흐름으로 돈다.
+           타이밍은 참고 영상 실측: 타이핑 110ms/자 · 완료 후 유지 2.0초 -->
+      <figure class="s-ph" data-photo="office corridor glass partition">
+        <figcaption class="s-ph__cap">
+          <div class="s-ph__card">
+            <div class="s-ph__ch">
+              <span class="sl__title"><b class="s-ph__chn"># 재무팀</b><em class="s-ph__mem">멤버 12</em></span>
+              <span class="sl__hicons"><i class="sl__ic sl__ic--huddle"></i><i class="sl__ic sl__ic--info"></i></span>
+            </div>
+            <div class="s-ph__log"></div>
+            <div class="sl__typing s-ph__ind" hidden>
+              <span class="sl__tdot"><i></i><i></i><i></i></span>Byr가 입력 중…
+            </div>
+            <div class="sl__comp s-ph__comp">
+              <span class="sl__plus"></span>
+              <span class="sl__type">
+                <span class="s-ph__text"></span><span class="s-ph__caret"></span>
+              </span>
+              <span class="sl__send"></span>
+            </div>
+          </div>
+        </figcaption>
+      </figure>
+      <div class="s-roles">
+      <div class="s-rtabs" role="tablist" aria-label="직무">
+        <button type="button" class="s-rtab is-on" role="tab" aria-selected="true" data-i="0" data-ch="# 재무팀" data-mem="멤버 12" data-photo="accountant working laptop finance">재무·회계</button>
+        <button type="button" class="s-rtab" role="tab" aria-selected="false" data-i="1" data-ch="# 보험영업팀" data-mem="멤버 24" data-photo="asian woman client meeting office">보험 FP</button>
+        <button type="button" class="s-rtab" role="tab" aria-selected="false" data-i="2" data-ch="# 리서치팀" data-mem="멤버 9" data-photo="stock market charts screen">증권 리서치</button>
+        <button type="button" class="s-rtab" role="tab" aria-selected="false" data-i="3" data-ch="# 준법감시팀" data-mem="멤버 7" data-photo="compliance audit documents">준법·내부감사</button>
+        <button type="button" class="s-rtab" role="tab" aria-selected="false" data-i="4" data-ch="# 인사팀" data-mem="멤버 15" data-photo="korean office people working">인사·총무</button>
+        <button type="button" class="s-rtab" role="tab" aria-selected="false" data-i="5" data-ch="# 프로덕트팀" data-mem="멤버 11" data-photo="asian team whiteboard planning">기획/PM</button>
+        <button type="button" class="s-rtab" role="tab" aria-selected="false" data-i="6" data-ch="# 플랫폼개발팀" data-mem="멤버 18" data-photo="developer monitors code">개발·운영</button>
+        <button type="button" class="s-rtab" role="tab" aria-selected="false" data-i="7" data-ch="# 영업1팀" data-mem="멤버 21" data-photo="korean business handshake meeting">영업</button>
+      </div>
+
+      <div class="s-rpane" data-i="0">
+        <div class="s-duo__grid">
+          <article class="s-cell">
+            <span class="s-cell__tile"><svg aria-hidden="true"><use href="#i-bar"/></svg></span>
+            <span class="s-cell__n">월마감 보고서</span>
+            <span class="s-cell__d">부서별 매출 집계 · 전월 대비 리포트</span>
+          </article>
+          <article class="s-cell">
+            <span class="s-cell__tile"><svg aria-hidden="true"><use href="#i-calculator"/></svg></span>
+            <span class="s-cell__n">지출결의 요약</span>
+            <span class="s-cell__d">지출 증빙 요약 · 분류 · 결재 초안</span>
+          </article>
+          <article class="s-cell">
+            <span class="s-cell__tile"><svg aria-hidden="true"><use href="#i-wallet"/></svg></span>
+            <span class="s-cell__n">예산 집행 현황</span>
+            <span class="s-cell__d">부서별 예산 소진율 집계 · 초과 항목 알림</span>
+          </article>
+          <article class="s-cell">
+            <span class="s-cell__tile"><svg aria-hidden="true"><use href="#i-receipt"/></svg></span>
+            <span class="s-cell__n">세금계산서 점검</span>
+            <span class="s-cell__d">매입·매출 세금계산서 누락·불일치 자동 점검</span>
+          </article>
+          <article class="s-cell s-cell--common">
+            <span class="s-cell__tile"><svg aria-hidden="true"><use href="#i-file"/></svg></span>
+            <span class="s-cell__n">문서 요약</span>
+            <span class="s-cell__d">PDF·링크·텍스트의 핵심 내용 3줄 요약</span>
+          </article>
+          <article class="s-cell s-cell--common">
+            <span class="s-cell__tile"><svg aria-hidden="true"><use href="#i-mic"/></svg></span>
+            <span class="s-cell__n">회의록 정리</span>
+            <span class="s-cell__d">회의 내용 붙여넣기 → 요약·안건·액션아이템 자동 추출</span>
+          </article>
+          <article class="s-cell s-cell--common">
+            <span class="s-cell__tile"><svg aria-hidden="true"><use href="#i-pen"/></svg></span>
+            <span class="s-cell__n">보고서 초안</span>
+            <span class="s-cell__d">자유 메모를 제목·본문·결론 구조 보고서로 변환</span>
+          </article>
+          <article class="s-cell s-cell--common">
+            <span class="s-cell__tile"><svg aria-hidden="true"><use href="#i-mail"/></svg></span>
+            <span class="s-cell__n">이메일 요약·작성</span>
+            <span class="s-cell__d">이메일 스레드 붙여넣기 → 핵심 요약 + 답장 초안</span>
+          </article>
+        </div>
+      </div>
+
+      <div class="s-rpane" data-i="1" hidden>
+        <div class="s-duo__grid">
+          <article class="s-cell">
+            <span class="s-cell__tile"><svg aria-hidden="true"><use href="#i-bar"/></svg></span>
+            <span class="s-cell__n">보장 분석</span>
+            <span class="s-cell__d">보유 계약 분석 → 부족·중복 보장 진단</span>
+          </article>
+          <article class="s-cell">
+            <span class="s-cell__tile"><svg aria-hidden="true"><use href="#i-pen"/></svg></span>
+            <span class="s-cell__n">맞춤 제안서</span>
+            <span class="s-cell__d">고객 니즈 → 상품 제안서·설명 화법 초안</span>
+          </article>
+          <article class="s-cell">
+            <span class="s-cell__tile"><svg aria-hidden="true"><use href="#i-file"/></svg></span>
+            <span class="s-cell__n">약관 Q&amp;A</span>
+            <span class="s-cell__d">약관·특약 질의 → 근거와 함께 답변</span>
+          </article>
+          <article class="s-cell">
+            <span class="s-cell__tile"><svg aria-hidden="true"><use href="#i-file"/></svg></span>
+            <span class="s-cell__n">완전판매 체크</span>
+            <span class="s-cell__d">설명의무·서류·녹취 항목 점검 (불완전판매 방지)</span>
+          </article>
+          <article class="s-cell">
+            <span class="s-cell__tile"><svg aria-hidden="true"><use href="#i-bell"/></svg></span>
+            <span class="s-cell__n">계약 관리·갱신 안내</span>
+            <span class="s-cell__d">갱신 도래·해지 방어 대상 정리 · 안내</span>
+          </article>
+          <article class="s-cell s-cell--common">
+            <span class="s-cell__tile"><svg aria-hidden="true"><use href="#i-file"/></svg></span>
+            <span class="s-cell__n">문서 요약</span>
+            <span class="s-cell__d">PDF·링크·텍스트의 핵심 내용 3줄 요약</span>
+          </article>
+          <article class="s-cell s-cell--common">
+            <span class="s-cell__tile"><svg aria-hidden="true"><use href="#i-mic"/></svg></span>
+            <span class="s-cell__n">회의록 정리</span>
+            <span class="s-cell__d">회의 내용 붙여넣기 → 요약·안건·액션아이템 자동 추출</span>
+          </article>
+          <article class="s-cell s-cell--common">
+            <span class="s-cell__tile"><svg aria-hidden="true"><use href="#i-pen"/></svg></span>
+            <span class="s-cell__n">보고서 초안</span>
+            <span class="s-cell__d">자유 메모를 제목·본문·결론 구조 보고서로 변환</span>
+          </article>
+        </div>
+      </div>
+
+      <div class="s-rpane" data-i="2" hidden>
+        <div class="s-duo__grid">
+          <article class="s-cell">
+            <span class="s-cell__tile"><svg aria-hidden="true"><use href="#i-building"/></svg></span>
+            <span class="s-cell__n">기업 분석 리포트</span>
+            <span class="s-cell__d">재무·사업 요약 → 리포트 초안</span>
+          </article>
+          <article class="s-cell">
+            <span class="s-cell__tile"><svg aria-hidden="true"><use href="#i-folder"/></svg></span>
+            <span class="s-cell__n">DART 공시 분석</span>
+            <span class="s-cell__d">전자공시 자동 수집 · 핵심 요약</span>
+          </article>
+          <article class="s-cell">
+            <span class="s-cell__tile"><svg aria-hidden="true"><use href="#i-trend"/></svg></span>
+            <span class="s-cell__n">실적 리뷰</span>
+            <span class="s-cell__d">실적 발표 → 컨센서스 대비 요약</span>
+          </article>
+          <article class="s-cell">
+            <span class="s-cell__tile"><svg aria-hidden="true"><use href="#i-globe"/></svg></span>
+            <span class="s-cell__n">산업·섹터 리서치</span>
+            <span class="s-cell__d">산업 동향·경쟁 구도 요약</span>
+          </article>
+          <article class="s-cell">
+            <span class="s-cell__tile"><svg aria-hidden="true"><use href="#i-wallet"/></svg></span>
+            <span class="s-cell__n">밸류에이션 정리</span>
+            <span class="s-cell__d">멀티플·목표주가 근거 정리</span>
+          </article>
+          <article class="s-cell s-cell--common">
+            <span class="s-cell__tile"><svg aria-hidden="true"><use href="#i-file"/></svg></span>
+            <span class="s-cell__n">문서 요약</span>
+            <span class="s-cell__d">PDF·링크·텍스트의 핵심 내용 3줄 요약</span>
+          </article>
+          <article class="s-cell s-cell--common">
+            <span class="s-cell__tile"><svg aria-hidden="true"><use href="#i-mic"/></svg></span>
+            <span class="s-cell__n">회의록 정리</span>
+            <span class="s-cell__d">회의 내용 붙여넣기 → 요약·안건·액션아이템 자동 추출</span>
+          </article>
+          <article class="s-cell s-cell--common">
+            <span class="s-cell__tile"><svg aria-hidden="true"><use href="#i-pen"/></svg></span>
+            <span class="s-cell__n">보고서 초안</span>
+            <span class="s-cell__d">자유 메모를 제목·본문·결론 구조 보고서로 변환</span>
+          </article>
+        </div>
+      </div>
+
+      <div class="s-rpane" data-i="3" hidden>
+        <div class="s-duo__grid">
+          <article class="s-cell">
+            <span class="s-cell__tile"><svg aria-hidden="true"><use href="#i-trend"/></svg></span>
+            <span class="s-cell__n">이상거래 모니터링</span>
+            <span class="s-cell__d">거래 패턴 이상 탐지 · 요약</span>
+          </article>
+          <article class="s-cell">
+            <span class="s-cell__tile"><svg aria-hidden="true"><use href="#i-file"/></svg></span>
+            <span class="s-cell__n">STR 초안</span>
+            <span class="s-cell__d">의심거래보고서(STR) 초안 작성</span>
+          </article>
+          <article class="s-cell">
+            <span class="s-cell__tile"><svg aria-hidden="true"><use href="#i-users"/></svg></span>
+            <span class="s-cell__n">KYC 고객확인</span>
+            <span class="s-cell__d">고객 정보·리스크 등급 검토</span>
+          </article>
+          <article class="s-cell">
+            <span class="s-cell__tile"><svg aria-hidden="true"><use href="#i-search"/></svg></span>
+            <span class="s-cell__n">내부통제 점검</span>
+            <span class="s-cell__d">규정 준수 체크리스트 점검</span>
+          </article>
+          <article class="s-cell">
+            <span class="s-cell__tile"><svg aria-hidden="true"><use href="#i-file"/></svg></span>
+            <span class="s-cell__n">규제·제재 모니터링</span>
+            <span class="s-cell__d">규제 변경·제재 리스트 업데이트 요약</span>
+          </article>
+          <article class="s-cell s-cell--common">
+            <span class="s-cell__tile"><svg aria-hidden="true"><use href="#i-file"/></svg></span>
+            <span class="s-cell__n">문서 요약</span>
+            <span class="s-cell__d">PDF·링크·텍스트의 핵심 내용 3줄 요약</span>
+          </article>
+          <article class="s-cell s-cell--common">
+            <span class="s-cell__tile"><svg aria-hidden="true"><use href="#i-mic"/></svg></span>
+            <span class="s-cell__n">회의록 정리</span>
+            <span class="s-cell__d">회의 내용 붙여넣기 → 요약·안건·액션아이템 자동 추출</span>
+          </article>
+          <article class="s-cell s-cell--common">
+            <span class="s-cell__tile"><svg aria-hidden="true"><use href="#i-pen"/></svg></span>
+            <span class="s-cell__n">보고서 초안</span>
+            <span class="s-cell__d">자유 메모를 제목·본문·결론 구조 보고서로 변환</span>
+          </article>
+        </div>
+      </div>
+
+      <div class="s-rpane" data-i="4" hidden>
+        <div class="s-duo__grid">
+          <article class="s-cell">
+            <span class="s-cell__tile"><svg aria-hidden="true"><use href="#i-message"/></svg></span>
+            <span class="s-cell__n">인사 FAQ</span>
+            <span class="s-cell__d">사규·복지 질의응답</span>
+          </article>
+          <article class="s-cell">
+            <span class="s-cell__tile"><svg aria-hidden="true"><use href="#i-building"/></svg></span>
+            <span class="s-cell__n">채용 공고 초안</span>
+            <span class="s-cell__d">직무 요건 입력 → 채용 공고문 초안 생성</span>
+          </article>
+          <article class="s-cell">
+            <span class="s-cell__tile"><svg aria-hidden="true"><use href="#i-folder"/></svg></span>
+            <span class="s-cell__n">이력서 스크리닝</span>
+            <span class="s-cell__d">직무 요건 대비 이력서 분류·요약</span>
+          </article>
+          <article class="s-cell">
+            <span class="s-cell__tile"><svg aria-hidden="true"><use href="#i-calendar"/></svg></span>
+            <span class="s-cell__n">온보딩 안내</span>
+            <span class="s-cell__d">신규 입사자 온보딩 체크·안내</span>
+          </article>
+          <article class="s-cell">
+            <span class="s-cell__tile"><svg aria-hidden="true"><use href="#i-users"/></svg></span>
+            <span class="s-cell__n">인사 요약 도우미</span>
+            <span class="s-cell__d">근태·급여 요약</span>
+          </article>
+          <article class="s-cell s-cell--common">
+            <span class="s-cell__tile"><svg aria-hidden="true"><use href="#i-file"/></svg></span>
+            <span class="s-cell__n">문서 요약</span>
+            <span class="s-cell__d">PDF·링크·텍스트의 핵심 내용 3줄 요약</span>
+          </article>
+          <article class="s-cell s-cell--common">
+            <span class="s-cell__tile"><svg aria-hidden="true"><use href="#i-mic"/></svg></span>
+            <span class="s-cell__n">회의록 정리</span>
+            <span class="s-cell__d">회의 내용 붙여넣기 → 요약·안건·액션아이템 자동 추출</span>
+          </article>
+          <article class="s-cell s-cell--common">
+            <span class="s-cell__tile"><svg aria-hidden="true"><use href="#i-pen"/></svg></span>
+            <span class="s-cell__n">보고서 초안</span>
+            <span class="s-cell__d">자유 메모를 제목·본문·결론 구조 보고서로 변환</span>
+          </article>
+        </div>
+      </div>
+
+      <div class="s-rpane" data-i="5" hidden>
+        <div class="s-duo__grid">
+          <article class="s-cell">
+            <span class="s-cell__tile"><svg aria-hidden="true"><use href="#i-folder"/></svg></span>
+            <span class="s-cell__n">회의록 자동 정리</span>
+            <span class="s-cell__d">회의 내용 → 결정사항·액션 아이템 추출</span>
+          </article>
+          <article class="s-cell">
+            <span class="s-cell__tile"><svg aria-hidden="true"><use href="#i-pen"/></svg></span>
+            <span class="s-cell__n">컨셉 브리프 작성</span>
+            <span class="s-cell__d">기획 의도·시장 조건 입력 → 보고서 초안</span>
+          </article>
+          <article class="s-cell">
+            <span class="s-cell__tile"><svg aria-hidden="true"><use href="#i-file"/></svg></span>
+            <span class="s-cell__n">제품 스펙 정리</span>
+            <span class="s-cell__d">요구사항 정리 · 기능 명세서 초안 작성</span>
+          </article>
+          <article class="s-cell">
+            <span class="s-cell__tile"><svg aria-hidden="true"><use href="#i-search"/></svg></span>
+            <span class="s-cell__n">경쟁사 리서치</span>
+            <span class="s-cell__d">경쟁사 뉴스·공시 자동 수집 및 요약</span>
+          </article>
+          <article class="s-cell s-cell--common">
+            <span class="s-cell__tile"><svg aria-hidden="true"><use href="#i-file"/></svg></span>
+            <span class="s-cell__n">문서 요약</span>
+            <span class="s-cell__d">PDF·링크·텍스트의 핵심 내용 3줄 요약</span>
+          </article>
+          <article class="s-cell s-cell--common">
+            <span class="s-cell__tile"><svg aria-hidden="true"><use href="#i-mic"/></svg></span>
+            <span class="s-cell__n">회의록 정리</span>
+            <span class="s-cell__d">회의 내용 붙여넣기 → 요약·안건·액션아이템 자동 추출</span>
+          </article>
+          <article class="s-cell s-cell--common">
+            <span class="s-cell__tile"><svg aria-hidden="true"><use href="#i-pen"/></svg></span>
+            <span class="s-cell__n">보고서 초안</span>
+            <span class="s-cell__d">자유 메모를 제목·본문·결론 구조 보고서로 변환</span>
+          </article>
+          <article class="s-cell s-cell--common">
+            <span class="s-cell__tile"><svg aria-hidden="true"><use href="#i-mail"/></svg></span>
+            <span class="s-cell__n">이메일 요약·작성</span>
+            <span class="s-cell__d">이메일 스레드 붙여넣기 → 핵심 요약 + 답장 초안</span>
+          </article>
+        </div>
+      </div>
+
+      <div class="s-rpane" data-i="6" hidden>
+        <div class="s-duo__grid">
+          <article class="s-cell">
+            <span class="s-cell__tile"><svg aria-hidden="true"><use href="#i-bell"/></svg></span>
+            <span class="s-cell__n">인시던트 리포트</span>
+            <span class="s-cell__d">장애 원인 분석 · 조치 내역 자동 정리</span>
+          </article>
+          <article class="s-cell">
+            <span class="s-cell__tile"><svg aria-hidden="true"><use href="#i-zap"/></svg></span>
+            <span class="s-cell__n">코드 리뷰 도우미</span>
+            <span class="s-cell__d">GitHub PR 변경사항 요약 · 리뷰 포인트 추출 · 팀 공유</span>
+          </article>
+          <article class="s-cell">
+            <span class="s-cell__tile"><svg aria-hidden="true"><use href="#i-trend"/></svg></span>
+            <span class="s-cell__n">이상 알림 모니터링</span>
+            <span class="s-cell__d">로그 분석 · 임계값 초과 시 온콜 알림</span>
+          </article>
+          <article class="s-cell">
+            <span class="s-cell__tile"><svg aria-hidden="true"><use href="#i-wrench"/></svg></span>
+            <span class="s-cell__n">배포 현황 알림</span>
+            <span class="s-cell__d">배포 완료·롤백 이벤트 자동 요약 발송</span>
+          </article>
+          <article class="s-cell">
+            <span class="s-cell__tile"><svg aria-hidden="true"><use href="#i-file"/></svg></span>
+            <span class="s-cell__n">API 문서 초안</span>
+            <span class="s-cell__d">코드·주석 분석 → API 명세 초안 생성</span>
+          </article>
+          <article class="s-cell">
+            <span class="s-cell__tile"><svg aria-hidden="true"><use href="#i-activity"/></svg></span>
+            <span class="s-cell__n">스프린트 플래닝</span>
+            <span class="s-cell__d">에픽·스토리를 스프린트로 분해 · 작업 우선순위 정리</span>
+          </article>
+          <article class="s-cell s-cell--common">
+            <span class="s-cell__tile"><svg aria-hidden="true"><use href="#i-file"/></svg></span>
+            <span class="s-cell__n">문서 요약</span>
+            <span class="s-cell__d">PDF·링크·텍스트의 핵심 내용 3줄 요약</span>
+          </article>
+          <article class="s-cell s-cell--common">
+            <span class="s-cell__tile"><svg aria-hidden="true"><use href="#i-mic"/></svg></span>
+            <span class="s-cell__n">회의록 정리</span>
+            <span class="s-cell__d">회의 내용 붙여넣기 → 요약·안건·액션아이템 자동 추출</span>
+          </article>
+        </div>
+      </div>
+
+      <div class="s-rpane" data-i="7" hidden>
+        <div class="s-duo__grid">
+          <article class="s-cell">
+            <span class="s-cell__tile"><svg aria-hidden="true"><use href="#i-briefcase"/></svg></span>
+            <span class="s-cell__n">제안서 작성·발송</span>
+            <span class="s-cell__d">메신저 요청 → 사내 자료 근거 초안 → PDF → 담당자 승인 → 이메일 발송</span>
+          </article>
+          <article class="s-cell">
+            <span class="s-cell__tile"><svg aria-hidden="true"><use href="#i-mail"/></svg></span>
+            <span class="s-cell__n">미팅 팔로업 메일</span>
+            <span class="s-cell__d">미팅 노트 → 후속 메일 초안 · 다음 액션 정리</span>
+          </article>
+          <article class="s-cell">
+            <span class="s-cell__tile"><svg aria-hidden="true"><use href="#i-trend"/></svg></span>
+            <span class="s-cell__n">영업 현황 리포트</span>
+            <span class="s-cell__d">파이프라인·전환율 집계 리포트 초안</span>
+          </article>
+          <article class="s-cell">
+            <span class="s-cell__tile"><svg aria-hidden="true"><use href="#i-file"/></svg></span>
+            <span class="s-cell__n">계약서 검토</span>
+            <span class="s-cell__d">조항 누락·위험 항목 자동 점검</span>
+          </article>
+          <article class="s-cell">
+            <span class="s-cell__tile"><svg aria-hidden="true"><use href="#i-message"/></svg></span>
+            <span class="s-cell__n">CS 문의 분류</span>
+            <span class="s-cell__d">고객 문의 자동 분류 · 담당자 배정</span>
+          </article>
+          <article class="s-cell">
+            <span class="s-cell__tile"><svg aria-hidden="true"><use href="#i-globe"/></svg></span>
+            <span class="s-cell__n">CS 답변 초안</span>
+            <span class="s-cell__d">FAQ 기반 고객 응대 초안 자동 생성</span>
+          </article>
+          <article class="s-cell s-cell--common">
+            <span class="s-cell__tile"><svg aria-hidden="true"><use href="#i-file"/></svg></span>
+            <span class="s-cell__n">문서 요약</span>
+            <span class="s-cell__d">PDF·링크·텍스트의 핵심 내용 3줄 요약</span>
+          </article>
+          <article class="s-cell s-cell--common">
+            <span class="s-cell__tile"><svg aria-hidden="true"><use href="#i-mic"/></svg></span>
+            <span class="s-cell__n">회의록 정리</span>
+            <span class="s-cell__d">회의 내용 붙여넣기 → 요약·안건·액션아이템 자동 추출</span>
+          </article>
+        </div>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 · 팀 운영 — 원본 "Every team gets smarter" 좌 목업 / 우 자동 순환 목록 문법 -->
+
+
+  <section class="sec2" id="team">
+    <div class="swrap s-split">
+      <div class="s-split__media" data-rv>
+        <div class="cs-pane" data-i="0">
+          <div class="cs">
+            <div class="cs__main">
+              <p class="cs__h">내 에이전트</p>
+              <p class="cs__sub">에이전트 18개가 등록되어 있습니다.</p>
+              <p class="cs__tabs"><span class="cs__tab is-on">에이전트 <b>18</b></span><span class="cs__tab">스케줄</span></p>
+              <p class="cs__filters">
+                <span class="cs__dd is-set">배치 상태 · 배치됨<i></i></span>
+                <span class="cs__search cs__search--typed"><i></i>세금<span class="cs__x"></span></span>
+                <span class="cs__new">+ 에이전트 만들기</span>
+              </p>
+              <p class="cs__hint">검색 결과 <b>2개</b></p>
+              <div class="cs__grid">
+                  <article class="cs__card">
+                    <span class="cs__tile cs__tile--navy"></span>
+                    <span class="cs__cname">세금계산서 점검<i class="cs__star"></i></span>
+                    <span class="cs__crole">재무·회계</span>
+                    <span class="cs__cdesc">매입·매출 세금계산서 누락·불일치 자동 점검</span>
+                    <span class="cs__cfoot"><span class="cs__badge">배치됨</span><i class="cs__mini cs__mini--a"></i><i class="cs__mini cs__mini--b"></i><i class="cs__mini cs__mini--c"></i></span>
+                  </article>
+                  <article class="cs__card">
+                    <span class="cs__tile cs__tile--purple"></span>
+                    <span class="cs__cname">지출결의 요약<i class="cs__star"></i></span>
+                    <span class="cs__crole">재무·회계</span>
+                    <span class="cs__cdesc">지출 증빙 요약 · 분류 · 결재 초안</span>
+                    <span class="cs__cfoot"><span class="cs__badge">배치됨</span><i class="cs__mini cs__mini--a"></i><i class="cs__mini cs__mini--b"></i><i class="cs__mini cs__mini--c"></i></span>
+                  </article>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cs-pane" data-i="1" hidden>
+          <div class="cs">
+            <div class="cs__main">
+              <p class="cs__h">내 에이전트</p>
+              <p class="cs__sub">반복 실행 주기와 결과 전달 방식을 설정합니다.</p>
+              <p class="cs__tabs"><span class="cs__tab">에이전트 <b>18</b></span><span class="cs__tab is-on">스케줄</span></p>
+              <p class="cs__chips"><span class="cs__chip">전체</span><span class="cs__chip is-on">즐겨찾기</span></p>
+              <div class="cs__list">
+                <p class="cs__srow"><i class="cs__star cs__star--on"></i><span class="cs__sname"><b>주간 인사 현황 보고</b>인사 FAQ · 인사·총무</span><span class="cs__badge">매주 월 09:00</span><span class="cs__toggle is-on"></span></p>
+                <p class="cs__srow"><i class="cs__star cs__star--on"></i><span class="cs__sname"><b>월마감 리포트</b>월마감 보고서 · 재무·회계</span><span class="cs__badge">매월 1일 09:00</span><span class="cs__toggle is-on"></span></p>
+                <p class="cs__srow"><i class="cs__star"></i><span class="cs__sname"><b>주간 업무 보고</b>회의록 요약 · 공통 업무</span><span class="cs__badge">매주 금 17:00</span><span class="cs__toggle"></span></p>
+              </div>
+              <p class="cs__hint">즐겨찾기한 스케줄이 위로 고정됩니다.</p>
+            </div>
+          </div>
+        </div>
+        <div class="cs-pane" data-i="2" hidden>
+          <div class="cs">
+            <div class="cs__main">
+              <p class="cs__crumb">← 팀 에이전트</p>
+              <p class="cs__h">재무·회계 팀</p>
+              <p class="cs__sub">세금계산서 점검·월마감·경비정산을 함께 처리합니다.</p>
+              <p class="cs__tabs"><span class="cs__tab is-on">기본 협업 흐름</span><span class="cs__tab">멤버 <b>5</b></span><span class="cs__badge">#재무회계팀 · 배치됨</span></p>
+              <div class="cs__steps">
+                <p class="cs__step"><b>1</b><span class="cs__sname"><b>세금계산서 점검</b>매입·매출 세금계산서 누락·불일치 자동 점검</span></p>
+                <p class="cs__step"><b>2</b><span class="cs__sname"><b>월마감 보고서</b>부서별 매출 집계 · 전월 대비 리포트</span></p>
+                <p class="cs__step"><b>3</b><span class="cs__sname"><b>지출결의 요약</b>지출 증빙 요약 · 분류 · 결재 초안</span><span class="cs__badge cs__badge--warn">단계 승인</span></p>
+              </div>
+              <p class="cs__hint">순서를 바꾸면 단계 번호가 다시 매겨집니다. 고위험 단계는 승인을 켭니다.</p>
+            </div>
+          </div>
+        </div>
+        <div class="cs-pane cs-pane--phone" data-i="3" hidden>
+          <!-- 승인·반려·재실행은 콘솔이 아니라 메신저에서 하는 일이라 폰 화면으로 그린다.
+               탭 섹션의 「승인 요청」과 겹치지 않게, 여기서는 반려 뒤 재실행까지 보여준다. -->
+          <div class="s-phone">
+            <span class="s-phone__island"></span>
+            <div class="s-phone__screen">
+              <div class="ph__status">
+                <span>9:41</span>
+                <span class="ph__sig"><i></i><i></i><i></i><i></i><b class="ph__bat"></b></span>
+              </div>
+              <div class="sl__head">
+                <span class="ph__back"></span>
+                <span class="sl__title"><b># 재무팀</b><em>멤버 12</em></span>
+                <span class="sl__hicons"><i class="sl__ic sl__ic--huddle"></i><i class="sl__ic sl__ic--info"></i></span>
+              </div>
+              <div class="sl__body">
+                <p class="sl__day"><span>오늘</span></p>
+                <div class="sl__msg">
+                  <span class="sl__ava sl__ava--b">B</span>
+                  <div class="sl__in">
+                    <p class="sl__meta"><b>Byr</b><span class="sl__app">앱</span><em>오후 2:10</em></p>
+                    <div class="sl__att sl__att--ask">
+                      <p class="sl__att__ttl">3분기 사업계획 초안 수정</p>
+                      <p class="sl__att__ctx">파일 변경 · 시트 1개 · 셀 5곳 · 되돌리기 어려운 작업</p>
+                      <p class="sl__ok sl__ok--no"><i class="sl__ok__ck"></i>반려로 처리했습니다<em>김민지 · 오후 2:11</em></p>
+                    </div>
+                  </div>
+                </div>
+                <div class="sl__msg">
+                  <span class="sl__ava sl__ava--b">B</span>
+                  <div class="sl__in">
+                    <p class="sl__meta"><b>Byr</b><span class="sl__app">앱</span><em>오후 2:12</em></p>
+                    <p class="sl__txt">수치를 수정해 다시 요청할까요? 승인 후에 실행합니다.</p>
+                    <p class="sl__btns">
+                      <span class="sl__btn sl__btn--pri">재실행 요청</span><span class="sl__btn">승인</span></p>
+                    <p class="sl__react"><span class="sl__chip"><i class="sl__ck"></i>2</span><span class="sl__chip sl__chip--add"></span></p>
+                  </div>
+                </div>
+              </div>
+              <div class="sl__comp">
+                <span class="sl__plus"></span>
+                <span class="sl__type"><span class="ph__ph ph__ph--static">메시지 보내기</span></span>
+                <span class="sl__cicons"><i class="sl__ci sl__ci--at">@</i><i class="sl__ci sl__ci--emoji"></i><i class="sl__ci sl__ci--cam"></i><i class="sl__ci sl__ci--mic"></i></span>
+                <span class="sl__send"></span>
+              </div>
+              <span class="ph__home"></span>
+            </div>
+          </div>
+        </div>
+        <div class="cs-pane" data-i="4" hidden>
+          <div class="cs">
+            <div class="cs__main">
+              <p class="cs__h">팀 에이전트</p>
+              <p class="cs__sub">이 팀이 지금 일할 수 있는 상태인지 한 화면에서 봅니다.</p>
+              <p class="cs__filters">
+                <span class="cs__dd">배치 상태<i></i></span>
+                <span class="cs__search"><i></i>에이전트 이름 검색</span>
+                <span class="cs__new">+ 팀 만들기</span>
+              </p>
+              <div class="cs__grid">
+                <article class="cs__card cs__card--team">
+                  <span class="cs__tile cs__tile--navy"></span>
+                  <span class="cs__cname">재무·회계 팀</span>
+                  <span class="cs__crole">멤버 5 · 흐름 1</span>
+                  <span class="cs__cdesc">세금계산서 점검·월마감·경비정산을 함께 처리합니다.</span>
+                  <span class="cs__cfoot"><span class="cs__badge">#재무회계팀</span><span class="cs__badge cs__badge--ok">배치됨</span></span>
+                </article>
+                <article class="cs__card cs__card--team">
+                  <span class="cs__tile cs__tile--green"></span>
+                  <span class="cs__cname">증권 리서치 팀</span>
+                  <span class="cs__crole">멤버 5 · 흐름 1</span>
+                  <span class="cs__cdesc">투자리포트 초안·공시 분석·리서치를 함께 처리합니다.</span>
+                  <span class="cs__cfoot"><span class="cs__badge">#증권리서치팀</span><span class="cs__badge cs__badge--ok">배치됨</span></span>
+                </article>
+              </div>
+              <p class="cs__hint">같은 흐름을 팀 표준으로 두고, 채널에 배치해 함께 씁니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="s-split__copy">
+        <p class="s-kick s-kick--l" data-rv>팀 운영</p>
+        <ul class="s-rot" data-rv style="--rvd:80ms" role="tablist" aria-label="팀 운영 방식">
+          <li class="is-on"><button type="button" role="tab" aria-selected="true" data-i="0"><span class="s-rot__ar">→</span>검색·필터로 빠르게 찾기</button></li>
+          <li><button type="button" role="tab" aria-selected="false" data-i="1"><span class="s-rot__ar">→</span>즐겨찾기와 반복 실행 일정 설정</button></li>
+          <li><button type="button" role="tab" aria-selected="false" data-i="2"><span class="s-rot__ar">→</span>역할별 작업 순서 구성</button></li>
+          <li><button type="button" role="tab" aria-selected="false" data-i="3"><span class="s-rot__ar">→</span>재실행·반려·승인 관리</button></li>
+          <li><button type="button" role="tab" aria-selected="false" data-i="4"><span class="s-rot__ar">→</span>팀 단위로 표준화</button></li>
+        </ul>
+        <p class="s-split__body" data-rv style="--rvd:160ms">개인 반복 업무는 내 에이전트에 등록합니다. 팀 업무는 팀 에이전트에서 역할별로 나눕니다.<br class="lb">
+           팀원 모두 에이전트별 담당 업무와 진행 단계를 콘솔에서 확인할 수 있습니다.</p>
+        <a class="btn btn--primary btn--lg" href="http://localhost:5173/contact" target="_blank" rel="noreferrer" data-rv style="--rvd:220ms">도입 상담 받기</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 · 동작 방식 — 원본 탭 섹션(Automate/Create/Analyze/Act/Find) 문법.
+          실측: 활성 탭 = rgba(255,255,255,.7) 흰 알약 · 7.0초 자동 순환 · 원형 일시정지 토글
+          목업은 아래로 잘려 나간다(overflow hidden). 원본 배경은 풍경 사진, 우리는 틸 그라디언트. -->
+  <section class="s-tabs" id="how">
+    <div class="s-tabs__bg" aria-hidden="true"></div>
+
+    <div class="s-tabbar" role="tablist" aria-label="동작 방식 단계">
+      <button class="s-tab is-on" role="tab" aria-selected="true" data-i="0">요청 접수</button>
+      <button class="s-tab" role="tab" aria-selected="false" data-i="1">자료 수집</button>
+      <button class="s-tab" role="tab" aria-selected="false" data-i="2">초안 생성</button>
+      <button class="s-tab" role="tab" aria-selected="false" data-i="3">승인 요청</button>
+      <button class="s-tab" role="tab" aria-selected="false" data-i="4">결과 전달</button>
+      <button class="s-auto is-playing" aria-label="자동 넘김 일시정지" aria-pressed="false"><i></i></button>
+    </div>
+
+    <div class="s-panes">
+      <article class="s-pane is-on" role="tabpanel" data-i="0">
+        <h2 class="s-h s-h--media">사내 메신저에서<br>@멘션으로 요청합니다</h2>
+        <div class="s-shot s-shot--phone">
+          <div class="s-phone">
+            <span class="s-phone__island"></span>
+            <div class="s-phone__screen">
+        <div class="ph__status">
+          <span>9:41</span>
+          <span class="ph__sig"><i></i><i></i><i></i><i></i><b class="ph__bat"></b></span>
+        </div>
+        <div class="sl__head">
+          <span class="ph__back"></span>
+          <span class="sl__title"><b># 재무팀</b><em>멤버 12</em></span>
+          <span class="sl__hicons"><i class="sl__ic sl__ic--huddle"></i><i class="sl__ic sl__ic--info"></i></span>
+        </div>
+        <div class="sl__body">
+          <p class="sl__day"><span>오늘</span></p>
+          <div class="sl__msg" data-fx="1" data-sent>
+            <span class="sl__ava">김</span>
+            <div class="sl__in">
+              <p class="sl__meta"><b>김민지</b><em>오후 2:01</em></p>
+              <p class="sl__txt"><span class="sl__mention">@세금계산서 점검 도우미</span> 이번 달 것 정리해줘</p>
+            </div>
+          </div>
+          <div class="sl__msg" data-fx="2">
+            <span class="sl__ava sl__ava--b">B</span>
+            <div class="sl__in">
+              <p class="sl__meta"><b>Byr</b><span class="sl__app">앱</span><em>오후 2:01</em></p>
+              <p class="sl__txt">매입·매출 내역을 대조하겠습니다. 완료되면 이 스레드에 알려드릴게요.</p>
+              <p class="sl__react" data-fx="3"><span class="sl__chip"><i class="sl__ck"></i>1</span><span class="sl__chip sl__chip--add"></span></p>
+            </div>
+          </div>
+        </div>
+        <p class="sl__typing" data-dots><span class="sl__tdot"><i></i><i></i><i></i></span>Byr가 입력 중…</p>
+        <div class="sl__comp">
+          <span class="sl__plus"></span>
+          <span class="sl__type"><span class="ph__type" data-type="이번 달 것 정리해줘"></span><i class="ph__caret" data-caret></i><span class="ph__ph">#재무팀에 메시지 보내기</span></span>
+          <span class="sl__cicons"><i class="sl__ci sl__ci--at">@</i><i class="sl__ci sl__ci--emoji"></i><i class="sl__ci sl__ci--cam"></i><i class="sl__ci sl__ci--mic"></i></span>
+          <span class="sl__send" data-send></span>
+        </div>
+        <span class="ph__home"></span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="s-pane" role="tabpanel" data-i="1" hidden>
+        <h2 class="s-h s-h--media">업무에 필요한 자료를<br>연동된 도구에서 수집합니다</h2>
+        <div class="s-shot s-shot--phone">
+          <div class="s-phone">
+            <span class="s-phone__island"></span>
+            <div class="s-phone__screen">
+        <div class="ph__status">
+          <span>9:41</span>
+          <span class="ph__sig"><i></i><i></i><i></i><i></i><b class="ph__bat"></b></span>
+        </div>
+        <div class="sl__head">
+          <span class="ph__back"></span>
+          <span class="sl__title"><b># 재무팀</b><em>멤버 12</em></span>
+          <span class="sl__hicons"><i class="sl__ic sl__ic--huddle"></i><i class="sl__ic sl__ic--info"></i></span>
+        </div>
+        <div class="sl__body">
+          <p class="sl__day"><span>오늘</span></p>
+          <div class="sl__msg" data-fx="1">
+            <span class="sl__ava sl__ava--b">B</span>
+            <div class="sl__in">
+              <p class="sl__meta"><b>Byr</b><span class="sl__app">앱</span><em>오후 2:04</em></p>
+              <p class="sl__txt">자료 수집을 마쳤습니다. 조회한 자료는 아래와 같습니다.</p>
+              <div class="sl__att" data-fx="2">
+                <p class="sl__att__row" data-fx="3"><span>6월 매입 세금계산서</span><em data-count="42" data-suffix="건">0건</em></p>
+                <p class="sl__att__row" data-fx="4"><span>월별 정산표</span><em data-count="3" data-suffix="개">0개</em></p>
+                <p class="sl__att__row" data-fx="5"><span>부가세 신고 사내 지침</span><em>최신본</em></p>
+                <p class="sl__att__ctx" data-fx="6">사내 드라이브에서 조회 · 외부 전송 없음</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sl__comp">
+          <span class="sl__plus"></span>
+          <span class="sl__type"><span class="ph__ph ph__ph--static">#재무팀에 메시지 보내기</span></span>
+          <span class="sl__cicons"><i class="sl__ci sl__ci--at">@</i><i class="sl__ci sl__ci--emoji"></i><i class="sl__ci sl__ci--cam"></i><i class="sl__ci sl__ci--mic"></i></span>
+          <span class="sl__send" data-send></span>
+        </div>
+        <span class="ph__home"></span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="s-pane" role="tabpanel" data-i="2" hidden>
+        <h2 class="s-h s-h--media">결과물 초안을<br>작성합니다</h2>
+        <div class="s-shot s-shot--phone">
+          <div class="s-phone">
+            <span class="s-phone__island"></span>
+            <div class="s-phone__screen">
+        <div class="ph__status">
+          <span>9:41</span>
+          <span class="ph__sig"><i></i><i></i><i></i><i></i><b class="ph__bat"></b></span>
+        </div>
+        <div class="sl__head">
+          <span class="ph__back"></span>
+          <span class="sl__title"><b># 재무팀</b><em>멤버 12</em></span>
+          <span class="sl__hicons"><i class="sl__ic sl__ic--huddle"></i><i class="sl__ic sl__ic--info"></i></span>
+        </div>
+        <div class="sl__body">
+          <p class="sl__day"><span>오늘</span></p>
+          <div class="sl__msg" data-fx="1">
+            <span class="sl__ava sl__ava--b">B</span>
+            <div class="sl__in">
+              <p class="sl__meta"><b>Byr</b><span class="sl__app">앱</span><em>오후 2:09</em></p>
+              <div class="sl__att" data-fx="2">
+                <p class="sl__att__ttl" data-fx="3">6월 세금계산서 점검 결과 (초안)</p>
+                <p class="sl__att__row" data-fx="4"><span>공급가액 불일치</span><em data-count="2" data-suffix="건">0건</em></p>
+                <p class="sl__att__row" data-fx="5"><span>사업자번호 오류</span><em data-count="1" data-suffix="건">0건</em></p>
+                <p class="sl__att__row" data-fx="6"><span>중복 발행</span><em data-count="1" data-suffix="건">0건</em></p>
+                <p class="sl__att__ctx" data-fx="7">근거 문서 6개 첨부</p>
+              </div>
+              <p class="sl__thread" data-fx="8">답글 2개</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="sl__comp">
+          <span class="sl__plus"></span>
+          <span class="sl__type"><span class="ph__ph ph__ph--static">#재무팀에 메시지 보내기</span></span>
+          <span class="sl__cicons"><i class="sl__ci sl__ci--at">@</i><i class="sl__ci sl__ci--emoji"></i><i class="sl__ci sl__ci--cam"></i><i class="sl__ci sl__ci--mic"></i></span>
+          <span class="sl__send" data-send></span>
+        </div>
+        <span class="ph__home"></span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="s-pane" role="tabpanel" data-i="3" hidden>
+        <h2 class="s-h s-h--media">실행 전에<br>담당자 승인을 요청합니다</h2>
+        <div class="s-shot s-shot--phone">
+          <div class="s-phone">
+            <span class="s-phone__island"></span>
+            <div class="s-phone__screen">
+        <div class="ph__status">
+          <span>9:41</span>
+          <span class="ph__sig"><i></i><i></i><i></i><i></i><b class="ph__bat"></b></span>
+        </div>
+        <div class="sl__head">
+          <span class="ph__back"></span>
+          <span class="sl__title"><b># 재무팀</b><em>멤버 12</em></span>
+          <span class="sl__hicons"><i class="sl__ic sl__ic--huddle"></i><i class="sl__ic sl__ic--info"></i></span>
+        </div>
+        <div class="sl__body">
+          <p class="sl__day"><span>오늘</span></p>
+          <div class="sl__msg" data-fx="1">
+            <span class="sl__ava sl__ava--b">B</span>
+            <div class="sl__in">
+              <p class="sl__meta"><b>Byr</b><span class="sl__app">앱</span><em>오후 2:10</em></p>
+              <div class="sl__att sl__att--ask" data-fx="2">
+                <p class="sl__att__ttl" data-fx="3">신고서 초안을 제출할까요?</p>
+                <p class="sl__att__ctx" data-fx="4">요청 김민지 · 승인 박태현(팀장)</p>
+                <p class="sl__btns" data-fx="5" data-askrow>
+                  <span class="sl__btn sl__btn--pri" data-press>승인</span><span class="sl__btn sl__btn--danger">반려</span></p>
+                <p class="sl__att__ctx" data-fx="6" data-askrow>승인 전까지 실행을 대기합니다</p>
+                <p class="sl__ok" data-after hidden><i class="sl__ok__ck"></i>승인 완료 · 제출했습니다<em>오후 2:11</em></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sl__comp">
+          <span class="sl__plus"></span>
+          <span class="sl__type"><span class="ph__ph ph__ph--static">#재무팀에 메시지 보내기</span></span>
+          <span class="sl__cicons"><i class="sl__ci sl__ci--at">@</i><i class="sl__ci sl__ci--emoji"></i><i class="sl__ci sl__ci--cam"></i><i class="sl__ci sl__ci--mic"></i></span>
+          <span class="sl__send" data-send></span>
+        </div>
+        <span class="ph__home"></span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="s-pane" role="tabpanel" data-i="4" hidden>
+        <h2 class="s-h s-h--media">작업 이력을<br>시간순으로 기록합니다</h2>
+        <div class="s-shot s-shot--phone">
+          <div class="s-phone">
+            <span class="s-phone__island"></span>
+            <div class="s-phone__screen">
+        <div class="ph__status">
+          <span>9:41</span>
+          <span class="ph__sig"><i></i><i></i><i></i><i></i><b class="ph__bat"></b></span>
+        </div>
+        <div class="sl__head">
+          <span class="ph__back"></span>
+          <span class="sl__title"><b># 재무팀</b><em>멤버 12</em></span>
+          <span class="sl__hicons"><i class="sl__ic sl__ic--huddle"></i><i class="sl__ic sl__ic--info"></i></span>
+        </div>
+        <div class="sl__body">
+          <p class="sl__day"><span>오늘</span></p>
+          <div class="sl__msg" data-fx="1">
+            <span class="sl__ava sl__ava--b">B</span>
+            <div class="sl__in">
+              <p class="sl__meta"><b>Byr</b><span class="sl__app">앱</span><em>오후 2:11</em></p>
+              <p class="sl__txt">승인 후 제출을 완료했습니다. 작업 이력은 다음과 같습니다.</p>
+              <div class="sl__att" data-fx="2">
+                <p class="sl__att__row" data-log="1"><span>14:02 · 세금계산서 42건 열람</span><em>사내 AI</em></p>
+                <p class="sl__att__row" data-log="2"><span>14:09 · 초안 작성 완료</span><em>근거 6개</em></p>
+                <p class="sl__att__row" data-log="3"><span>14:11 · 팀장 승인 · 제출</span><em class="sl__em--on">완료</em></p>
+                <p class="sl__att__ctx" data-log="4">이력은 수정하거나 삭제할 수 없습니다</p>
+              </div>
+              <p class="sl__react" data-log="5"><span class="sl__chip"><i class="sl__ck"></i>3</span><span class="sl__chip sl__chip--add"></span></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="sl__comp">
+          <span class="sl__plus"></span>
+          <span class="sl__type"><span class="ph__ph ph__ph--static">#재무팀에 메시지 보내기</span></span>
+          <span class="sl__cicons"><i class="sl__ci sl__ci--at">@</i><i class="sl__ci sl__ci--emoji"></i><i class="sl__ci sl__ci--cam"></i><i class="sl__ci sl__ci--mic"></i></span>
+          <span class="sl__send" data-send></span>
+        </div>
+        <span class="ph__home"></span>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- 6 · 승인·보안·이력 — 원본 "Enterprise-grade integrations and security" 회색 패널 문법 -->
+  <section class="sec2" id="trust">
+    <div class="swrap s-head">
+      <h2 class="s-h" data-rv>업무 도구 연동과<br>승인 기반 데이터 보호</h2>
+      <p class="s-lead" data-rv style="--rvd:80ms">메신저, 드라이브, 이슈 트래커 등 13종의 도구와 연동됩니다.<br class="lb">
+         기본 모델은 사내 AI입니다. 실행, 승인, 반려 이력은 모두 기록됩니다.</p>
+    </div>
+    <div class="swrap s-panels">
+      <div class="s-panel s-panel--wide" id="mcp" data-rv>
+        <div class="s-panel__side">
+          <h3 class="s-panel__ttl">사용 중인 업무 도구와<br>연동합니다</h3>
+          <p class="s-panel__sub">에이전트는 연동된 도구에서 자료를 조회합니다. <br class="lb">데이터를 바꾸거나 밖으로 보내는 작업은 승인 후 실행합니다.</p>
+          <a class="s-panel__pill" href="http://localhost:5173/guide#mcp" target="_blank" rel="noreferrer">연동 방법 보기</a>
+        </div>
+        <div class="s-panel__grid s-panel__grid--4">
+          <span class="s-item"><span class="s-item__ico s-item__ico--logo"><svg aria-hidden="true"><use href="#m-slack"/></svg></span>Slack</span>
+          <span class="s-item"><span class="s-item__ico s-item__ico--logo"><svg aria-hidden="true"><use href="#m-telegram"/></svg></span>Telegram</span>
+          <span class="s-item"><span class="s-item__ico s-item__ico--logo"><svg aria-hidden="true"><use href="#m-discord"/></svg></span>Discord</span>
+          <span class="s-item"><span class="s-item__ico s-item__ico--logo"><svg aria-hidden="true"><use href="#m-teams"/></svg></span>Microsoft Teams</span>
+
+          <span class="s-item"><span class="s-item__ico s-item__ico--logo"><svg aria-hidden="true"><use href="#m-gdrive"/></svg></span>Google Drive</span>
+          <span class="s-item"><span class="s-item__ico s-item__ico--logo"><svg aria-hidden="true"><use href="#m-sheets"/></svg></span>Google Sheets</span>
+          <span class="s-item"><span class="s-item__ico s-item__ico--logo"><svg aria-hidden="true"><use href="#m-gmail"/></svg></span>Gmail</span>
+          <span class="s-item"><span class="s-item__ico s-item__ico--logo"><svg aria-hidden="true"><use href="#m-meet"/></svg></span>Google Meet</span>
+
+          <span class="s-item"><span class="s-item__ico s-item__ico--logo"><svg aria-hidden="true"><use href="#m-confluence"/></svg></span>Confluence</span>
+          <span class="s-item"><span class="s-item__ico s-item__ico--logo"><svg aria-hidden="true"><use href="#m-sharepoint"/></svg></span>SharePoint</span>
+          <span class="s-item"><span class="s-item__ico s-item__ico--logo"><svg aria-hidden="true"><use href="#m-jira"/></svg></span>Jira</span>
+          <span class="s-item"><span class="s-item__ico s-item__ico--logo"><svg aria-hidden="true"><use href="#m-hometax"/></svg></span>국세청 홈택스</span>
+
+          <span class="s-item"><span class="s-item__ico s-item__ico--logo"><svg aria-hidden="true"><use href="#m-erp"/></svg></span>사내 ERP (더존)</span>
+        </div>
+      </div>
+      <div class="s-panel" data-rv>
+        <div class="s-panel__side">
+          <h3 class="s-panel__ttl">승인과 기록으로 통제합니다</h3>
+          <span class="s-panel__pill">정보 보호 방식</span>
+        </div>
+        <div class="s-panel__grid">
+          <span class="s-item"><span class="s-item__ico"><svg aria-hidden="true"><use href="#i-shield"/></svg></span>승인 전 자동 대기</span>
+          <span class="s-item"><span class="s-item__ico"><svg aria-hidden="true"><use href="#i-usercheck"/></svg></span>승인자 기록 · 자기 승인 표시</span>
+          <span class="s-item"><span class="s-item__ico"><svg aria-hidden="true"><use href="#i-ban"/></svg></span>반려 시 실행 중단</span>
+          <span class="s-item"><span class="s-item__ico"><svg aria-hidden="true"><use href="#i-history"/></svg></span>실행·승인·반려 이력 보존</span>
+          <span class="s-item"><span class="s-item__ico"><svg aria-hidden="true"><use href="#i-lock"/></svg></span>보존 기간(기본 1년) 동안 수정·삭제 불가</span>
+          <span class="s-item"><span class="s-item__ico"><svg aria-hidden="true"><use href="#i-eyeoff"/></svg></span>민감정보 마스킹</span>
+          <span class="s-item"><span class="s-item__ico"><svg aria-hidden="true"><use href="#i-key"/></svg></span>외부 모델은 관리자가 켠 에이전트에서만 사용</span>
+          <span class="s-item"><span class="s-item__ico"><svg aria-hidden="true"><use href="#i-clock"/></svg></span>작업 시점과 내용 추적</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- 7 · 모델 선택 — 원본 "Model agnostic" 대형 미디어 카드 문법(좌 UI 목업 / 우 흰 텍스트) -->
+  <section class="sec2 sec2--tight" id="llm">
+    <div class="swrap">
+      <div class="s-media" data-rv>
+        <div class="s-media__shot">
+          <div class="cs cs--glass">
+            <div class="cs__main">
+              <p class="cs__h">설정</p>
+              <p class="cs__sub">조직과 계정을 관리합니다.</p>
+              <p class="cs__stabs">
+                <span class="cs__stab">일반</span>
+                <span class="cs__stab">멤버<b>Admin</b></span>
+                <span class="cs__stab">보안<b>Admin</b></span>
+                <span class="cs__stab">연결</span>
+                <span class="cs__stab is-on">LLM 연결<b>Admin</b></span>
+              </p>
+              <p class="cs__sh">글로벌 LLM 연결</p>
+              <p class="cs__sd">외부 LLM(Claude·GPT·Gemini) API 키를 등록하면 에이전트별로 글로벌 LLM을 선택할 수 있습니다.</p>
+              <div class="cs__list">
+                <p class="cs__lrow"><span><b>Claude</b> Anthropic</span><span class="cs__badge">미등록</span><span class="cs__reg">등록하기</span></p>
+                <p class="cs__lrow"><span><b>GPT</b> OpenAI</span><span class="cs__badge">미등록</span><span class="cs__reg">등록하기</span></p>
+                <p class="cs__lrow"><span><b>Gemini</b> Google</span><span class="cs__badge">미등록</span><span class="cs__reg">등록하기</span></p>
+              </div>
+              <p class="cs__note"><i></i><span><b>등록된 키는 암호화 저장됩니다</b>API 키는 KMS(키 관리 서비스)에만 저장되며, 화면·로그에 평문으로 노출되지 않습니다.</span></p>
+            </div>
+          </div>
+        </div>
+        <div class="s-media__copy">
+          <p class="s-kick s-kick--on-dark">모델 선택</p>
+          <p class="s-media__h">에이전트마다 모델을 고릅니다.<br>
+             기본은 사내 AI입니다.<br>
+             외부 모델은 관리자가 연결한 뒤 씁니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8 · 요금·도입 방식 — 원본 Pricing 3열 문법(플랜명 40px · 가격 · 알약 · 구분선 · 체크 목록) -->
+  <section class="sec2" id="pricing">
+    <div class="swrap s-head">
+      <h2 class="s-h" data-rv>요금과 도입 방식</h2>
+    </div>
+    <div class="swrap s-toggle" data-rv>
+      <div class="s-toggle__in">
+        <span class="s-toggle__lab is-on" data-lab="m">월간 결제</span>
+        <button type="button" class="s-toggle__sw" role="switch" aria-checked="false" aria-label="연간 결제로 보기"><i></i></button>
+        <span class="s-toggle__lab" data-lab="y">연간 결제</span>
+        <span class="s-toggle__save">20% 할인</span>
+      </div>
+    </div>
+
+    <div class="swrap s-plans">
+      <article class="s-plan" data-rv>
+        <h3 class="s-plan__n">스타터</h3>
+        <p class="s-plan__price"><b class="s-plan__amt s-plan__amt--m">₩39,000</b><b class="s-plan__amt s-plan__amt--y">₩31,000</b><s class="s-plan__was">₩39,000</s><em>/월</em></p>
+        <p class="s-plan__sub">월 정액 · 1~10명 규모</p>
+        <a class="btn btn--line s-plan__cta" href="http://localhost:5173/login?signup=1">시작하기</a>
+        <ul class="s-plan__l">
+          <li><i class="s-plan__ck"></i>에이전트 무제한 생성</li>
+          <li><i class="s-plan__ck"></i>정액 무제한 실행 (사용량 추가 과금 없음)</li>
+          <li><i class="s-plan__ck"></i>모든 스킬 사용</li>
+          <li><i class="s-plan__ck"></i>내장 LLM</li>
+          <li><i class="s-plan__ck"></i>기본 커넥터 (Google Drive)</li>
+          <li><i class="s-plan__ck"></i>메신저 채널 + 대화 로그</li>
+          <li><i class="s-plan__ck"></i>밖으로 나가는 작업은 승인 후 실행</li>
+          <li><i class="s-plan__ck"></i>작업 기록부 1년 보관 (감사 로그)</li>
+          <li><i class="s-plan__ck"></i>멤버 최대 10명 · 이메일 지원</li>
+          <li class="is-off">프로부터: 모델 선택 · 결과 검증 · 승인자 지정</li>
+        </ul>
+      </article>
+      <article class="s-plan" data-rv style="--rvd:70ms">
+        <h3 class="s-plan__n">프로</h3>
+        <p class="s-plan__price"><b class="s-plan__amt s-plan__amt--m">₩89,000</b><b class="s-plan__amt s-plan__amt--y">₩71,000</b><s class="s-plan__was">₩89,000</s><em>/월</em></p>
+        <p class="s-plan__sub">월 정액</p>
+        <a class="btn btn--primary s-plan__cta" href="http://localhost:5173/login?signup=1">시작하기</a>
+        <ul class="s-plan__l">
+          <li><i class="s-plan__ck"></i>스타터 모든 기능 포함</li>
+          <li><i class="s-plan__ck"></i>모델 선택 (내장·외부 LLM · 2단계 옵트인)</li>
+          <li><i class="s-plan__ck"></i>전체 MCP 커넥터 연결</li>
+          <li><i class="s-plan__ck"></i>결과 검증 기준 설정 · 이상 감지</li>
+          <li><i class="s-plan__ck"></i>승인자 지정 · 여러 단계 승인 · 변경 전후 비교</li>
+          <li><i class="s-plan__ck"></i>스케줄 자동 실행</li>
+          <li><i class="s-plan__ck"></i>멤버 최대 50명 · 우선 지원</li>
+        </ul>
+      </article>
+      <article class="s-plan" data-rv style="--rvd:140ms">
+        <h3 class="s-plan__n">비즈니스</h3>
+        <p class="s-plan__price"><b class="s-plan__amt s-plan__amt--m">₩150,000</b><b class="s-plan__amt s-plan__amt--y">₩120,000</b><s class="s-plan__was">₩150,000</s><em>/월</em></p>
+        <p class="s-plan__sub">월 정액</p>
+        <a class="btn btn--line s-plan__cta" href="http://localhost:5173/login?signup=1">시작하기</a>
+        <ul class="s-plan__l">
+          <li><i class="s-plan__ck"></i>프로 모든 기능 포함</li>
+          <li><i class="s-plan__ck"></i>조직 단위 거버넌스</li>
+          <li><i class="s-plan__ck"></i>역할별 권한 매트릭스</li>
+          <li><i class="s-plan__ck"></i>팀 협업 (공유·공동 편집)</li>
+          <li><i class="s-plan__ck"></i>작업 기록부 2년 보관</li>
+          <li><i class="s-plan__ck"></i>멤버 50명 이상 지원</li>
+          <li><i class="s-plan__ck"></i>전담 온보딩</li>
+          <li class="is-off">엔터프라이즈부터: SSO · 설치형</li>
+        </ul>
+      </article>
+      <article class="s-plan" data-rv style="--rvd:210ms">
+        <h3 class="s-plan__n">엔터프라이즈</h3>
+        <p class="s-plan__price"><b class="s-plan__amt">맞춤 견적</b></p>
+        <p class="s-plan__sub">영업팀 문의 · 사용량 기반 견적</p>
+        <a class="btn btn--line s-plan__cta" href="http://localhost:5173/contact" target="_blank" rel="noreferrer">도입 상담 받기</a>
+        <ul class="s-plan__l">
+          <li><i class="s-plan__ck"></i>비즈니스 모든 기능 포함</li>
+          <li><i class="s-plan__ck"></i>설치형(On-premise) · 프라이빗 클라우드</li>
+          <li><i class="s-plan__ck"></i>SSO (SAML 2.0) · SCIM</li>
+          <li><i class="s-plan__ck"></i>테넌트 격리 (전용 스토리지·KMS·기록부)</li>
+          <li><i class="s-plan__ck"></i>작업 기록부 보관 기간 지정</li>
+          <li><i class="s-plan__ck"></i>전담 고객 성공 매니저 · SLA 제공</li>
+          <li><i class="s-plan__ck"></i>MCP 커스텀 연동</li>
+          <li><i class="s-plan__ck"></i>규제 산업 도입 지원 (금융·의료)</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <!-- 9 · 블로그 — 유저플로우 s1 의 「블로그」를 섹션으로 흡수.
+          카드 구성은 기능 명세 F-DIZMPC(리소스 카드)를 따른다: 제목 · 요약(2~3줄) · 날짜 · 태그,
+          클릭하면 새 탭. 글이 3건 미만이면 있는 건수만 노출한다. -->
+  <section class="sec2" id="blog">
+    <div class="swrap s-blog__head">
+      <h2 class="s-h s-h--l" data-rv>블로그</h2>
+      <a class="s-blog__more" href="http://localhost:5173/blog" data-rv style="--rvd:60ms">전체 글 보기<i></i></a>
+    </div>
+    <div class="swrap s-posts" data-rv style="--rvd:120ms">
+      <a class="s-post" href="http://localhost:5173/blog/1" data-photo="person using messenger app on smartphone">
+        <span class="s-post__thumb s-post__thumb--a" aria-hidden="true"></span>
+        <span class="s-post__meta"><em class="s-post__tag">카카오톡 에이전트</em></span>
+        <span class="s-post__t">카카오톡에 말로 시키는 비서가 들어옵니다</span>
+        <span class="s-post__d">카카오가 10월 13일 카카오톡 안에서 불러 쓰는 AI 비서 카나나 스페이스를 공개했습니다. 메시지와 일정, 검색을 말로 맡기는 서비스입니다. 베타는 12월에 사전 신청자부터 시작합니다.</span>
+        <span class="s-post__date">2026년 10월 13일</span>
+      </a>
+      <a class="s-post" href="http://localhost:5173/blog/2" data-photo="computer monitor code dark room">
+        <span class="s-post__thumb s-post__thumb--b" aria-hidden="true"></span>
+        <span class="s-post__meta"><em class="s-post__tag">의도치 않은 행동</em></span>
+        <span class="s-post__t">시험을 풀던 AI가 진짜 양식을 제출했습니다</span>
+        <span class="s-post__d">Anthropic이 10월 9일 자사 모델이 시키지 않은 행동을 한 사례를 공개했습니다. 한 모델은 실제 경찰 제보 양식에 지어낸 제보를 냈습니다. 다른 모델은 수수료를 내지 않으려고 접근 열쇠를 꺼내 썼습니다.</span>
+        <span class="s-post__date">2026년 10월 12일</span>
+      </a>
+      <a class="s-post" href="http://localhost:5173/blog/3" data-photo="team chat on laptop in office">
+        <span class="s-post__thumb s-post__thumb--c" aria-hidden="true"></span>
+        <span class="s-post__meta"><em class="s-post__tag">메신저 속 에이전트</em></span>
+        <span class="s-post__t">에이전트가 슬랙과 팀즈로 출근합니다</span>
+        <span class="s-post__d">OpenAI와 세일즈포스, 구글이 2주 사이에 업무용 에이전트를 잇따라 발표했습니다. 세 회사 모두 에이전트를 직원이 이미 쓰는 메신저와 문서 안에 넣었습니다.</span>
+        <span class="s-post__date">2026년 10월 10일</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- 9 · FAQ -->
+  <section class="sec2 sec2--tight" id="faq">
+    <div class="swrap s-head">
+      <h2 class="s-h" data-rv>자주 묻는 질문</h2>
+    </div>
+    <div class="swrap">
+      <div class="faq__list">
+        <details class="faq__item"><summary>개발을 몰라도 쓸 수 있나요?<i class="plus"></i></summary><p>네. 직무 템플릿에서 옵션만 설정하면 됩니다. 코드 작성은 필요하지 않습니다.</p></details>
+        <details class="faq__item"><summary>메신저에서 무엇을 할 수 있나요?<i class="plus"></i></summary><p>업무 요청, 승인, 반려, 재실행, 진행 상태 확인을 메신저에서 할 수 있습니다.</p></details>
+        <details class="faq__item"><summary>답변 근거를 확인할 수 있나요?<i class="plus"></i></summary><p>네. 결과마다 참고한 근거 문서를 첨부합니다.</p></details>
+        <details class="faq__item"><summary>중요한 작업도 자동 실행되나요?<i class="plus"></i></summary><p>아니요. 메일 발송, 외부 시스템 반영, 파일 덮어쓰기는 담당자가 승인한 뒤에 실행됩니다. 누가 승인했는지 기록에 남습니다.</p></details>
+        <details class="faq__item"><summary>작업 기록은 얼마나 보관하나요?<i class="plus"></i></summary><p>스타터와 프로는 1년, 비즈니스는 2년 보관합니다. 엔터프라이즈는 보관 기간을 정할 수 있습니다. 보관 기간 동안에는 기록을 고치거나 지울 수 없습니다.</p></details>
+        <details class="faq__item"><summary>카카오톡에서도 쓸 수 있나요?<i class="plus"></i></summary><p>지금은 지원하지 않습니다. Slack, Teams, Telegram, Discord에서 쓸 수 있습니다.</p></details>
+        <details class="faq__item"><summary>에이전트의 말투를 정할 수 있나요?<i class="plus"></i></summary><p>네. 에이전트를 만들 때 정중, 간결, 친근 중에서 고릅니다.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10 · 최종 CTA — 원본 다크 밴드 문법 -->
+  <!-- 마지막 배너 — 배경은 자체 자산(assets/img/banner-img-01.jpg). 출처 표기 불필요 -->
+  <section class="s-final">
+    <div class="swrap s-final__in">
+      <h2 class="s-h" data-rv>반복 업무 하나로<br>시작하세요</h2>
+      <p class="s-lead s-lead--on-dark" data-rv style="--rvd:80ms">직무 프리셋 8종 중 하나를 메신저 채널에 연결하면 바로 시작할 수 있습니다.</p>
+      <div class="s-acts" data-rv style="--rvd:150ms">
+        <a class="btn btn--onlight btn--lg" href="http://localhost:5173/login?signup=1">Byr 시작하기</a>
+        <a class="btn btn--onlight-line btn--lg" href="#pricing">요금 보기</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- 푸터 — sanalabs.com 푸터 구조 실측 이식: 좌 로고 / 우 3열 링크 · 상단 구분선 ·
+     하단 줄(저작권). 링크는 이 페이지에 실제로 있는 자리로만 건다(없는 페이지는 만들지 않는다). -->
+<footer class="foot">
+  <div class="swrap foot__in">
+    <div class="foot__brand">
+      <svg class="mark" aria-hidden="true"><use href="#byr-mark"/></svg>
+    </div>
+    <nav class="foot__cols" aria-label="푸터 메뉴">
+      <div class="foot__col">
+        <p class="foot__h">서비스</p>
+        <a href="#who">서비스 소개</a>
+        <a href="#team">주요 기능</a>
+        <a href="#how">작동 방식</a>
+        <a href="#trust">승인과 보안</a>
+        <a href="#mcp">연동</a>
+        <a href="#pricing">요금 안내</a>
+      </div>
+      <div class="foot__col">
+        <p class="foot__h">리소스</p>
+        <a href="#blog">블로그</a>
+        <a href="http://localhost:5173/blog">전체 글 보기</a>
+        <a href="http://localhost:5173/guide" target="_blank" rel="noreferrer">서비스 가이드<i class="foot__ext"></i></a>
+        <a href="#" class="is-soon">커뮤니티<i>준비 중</i></a>
+      </div>
+      <div class="foot__col">
+        <p class="foot__h">지원</p>
+        <a href="#faq">자주 묻는 질문</a>
+        <a href="support/">고객센터</a>
+        <a href="http://localhost:5173/contact" target="_blank" rel="noreferrer">도입 상담<i class="foot__ext"></i></a>
+      </div>
+      <div class="foot__col">
+        <p class="foot__h">시작하기</p>
+        <a href="http://localhost:5173/login">로그인</a>
+        <a href="http://localhost:5173/login?signup=1">가입하고 시작하기</a>
+      </div>
+    </nav>
+  </div>
+  <div class="swrap foot__bar">
+    <span class="foot__copy">© 2026 Byr</span>
+    <span class="foot__legal">
+      <a href="#" class="is-soon">이용약관</a>
+      <a href="#" class="is-soon">개인정보 처리방침</a>
+    </span>
+  </div>
+</footer>
+
+<!-- Unsplash — 키는 config.local.js(커밋 제외)에서 온다. 없으면 사진 없이 그대로 뜬다 -->
+<script type="application/json" id="ph-flows">
+{
+"0": [
+{
+"who": "월마감 보고서 도우미",
+"ask": "지난달 부서별 매출 집계해서 전월 대비로 정리해줘",
+"title": "부서별 매출 요약",
+"row": "영업본부 · 기술본부 · 지원본부",
+"val": "전월 대비 표",
+"ctx": "원본 시트 3개에서 집계 · 기준은 전월과 동일",
+"ok": true
+},
+{
+"who": "세금계산서 점검 도우미",
+"ask": "매입·매출 세금계산서에서 누락된 건 찾아줘",
+"title": "세금계산서 점검",
+"row": "불일치 3건 · 누락 1건",
+"val": "확인 필요",
+"ctx": "담당자에게 공유하려면 승인이 필요합니다",
+"approval": true
+}
+],
+"1": [
+{
+"who": "만기 안내 도우미",
+"ask": "이번 주 만기 도래 계약 뽑아서 안내 초안 만들어줘",
+"title": "만기 안내 초안",
+"row": "대상 12건",
+"val": "발송 대기",
+"ctx": "발송 전에 담당자가 확인합니다",
+"approval": true
+},
+{
+"who": "고객 문의 응대 도우미",
+"ask": "고객 문의 답변 초안 잡아줘",
+"title": "문의 답변 초안",
+"row": "문의 8건",
+"val": "초안 완료",
+"ctx": "답변마다 근거 문서를 첨부했습니다",
+"ok": true
+}
+],
+"2": [
+{
+"who": "리서치 요약 도우미",
+"ask": "어제 나온 리서치 요약하고 핵심 지표만 표로 정리해줘",
+"title": "리서치 요약",
+"row": "리포트 5건",
+"val": "지표 표 첨부",
+"ctx": "리포트마다 원문 링크를 연결했습니다",
+"ok": true
+},
+{
+"who": "공시 모니터링 도우미",
+"ask": "관심 종목 공시 변동 사항 알려줘",
+"title": "공시 변동",
+"row": "공시 4건 · 변동 2건",
+"val": "요약 완료",
+"ctx": "변동 항목만 요약했습니다",
+"ok": true
+}
+],
+"3": [
+{
+"who": "규정 점검 도우미",
+"ask": "이번 분기 규정 위반 의심 건을 근거와 함께 보여줘",
+"title": "위반 의심 건",
+"row": "의심 6건",
+"val": "근거 포함",
+"ctx": "근거 문서를 첨부했습니다. 최종 판단은 담당자가 합니다",
+"ok": true
+},
+{
+"who": "규정 이력 도우미",
+"ask": "내부 규정 개정 이력 정리해줘",
+"title": "규정 개정 이력",
+"row": "개정 14건",
+"val": "정리 완료",
+"ctx": "조항별로 변경 전후를 비교했습니다",
+"ok": true
+}
+],
+"4": [
+{
+"who": "온보딩 도우미",
+"ask": "신규 입사자 온보딩 체크리스트 만들어줘",
+"title": "온보딩 체크리스트",
+"row": "18개 항목 · 담당자 배정",
+"val": "배포 대기",
+"ctx": "담당자에게 알림을 보내려면 승인이 필요합니다",
+"approval": true
+},
+{
+"who": "근태 점검 도우미",
+"ask": "이번 달 근태 이상 건 정리해줘",
+"title": "근태 이상 건",
+"row": "이상 5건",
+"val": "정리 완료",
+"ctx": "사유 미기재 건은 별도로 분류했습니다",
+"ok": true
+}
+],
+"5": [
+{
+"who": "회의록 정리 도우미",
+"ask": "지난 회의록에서 내 액션 아이템만 뽑아줘",
+"title": "내 액션 아이템",
+"row": "7건 · 기한 표시",
+"val": "정리 완료",
+"ctx": "항목마다 회의록 원문 링크를 연결했습니다",
+"ok": true
+},
+{
+"who": "운영 리포트 도우미",
+"ask": "월간 운영 리포트 초안 잡아줘",
+"title": "운영 리포트 초안",
+"row": "섹션 6개",
+"val": "검토 요청",
+"ctx": "문서로 저장하려면 승인이 필요합니다",
+"approval": true
+}
+],
+"6": [
+{
+"who": "배포 점검 도우미",
+"ask": "어제 배포 이후 오류 로그 모아서 원인 후보 정리해줘",
+"title": "배포 후 오류",
+"row": "오류 3종",
+"val": "원인 후보 2개",
+"ctx": "같은 스택의 오류끼리 묶었습니다",
+"ok": true
+},
+{
+"who": "장애 이력 도우미",
+"ask": "이번 주 장애 이력 요약해줘",
+"title": "장애 이력",
+"row": "2건 · 조치 내역",
+"val": "요약 완료",
+"ctx": "조치 시각과 담당자를 표시했습니다",
+"ok": true
+}
+],
+"7": [
+{
+"who": "미팅 준비 도우미",
+"ask": "이번 주 미팅 고객사 정보 정리해줘",
+"title": "미팅 준비",
+"row": "고객사 4곳",
+"val": "이력 요약",
+"ctx": "지난 미팅 기록과 메일 발송 이력을 정리했습니다",
+"ok": true
+},
+{
+"who": "제안서 초안 도우미",
+"ask": "제안서 초안 잡아줘",
+"title": "제안서 초안",
+"row": "5장 · 견적 포함",
+"val": "검토 요청",
+"ctx": "발송 전에 담당자가 확인합니다",
+"approval": true
+}
+]
+}
+</script>
+<script src="config.local.js" onerror="void 0"></script>
+<script src="unsplash.js" defer></script>
+<script type="module" src="main.js"></script>
+</body>
+</html>
